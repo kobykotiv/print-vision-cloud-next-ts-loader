@@ -373,11 +373,11 @@
   max-width: 100%;
   min-width: 0;
 }
-.modalNewPlaceholder:global(.__wab_instance) {
+.modalNewPrintifyPlaceholder:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.formNewPlaceholder:global(.__wab_instance) {
+.formNewPrintifyPlaceholder:global(.__wab_instance) {
   display: flex;
   flex-direction: column;
   width: 100%;

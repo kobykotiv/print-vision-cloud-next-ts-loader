@@ -128,8 +128,8 @@ export type PlasmicEditRecipe__OverridesType = {
   tablePrintifyVariants?: Flex__<typeof RichTable>;
   modalEditVariant?: Flex__<typeof AntdModal>;
   formEditSingleVariant?: Flex__<typeof FormWrapper>;
-  modalNewPlaceholder?: Flex__<typeof AntdModal>;
-  formNewPlaceholder?: Flex__<typeof FormWrapper>;
+  modalNewPrintifyPlaceholder?: Flex__<typeof AntdModal>;
+  formNewPrintifyPlaceholder?: Flex__<typeof FormWrapper>;
   modalEditPlaceholder?: Flex__<typeof AntdModal>;
   formEditPlaceholder?: Flex__<typeof FormWrapper>;
   tablePrintifyPlaceholders?: Flex__<typeof RichTable>;
@@ -419,27 +419,27 @@ function PlasmicEditRecipe__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("selectedRowKeys", RichTable_Helpers)
       },
       {
-        path: "modalNewPlaceholder.open",
+        path: "modalNewPrintifyPlaceholder.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "formNewPlaceholder.value",
+        path: "formNewPrintifyPlaceholder.value",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
-        refName: "formNewPlaceholder",
+        refName: "formNewPrintifyPlaceholder",
         onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "formNewPlaceholder.isSubmitting",
+        path: "formNewPrintifyPlaceholder.isSubmitting",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
-        refName: "formNewPlaceholder",
+        refName: "formNewPrintifyPlaceholder",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
@@ -857,6 +857,22 @@ function PlasmicEditRecipe__RenderFunc(props: {
           filters: [parseInt($state.selectedProduct.id)]
         },
         cacheKey: `plasmic.$.e510f607-213e-4870-a06a-4e5257307898.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    queryGetPrintifyBlueprintVariantsByPp: usePlasmicDataOp(() => {
+      return {
+        sourceId: "fumskhn7h2QULzwkXAtFMC",
+        opId: "ca591123-2c6a-42ec-ab41-c76d32d823a7",
+        userArgs: {
+          path: [
+            parseInt($state.selectedProduct.blueprint_id),
+            $state.selectedProduct.print_provider ||
+              $state.formEditPrintifyProduct.value.print_provider
+          ]
+        },
+        cacheKey: `plasmic.$.ca591123-2c6a-42ec-ab41-c76d32d823a7.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -2279,155 +2295,176 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                             sty.freeBox__dtdai
                                           )}
                                         >
-                                          <AntdButton
-                                            className={classNames(
-                                              "__wab_instance",
-                                              sty.button__lbRtD
-                                            )}
-                                            onClick={async () => {
-                                              const $steps = {};
-
-                                              $steps["updateEmail"] = true
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      variable: {
-                                                        objRoot: $state,
-                                                        variablePath: ["email"]
-                                                      },
-                                                      operation: 0,
-                                                      value: currentUser.email
-                                                    };
-                                                    return (({
-                                                      variable,
-                                                      value,
-                                                      startIndex,
-                                                      deleteCount
-                                                    }) => {
-                                                      if (!variable) {
-                                                        return;
-                                                      }
-                                                      const {
-                                                        objRoot,
-                                                        variablePath
-                                                      } = variable;
-
-                                                      $stateSet(
-                                                        objRoot,
-                                                        variablePath,
-                                                        value
-                                                      );
-                                                      return value;
-                                                    })?.apply(null, [
-                                                      actionArgs
-                                                    ]);
-                                                  })()
-                                                : undefined;
+                                          {(() => {
+                                            try {
+                                              return true;
+                                            } catch (e) {
                                               if (
-                                                $steps["updateEmail"] != null &&
-                                                typeof $steps["updateEmail"] ===
-                                                  "object" &&
-                                                typeof $steps["updateEmail"]
-                                                  .then === "function"
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
                                               ) {
-                                                $steps["updateEmail"] =
-                                                  await $steps["updateEmail"];
+                                                return true;
                                               }
+                                              throw e;
+                                            }
+                                          })() ? (
+                                            <AntdButton
+                                              className={classNames(
+                                                "__wab_instance",
+                                                sty.button__lbRtD
+                                              )}
+                                              onClick={async () => {
+                                                const $steps = {};
 
-                                              $steps["postgresCreateMany"] =
-                                                true
+                                                $steps["updateEmail"] = true
                                                   ? (() => {
                                                       const actionArgs = {
-                                                        dataOp: {
-                                                          sourceId:
-                                                            "83X9ZdYzYUYJtgqe5fwXeX",
-                                                          opId: "051f937c-fce6-405e-bc62-286c8c606fe4",
-                                                          userArgs: {
-                                                            variables: [
-                                                              $queries.queryGetPrintifyVariantsByBlueprintandPrintProvider.data.response.variants.map(
-                                                                i => ({
-                                                                  variant_id:
-                                                                    i.id,
-                                                                  email:
-                                                                    $state.email,
-                                                                  is_enabled:
-                                                                    true,
-                                                                  price: 0,
-                                                                  printify_product_id:
-                                                                    parseInt(
-                                                                      $state
-                                                                        .selectedProduct
-                                                                        .id
-                                                                    ),
-                                                                  title: i.title
-                                                                })
-                                                              )
-                                                            ]
-                                                          },
-                                                          cacheKey: null,
-                                                          invalidatedKeys: [
-                                                            "4dea7377-de40-40c8-ba10-c5a38ade6f03"
-                                                          ],
-                                                          roleId: null
-                                                        }
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "email"
+                                                          ]
+                                                        },
+                                                        operation: 0,
+                                                        value: currentUser.email
                                                       };
-                                                      return (async ({
-                                                        dataOp,
-                                                        continueOnError
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
                                                       }) => {
-                                                        try {
-                                                          const response =
-                                                            await executePlasmicDataOp(
-                                                              dataOp,
-                                                              {
-                                                                userAuthToken:
-                                                                  dataSourcesCtx?.userAuthToken,
-                                                                user: dataSourcesCtx?.user
-                                                              }
-                                                            );
-                                                          await plasmicInvalidate(
-                                                            dataOp.invalidatedKeys
-                                                          );
-                                                          return response;
-                                                        } catch (e) {
-                                                          if (
-                                                            !continueOnError
-                                                          ) {
-                                                            throw e;
-                                                          }
-                                                          return e;
+                                                        if (!variable) {
+                                                          return;
                                                         }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
                                                       })?.apply(null, [
                                                         actionArgs
                                                       ]);
                                                     })()
                                                   : undefined;
-                                              if (
-                                                $steps["postgresCreateMany"] !=
-                                                  null &&
-                                                typeof $steps[
-                                                  "postgresCreateMany"
-                                                ] === "object" &&
-                                                typeof $steps[
-                                                  "postgresCreateMany"
-                                                ].then === "function"
-                                              ) {
+                                                if (
+                                                  $steps["updateEmail"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "updateEmail"
+                                                  ] === "object" &&
+                                                  typeof $steps["updateEmail"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["updateEmail"] =
+                                                    await $steps["updateEmail"];
+                                                }
+
                                                 $steps["postgresCreateMany"] =
-                                                  await $steps[
+                                                  true
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          dataOp: {
+                                                            sourceId:
+                                                              "83X9ZdYzYUYJtgqe5fwXeX",
+                                                            opId: "051f937c-fce6-405e-bc62-286c8c606fe4",
+                                                            userArgs: {
+                                                              variables: [
+                                                                $queries.queryGetPrintifyVariantsByBlueprintandPrintProvider.data.response.variants.map(
+                                                                  i => ({
+                                                                    variant_id:
+                                                                      i.id,
+                                                                    email:
+                                                                      $state.email,
+                                                                    is_enabled:
+                                                                      true,
+                                                                    price: 0,
+                                                                    printify_product_id:
+                                                                      parseInt(
+                                                                        $state
+                                                                          .selectedProduct
+                                                                          .id
+                                                                      ),
+                                                                    title:
+                                                                      i.title
+                                                                  })
+                                                                )
+                                                              ]
+                                                            },
+                                                            cacheKey: null,
+                                                            invalidatedKeys: [
+                                                              "4dea7377-de40-40c8-ba10-c5a38ade6f03"
+                                                            ],
+                                                            roleId: null
+                                                          }
+                                                        };
+                                                        return (async ({
+                                                          dataOp,
+                                                          continueOnError
+                                                        }) => {
+                                                          try {
+                                                            const response =
+                                                              await executePlasmicDataOp(
+                                                                dataOp,
+                                                                {
+                                                                  userAuthToken:
+                                                                    dataSourcesCtx?.userAuthToken,
+                                                                  user: dataSourcesCtx?.user
+                                                                }
+                                                              );
+                                                            await plasmicInvalidate(
+                                                              dataOp.invalidatedKeys
+                                                            );
+                                                            return response;
+                                                          } catch (e) {
+                                                            if (
+                                                              !continueOnError
+                                                            ) {
+                                                              throw e;
+                                                            }
+                                                            return e;
+                                                          }
+                                                        })?.apply(null, [
+                                                          actionArgs
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps[
                                                     "postgresCreateMany"
-                                                  ];
-                                              }
-                                            }}
-                                          >
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text__pkwP4
-                                              )}
+                                                  ] != null &&
+                                                  typeof $steps[
+                                                    "postgresCreateMany"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "postgresCreateMany"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps["postgresCreateMany"] =
+                                                    await $steps[
+                                                      "postgresCreateMany"
+                                                    ];
+                                                }
+                                              }}
                                             >
-                                              {"Populate"}
-                                            </div>
-                                          </AntdButton>
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__pkwP4
+                                                )}
+                                              >
+                                                {"Populate"}
+                                              </div>
+                                            </AntdButton>
+                                          ) : null}
                                           <AntdButton
                                             className={classNames(
                                               "__wab_instance",
@@ -3364,14 +3401,14 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                       >
                                         <AntdModal
                                           data-plasmic-name={
-                                            "modalNewPlaceholder"
+                                            "modalNewPrintifyPlaceholder"
                                           }
                                           data-plasmic-override={
-                                            overrides.modalNewPlaceholder
+                                            overrides.modalNewPrintifyPlaceholder
                                           }
                                           className={classNames(
                                             "__wab_instance",
-                                            sty.modalNewPlaceholder
+                                            sty.modalNewPrintifyPlaceholder
                                           )}
                                           defaultStylesClassName={classNames(
                                             projectcss.root_reset,
@@ -3383,14 +3420,19 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                           )}
                                           hideFooter={true}
                                           modalScopeClassName={
-                                            sty["modalNewPlaceholder__modal"]
+                                            sty[
+                                              "modalNewPrintifyPlaceholder__modal"
+                                            ]
                                           }
                                           onOpenChange={generateStateOnChangeProp(
                                             $state,
-                                            ["modalNewPlaceholder", "open"]
+                                            [
+                                              "modalNewPrintifyPlaceholder",
+                                              "open"
+                                            ]
                                           )}
                                           open={generateStateValueProp($state, [
-                                            "modalNewPlaceholder",
+                                            "modalNewPrintifyPlaceholder",
                                             "open"
                                           ])}
                                           title={"Modal title"}
@@ -3418,7 +3460,7 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                               children: null,
                                               className: classNames(
                                                 "__wab_instance",
-                                                sty.formNewPlaceholder
+                                                sty.formNewPrintifyPlaceholder
                                               ),
                                               data: {
                                                 sourceId:
@@ -3503,7 +3545,8 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                     inputType: null,
                                                     fieldId: "position",
                                                     label: "position",
-                                                    name: "position"
+                                                    name: "position",
+                                                    options: null
                                                   },
                                                   {
                                                     key: "image_id",
@@ -3525,6 +3568,14 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                   true;
                                                 __composite["7"]["inputType"] =
                                                   "Select";
+                                                __composite["7"]["options"] =
+                                                  $queries.queryGetPrintifyBlueprintVariantsByPp.data.response.variants[0].placeholders.map(
+                                                    ({ position }) => ({
+                                                      value: position,
+                                                      label:
+                                                        position.toLocaleUpperCase()
+                                                    })
+                                                  );
                                                 __composite["8"]["hidden"] =
                                                   true;
                                                 return __composite;
@@ -3535,7 +3586,7 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                   $state,
                                                   "value",
                                                   [
-                                                    "formNewPlaceholder",
+                                                    "formNewPrintifyPlaceholder",
                                                     "value"
                                                   ],
                                                   FormWrapper_Helpers
@@ -3560,7 +3611,7 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                           userArgs: {
                                                             variables: [
                                                               $state
-                                                                .formNewPlaceholder
+                                                                .formNewPrintifyPlaceholder
                                                                 .value
                                                             ]
                                                           },
@@ -3622,14 +3673,15 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                   $state,
                                                   "isSubmitting",
                                                   [
-                                                    "formNewPlaceholder",
+                                                    "formNewPrintifyPlaceholder",
                                                     "isSubmitting"
                                                   ],
                                                   FormWrapper_Helpers
                                                 ),
                                               ref: ref => {
-                                                $refs["formNewPlaceholder"] =
-                                                  ref;
+                                                $refs[
+                                                  "formNewPrintifyPlaceholder"
+                                                ] = ref;
                                               },
                                               submitSlot: (
                                                 <AntdButton
@@ -3662,12 +3714,12 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                 {
                                                   name: "value",
                                                   plasmicStateName:
-                                                    "formNewPlaceholder.value"
+                                                    "formNewPrintifyPlaceholder.value"
                                                 },
                                                 {
                                                   name: "isSubmitting",
                                                   plasmicStateName:
-                                                    "formNewPlaceholder.isSubmitting"
+                                                    "formNewPrintifyPlaceholder.isSubmitting"
                                                 }
                                               ],
                                               [],
@@ -3678,10 +3730,10 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                             return (
                                               <FormWrapper
                                                 data-plasmic-name={
-                                                  "formNewPlaceholder"
+                                                  "formNewPrintifyPlaceholder"
                                                 }
                                                 data-plasmic-override={
-                                                  overrides.formNewPlaceholder
+                                                  overrides.formNewPrintifyPlaceholder
                                                 }
                                                 {...child$Props}
                                               />
@@ -6379,8 +6431,8 @@ const PlasmicDescendants = {
     "tablePrintifyVariants",
     "modalEditVariant",
     "formEditSingleVariant",
-    "modalNewPlaceholder",
-    "formNewPlaceholder",
+    "modalNewPrintifyPlaceholder",
+    "formNewPrintifyPlaceholder",
     "modalEditPlaceholder",
     "formEditPlaceholder",
     "tablePrintifyPlaceholders",
@@ -6419,8 +6471,8 @@ const PlasmicDescendants = {
     "tablePrintifyVariants",
     "modalEditVariant",
     "formEditSingleVariant",
-    "modalNewPlaceholder",
-    "formNewPlaceholder",
+    "modalNewPrintifyPlaceholder",
+    "formNewPrintifyPlaceholder",
     "modalEditPlaceholder",
     "formEditPlaceholder",
     "tablePrintifyPlaceholders",
@@ -6458,8 +6510,8 @@ const PlasmicDescendants = {
     "tablePrintifyVariants",
     "modalEditVariant",
     "formEditSingleVariant",
-    "modalNewPlaceholder",
-    "formNewPlaceholder",
+    "modalNewPrintifyPlaceholder",
+    "formNewPrintifyPlaceholder",
     "modalEditPlaceholder",
     "formEditPlaceholder",
     "tablePrintifyPlaceholders",
@@ -6495,8 +6547,8 @@ const PlasmicDescendants = {
     "tablePrintifyVariants",
     "modalEditVariant",
     "formEditSingleVariant",
-    "modalNewPlaceholder",
-    "formNewPlaceholder",
+    "modalNewPrintifyPlaceholder",
+    "formNewPrintifyPlaceholder",
     "modalEditPlaceholder",
     "formEditPlaceholder",
     "tablePrintifyPlaceholders"
@@ -6520,8 +6572,8 @@ const PlasmicDescendants = {
     "tablePrintifyVariants",
     "modalEditVariant",
     "formEditSingleVariant",
-    "modalNewPlaceholder",
-    "formNewPlaceholder",
+    "modalNewPrintifyPlaceholder",
+    "formNewPrintifyPlaceholder",
     "modalEditPlaceholder",
     "formEditPlaceholder",
     "tablePrintifyPlaceholders"
@@ -6557,8 +6609,11 @@ const PlasmicDescendants = {
   tablePrintifyVariants: ["tablePrintifyVariants"],
   modalEditVariant: ["modalEditVariant", "formEditSingleVariant"],
   formEditSingleVariant: ["formEditSingleVariant"],
-  modalNewPlaceholder: ["modalNewPlaceholder", "formNewPlaceholder"],
-  formNewPlaceholder: ["formNewPlaceholder"],
+  modalNewPrintifyPlaceholder: [
+    "modalNewPrintifyPlaceholder",
+    "formNewPrintifyPlaceholder"
+  ],
+  formNewPrintifyPlaceholder: ["formNewPrintifyPlaceholder"],
   modalEditPlaceholder: ["modalEditPlaceholder", "formEditPlaceholder"],
   formEditPlaceholder: ["formEditPlaceholder"],
   tablePrintifyPlaceholders: ["tablePrintifyPlaceholders"],
@@ -6618,8 +6673,8 @@ type NodeDefaultElementType = {
   tablePrintifyVariants: typeof RichTable;
   modalEditVariant: typeof AntdModal;
   formEditSingleVariant: typeof FormWrapper;
-  modalNewPlaceholder: typeof AntdModal;
-  formNewPlaceholder: typeof FormWrapper;
+  modalNewPrintifyPlaceholder: typeof AntdModal;
+  formNewPrintifyPlaceholder: typeof FormWrapper;
   modalEditPlaceholder: typeof AntdModal;
   formEditPlaceholder: typeof FormWrapper;
   tablePrintifyPlaceholders: typeof RichTable;
@@ -6760,8 +6815,10 @@ export const PlasmicEditRecipe = Object.assign(
     tablePrintifyVariants: makeNodeComponent("tablePrintifyVariants"),
     modalEditVariant: makeNodeComponent("modalEditVariant"),
     formEditSingleVariant: makeNodeComponent("formEditSingleVariant"),
-    modalNewPlaceholder: makeNodeComponent("modalNewPlaceholder"),
-    formNewPlaceholder: makeNodeComponent("formNewPlaceholder"),
+    modalNewPrintifyPlaceholder: makeNodeComponent(
+      "modalNewPrintifyPlaceholder"
+    ),
+    formNewPrintifyPlaceholder: makeNodeComponent("formNewPrintifyPlaceholder"),
     modalEditPlaceholder: makeNodeComponent("modalEditPlaceholder"),
     formEditPlaceholder: makeNodeComponent("formEditPlaceholder"),
     tablePrintifyPlaceholders: makeNodeComponent("tablePrintifyPlaceholders"),

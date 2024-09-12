@@ -808,7 +808,26 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                           fieldId: "id",
                                           label: "id",
                                           name: "id",
-                                          initialValue: "303"
+                                          initialValue: null,
+                                          hidden: null
+                                        },
+                                        {
+                                          key: "title",
+                                          inputType: "Text",
+                                          fieldId: "title",
+                                          label: "title",
+                                          name: "title",
+                                          initialValue:
+                                            "Men's Hawaiian Shirt (AOP)"
+                                        },
+                                        {
+                                          key: "description",
+                                          inputType: null,
+                                          fieldId: "description",
+                                          label: "description",
+                                          name: "description",
+                                          initialValue:
+                                            'Nothing says "I love summer" like a Hawaiian shirt, and now, you can make this iconic garment even better by adding your own art to it. Made to have a boxy fit and a notch lapel collar that are perfect for any laidback scenario, these shirts come with a handy chest pocket and a 95% polyester and 5% spandex fabric for silky comfort. Choose between black or white buttons & customize it to taste. <div>.:Material: 95% polyester, 5% spandex</div><br /><div>.:Medium fabric (7.23 oz/yd²(245 g/m²))</div><br /><div>.:Boxy fit</div><br /><div>.:Chest pocket</div><br /><div>.:Black or white button options</div><br /><div>.:Sewn-in label</div>'
                                         },
                                         {
                                           key: "print_provider",
@@ -816,7 +835,7 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                           fieldId: "print_provider",
                                           label: "print_provider",
                                           name: "print_provider",
-                                          initialValue: {},
+                                          initialValue: null,
                                           options: null
                                         },
                                         {
@@ -838,15 +857,6 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                           hidden: null
                                         },
                                         {
-                                          key: "description",
-                                          inputType: "Text",
-                                          fieldId: "description",
-                                          label: "description",
-                                          name: "description",
-                                          initialValue:
-                                            'Nothing says "I love summer" like a Hawaiian shirt, and now, you can make this iconic garment even better by adding your own art to it. Made to have a boxy fit and a notch lapel collar that are perfect for any laidback scenario, these shirts come with a handy chest pocket and a 95% polyester and 5% spandex fabric for silky comfort. Choose between black or white buttons & customize it to taste. <div>.:Material: 95% polyester, 5% spandex</div><br /><div>.:Medium fabric (7.23 oz/yd²(245 g/m²))</div><br /><div>.:Boxy fit</div><br /><div>.:Chest pocket</div><br /><div>.:Black or white button options</div><br /><div>.:Sewn-in label</div>'
-                                        },
-                                        {
                                           key: "placeholder_ids",
                                           inputType: "Number",
                                           fieldId: "placeholder_ids",
@@ -861,7 +871,8 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                           fieldId: "recipe_id",
                                           label: "recipe_id",
                                           name: "recipe_id",
-                                          initialValue: "25"
+                                          initialValue: null,
+                                          hidden: null
                                         },
                                         {
                                           key: "tags",
@@ -896,20 +907,24 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                           fieldId: "blueprint_id",
                                           label: "blueprint_id",
                                           name: "blueprint_id",
-                                          initialValue: "924"
-                                        },
-                                        {
-                                          key: "title",
-                                          inputType: "Text",
-                                          fieldId: "title",
-                                          label: "title",
-                                          name: "title",
-                                          initialValue:
-                                            "Men's Hawaiian Shirt (AOP)"
+                                          initialValue: null,
+                                          hidden: null
                                         }
                                       ];
-                                      __composite["1"]["inputType"] = "Select";
-                                      __composite["1"]["options"] =
+                                      __composite["0"]["initialValue"] = 303;
+                                      __composite["0"]["hidden"] = true;
+                                      __composite["2"]["inputType"] =
+                                        "Text Area";
+                                      __composite["3"]["inputType"] = "Select";
+                                      __composite["3"]["initialValue"] =
+                                        $queries.cGetPrintifyBlueprintPp.data.response.map(
+                                          item => ({
+                                            label:
+                                              item.title + " (" + item.id + ")",
+                                            value: item.id
+                                          })
+                                        )[0];
+                                      __composite["3"]["options"] =
                                         $queries.cGetPrintifyBlueprintPp.data.response.map(
                                           item => ({
                                             label:
@@ -917,11 +932,15 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                             value: item.id
                                           })
                                         );
-                                      __composite["2"]["hidden"] = true;
-                                      __composite["3"]["hidden"] = true;
+                                      __composite["4"]["hidden"] = true;
                                       __composite["5"]["hidden"] = true;
-                                      __composite["8"]["hidden"] = true;
+                                      __composite["6"]["hidden"] = true;
+                                      __composite["7"]["initialValue"] = 25;
+                                      __composite["7"]["hidden"] = true;
                                       __composite["9"]["hidden"] = true;
+                                      __composite["10"]["hidden"] = true;
+                                      __composite["11"]["initialValue"] = 924;
+                                      __composite["11"]["hidden"] = true;
                                       return __composite;
                                     })(),
 
