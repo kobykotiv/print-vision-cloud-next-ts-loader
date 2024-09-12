@@ -3550,11 +3550,12 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                   },
                                                   {
                                                     key: "image_id",
-                                                    inputType: "Text",
+                                                    inputType: null,
                                                     fieldId: "image_id",
                                                     label: "image_id",
                                                     name: "image_id",
-                                                    hidden: null
+                                                    hidden: null,
+                                                    options: null
                                                   }
                                                 ];
                                                 __composite["0"]["hidden"] =
@@ -3576,8 +3577,34 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                                         position.toLocaleUpperCase()
                                                     })
                                                   );
+                                                __composite["8"]["inputType"] =
+                                                  "Select";
                                                 __composite["8"]["hidden"] =
-                                                  true;
+                                                  false;
+                                                __composite["8"]["options"] =
+                                                  (() => {
+                                                    const __composite = [
+                                                      {
+                                                        type: "option",
+                                                        label: null,
+                                                        value: null
+                                                      },
+                                                      {
+                                                        type: "option",
+                                                        value: null,
+                                                        label: null
+                                                      }
+                                                    ];
+                                                    __composite["0"]["label"] =
+                                                      "design";
+                                                    __composite["0"]["value"] =
+                                                      "design";
+                                                    __composite["1"]["value"] =
+                                                      "logo";
+                                                    __composite["1"]["label"] =
+                                                      "logo";
+                                                    return __composite;
+                                                  })();
                                                 return __composite;
                                               })(),
 
@@ -6353,34 +6380,6 @@ function PlasmicEditRecipe__RenderFunc(props: {
                                 }
                               />
                             </AntdModal>
-                          </div>
-                        </AntdTabItem>
-                        <AntdTabItem
-                          className={classNames(
-                            "__wab_instance",
-                            sty.tabItem__xRm5S
-                          )}
-                          key={"3"}
-                          label={
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__vU09M
-                              )}
-                            >
-                              {"Prodigi"}
-                            </div>
-                          }
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__gSbAr
-                            )}
-                          >
-                            {"Tab Children 3"}
                           </div>
                         </AntdTabItem>
                       </React.Fragment>

@@ -67,7 +67,6 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/component
-import { RichDetails } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-details";
 import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
@@ -100,7 +99,6 @@ export type PlasmicEditRecipev2__OverridesType = {
   root?: Flex__<"div">;
   pageLayout?: Flex__<typeof PageLayout>;
   h1?: Flex__<"h1">;
-  dataDetails?: Flex__<typeof RichDetails>;
   tabs?: Flex__<typeof AntdTabs>;
   tablePrintifyProducts?: Flex__<typeof RichTable>;
   modalEditPrintifyProduct?: Flex__<typeof AntdModal>;
@@ -245,7 +243,7 @@ function PlasmicEditRecipev2__RenderFunc(props: {
     qinit: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "fe84eb84-d7db-43d3-ad8f-423511061078",
+        opId: "eb9cf232-cb0f-417f-94e7-20f0555b441d",
         userArgs: {
           filters: [$ctx.params.id]
         },
@@ -261,33 +259,33 @@ function PlasmicEditRecipev2__RenderFunc(props: {
             }
             throw e;
           }
-        })()}.$.fe84eb84-d7db-43d3-ad8f-423511061078.$.`,
+        })()}.$.eb9cf232-cb0f-417f-94e7-20f0555b441d.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     }),
     qSupPrintifyProducts: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "a153d009-81ec-4d71-b806-918d26ea9db6",
+        opId: "fabbf223-5116-4499-a1f9-c10e58a5420f",
         userArgs: {
           filters: [parseInt($queries.qinit.data[0].id)]
         },
-        cacheKey: `plasmic.$.a153d009-81ec-4d71-b806-918d26ea9db6.$.`,
+        cacheKey: `plasmic.$.fabbf223-5116-4499-a1f9-c10e58a5420f.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     }),
     cGetPrintifyBlueprintPp: usePlasmicDataOp(() => {
       return {
         sourceId: "fumskhn7h2QULzwkXAtFMC",
-        opId: "e05b4967-a8b5-454f-b835-13e2206eb853",
+        opId: "88b8d0dd-ed60-474c-a8c0-50c2a187ab26",
         userArgs: {
           path: [parseInt($state.selectedProduct.blueprint_id)]
         },
-        cacheKey: `plasmic.$.e05b4967-a8b5-454f-b835-13e2206eb853.$.`,
+        cacheKey: `plasmic.$.88b8d0dd-ed60-474c-a8c0-50c2a187ab26.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     })
   };
@@ -357,26 +355,6 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </h1>
-                  <RichDetails
-                    data-plasmic-name={"dataDetails"}
-                    data-plasmic-override={overrides.dataDetails}
-                    bordered={true}
-                    className={classNames("__wab_instance", sty.dataDetails)}
-                    data={(() => {
-                      try {
-                        return $queries.qinit.data[0];
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return null;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  />
-
                   <AntdTabs
                     data-plasmic-name={"tabs"}
                     data-plasmic-override={overrides.tabs}
@@ -769,329 +747,369 @@ function PlasmicEditRecipev2__RenderFunc(props: {
                                 )}
                               >
                                 {(() => {
-                                  const child$Props = {
-                                    children: null,
-                                    className: classNames(
-                                      "__wab_instance",
-                                      sty.formEditPrintifyProduct
-                                    ),
-                                    data: {
-                                      sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                      opId: "7da9a98c-58d3-43d9-9905-8945281ea694",
-                                      userArgs: {
-                                        filters: [
-                                          parseInt($state.selectedProduct.id)
-                                        ]
-                                      },
-                                      cacheKey: `plasmic.$.${(() => {
-                                        try {
-                                          return "getOne";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}.$.7da9a98c-58d3-43d9-9905-8945281ea694.$.`,
-                                      invalidatedKeys: null,
-                                      roleId: null
-                                    },
-                                    dataFormItems: (() => {
-                                      const __composite = [
-                                        {
-                                          key: "id",
-                                          inputType: "Number",
-                                          fieldId: "id",
-                                          label: "id",
-                                          name: "id",
-                                          initialValue: null,
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "title",
-                                          inputType: "Text",
-                                          fieldId: "title",
-                                          label: "title",
-                                          name: "title",
-                                          initialValue:
-                                            "Men's Hawaiian Shirt (AOP)"
-                                        },
-                                        {
-                                          key: "description",
-                                          inputType: null,
-                                          fieldId: "description",
-                                          label: "description",
-                                          name: "description",
-                                          initialValue:
-                                            'Nothing says "I love summer" like a Hawaiian shirt, and now, you can make this iconic garment even better by adding your own art to it. Made to have a boxy fit and a notch lapel collar that are perfect for any laidback scenario, these shirts come with a handy chest pocket and a 95% polyester and 5% spandex fabric for silky comfort. Choose between black or white buttons & customize it to taste. <div>.:Material: 95% polyester, 5% spandex</div><br /><div>.:Medium fabric (7.23 oz/yd²(245 g/m²))</div><br /><div>.:Boxy fit</div><br /><div>.:Chest pocket</div><br /><div>.:Black or white button options</div><br /><div>.:Sewn-in label</div>'
-                                        },
-                                        {
-                                          key: "print_provider",
-                                          inputType: null,
-                                          fieldId: "print_provider",
-                                          label: "print_provider",
-                                          name: "print_provider",
-                                          initialValue: null,
-                                          options: null
-                                        },
-                                        {
-                                          key: "email",
-                                          inputType: "Text",
-                                          fieldId: "email",
-                                          label: "email",
-                                          name: "email",
-                                          initialValue: "golfx2@gmail.com",
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "variant_ids",
-                                          inputType: "Number",
-                                          fieldId: "variant_ids",
-                                          label: "variant_ids",
-                                          name: "variant_ids",
-                                          initialValue: {},
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "placeholder_ids",
-                                          inputType: "Number",
-                                          fieldId: "placeholder_ids",
-                                          label: "placeholder_ids",
-                                          name: "placeholder_ids",
-                                          initialValue: {},
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "recipe_id",
-                                          inputType: "Number",
-                                          fieldId: "recipe_id",
-                                          label: "recipe_id",
-                                          name: "recipe_id",
-                                          initialValue: null,
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "tags",
-                                          inputType: "Text",
-                                          fieldId: "tags",
-                                          label: "tags",
-                                          name: "tags",
-                                          initialValue: ""
-                                        },
-                                        {
-                                          key: "sync_product_id",
-                                          inputType: "Number",
-                                          fieldId: "sync_product_id",
-                                          label: "sync_product_id",
-                                          name: "sync_product_id",
-                                          initialValue: {},
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "created_at",
-                                          inputType: "Text",
-                                          fieldId: "created_at",
-                                          label: "created_at",
-                                          name: "created_at",
-                                          initialValue:
-                                            "2024-09-11T19:08:28.269Z",
-                                          hidden: null
-                                        },
-                                        {
-                                          key: "blueprint_id",
-                                          inputType: "Number",
-                                          fieldId: "blueprint_id",
-                                          label: "blueprint_id",
-                                          name: "blueprint_id",
-                                          initialValue: null,
-                                          hidden: null
-                                        }
-                                      ];
-                                      __composite["0"]["initialValue"] = 303;
-                                      __composite["0"]["hidden"] = true;
-                                      __composite["2"]["inputType"] =
-                                        "Text Area";
-                                      __composite["3"]["inputType"] = "Select";
-                                      __composite["3"]["initialValue"] =
-                                        $queries.cGetPrintifyBlueprintPp.data.response.map(
-                                          item => ({
-                                            label:
-                                              item.title + " (" + item.id + ")",
-                                            value: item.id
-                                          })
-                                        )[0];
-                                      __composite["3"]["options"] =
-                                        $queries.cGetPrintifyBlueprintPp.data.response.map(
-                                          item => ({
-                                            label:
-                                              item.title + " (" + item.id + ")",
-                                            value: item.id
-                                          })
-                                        );
-                                      __composite["4"]["hidden"] = true;
-                                      __composite["5"]["hidden"] = true;
-                                      __composite["6"]["hidden"] = true;
-                                      __composite["7"]["initialValue"] = 25;
-                                      __composite["7"]["hidden"] = true;
-                                      __composite["9"]["hidden"] = true;
-                                      __composite["10"]["hidden"] = true;
-                                      __composite["11"]["initialValue"] = 924;
-                                      __composite["11"]["hidden"] = true;
-                                      return __composite;
-                                    })(),
-
-                                    extendedOnValuesChange:
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "value",
-                                        ["formEditPrintifyProduct", "value"],
-                                        FormWrapper_Helpers
-                                      ),
-                                    formItems: [],
-                                    labelCol: { span: 8, horizontalOnly: true },
-                                    layout: "vertical",
-                                    mode: "simplified",
-                                    onFinish: async values => {
-                                      const $steps = {};
-
-                                      $steps["defaultSubmit"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              dataOp: {
-                                                sourceId:
-                                                  "83X9ZdYzYUYJtgqe5fwXeX",
-                                                opId: "076ca8a5-5c20-4f73-99fd-16a67fce7a88",
-                                                userArgs: {
-                                                  conditions: [
-                                                    parseInt(
-                                                      $state.selectedProduct.id
-                                                    )
-                                                  ],
-                                                  variables: [
-                                                    $state
-                                                      .formEditPrintifyProduct
-                                                      .value
-                                                  ]
-                                                },
-                                                cacheKey: null,
-                                                invalidatedKeys: [
-                                                  "plasmic_refresh_all"
-                                                ],
-                                                roleId: null
-                                              }
-                                            };
-                                            return (async ({
-                                              dataOp,
-                                              continueOnError
-                                            }) => {
-                                              try {
-                                                const response =
-                                                  await executePlasmicDataOp(
-                                                    dataOp,
-                                                    {
-                                                      userAuthToken:
-                                                        dataSourcesCtx?.userAuthToken,
-                                                      user: dataSourcesCtx?.user
-                                                    }
-                                                  );
-                                                await plasmicInvalidate(
-                                                  dataOp.invalidatedKeys
-                                                );
-                                                return response;
-                                              } catch (e) {
-                                                if (!continueOnError) {
-                                                  throw e;
-                                                }
-                                                return e;
-                                              }
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                      if (
-                                        $steps["defaultSubmit"] != null &&
-                                        typeof $steps["defaultSubmit"] ===
-                                          "object" &&
-                                        typeof $steps["defaultSubmit"].then ===
-                                          "function"
-                                      ) {
-                                        $steps["defaultSubmit"] = await $steps[
-                                          "defaultSubmit"
-                                        ];
-                                      }
-                                    },
-                                    onIsSubmittingChange:
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "isSubmitting",
-                                        [
-                                          "formEditPrintifyProduct",
-                                          "isSubmitting"
-                                        ],
-                                        FormWrapper_Helpers
-                                      ),
-                                    ref: ref => {
-                                      $refs["formEditPrintifyProduct"] = ref;
-                                    },
-                                    submitSlot: (
-                                      <AntdButton
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.button__x9FZe
-                                        )}
-                                        submitsForm={true}
-                                        type={"primary"}
-                                      >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__jwlc
-                                          )}
-                                        >
-                                          {"Submit"}
-                                        </div>
-                                      </AntdButton>
-                                    ),
-                                    wrapperCol: {
-                                      span: 16,
-                                      horizontalOnly: true
+                                  try {
+                                    return (
+                                      $queries.cGetPrintifyBlueprintPp.data
+                                        .response.length > 0
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
                                     }
-                                  };
-                                  initializeCodeComponentStates(
-                                    $state,
-                                    [
-                                      {
-                                        name: "value",
-                                        plasmicStateName:
-                                          "formEditPrintifyProduct.value"
-                                      },
-                                      {
-                                        name: "isSubmitting",
-                                        plasmicStateName:
-                                          "formEditPrintifyProduct.isSubmitting"
-                                      }
-                                    ],
-                                    [],
-                                    FormWrapper_Helpers ?? {},
-                                    child$Props
-                                  );
+                                    throw e;
+                                  }
+                                })()
+                                  ? (() => {
+                                      const child$Props = {
+                                        children: null,
+                                        className: classNames(
+                                          "__wab_instance",
+                                          sty.formEditPrintifyProduct
+                                        ),
+                                        data: {
+                                          sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                          opId: "50d56072-2719-4707-bcac-c6ec99535b6c",
+                                          userArgs: {
+                                            filters: [
+                                              parseInt(
+                                                $state.selectedProduct.id
+                                              )
+                                            ]
+                                          },
+                                          cacheKey: `plasmic.$.${(() => {
+                                            try {
+                                              return "getOne";
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}.$.50d56072-2719-4707-bcac-c6ec99535b6c.$.`,
+                                          invalidatedKeys: null,
+                                          roleId:
+                                            "d035f350-edf5-4268-af03-4480b52522b0"
+                                        },
+                                        dataFormItems: (() => {
+                                          const __composite = [
+                                            {
+                                              key: "id",
+                                              inputType: "Number",
+                                              fieldId: "id",
+                                              label: "id",
+                                              name: "id",
+                                              initialValue: null,
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "title",
+                                              inputType: "Text",
+                                              fieldId: "title",
+                                              label: "title",
+                                              name: "title",
+                                              initialValue:
+                                                "Men's Hawaiian Shirt (AOP)"
+                                            },
+                                            {
+                                              key: "description",
+                                              inputType: null,
+                                              fieldId: "description",
+                                              label: "description",
+                                              name: "description",
+                                              initialValue:
+                                                'Nothing says "I love summer" like a Hawaiian shirt, and now, you can make this iconic garment even better by adding your own art to it. Made to have a boxy fit and a notch lapel collar that are perfect for any laidback scenario, these shirts come with a handy chest pocket and a 95% polyester and 5% spandex fabric for silky comfort. Choose between black or white buttons & customize it to taste. <div>.:Material: 95% polyester, 5% spandex</div><br /><div>.:Medium fabric (7.23 oz/yd²(245 g/m²))</div><br /><div>.:Boxy fit</div><br /><div>.:Chest pocket</div><br /><div>.:Black or white button options</div><br /><div>.:Sewn-in label</div>'
+                                            },
+                                            {
+                                              key: "print_provider",
+                                              inputType: null,
+                                              fieldId: "print_provider",
+                                              label: "print_provider",
+                                              name: "print_provider",
+                                              initialValue: null,
+                                              options: null
+                                            },
+                                            {
+                                              key: "email",
+                                              inputType: "Text",
+                                              fieldId: "email",
+                                              label: "email",
+                                              name: "email",
+                                              initialValue: "golfx2@gmail.com",
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "variant_ids",
+                                              inputType: "Number",
+                                              fieldId: "variant_ids",
+                                              label: "variant_ids",
+                                              name: "variant_ids",
+                                              initialValue: {},
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "placeholder_ids",
+                                              inputType: "Number",
+                                              fieldId: "placeholder_ids",
+                                              label: "placeholder_ids",
+                                              name: "placeholder_ids",
+                                              initialValue: {},
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "recipe_id",
+                                              inputType: "Number",
+                                              fieldId: "recipe_id",
+                                              label: "recipe_id",
+                                              name: "recipe_id",
+                                              initialValue: null,
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "tags",
+                                              inputType: "Text",
+                                              fieldId: "tags",
+                                              label: "tags",
+                                              name: "tags",
+                                              initialValue: ""
+                                            },
+                                            {
+                                              key: "sync_product_id",
+                                              inputType: "Number",
+                                              fieldId: "sync_product_id",
+                                              label: "sync_product_id",
+                                              name: "sync_product_id",
+                                              initialValue: {},
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "created_at",
+                                              inputType: "Text",
+                                              fieldId: "created_at",
+                                              label: "created_at",
+                                              name: "created_at",
+                                              initialValue:
+                                                "2024-09-11T19:08:28.269Z",
+                                              hidden: null
+                                            },
+                                            {
+                                              key: "blueprint_id",
+                                              inputType: "Number",
+                                              fieldId: "blueprint_id",
+                                              label: "blueprint_id",
+                                              name: "blueprint_id",
+                                              initialValue: null,
+                                              hidden: null
+                                            }
+                                          ];
+                                          __composite["0"][
+                                            "initialValue"
+                                          ] = 303;
+                                          __composite["0"]["hidden"] = true;
+                                          __composite["2"]["inputType"] =
+                                            "Text Area";
+                                          __composite["3"]["inputType"] =
+                                            "Select";
+                                          __composite["3"]["initialValue"] =
+                                            $queries.cGetPrintifyBlueprintPp.data.response.map(
+                                              item => ({
+                                                label:
+                                                  item.title +
+                                                  " (" +
+                                                  item.id +
+                                                  ")",
+                                                value: item.id
+                                              })
+                                            )[0];
+                                          __composite["3"]["options"] =
+                                            $queries.cGetPrintifyBlueprintPp.data.response.map(
+                                              item => ({
+                                                label:
+                                                  item.title +
+                                                  " (" +
+                                                  item.id +
+                                                  ")",
+                                                value: item.id
+                                              })
+                                            );
+                                          __composite["4"]["hidden"] = true;
+                                          __composite["5"]["hidden"] = true;
+                                          __composite["6"]["hidden"] = true;
+                                          __composite["7"]["initialValue"] = 25;
+                                          __composite["7"]["hidden"] = true;
+                                          __composite["9"]["hidden"] = true;
+                                          __composite["10"]["hidden"] = true;
+                                          __composite["11"][
+                                            "initialValue"
+                                          ] = 924;
+                                          __composite["11"]["hidden"] = true;
+                                          return __composite;
+                                        })(),
 
-                                  return (
-                                    <FormWrapper
-                                      data-plasmic-name={
-                                        "formEditPrintifyProduct"
-                                      }
-                                      data-plasmic-override={
-                                        overrides.formEditPrintifyProduct
-                                      }
-                                      {...child$Props}
-                                    />
-                                  );
-                                })()}
+                                        extendedOnValuesChange:
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "value",
+                                            [
+                                              "formEditPrintifyProduct",
+                                              "value"
+                                            ],
+                                            FormWrapper_Helpers
+                                          ),
+                                        formItems: [],
+                                        labelCol: {
+                                          span: 8,
+                                          horizontalOnly: true
+                                        },
+                                        layout: "vertical",
+                                        mode: "simplified",
+                                        onFinish: async values => {
+                                          const $steps = {};
+
+                                          $steps["defaultSubmit"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "83X9ZdYzYUYJtgqe5fwXeX",
+                                                    opId: "f2ea6b30-6440-4a04-bf9a-b958db4be4d5",
+                                                    userArgs: {
+                                                      conditions: [
+                                                        parseInt(
+                                                          $state.selectedProduct
+                                                            .id
+                                                        )
+                                                      ],
+                                                      variables: [
+                                                        $state
+                                                          .formEditPrintifyProduct
+                                                          .value
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: [
+                                                      "plasmic_refresh_all"
+                                                    ],
+                                                    roleId:
+                                                      "d035f350-edf5-4268-af03-4480b52522b0"
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["defaultSubmit"] != null &&
+                                            typeof $steps["defaultSubmit"] ===
+                                              "object" &&
+                                            typeof $steps["defaultSubmit"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["defaultSubmit"] =
+                                              await $steps["defaultSubmit"];
+                                          }
+                                        },
+                                        onIsSubmittingChange:
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "isSubmitting",
+                                            [
+                                              "formEditPrintifyProduct",
+                                              "isSubmitting"
+                                            ],
+                                            FormWrapper_Helpers
+                                          ),
+                                        ref: ref => {
+                                          $refs["formEditPrintifyProduct"] =
+                                            ref;
+                                        },
+                                        submitSlot: (
+                                          <AntdButton
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.button__x9FZe
+                                            )}
+                                            submitsForm={true}
+                                            type={"primary"}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__jwlc
+                                              )}
+                                            >
+                                              {"Submit"}
+                                            </div>
+                                          </AntdButton>
+                                        ),
+                                        wrapperCol: {
+                                          span: 16,
+                                          horizontalOnly: true
+                                        }
+                                      };
+                                      initializeCodeComponentStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "value",
+                                            plasmicStateName:
+                                              "formEditPrintifyProduct.value"
+                                          },
+                                          {
+                                            name: "isSubmitting",
+                                            plasmicStateName:
+                                              "formEditPrintifyProduct.isSubmitting"
+                                          }
+                                        ],
+                                        [],
+                                        FormWrapper_Helpers ?? {},
+                                        child$Props
+                                      );
+
+                                      return (
+                                        <FormWrapper
+                                          data-plasmic-name={
+                                            "formEditPrintifyProduct"
+                                          }
+                                          data-plasmic-override={
+                                            overrides.formEditPrintifyProduct
+                                          }
+                                          {...child$Props}
+                                        />
+                                      );
+                                    })()
+                                  : null}
                                 <AntdTabs
                                   data-plasmic-name={"tabs2"}
                                   data-plasmic-override={overrides.tabs2}
@@ -1235,7 +1253,6 @@ const PlasmicDescendants = {
     "root",
     "pageLayout",
     "h1",
-    "dataDetails",
     "tabs",
     "tablePrintifyProducts",
     "modalEditPrintifyProduct",
@@ -1245,7 +1262,6 @@ const PlasmicDescendants = {
   pageLayout: [
     "pageLayout",
     "h1",
-    "dataDetails",
     "tabs",
     "tablePrintifyProducts",
     "modalEditPrintifyProduct",
@@ -1253,7 +1269,6 @@ const PlasmicDescendants = {
     "tabs2"
   ],
   h1: ["h1"],
-  dataDetails: ["dataDetails"],
   tabs: [
     "tabs",
     "tablePrintifyProducts",
@@ -1277,7 +1292,6 @@ type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
   h1: "h1";
-  dataDetails: typeof RichDetails;
   tabs: typeof AntdTabs;
   tablePrintifyProducts: typeof RichTable;
   modalEditPrintifyProduct: typeof AntdModal;
@@ -1340,6 +1354,23 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
+function withPlasmicPageGuard<P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) {
+  const PageGuard: React.FC<P> = props => (
+    <PlasmicPageGuard__
+      minRole={"d035f350-edf5-4268-af03-4480b52522b0"}
+      appId={"2Up8DUmBB1Tx5dhznkvCW5"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={true}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 function withUsePlasmicAuth<P extends object>(
   WrappedComponent: React.ComponentType<P>
 ) {
@@ -1367,12 +1398,11 @@ function withUsePlasmicAuth<P extends object>(
 
 export const PlasmicEditRecipev2 = Object.assign(
   // Top-level PlasmicEditRecipev2 renders the root element
-  withUsePlasmicAuth(makeNodeComponent("root")),
+  withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("root"))),
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
     h1: makeNodeComponent("h1"),
-    dataDetails: makeNodeComponent("dataDetails"),
     tabs: makeNodeComponent("tabs"),
     tablePrintifyProducts: makeNodeComponent("tablePrintifyProducts"),
     modalEditPrintifyProduct: makeNodeComponent("modalEditPrintifyProduct"),
