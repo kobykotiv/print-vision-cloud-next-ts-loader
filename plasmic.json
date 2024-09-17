@@ -47,8 +47,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "gLnoj82AzKVVT7qXiqAbHD",
@@ -114,8 +113,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-tabs"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
@@ -205,8 +203,7 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
@@ -228,8 +225,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -283,8 +279,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -684,8 +679,7 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
@@ -832,20 +826,6 @@
           "path": "/sync-design/[design]/[recipe]"
         },
         {
-          "id": "ktBKakDglwL9",
-          "name": "EditRecipe",
-          "type": "managed",
-          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
-          "renderModuleFilePath": "plasmic/print_vision/PlasmicEditRecipe.tsx",
-          "importSpec": {
-            "modulePath": "../pages/recipes/[id].tsx"
-          },
-          "cssFilePath": "plasmic/print_vision/PlasmicEditRecipe.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/recipes/[id]"
-        },
-        {
           "id": "JgPOznJRQoT5",
           "name": "Upload",
           "type": "managed",
@@ -872,6 +852,74 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/recipes-2/[id]"
+        },
+        {
+          "id": "tQs3K4I5HXpb",
+          "name": "Backend",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicBackend.tsx",
+          "importSpec": {
+            "modulePath": "../pages/backend.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicBackend.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/backend"
+        },
+        {
+          "id": "DiJakqijeg9T",
+          "name": "Editrecipe",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicEditrecipe.tsx",
+          "importSpec": {
+            "modulePath": "../pages/recipes-4/[id].tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicEditrecipe.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/recipes-4/[id]"
+        },
+        {
+          "id": "n5jcfqnGZy-O",
+          "name": "Testeditrecipe",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicTesteditrecipe.tsx",
+          "importSpec": {
+            "modulePath": "../pages/recipes-5/[id].tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicTesteditrecipe.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/recipes-5/[id]"
+        },
+        {
+          "id": "YEj_G5VEI0qw",
+          "name": "TermsOfService",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicTermsOfService.tsx",
+          "importSpec": {
+            "modulePath": "TermsOfService.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicTermsOfService.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "BrKHErcZRT6V",
+          "name": "PrivacyPolicy",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicPrivacyPolicy.tsx",
+          "importSpec": {
+            "modulePath": "PrivacyPolicy.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicPrivacyPolicy.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -917,6 +965,64 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ],
+      "customFunctions": []
+    },
+    {
+      "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+      "projectApiToken": "vXGGQpdi9fhcncabBdg8DcMRUbkz0iRW6HS1jzQufQR6QH0MasPwr9SX7ap4SsK3xXwwXmzZtglWGe0Rm2nw",
+      "projectName": "plasmic-basic-components",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_basic_components/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "CMDBvOhaI4s",
+          "name": "Iframe",
+          "displayName": "hostless-iframe",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "RhitNJW5Zu-",
+          "name": "Video",
+          "displayName": "hostless-html-video",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "PKldDYkH42",
+          "name": "Embed",
+          "displayName": "hostless-embed",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "D4RbnlpRXg3",
+          "name": "DataProvider",
+          "displayName": "hostless-data-provider",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "zlBHsvkFlN",
+          "name": "ConditionGuard",
+          "displayName": "hostless-condition-guard",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "K-mWGqrHefEp",
+          "name": "SideEffect",
+          "displayName": "hostless-side-effect",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "SpkzmXJqg27p",
+          "name": "Timer",
+          "displayName": "hostless-timer",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
       "customFunctions": []

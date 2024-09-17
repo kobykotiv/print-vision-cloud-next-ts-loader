@@ -394,59 +394,6 @@ function PlasmicRecipes__RenderFunc(props: {
                           RichTable_Helpers
                         ).apply(null, eventArgs);
                       },
-                      rowActions: (() => {
-                        const __composite = [
-                          { type: "item", label: null, onClick: null }
-                        ];
-                        __composite["0"]["label"] = "Edit";
-                        __composite["0"]["onClick"] = async (rowKey, row) => {
-                          const $steps = {};
-
-                          $steps["goToEditRecipe"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: `/recipes/${(() => {
-                                    try {
-                                      return row.id;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}`
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["goToEditRecipe"] != null &&
-                            typeof $steps["goToEditRecipe"] === "object" &&
-                            typeof $steps["goToEditRecipe"].then === "function"
-                          ) {
-                            $steps["goToEditRecipe"] = await $steps[
-                              "goToEditRecipe"
-                            ];
-                          }
-                        };
-                        return __composite;
-                      })(),
-
                       scopeClassName: sty["table__instance"],
                       selectedRowKey: generateStateValueProp($state, [
                         "table",

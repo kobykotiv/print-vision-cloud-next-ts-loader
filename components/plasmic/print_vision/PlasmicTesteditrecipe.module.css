@@ -1,0 +1,908 @@
+.root {
+  display: grid;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+.tabs:global(.__wab_instance) {
+  width: 100%;
+  overflow: scroll;
+  max-width: 100%;
+  object-fit: cover;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
+.tabItem__sdkUl:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__wufGo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__hOnU0 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__xP7R1 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.h2__oeB4 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.populatePrintifyProducts:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__mxG9 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-bottom: 0px;
+  min-width: 0;
+}
+.tablePrintifyProducts:global(.__wab_instance) {
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  padding: 16px;
+}
+.modalEditPrintifyProduct:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox__wx7Ye {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.tabs2:global(.__wab_instance) {
+  width: 100%;
+  overflow: scroll;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
+.tabItem__cGK8:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__kiXoC {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__j4Ozi {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+}
+.formEditPrintifyProduct:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__q4O5S:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.select:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__jumYe:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__nOla2:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.textArea:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__tJOaM:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input3:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.button__w2Fil:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__mhi7X {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.tabItem__ueHuU:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__fIy9V {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__r0N0 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-Bo2_tT25lwh4);
+  min-width: 0;
+}
+.freeBox__s18Cf {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__nFv9 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.button__bYeD:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__nVlz6 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button__nNici:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__aOurw {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-right: 0px;
+  min-width: 0;
+}
+.inputPriceVariants:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 170px;
+  flex-shrink: 0;
+}
+.button__ysSx2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__jaHw {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.tablePrintifyVariants:global(.__wab_instance) {
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  padding: 16px;
+}
+.modalEditVariant:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formEditSingleVariant:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.button__bY8G:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__pg8L {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.tabItem___53OoV:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__dhXbt {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.modalNewPrintifyPlaceholder:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formNewPrintifyPlaceholder:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__snhtq:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput7:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox__bkyyd {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__vAbij:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
+.numberInput8:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__no0Ru:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput10:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__bMNjx:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput11:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__zeM:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput12:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__hdWwc:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput9:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__rTyG2:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__oruZn:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.select4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__s4806:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.select5:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__uBBhY {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button__y2HPw:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text___3FdIw {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.modalEditPlaceholder:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formEditPlaceholder:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.button___1QxVr:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__v2Zv3 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.tablePrintifyPlaceholders:global(.__wab_instance) {
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  padding: 16px;
+}
+.tabItem__kVynx:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text___3Kvaj {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__bTOj {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__zs67 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.h2___81CAs {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button__l7VKb:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text___0MAdN {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.tablePrintfulProducts:global(.__wab_instance) {
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  padding: 16px;
+}
+.modalEditPrintfulProduct:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.tabsEditPrintfulProduct:global(.__wab_instance) {
+  width: 100%;
+  overflow: scroll;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+}
+.tabItem__bakxB:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__qdDkM {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.formEditPrintfulProduct:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__etdMc:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput13:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__i9DSp:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input5:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__m6Tek:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput14:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__jKJy:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.textArea2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__iBWxf:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input6:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__cj8Ja:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput15:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__ezdCh:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput16:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__lrbcl:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input7:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__qhWei:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput17:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__kY9S5:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput18:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__xjbcH:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input8:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.button__w6XYw:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__uvfch {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.tabItem__m2REl:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__sqaBq {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-right: 0px;
+  min-width: 0;
+}
+.freeBox___9D4Wc {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.populatePrintfulVariants:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__gFsv1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button__oulCy:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text___7FVe3 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-right: 0px;
+  min-width: 0;
+}
+.inputPriceVariants2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 170px;
+  flex-shrink: 0;
+}
+.button__am9Hj:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__my0E {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.printfulVariantsTable:global(.__wab_instance) {
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  padding: 16px;
+}
+.tabItem__cB3N9:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__jHiKw {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-top: 0px;
+  min-width: 0;
+}
+.modalNewPlacehodler:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.printfulNewPlaceholder:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__ukSYt {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__gx7Hk:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
+.numberInput2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__qokKj:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput3:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__oRlG:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__tY9Fr:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput6:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__bBgBs:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__f8NI:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.select2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__njx47:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.select3:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__rVkkR:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField___9KCHu:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.numberInput5:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.button__jo5Mf:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__iYdNb {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button__h7VFh:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__z52B8 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.printfulPlaceholdersTable:global(.__wab_instance) {
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  padding: 16px;
+}

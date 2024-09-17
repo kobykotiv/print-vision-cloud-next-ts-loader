@@ -46,14 +46,26 @@
   min-width: 0;
   padding: 8px;
 }
-.button:global(.__wab_instance) {
+.button__pvvfz:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text {
+.text__oHyzU {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  min-width: 0;
+}
+.button__itpFr:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__x3K {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-bottom: 0px;
   min-width: 0;
 }

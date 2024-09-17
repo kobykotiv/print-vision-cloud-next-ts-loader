@@ -447,7 +447,7 @@ function PlasmicNewRecipe__RenderFunc(props: {
                             hideColumnPicker: true,
                             hideDensity: true,
                             hideExports: true,
-                            hideSearch: true,
+                            hideSearch: false,
                             hideSelectionBar: false,
                             onRowSelectionChanged: async (
                               ...eventArgs: any
@@ -695,7 +695,7 @@ function PlasmicNewRecipe__RenderFunc(props: {
 
                             hideColumnPicker: true,
                             hideExports: true,
-                            hideSearch: true,
+                            hideSearch: false,
                             hideSelectionBar: false,
                             onRowSelectionChanged: async (
                               ...eventArgs: any
@@ -813,25 +813,6 @@ function PlasmicNewRecipe__RenderFunc(props: {
                           );
                         })()}
                       </AntdTabItem>
-                      <AntdTabItem
-                        children={null}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.tabItem___6T0PZ
-                        )}
-                        key={"3"}
-                        label={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__hmZbR
-                            )}
-                          >
-                            {"Gooten"}
-                          </div>
-                        }
-                      />
                     </React.Fragment>
                   }
                   onChange={async (...eventArgs: any) => {

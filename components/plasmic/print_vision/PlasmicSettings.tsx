@@ -99,8 +99,6 @@ export type PlasmicSettings__OverridesType = {
   table?: Flex__<typeof RichTable>;
   modal?: Flex__<typeof AntdModal>;
   form?: Flex__<typeof FormWrapper>;
-  button?: Flex__<typeof AntdButton>;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultSettingsProps {}
@@ -681,19 +679,18 @@ function PlasmicSettings__RenderFunc(props: {
                         },
                         submitSlot: (
                           <AntdButton
-                            data-plasmic-name={"button"}
-                            data-plasmic-override={overrides.button}
-                            className={classNames("__wab_instance", sty.button)}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__pvvfz
+                            )}
                             submitsForm={true}
                             type={"primary"}
                           >
                             <div
-                              data-plasmic-name={"text"}
-                              data-plasmic-override={overrides.text}
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text
+                                sty.text__oHyzU
                               )}
                             >
                               {"Submit"}
@@ -728,6 +725,24 @@ function PlasmicSettings__RenderFunc(props: {
                       );
                     })()}
                   </AntdModal>
+                  <AntdButton
+                    className={classNames("__wab_instance", sty.button__itpFr)}
+                    href={
+                      "https://billing.stripe.com/p/login/eVacQv8Pofj819KbII"
+                    }
+                    shape={"round"}
+                    target={true}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__x3K
+                      )}
+                    >
+                      {"Go to Billing"}
+                    </div>
+                  </AntdButton>
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -739,13 +754,11 @@ function PlasmicSettings__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "table", "modal", "form", "button", "text"],
-  pageLayout: ["pageLayout", "table", "modal", "form", "button", "text"],
+  root: ["root", "pageLayout", "table", "modal", "form"],
+  pageLayout: ["pageLayout", "table", "modal", "form"],
   table: ["table"],
-  modal: ["modal", "form", "button", "text"],
-  form: ["form", "button", "text"],
-  button: ["button", "text"],
-  text: ["text"]
+  modal: ["modal", "form"],
+  form: ["form"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -756,8 +769,6 @@ type NodeDefaultElementType = {
   table: typeof RichTable;
   modal: typeof AntdModal;
   form: typeof FormWrapper;
-  button: typeof AntdButton;
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -849,8 +860,6 @@ export const PlasmicSettings = Object.assign(
     table: makeNodeComponent("table"),
     modal: makeNodeComponent("modal"),
     form: makeNodeComponent("form"),
-    button: makeNodeComponent("button"),
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicSettings
     internalVariantProps: PlasmicSettings__VariantProps,
