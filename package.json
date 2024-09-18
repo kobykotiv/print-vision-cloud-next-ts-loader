@@ -20,7 +20,7 @@
     "@plasmicpkgs/plasmic-rich-components": "^1.0.197",
     "@plasmicpkgs/plasmic-tabs": "^0.0.47",
     "@plasmicpkgs/radix-ui": "^0.0.62",
-    "next": "14.2.9",
+    "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18"
   },
