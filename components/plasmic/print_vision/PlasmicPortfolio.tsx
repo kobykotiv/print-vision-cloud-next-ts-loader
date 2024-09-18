@@ -509,176 +509,11 @@ function PlasmicPortfolio__RenderFunc(props: {
                     },
                     rowActions: (() => {
                       const __composite = [
-                        { type: "item", label: null, onClick: null },
                         { type: "item", onClick: null, label: null },
                         { type: "item", label: null, onClick: null },
                         { type: "item", label: null, onClick: null }
                       ];
-                      __composite["0"]["label"] = "Preview";
                       __composite["0"]["onClick"] = async (rowKey, row) => {
-                        const $steps = {};
-
-                        $steps["updateSelectedImageId"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["selectedImageId"]
-                                },
-                                operation: 0,
-                                value: row.image_id
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSelectedImageId"] != null &&
-                          typeof $steps["updateSelectedImageId"] === "object" &&
-                          typeof $steps["updateSelectedImageId"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSelectedImageId"] = await $steps[
-                            "updateSelectedImageId"
-                          ];
-                        }
-
-                        $steps["supabaseGetSignedFileUrl"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                dataOp: {
-                                  sourceId: "fq3u296VTpoRcVc8quSCN3",
-                                  opId: "fcc02544-c45c-42a3-9b4d-56a28598636a",
-                                  userArgs: {
-                                    path: [$state.selectedImageId]
-                                  },
-                                  cacheKey: null,
-                                  invalidatedKeys: null,
-                                  roleId: "d035f350-edf5-4268-af03-4480b52522b0"
-                                }
-                              };
-                              return (async ({ dataOp, continueOnError }) => {
-                                try {
-                                  const response = await executePlasmicDataOp(
-                                    dataOp,
-                                    {
-                                      userAuthToken:
-                                        dataSourcesCtx?.userAuthToken,
-                                      user: dataSourcesCtx?.user
-                                    }
-                                  );
-                                  await plasmicInvalidate(
-                                    dataOp.invalidatedKeys
-                                  );
-                                  return response;
-                                } catch (e) {
-                                  if (!continueOnError) {
-                                    throw e;
-                                  }
-                                  return e;
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["supabaseGetSignedFileUrl"] != null &&
-                          typeof $steps["supabaseGetSignedFileUrl"] ===
-                            "object" &&
-                          typeof $steps["supabaseGetSignedFileUrl"].then ===
-                            "function"
-                        ) {
-                          $steps["supabaseGetSignedFileUrl"] = await $steps[
-                            "supabaseGetSignedFileUrl"
-                          ];
-                        }
-
-                        $steps["updatePreviewUrl"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["previewUrl"]
-                                },
-                                operation: 0,
-                                value: $steps.supabaseGetSignedFileUrl
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updatePreviewUrl"] != null &&
-                          typeof $steps["updatePreviewUrl"] === "object" &&
-                          typeof $steps["updatePreviewUrl"].then === "function"
-                        ) {
-                          $steps["updatePreviewUrl"] = await $steps[
-                            "updatePreviewUrl"
-                          ];
-                        }
-
-                        $steps["updateModalPreviewDesignOpen"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["modalPreviewDesign", "open"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateModalPreviewDesignOpen"] != null &&
-                          typeof $steps["updateModalPreviewDesignOpen"] ===
-                            "object" &&
-                          typeof $steps["updateModalPreviewDesignOpen"].then ===
-                            "function"
-                        ) {
-                          $steps["updateModalPreviewDesignOpen"] = await $steps[
-                            "updateModalPreviewDesignOpen"
-                          ];
-                        }
-                      };
-                      __composite["1"]["onClick"] = async (rowKey, row) => {
                         const $steps = {};
 
                         $steps["goToSync"] = true
@@ -708,9 +543,9 @@ function PlasmicPortfolio__RenderFunc(props: {
                           $steps["goToSync"] = await $steps["goToSync"];
                         }
                       };
-                      __composite["1"]["label"] = "Sync";
-                      __composite["2"]["label"] = "Edit";
-                      __composite["2"]["onClick"] = async (rowKey, row) => {
+                      __composite["0"]["label"] = "Sync";
+                      __composite["1"]["label"] = "Edit";
+                      __composite["1"]["onClick"] = async (rowKey, row) => {
                         const $steps = {};
 
                         $steps["updateSelectedRow"] = true
@@ -790,8 +625,8 @@ function PlasmicPortfolio__RenderFunc(props: {
                           ];
                         }
                       };
-                      __composite["3"]["label"] = "Delete";
-                      __composite["3"]["onClick"] = async (rowKey, row) => {
+                      __composite["2"]["label"] = "Delete";
+                      __composite["2"]["onClick"] = async (rowKey, row) => {
                         const $steps = {};
 
                         $steps["updateModalDeleteDesignOpen"] = true
@@ -966,7 +801,7 @@ function PlasmicPortfolio__RenderFunc(props: {
               "open"
             ])}
             open={generateStateValueProp($state, ["modalEditDeisgn", "open"])}
-            title={"Edit Design/Assign Recipe"}
+            title={"Edit Design"}
             trigger={null}
             width={"80%"}
           >
@@ -1139,14 +974,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                           const actionArgs = {
                             dataOp: {
                               sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                              opId: "1e5de785-6106-4184-8f53-0939caca372c",
+                              opId: "0420ddd7-9936-45fb-a243-f5ff7802eaf1",
                               userArgs: {
-                                conditions: [$state.selectedRow.id],
+                                keys: [parseInt($state.selectedRow.id)],
                                 variables: [$state.form.value]
                               },
                               cacheKey: null,
                               invalidatedKeys: ["plasmic_refresh_all"],
-                              roleId: null
+                              roleId: "d035f350-edf5-4268-af03-4480b52522b0"
                             }
                           };
                           return (async ({ dataOp, continueOnError }) => {
@@ -1378,6 +1213,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                       initialValue={"Description"}
                       label={"description"}
                       name={"description"}
+                      rules={[{ ruleType: "required" }]}
                     >
                       {(() => {
                         const child$Props = {
@@ -1654,23 +1490,27 @@ function PlasmicPortfolio__RenderFunc(props: {
                       )}
                       initialValue={(() => {
                         try {
-                          return $state.table2.selectedRows.map(i => i.id);
+                          return $state.table2.selectedRows.map(i =>
+                            parseInt(i.id)
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "16";
+                            return ``;
                           }
                           throw e;
                         }
                       })()}
-                      label={"recipe_id"}
-                      name={"recipe_id"}
+                      label={"recipe_ids"}
+                      name={"recipe_ids"}
+                      rules={[{ ruleType: "required" }]}
                     >
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input7),
+                          disabled: true,
                           onChange: generateStateOnChangePropForCodeComponents(
                             $state,
                             "value",

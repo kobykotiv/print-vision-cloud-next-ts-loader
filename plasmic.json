@@ -47,7 +47,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "gLnoj82AzKVVT7qXiqAbHD",
@@ -113,7 +114,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-tabs"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
@@ -203,7 +205,8 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
@@ -225,7 +228,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -279,7 +283,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -679,7 +684,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
@@ -947,9 +953,20 @@
           "id": "RpMZCxjbhyRD",
           "name": "Icon5Icon",
           "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__Icon5.tsx"
+        },
+        {
+          "id": "AlYwh9edS8by",
+          "name": "Icon6Icon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__Icon6.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "UHnTrEpjKHhR",
+          "name": "image",
+          "filePath": "../public/plasmic/print_vision/images/image.svg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/print_vision/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",
@@ -1025,7 +1042,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

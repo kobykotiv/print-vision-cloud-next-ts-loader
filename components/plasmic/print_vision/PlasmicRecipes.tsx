@@ -256,7 +256,7 @@ function PlasmicRecipes__RenderFunc(props: {
                         sty.h1
                       )}
                     >
-                      {"Recipes"}
+                      {"Templates"}
                     </h1>
                     <AntdButton
                       data-plasmic-name={"button"}
@@ -394,6 +394,62 @@ function PlasmicRecipes__RenderFunc(props: {
                           RichTable_Helpers
                         ).apply(null, eventArgs);
                       },
+                      rowActions: (() => {
+                        const __composite = [
+                          { type: "item", label: null, onClick: null },
+                          { type: "item", label: null }
+                        ];
+                        __composite["0"]["label"] = "Edit";
+                        __composite["0"]["onClick"] = async (rowKey, row) => {
+                          const $steps = {};
+
+                          $steps["goToTesteditrecipe"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: `/recipes-5/${(() => {
+                                    try {
+                                      return row.id;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}`
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["goToTesteditrecipe"] != null &&
+                            typeof $steps["goToTesteditrecipe"] === "object" &&
+                            typeof $steps["goToTesteditrecipe"].then ===
+                              "function"
+                          ) {
+                            $steps["goToTesteditrecipe"] = await $steps[
+                              "goToTesteditrecipe"
+                            ];
+                          }
+                        };
+                        __composite["1"]["label"] = "Delete";
+                        return __composite;
+                      })(),
+
                       scopeClassName: sty["table__instance"],
                       selectedRowKey: generateStateValueProp($state, [
                         "table",

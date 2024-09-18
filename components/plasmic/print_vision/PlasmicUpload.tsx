@@ -742,6 +742,7 @@ function PlasmicUpload__RenderFunc(props: {
                           })()}
                           label={"recipe_ids"}
                           name={"recipe_ids"}
+                          rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
                             const child$Props = {
@@ -750,6 +751,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input2
                               ),
+                              disabled: false,
                               onChange:
                                 generateStateOnChangePropForCodeComponents(
                                   $state,

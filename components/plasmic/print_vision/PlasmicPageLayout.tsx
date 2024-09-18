@@ -70,7 +70,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 2Up8DUmBB1Tx5d
 import sty from "./PlasmicPageLayout.module.css"; // plasmic-import: nHDfdLqBbJ3Q/css
 
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 0aRPtitADHsb/icon
-import Icon5Icon from "./icons/PlasmicIcon__Icon5"; // plasmic-import: RpMZCxjbhyRD/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: AlYwh9edS8by/icon
 
 createPlasmicElementProxy;
 
@@ -153,27 +153,26 @@ function PlasmicPageLayout__RenderFunc(props: {
       )}
       layout={"top"}
       logoElement={
-        <Icon5Icon
+        <Icon6Icon
           className={classNames(projectcss.all, sty.svg__nUhs)}
           role={"img"}
         />
       }
       navMenuItems={(() => {
         const __composite = [
-          { path: "/", name: "Home" },
           { path: null, name: null },
           { path: null, name: null },
           { path: null, name: null },
           { path: null, name: null }
         ];
-        __composite["1"]["path"] = `/recipes`;
-        __composite["1"]["name"] = "Recipes";
-        __composite["2"]["path"] = `/portfolio`;
-        __composite["2"]["name"] = "Portfolio";
-        __composite["3"]["path"] = `/upload`;
-        __composite["3"]["name"] = "Upload";
-        __composite["4"]["path"] = `/settings`;
-        __composite["4"]["name"] = "Settings";
+        __composite["0"]["path"] = `/recipes`;
+        __composite["0"]["name"] = "Templates";
+        __composite["1"]["path"] = `/portfolio`;
+        __composite["1"]["name"] = "Portfolio";
+        __composite["2"]["path"] = `/upload`;
+        __composite["2"]["name"] = "Upload";
+        __composite["3"]["path"] = `/settings`;
+        __composite["3"]["name"] = "Settings";
         return __composite;
       })()}
       simpleNavTheme={(() => {

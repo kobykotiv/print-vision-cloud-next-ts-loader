@@ -830,7 +830,7 @@ function PlasmicNewRecipe__RenderFunc(props: {
                               action: "setFieldValue",
                               args: [
                                 ["printify_blueprints"],
-                                $state.table2.selectedRows.map(i => i.id)
+                                $state.table.selectedRows.map(i => i.id)
                               ]
                             };
                             return (({ tplRef, action, args }) => {
@@ -1159,6 +1159,7 @@ function PlasmicNewRecipe__RenderFunc(props: {
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.input3),
+                      disabled: true,
                       onChange: generateStateOnChangePropForCodeComponents(
                         $state,
                         "value",
@@ -1224,6 +1225,7 @@ function PlasmicNewRecipe__RenderFunc(props: {
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.input4),
+                      disabled: true,
                       onChange: generateStateOnChangePropForCodeComponents(
                         $state,
                         "value",
