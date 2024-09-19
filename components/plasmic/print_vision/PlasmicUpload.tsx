@@ -329,6 +329,12 @@ function PlasmicUpload__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "file",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -464,6 +470,40 @@ function PlasmicUpload__RenderFunc(props: {
                           ];
                         }
 
+                        $steps["updateFile"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                operation: 0,
+                                value: $state.upload.files[0].uid,
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["file"]
+                                }
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateFile"] != null &&
+                          typeof $steps["updateFile"] === "object" &&
+                          typeof $steps["updateFile"].then === "function"
+                        ) {
+                          $steps["updateFile"] = await $steps["updateFile"];
+                        }
+
                         $steps["supabaseUploadFile"] = true
                           ? (() => {
                               const actionArgs = {
@@ -564,9 +604,16 @@ function PlasmicUpload__RenderFunc(props: {
                               const actionArgs = {
                                 dataOp: {
                                   sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                  opId: "11629cc5-8d8e-4028-a2bc-8a25e4d16070",
+                                  opId: "b9d536f4-8612-4dc9-8411-c248fbc508ca",
                                   userArgs: {
-                                    variables: [$state.form.value]
+                                    variables: [
+                                      $state.form.value.description,
+                                      $state.file,
+                                      $state.form?.value?.printify_id || "",
+                                      $state.form.value?.printful_id || "",
+                                      $state.form.value.tags,
+                                      $state.form.value.title
+                                    ]
                                   },
                                   cacheKey: null,
                                   invalidatedKeys: ["plasmic_refresh_all"],
@@ -727,9 +774,11 @@ function PlasmicUpload__RenderFunc(props: {
                           )}
                           initialValue={(() => {
                             try {
-                              return $state.table.selectedRows.map(i =>
-                                parseInt(i.id)
-                              );
+                              return $state.table.selectedRows
+                                ? $state.table.selectedRows.map(i =>
+                                    parseInt(i.id)
+                                  )
+                                : [];
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -742,11 +791,12 @@ function PlasmicUpload__RenderFunc(props: {
                           })()}
                           label={"recipe_ids"}
                           name={"recipe_ids"}
+                          preserve={false}
                           rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
                             const child$Props = {
-                              allowClear: true,
+                              allowClear: false,
                               className: classNames(
                                 "__wab_instance",
                                 sty.input2
@@ -932,6 +982,7 @@ function PlasmicUpload__RenderFunc(props: {
                           initialValue={undefined}
                           label={"title"}
                           name={"title"}
+                          preserve={false}
                           rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
@@ -982,6 +1033,7 @@ function PlasmicUpload__RenderFunc(props: {
                           initialValue={undefined}
                           label={"description"}
                           name={"description"}
+                          preserve={false}
                           rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
@@ -997,7 +1049,7 @@ function PlasmicUpload__RenderFunc(props: {
                                   ["input3", "value"],
                                   AntdInput_Helpers
                                 ),
-                              size: "large",
+                              size: "middle",
                               value: generateStateValueProp($state, [
                                 "input3",
                                 "value"
@@ -1096,7 +1148,7 @@ function PlasmicUpload__RenderFunc(props: {
                           hidden={false}
                           initialValue={(() => {
                             try {
-                              return $state.upload.files[0].uid;
+                              return $state.upload.files[0]?.uid;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1109,6 +1161,7 @@ function PlasmicUpload__RenderFunc(props: {
                           })()}
                           label={"image_id"}
                           name={"image_id"}
+                          preserve={false}
                           rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
@@ -1160,6 +1213,7 @@ function PlasmicUpload__RenderFunc(props: {
                           initialValue={undefined}
                           label={"tags"}
                           name={"tags"}
+                          preserve={false}
                         >
                           {(() => {
                             const child$Props = {
@@ -1254,7 +1308,7 @@ function PlasmicUpload__RenderFunc(props: {
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return true;
+                                      return false;
                                     }
                                     throw e;
                                   }
@@ -1484,6 +1538,7 @@ function PlasmicUpload__RenderFunc(props: {
                               </Stack__>
                             }
                             name={"printify_id"}
+                            preserve={false}
                           >
                             {(() => {
                               const child$Props = {
@@ -1575,7 +1630,7 @@ function PlasmicUpload__RenderFunc(props: {
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return true;
+                                      return false;
                                     }
                                     throw e;
                                   }
@@ -1805,6 +1860,7 @@ function PlasmicUpload__RenderFunc(props: {
                               </Stack__>
                             }
                             name={"printful_id"}
+                            preserve={false}
                           >
                             {(() => {
                               const child$Props = {
@@ -1819,6 +1875,7 @@ function PlasmicUpload__RenderFunc(props: {
                                     ["input6", "value"],
                                     AntdInput_Helpers
                                   ),
+                                readOnly: true,
                                 value: generateStateValueProp($state, [
                                   "input6",
                                   "value"

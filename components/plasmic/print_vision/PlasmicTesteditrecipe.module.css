@@ -285,7 +285,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formEditSingleVariant:global(.__wab_instance) {
+.formEditSinglePrintifyVariant:global(.__wab_instance) {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -355,7 +355,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
 .formField__vAbij:global(.__wab_instance) {
   width: 100%;
@@ -481,7 +480,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
 .formField__y78Ns:global(.__wab_instance) {
   width: 100%;

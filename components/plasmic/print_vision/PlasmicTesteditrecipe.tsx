@@ -119,7 +119,7 @@ export type PlasmicTesteditrecipe__OverridesType = {
   inputPriceVariants?: Flex__<typeof AntdInput>;
   tablePrintifyVariants?: Flex__<typeof RichTable>;
   modalEditVariant?: Flex__<typeof AntdModal>;
-  formEditSingleVariant?: Flex__<typeof FormWrapper>;
+  formEditSinglePrintifyVariant?: Flex__<typeof FormWrapper>;
   modalNewPrintifyPlaceholder?: Flex__<typeof AntdModal>;
   formNewPrintifyPlaceholder?: Flex__<typeof FormWrapper>;
   numberInput7?: Flex__<typeof AntdInputNumber>;
@@ -394,21 +394,21 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "formEditSingleVariant.value",
+        path: "formEditSinglePrintifyVariant.value",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
-        refName: "formEditSingleVariant",
+        refName: "formEditSinglePrintifyVariant",
         onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "formEditSingleVariant.isSubmitting",
+        path: "formEditSinglePrintifyVariant.isSubmitting",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
-        refName: "formEditSingleVariant",
+        refName: "formEditSinglePrintifyVariant",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
@@ -1364,15 +1364,15 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (
-                                  $queries.getSupPrintifyProducts.data.length >
-                                  0
+                                  $queries.getSupPrintifyProducts?.data
+                                    ?.length > 0
                                 );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return true;
+                                  return false;
                                 }
                                 throw e;
                               }
@@ -2089,7 +2089,11 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 hidden={false}
                                                 initialValue={(() => {
                                                   try {
-                                                    return parseInt(
+                                                    return (
+                                                      parseInt(
+                                                        $state.selectedProduct
+                                                          .print_provider
+                                                      ) ||
                                                       $state.selectedProduct
                                                         .print_provider
                                                     );
@@ -2134,7 +2138,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   )}
                                                   options={(() => {
                                                     try {
-                                                      return $queries.queryGetPrintifyBlueprintPp.data.response.map(
+                                                      return $queries.queryGetPrintifyBlueprintPp?.data.response.map(
                                                         i => ({
                                                           label:
                                                             i.title +
@@ -3334,7 +3338,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               children: null,
                                               className: classNames(
                                                 "__wab_instance",
-                                                sty.formEditSingleVariant
+                                                sty.formEditSinglePrintifyVariant
                                               ),
                                               data: {
                                                 sourceId:
@@ -3482,7 +3486,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   $state,
                                                   "value",
                                                   [
-                                                    "formEditSingleVariant",
+                                                    "formEditSinglePrintifyVariant",
                                                     "value"
                                                   ],
                                                   FormWrapper_Helpers
@@ -3507,12 +3511,12 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                           userArgs: {
                                                             keys: [
                                                               $state
-                                                                .formEditSingleVariant
+                                                                .formEditSinglePrintifyVariant
                                                                 .value.id
                                                             ],
                                                             variables: [
                                                               $state
-                                                                .formEditSingleVariant
+                                                                .formEditSinglePrintifyVariant
                                                                 .value
                                                             ]
                                                           },
@@ -3632,14 +3636,15 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   $state,
                                                   "isSubmitting",
                                                   [
-                                                    "formEditSingleVariant",
+                                                    "formEditSinglePrintifyVariant",
                                                     "isSubmitting"
                                                   ],
                                                   FormWrapper_Helpers
                                                 ),
                                               ref: ref => {
-                                                $refs["formEditSingleVariant"] =
-                                                  ref;
+                                                $refs[
+                                                  "formEditSinglePrintifyVariant"
+                                                ] = ref;
                                               },
                                               submitSlot: (
                                                 <AntdButton
@@ -3672,12 +3677,12 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 {
                                                   name: "value",
                                                   plasmicStateName:
-                                                    "formEditSingleVariant.value"
+                                                    "formEditSinglePrintifyVariant.value"
                                                 },
                                                 {
                                                   name: "isSubmitting",
                                                   plasmicStateName:
-                                                    "formEditSingleVariant.isSubmitting"
+                                                    "formEditSinglePrintifyVariant.isSubmitting"
                                                 }
                                               ],
                                               [],
@@ -3688,10 +3693,10 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                             return (
                                               <FormWrapper
                                                 data-plasmic-name={
-                                                  "formEditSingleVariant"
+                                                  "formEditSinglePrintifyVariant"
                                                 }
                                                 data-plasmic-override={
-                                                  overrides.formEditSingleVariant
+                                                  overrides.formEditSinglePrintifyVariant
                                                 }
                                                 {...child$Props}
                                               />
@@ -3753,7 +3758,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                             "modalNewPrintifyPlaceholder",
                                             "open"
                                           ])}
-                                          title={"Modal title"}
+                                          title={"New Placeholder"}
                                           trigger={
                                             <AntdButton
                                               className={classNames(
@@ -5030,6 +5035,9 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   label={"position"}
                                                   name={"position"}
                                                   preserve={false}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
                                                 >
                                                   <AntdSelect
                                                     data-plasmic-name={
@@ -5093,6 +5101,9 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   label={"image_id"}
                                                   name={"image_id"}
                                                   preserve={false}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
                                                 >
                                                   <AntdSelect
                                                     data-plasmic-name={
@@ -8409,7 +8420,7 @@ const PlasmicDescendants = {
     "inputPriceVariants",
     "tablePrintifyVariants",
     "modalEditVariant",
-    "formEditSingleVariant",
+    "formEditSinglePrintifyVariant",
     "modalNewPrintifyPlaceholder",
     "formNewPrintifyPlaceholder",
     "numberInput7",
@@ -8480,7 +8491,7 @@ const PlasmicDescendants = {
     "inputPriceVariants",
     "tablePrintifyVariants",
     "modalEditVariant",
-    "formEditSingleVariant",
+    "formEditSinglePrintifyVariant",
     "modalNewPrintifyPlaceholder",
     "formNewPrintifyPlaceholder",
     "numberInput7",
@@ -8550,7 +8561,7 @@ const PlasmicDescendants = {
     "inputPriceVariants",
     "tablePrintifyVariants",
     "modalEditVariant",
-    "formEditSingleVariant",
+    "formEditSinglePrintifyVariant",
     "modalNewPrintifyPlaceholder",
     "formNewPrintifyPlaceholder",
     "numberInput7",
@@ -8618,7 +8629,7 @@ const PlasmicDescendants = {
     "inputPriceVariants",
     "tablePrintifyVariants",
     "modalEditVariant",
-    "formEditSingleVariant",
+    "formEditSinglePrintifyVariant",
     "modalNewPrintifyPlaceholder",
     "formNewPrintifyPlaceholder",
     "numberInput7",
@@ -8653,7 +8664,7 @@ const PlasmicDescendants = {
     "inputPriceVariants",
     "tablePrintifyVariants",
     "modalEditVariant",
-    "formEditSingleVariant",
+    "formEditSinglePrintifyVariant",
     "modalNewPrintifyPlaceholder",
     "formNewPrintifyPlaceholder",
     "numberInput7",
@@ -8691,8 +8702,8 @@ const PlasmicDescendants = {
   input3: ["input3"],
   inputPriceVariants: ["inputPriceVariants"],
   tablePrintifyVariants: ["tablePrintifyVariants"],
-  modalEditVariant: ["modalEditVariant", "formEditSingleVariant"],
-  formEditSingleVariant: ["formEditSingleVariant"],
+  modalEditVariant: ["modalEditVariant", "formEditSinglePrintifyVariant"],
+  formEditSinglePrintifyVariant: ["formEditSinglePrintifyVariant"],
   modalNewPrintifyPlaceholder: [
     "modalNewPrintifyPlaceholder",
     "formNewPrintifyPlaceholder",
@@ -8908,7 +8919,7 @@ type NodeDefaultElementType = {
   inputPriceVariants: typeof AntdInput;
   tablePrintifyVariants: typeof RichTable;
   modalEditVariant: typeof AntdModal;
-  formEditSingleVariant: typeof FormWrapper;
+  formEditSinglePrintifyVariant: typeof FormWrapper;
   modalNewPrintifyPlaceholder: typeof AntdModal;
   formNewPrintifyPlaceholder: typeof FormWrapper;
   numberInput7: typeof AntdInputNumber;
@@ -9081,7 +9092,9 @@ export const PlasmicTesteditrecipe = Object.assign(
     inputPriceVariants: makeNodeComponent("inputPriceVariants"),
     tablePrintifyVariants: makeNodeComponent("tablePrintifyVariants"),
     modalEditVariant: makeNodeComponent("modalEditVariant"),
-    formEditSingleVariant: makeNodeComponent("formEditSingleVariant"),
+    formEditSinglePrintifyVariant: makeNodeComponent(
+      "formEditSinglePrintifyVariant"
+    ),
     modalNewPrintifyPlaceholder: makeNodeComponent(
       "modalNewPrintifyPlaceholder"
     ),
