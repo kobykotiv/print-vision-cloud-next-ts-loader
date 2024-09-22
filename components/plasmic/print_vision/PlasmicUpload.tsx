@@ -921,6 +921,42 @@ function PlasmicUpload__RenderFunc(props: {
                                 ["table", "selectedRowKeys"],
                                 RichTable_Helpers
                               ).apply(null, eventArgs);
+                              (async (rowKeys, rows) => {
+                                const $steps = {};
+
+                                $steps["runActionOnForm"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        tplRef: "form",
+                                        action: "setFieldValue",
+                                        args: [
+                                          ["recipe_ids"],
+                                          $state.table.selectedRows
+                                            ? $state.table.selectedRows.map(i =>
+                                                parseInt(i.id)
+                                              )
+                                            : []
+                                        ]
+                                      };
+                                      return (({ tplRef, action, args }) => {
+                                        return $refs?.[tplRef]?.[action]?.(
+                                          ...(args ?? [])
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runActionOnForm"] != null &&
+                                  typeof $steps["runActionOnForm"] ===
+                                    "object" &&
+                                  typeof $steps["runActionOnForm"].then ===
+                                    "function"
+                                ) {
+                                  $steps["runActionOnForm"] = await $steps[
+                                    "runActionOnForm"
+                                  ];
+                                }
+                              }).apply(null, eventArgs);
                             },
                             scopeClassName: sty["table__instance"],
                             selectedRowKey: generateStateValueProp($state, [
