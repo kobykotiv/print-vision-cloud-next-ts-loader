@@ -1585,6 +1585,57 @@ function PlasmicIncaseTesteditrecipe2__RenderFunc(props: {
                                             ];
                                         }
 
+                                        $steps["updateTabs2ActiveKey"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "tabs2",
+                                                    "activeKey"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: "1"
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateTabs2ActiveKey"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "updateTabs2ActiveKey"
+                                          ] === "object" &&
+                                          typeof $steps["updateTabs2ActiveKey"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateTabs2ActiveKey"] =
+                                            await $steps[
+                                              "updateTabs2ActiveKey"
+                                            ];
+                                        }
+
                                         $steps[
                                           "updateModalEditPrintifyProductOpen"
                                         ] = true

@@ -369,7 +369,20 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         path: "inputPriceVariants.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
 
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
@@ -913,6 +926,18 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "testTest",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -2951,41 +2976,107 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   onClick={async () => {
                                                     const $steps = {};
 
-                                                    $steps[
-                                                      "postgresUpdateMany"
-                                                    ] = false
+                                                    $steps["newTest"] = false
                                                       ? (() => {
                                                           const actionArgs = {
-                                                            customFunction:
-                                                              async () => {
-                                                                return undefined;
-                                                              }
+                                                            variable: {
+                                                              objRoot: $state,
+                                                              variablePath: [
+                                                                "testTest"
+                                                              ]
+                                                            },
+                                                            operation: 0,
+                                                            value: "happy"
                                                           };
                                                           return (({
-                                                            customFunction
+                                                            variable,
+                                                            value,
+                                                            startIndex,
+                                                            deleteCount
                                                           }) => {
-                                                            return customFunction();
+                                                            if (!variable) {
+                                                              return;
+                                                            }
+                                                            const {
+                                                              objRoot,
+                                                              variablePath
+                                                            } = variable;
+
+                                                            $stateSet(
+                                                              objRoot,
+                                                              variablePath,
+                                                              value
+                                                            );
+                                                            return value;
                                                           })?.apply(null, [
                                                             actionArgs
                                                           ]);
                                                         })()
                                                       : undefined;
                                                     if (
+                                                      $steps["newTest"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "newTest"
+                                                      ] === "object" &&
+                                                      typeof $steps["newTest"]
+                                                        .then === "function"
+                                                    ) {
+                                                      $steps["newTest"] =
+                                                        await $steps["newTest"];
+                                                    }
+
+                                                    $steps["useIntegration"] =
+                                                      true
+                                                        ? (() => {
+                                                            const actionArgs =
+                                                              {};
+                                                            return (async ({
+                                                              dataOp,
+                                                              continueOnError
+                                                            }) => {
+                                                              try {
+                                                                const response =
+                                                                  await executePlasmicDataOp(
+                                                                    dataOp,
+                                                                    {
+                                                                      userAuthToken:
+                                                                        dataSourcesCtx?.userAuthToken,
+                                                                      user: dataSourcesCtx?.user
+                                                                    }
+                                                                  );
+                                                                await plasmicInvalidate(
+                                                                  dataOp.invalidatedKeys
+                                                                );
+                                                                return response;
+                                                              } catch (e) {
+                                                                if (
+                                                                  !continueOnError
+                                                                ) {
+                                                                  throw e;
+                                                                }
+                                                                return e;
+                                                              }
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                    if (
                                                       $steps[
-                                                        "postgresUpdateMany"
+                                                        "useIntegration"
                                                       ] != null &&
                                                       typeof $steps[
-                                                        "postgresUpdateMany"
+                                                        "useIntegration"
                                                       ] === "object" &&
                                                       typeof $steps[
-                                                        "postgresUpdateMany"
+                                                        "useIntegration"
                                                       ].then === "function"
                                                     ) {
-                                                      $steps[
-                                                        "postgresUpdateMany"
-                                                      ] = await $steps[
-                                                        "postgresUpdateMany"
-                                                      ];
+                                                      $steps["useIntegration"] =
+                                                        await $steps[
+                                                          "useIntegration"
+                                                        ];
                                                     }
                                                   }}
                                                 >
