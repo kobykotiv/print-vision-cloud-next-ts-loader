@@ -926,6 +926,34 @@
           "cssFilePath": "plasmic/print_vision/PlasmicPrivacyPolicy.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "x4n2p2jN_qky",
+          "name": "TestnewRecipe2",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicTestnewRecipe2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/new-recipe-2.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicTestnewRecipe2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-recipe-2"
+        },
+        {
+          "id": "9SMzhF3Rl3hY",
+          "name": "IncaseTesteditrecipe2",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicIncaseTesteditrecipe2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/recipes-6/[id].tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicIncaseTesteditrecipe2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/recipes-6/[id]"
         }
       ],
       "icons": [
@@ -958,6 +986,16 @@
           "id": "AlYwh9edS8by",
           "name": "Icon6Icon",
           "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__Icon6.tsx"
+        },
+        {
+          "id": "gfDSmbkYqijO",
+          "name": "UpRoundSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__UpRoundSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "Wmz2NrCSp4o2",
+          "name": "UpArrowSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__UpArrowSvgrepoComSvg.tsx"
         }
       ],
       "images": [

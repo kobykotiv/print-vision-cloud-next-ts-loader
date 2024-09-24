@@ -140,6 +140,8 @@ function PlasmicRecipes__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   let [$queries, setDollarQueries] = React.useState<
@@ -188,6 +190,8 @@ function PlasmicRecipes__RenderFunc(props: {
     $queries: $queries,
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     queryGetRecipesByUser: usePlasmicDataOp(() => {
@@ -397,7 +401,7 @@ function PlasmicRecipes__RenderFunc(props: {
                       rowActions: (() => {
                         const __composite = [
                           { type: "item", label: null, onClick: null },
-                          { type: "item", label: null }
+                          { type: "item", label: null, onClick: null }
                         ];
                         __composite["0"]["label"] = "Edit";
                         __composite["0"]["onClick"] = async (rowKey, row) => {
@@ -447,6 +451,99 @@ function PlasmicRecipes__RenderFunc(props: {
                           }
                         };
                         __composite["1"]["label"] = "Delete";
+                        __composite["1"]["onClick"] = async (rowKey, row) => {
+                          const $steps = {};
+
+                          $steps["postgresDeleteMany"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                    opId: "d0e077ba-c9ac-402f-bad7-09cbd77bb0b4",
+                                    userArgs: {
+                                      conditions: [row.id]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["postgresDeleteMany"] != null &&
+                            typeof $steps["postgresDeleteMany"] === "object" &&
+                            typeof $steps["postgresDeleteMany"].then ===
+                              "function"
+                          ) {
+                            $steps["postgresDeleteMany"] = await $steps[
+                              "postgresDeleteMany"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: ["warning", "Recipe Deleted"]
+                                };
+                                return $globalActions[
+                                  "plasmic-antd5-config-provider.showNotification"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["refreshData"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  queryInvalidation: ["plasmic_refresh_all"]
+                                };
+                                return (async ({ queryInvalidation }) => {
+                                  if (!queryInvalidation) {
+                                    return;
+                                  }
+                                  await plasmicInvalidate(queryInvalidation);
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["refreshData"] != null &&
+                            typeof $steps["refreshData"] === "object" &&
+                            typeof $steps["refreshData"].then === "function"
+                          ) {
+                            $steps["refreshData"] = await $steps["refreshData"];
+                          }
+                        };
                         return __composite;
                       })(),
 

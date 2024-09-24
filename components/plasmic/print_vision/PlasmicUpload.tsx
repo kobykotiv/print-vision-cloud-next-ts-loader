@@ -335,6 +335,25 @@ function PlasmicUpload__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "email",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return currentUser.email;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -599,6 +618,40 @@ function PlasmicUpload__RenderFunc(props: {
                       onFinish: async values => {
                         const $steps = {};
 
+                        $steps["updateEmail"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["email"]
+                                },
+                                operation: 0,
+                                value: currentUser.email
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateEmail"] != null &&
+                          typeof $steps["updateEmail"] === "object" &&
+                          typeof $steps["updateEmail"].then === "function"
+                        ) {
+                          $steps["updateEmail"] = await $steps["updateEmail"];
+                        }
+
                         $steps["defaultSubmit"] = true
                           ? (() => {
                               const actionArgs = {
@@ -774,11 +827,9 @@ function PlasmicUpload__RenderFunc(props: {
                           )}
                           initialValue={(() => {
                             try {
-                              return $state.table.selectedRows
-                                ? $state.table.selectedRows.map(i =>
-                                    parseInt(i.id)
-                                  )
-                                : [];
+                              return $state.table.selectedRows?.map(i =>
+                                parseInt(i.id)
+                              );
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -793,6 +844,7 @@ function PlasmicUpload__RenderFunc(props: {
                           name={"recipe_ids"}
                           preserve={false}
                           rules={[{ ruleType: "required" }]}
+                          shouldUpdate={true}
                         >
                           {(() => {
                             const child$Props = {
@@ -810,7 +862,7 @@ function PlasmicUpload__RenderFunc(props: {
                                   AntdInput_Helpers
                                 ),
                               readOnly: true,
-                              type: "number",
+                              type: "text",
                               value: generateStateValueProp($state, [
                                 "input2",
                                 "value"
@@ -931,11 +983,9 @@ function PlasmicUpload__RenderFunc(props: {
                                         action: "setFieldValue",
                                         args: [
                                           ["recipe_ids"],
-                                          $state.table.selectedRows
-                                            ? $state.table.selectedRows.map(i =>
-                                                parseInt(i.id)
-                                              )
-                                            : []
+                                          $state.table.selectedRows?.map(i =>
+                                            parseInt(i.id)
+                                          )
                                         ]
                                       };
                                       return (({ tplRef, action, args }) => {

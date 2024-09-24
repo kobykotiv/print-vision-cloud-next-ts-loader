@@ -30,19 +30,19 @@
   grid-column-end: -1 !important;
   padding: 0px;
 }
-.tabItem__sdkUl:global(.__wab_instance) {
+.tabItem___2IPnV:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   padding: 30px;
 }
-.text__wufGo {
+.text__qxazr {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.freeBox__hOnU0 {
+.freeBox__nucvz {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -52,7 +52,7 @@
   min-width: 0;
   padding: 8px;
 }
-.freeBox__hOnU0 > :global(.__wab_flex-container) {
+.freeBox__nucvz > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -60,17 +60,17 @@
   margin-top: calc(0px - 20px);
   height: calc(100% + 20px);
 }
-.freeBox__hOnU0 > :global(.__wab_flex-container) > *,
-.freeBox__hOnU0 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__hOnU0 > :global(.__wab_flex-container) > picture > img,
-.freeBox__hOnU0
+.freeBox__nucvz > :global(.__wab_flex-container) > *,
+.freeBox__nucvz > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__nucvz > :global(.__wab_flex-container) > picture > img,
+.freeBox__nucvz
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-top: 20px;
 }
-.freeBox__xP7R1 {
+.freeBox__s2MC {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -81,7 +81,7 @@
   min-width: 0;
   padding: 8px;
 }
-.h2__oeB4 {
+.h2__zmvZv {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -91,7 +91,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__mxG9 {
+.text__pUbRr {
   position: relative;
   width: 100%;
   height: auto;
@@ -113,7 +113,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.freeBox__wx7Ye {
+.freeBox__erek1 {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -132,18 +132,18 @@
   object-fit: cover;
   min-width: 0;
 }
-.tabItem__cGK8:global(.__wab_instance) {
+.tabItem__nSxf3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__kiXoC {
+.text__hoAFf {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.text__j4Ozi {
+.text__ybyQp {
   position: relative;
   width: 100%;
   height: auto;
@@ -164,7 +164,7 @@
   min-width: 0;
   padding: 8px;
 }
-.formField__q4O5S:global(.__wab_instance) {
+.formField___2OfGf:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -173,7 +173,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__jumYe:global(.__wab_instance) {
+.formField__hXOF:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -182,7 +182,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__nOla2:global(.__wab_instance) {
+.formField___3Lkr:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -191,7 +191,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__tJOaM:global(.__wab_instance) {
+.formField__xBCqS:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -200,29 +200,29 @@
   max-width: 100%;
   object-fit: cover;
 }
-.button__w2Fil:global(.__wab_instance) {
+.button__wfqIo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__mhi7X {
+.text__xbUZ {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.tabItem__ueHuU:global(.__wab_instance) {
+.tabItem__dz57Z:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__fIy9V {
+.text__pTbHj {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.text__r0N0 {
+.text__aiLu {
   position: relative;
   width: 100%;
   height: auto;
@@ -230,7 +230,7 @@
   color: var(--token-Bo2_tT25lwh4);
   min-width: 0;
 }
-.freeBox__s18Cf {
+.freeBox__h7CAo {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -242,18 +242,18 @@
   min-width: 0;
   padding: 8px;
 }
-.button__bYeD:global(.__wab_instance) {
+.button__n1OCr:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__nVlz6 {
+.text__pF42W {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.freeBox__nFv9 {
+.freeBox__xHvB {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -264,11 +264,11 @@
   min-width: 0;
   padding: 8px;
 }
-.button__nNici:global(.__wab_instance) {
+.button__kTguS:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__aOurw {
+.text__neoQe {
   position: relative;
   width: 100%;
   height: auto;
@@ -282,15 +282,16 @@
   width: 170px;
   flex-shrink: 0;
 }
-.button__ysSx2:global(.__wab_instance) {
+.button__zzp0J:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__jaHw {
+.text__m3F3V {
   position: relative;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
+  min-width: 0;
 }
 .tablePrintifyVariants:global(.__wab_instance) {
   width: 100%;
@@ -317,22 +318,22 @@
   min-width: 0;
   padding: 8px;
 }
-.button__bY8G:global(.__wab_instance) {
+.button__gl3Qg:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__pg8L {
+.text___1UP6F {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.tabItem___53OoV:global(.__wab_instance) {
+.tabItem__twO7:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__dhXbt {
+.text__vKuy0 {
   position: relative;
   width: 100%;
   height: auto;
@@ -355,7 +356,7 @@
   min-width: 0;
   padding: 8px;
 }
-.formField__snhtq:global(.__wab_instance) {
+.formField___9Kd0:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -364,7 +365,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.freeBox__bkyyd {
+.freeBox__izy4Y {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -375,7 +376,7 @@
   max-width: 100%;
   min-width: 0;
 }
-.formField__vAbij:global(.__wab_instance) {
+.formField__bMoKc:global(.__wab_instance) {
   width: 100%;
   min-width: 0;
 }
@@ -383,7 +384,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__no0Ru:global(.__wab_instance) {
+.formField__jxxS:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -392,7 +393,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__bMNjx:global(.__wab_instance) {
+.formField__lfyvQ:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -401,7 +402,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__zeM:global(.__wab_instance) {
+.formField__kMi7X:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -410,7 +411,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__hdWwc:global(.__wab_instance) {
+.formField__hqs9G:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -419,7 +420,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__rTyG2:global(.__wab_instance) {
+.formField__knMa7:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -428,7 +429,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__oruZn:global(.__wab_instance) {
+.formField__mNU7:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -437,7 +438,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__s4806:global(.__wab_instance) {
+.formField___6Ezoa:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -446,18 +447,18 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__uBBhY {
+.text__d5Dcd {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.button__y2HPw:global(.__wab_instance) {
+.button__pkkLj:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text___3FdIw {
+.text___5TRjk {
   position: relative;
   width: 100%;
   height: auto;
@@ -480,7 +481,7 @@
   min-width: 0;
   padding: 8px;
 }
-.formField__zKbPk:global(.__wab_instance) {
+.formField__lulIz:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -489,7 +490,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.freeBox__hSaWs {
+.freeBox___9KotS {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -500,7 +501,7 @@
   max-width: 100%;
   min-width: 0;
 }
-.formField__y78Ns:global(.__wab_instance) {
+.formField__gCkAf:global(.__wab_instance) {
   width: 100%;
   min-width: 0;
 }
@@ -508,7 +509,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__aolN:global(.__wab_instance) {
+.formField___3CZ9:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -517,7 +518,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__aMPnc:global(.__wab_instance) {
+.formField__sCAeS:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -526,7 +527,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__wvdVa:global(.__wab_instance) {
+.formField__tEfw:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -535,7 +536,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__m7Zms:global(.__wab_instance) {
+.formField___9DtGu:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -544,7 +545,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__sepNw:global(.__wab_instance) {
+.formField__u2Qby:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -553,7 +554,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__txfj:global(.__wab_instance) {
+.formField__w292D:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -562,7 +563,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__wj1U1:global(.__wab_instance) {
+.formField__l45Df:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -571,11 +572,11 @@
   max-width: 100%;
   object-fit: cover;
 }
-.button__jsoQe:global(.__wab_instance) {
+.button__pvvgr:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__zUx {
+.text__bJnS {
   position: relative;
   width: 100%;
   height: auto;
@@ -590,19 +591,19 @@
   min-width: 0;
   padding: 16px;
 }
-.tabItem__kVynx:global(.__wab_instance) {
+.tabItem___7Xr4P:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   padding: 30px;
 }
-.text___3Kvaj {
+.text___2Uw7P {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.freeBox__bTOj {
+.freeBox__vYhDc {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -612,7 +613,7 @@
   min-width: 0;
   padding: 8px;
 }
-.freeBox__bTOj > :global(.__wab_flex-container) {
+.freeBox__vYhDc > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -620,17 +621,17 @@
   margin-top: calc(0px - 20px);
   height: calc(100% + 20px);
 }
-.freeBox__bTOj > :global(.__wab_flex-container) > *,
-.freeBox__bTOj > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__bTOj > :global(.__wab_flex-container) > picture > img,
-.freeBox__bTOj
+.freeBox__vYhDc > :global(.__wab_flex-container) > *,
+.freeBox__vYhDc > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__vYhDc > :global(.__wab_flex-container) > picture > img,
+.freeBox__vYhDc
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-top: 20px;
 }
-.freeBox__zs67 {
+.freeBox__mZvpk {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -641,17 +642,17 @@
   min-width: 0;
   padding: 8px;
 }
-.h2___81CAs {
+.h2__rbOj7 {
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.button__l7VKb:global(.__wab_instance) {
+.button__quqwM:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text___0MAdN {
+.text__bdfMv {
   position: relative;
   width: 100%;
   height: auto;
@@ -677,11 +678,11 @@
   object-fit: cover;
   min-width: 0;
 }
-.tabItem__bakxB:global(.__wab_instance) {
+.tabItem__mfJmM:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__qdDkM {
+.text___58KWk {
   position: relative;
   width: 100%;
   height: auto;
@@ -700,7 +701,7 @@
   min-width: 0;
   padding: 8px;
 }
-.formField__etdMc:global(.__wab_instance) {
+.formField__luG7L:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -709,7 +710,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__i9DSp:global(.__wab_instance) {
+.formField__bcRl:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -718,7 +719,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__m6Tek:global(.__wab_instance) {
+.formField__qNqL3:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -727,7 +728,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__jKJy:global(.__wab_instance) {
+.formField__nQyDf:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -736,7 +737,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__iBWxf:global(.__wab_instance) {
+.formField__x4Kn:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -745,7 +746,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__cj8Ja:global(.__wab_instance) {
+.formField__y22A8:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -754,7 +755,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__ezdCh:global(.__wab_instance) {
+.formField___0Cqvt:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -763,7 +764,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__lrbcl:global(.__wab_instance) {
+.formField__kkcNs:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -772,7 +773,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__qhWei:global(.__wab_instance) {
+.formField___5XhYw:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -781,7 +782,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__kY9S5:global(.__wab_instance) {
+.formField__wfbAd:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -790,7 +791,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__xjbcH:global(.__wab_instance) {
+.formField__dUh2G:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -799,22 +800,22 @@
   max-width: 100%;
   object-fit: cover;
 }
-.button__w6XYw:global(.__wab_instance) {
+.button__tbDhD:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__uvfch {
+.text__yH1Au {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.tabItem__m2REl:global(.__wab_instance) {
+.tabItem__wnt1T:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__sqaBq {
+.text__dXtbK {
   position: relative;
   width: 100%;
   height: auto;
@@ -822,7 +823,7 @@
   padding-right: 0px;
   min-width: 0;
 }
-.freeBox___9D4Wc {
+.freeBox__sBz62 {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -838,18 +839,18 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__gFsv1 {
+.text___6SYM {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.button__oulCy:global(.__wab_instance) {
+.button___1Hah2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text___7FVe3 {
+.text___07SDr {
   position: relative;
   width: 100%;
   height: auto;
@@ -863,11 +864,11 @@
   width: 170px;
   flex-shrink: 0;
 }
-.button__am9Hj:global(.__wab_instance) {
+.button__owStV:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__my0E {
+.text__bvYuh {
   position: relative;
   width: 100%;
   height: auto;
@@ -882,11 +883,11 @@
   min-width: 0;
   padding: 16px;
 }
-.tabItem__cB3N9:global(.__wab_instance) {
+.tabItem___5Nvf3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__jHiKw {
+.text__f88 {
   position: relative;
   width: 100%;
   height: auto;
@@ -910,7 +911,7 @@
   min-width: 0;
   padding: 8px;
 }
-.freeBox__ukSYt {
+.freeBox___9E48U {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -922,7 +923,7 @@
   min-width: 0;
   padding: 8px;
 }
-.formField__gx7Hk:global(.__wab_instance) {
+.formField__frR4U:global(.__wab_instance) {
   width: 100%;
   min-width: 0;
 }
@@ -930,7 +931,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__qokKj:global(.__wab_instance) {
+.formField__tAdkU:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -939,7 +940,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__oRlG:global(.__wab_instance) {
+.formField__szYcm:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -948,7 +949,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__tY9Fr:global(.__wab_instance) {
+.formField__dS8RJ:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -957,7 +958,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__bBgBs:global(.__wab_instance) {
+.formField__daBov:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -966,7 +967,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__f8NI:global(.__wab_instance) {
+.formField__vLAj2:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -975,7 +976,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__njx47:global(.__wab_instance) {
+.formField__pe940:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -984,7 +985,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField__rVkkR:global(.__wab_instance) {
+.formField__uHwdm:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -993,7 +994,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.formField___9KCHu:global(.__wab_instance) {
+.formField__cryPg:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
@@ -1002,22 +1003,22 @@
   max-width: 100%;
   object-fit: cover;
 }
-.button__jo5Mf:global(.__wab_instance) {
+.button__asmzk:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__iYdNb {
+.text__kMnxq {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.button__h7VFh:global(.__wab_instance) {
+.button__cU0Tf:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.text__z52B8 {
+.text__u6ML {
   position: relative;
   width: 100%;
   height: auto;
@@ -1032,7 +1033,7 @@
   min-width: 0;
   padding: 16px;
 }
-.freeBox__jHmdE {
+.freeBox___7V2Sa {
   display: flex;
   flex-direction: row;
   position: fixed;
