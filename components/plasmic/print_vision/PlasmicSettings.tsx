@@ -70,8 +70,14 @@ import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/compo
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-import { FormWrapper } from "@plasmicpkgs/antd5/skinny/SchemaForm";
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { UploadWrapper } from "@plasmicpkgs/antd5/skinny/registerUpload";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -99,6 +105,17 @@ export type PlasmicSettings__OverridesType = {
   table?: Flex__<typeof RichTable>;
   modal?: Flex__<typeof AntdModal>;
   form?: Flex__<typeof FormWrapper>;
+  numberInput?: Flex__<typeof AntdInputNumber>;
+  input3?: Flex__<typeof AntdInput>;
+  input?: Flex__<typeof AntdInput>;
+  select?: Flex__<typeof AntdSelect>;
+  input6?: Flex__<typeof AntdInput>;
+  input2?: Flex__<typeof AntdInput>;
+  input4?: Flex__<typeof AntdInput>;
+  h5?: Flex__<"h5">;
+  upload?: Flex__<typeof UploadWrapper>;
+  input7?: Flex__<typeof AntdInput>;
+  input5?: Flex__<typeof AntdInput>;
 };
 
 export interface DefaultSettingsProps {}
@@ -209,6 +226,104 @@ function PlasmicSettings__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "numberInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input7.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "upload.files",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "file",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "signedUploadUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "printifyId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "printfulId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -526,86 +641,13 @@ function PlasmicSettings__RenderFunc(props: {
                       "open"
                     ])}
                     open={generateStateValueProp($state, ["modal", "open"])}
-                    title={"Modal title"}
+                    title={"Settings"}
                     trigger={null}
+                    width={"60%"}
                   >
                     {(() => {
                       const child$Props = {
                         className: classNames("__wab_instance", sty.form),
-                        data: {
-                          sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                          opId: "fd6efd48-34bd-4bb1-a91d-a7c858e97821",
-                          userArgs: {},
-                          cacheKey: `plasmic.$.${(() => {
-                            try {
-                              return "getOne";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}.$.fd6efd48-34bd-4bb1-a91d-a7c858e97821.$.`,
-                          invalidatedKeys: null,
-                          roleId: null
-                        },
-                        dataFormItems: (() => {
-                          const __composite = [
-                            {
-                              key: "id",
-                              inputType: "Number",
-                              fieldId: "id",
-                              label: "id",
-                              name: "id",
-                              initialValue: "1"
-                            },
-                            {
-                              key: "printful_key",
-                              inputType: "Text",
-                              fieldId: "printful_key",
-                              label: "printful_key",
-                              name: "printful_key",
-                              initialValue:
-                                "R4R8UYOG4EybbEq7mA6btZw2DDcXgVHPc8lFQmsv"
-                            },
-                            {
-                              key: "printify_shop_id",
-                              inputType: null,
-                              fieldId: "printify_shop_id",
-                              label: "printify_shop_id",
-                              name: "printify_shop_id",
-                              initialValue: {},
-                              options: null
-                            },
-                            {
-                              key: "owner",
-                              inputType: "Text",
-                              fieldId: "owner",
-                              label: "owner",
-                              name: "owner",
-                              initialValue: "golfx2@gmail.com"
-                            },
-                            {
-                              key: "printify_key",
-                              inputType: "Text",
-                              fieldId: "printify_key",
-                              label: "printify_key",
-                              name: "printify_key",
-                              initialValue:
-                                "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjdiMzkwYWI1YWI1NDYzZDUzYzQ2ZmVmMjBjNmRkYWRkZDZhMzNiOTM0MmM4ZDY5Yzk5MjAzZjY2OWJlOWUwNjY3MjlmNGVkMTRjOWI2ZWE3IiwiaWF0IjoxNzIwMDIwNjI2LjI3MDIzNCwibmJmIjoxNzIwMDIwNjI2LjI3MDIzNiwiZXhwIjoxNzUxNTU2NjI2LjIzMjAwOSwic3ViIjoiNjQwNzc4MSIsInNjb3BlcyI6WyJzaG9wcy5tYW5hZ2UiLCJzaG9wcy5yZWFkIiwiY2F0YWxvZy5yZWFkIiwib3JkZXJzLnJlYWQiLCJvcmRlcnMud3JpdGUiLCJwcm9kdWN0cy5yZWFkIiwicHJvZHVjdHMud3JpdGUiLCJ3ZWJob29rcy5yZWFkIiwid2ViaG9va3Mud3JpdGUiLCJ1cGxvYWRzLnJlYWQiLCJ1cGxvYWRzLndyaXRlIiwicHJpbnRfcHJvdmlkZXJzLnJlYWQiXX0.AFyPnNWKNsvgiKpYruqTiwhAkETlrssWwj8YPHI9TAYUEP1KGDw2GA23OhwQ4SEf6vAhb2wUHQGtLkSKgqU"
-                            }
-                          ];
-                          __composite["2"]["inputType"] = "Select";
-                          __composite["2"]["options"] =
-                            $queries.printifyGetShops.data.response.map(
-                              shop => ({ value: shop.id, label: shop.title })
-                            );
-                          return __composite;
-                        })(),
-
                         extendedOnValuesChange:
                           generateStateOnChangePropForCodeComponents(
                             $state,
@@ -613,10 +655,17 @@ function PlasmicSettings__RenderFunc(props: {
                             ["form", "value"],
                             FormWrapper_Helpers
                           ),
-                        formItems: [],
+                        formItems: [
+                          { label: "Name", name: "name", inputType: "Text" },
+                          {
+                            label: "Message",
+                            name: "message",
+                            inputType: "Text Area"
+                          }
+                        ],
                         labelCol: { span: 8, horizontalOnly: true },
                         layout: "vertical",
-                        mode: "simplified",
+                        mode: "advanced",
                         onFinish: async values => {
                           const $steps = {};
 
@@ -677,26 +726,7 @@ function PlasmicSettings__RenderFunc(props: {
                         ref: ref => {
                           $refs["form"] = ref;
                         },
-                        submitSlot: (
-                          <AntdButton
-                            className={classNames(
-                              "__wab_instance",
-                              sty.button__pvvfz
-                            )}
-                            submitsForm={true}
-                            type={"primary"}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__oHyzU
-                              )}
-                            >
-                              {"Submit"}
-                            </div>
-                          </AntdButton>
-                        ),
+                        submitSlot: null,
                         wrapperCol: { span: 16, horizontalOnly: true }
                       };
                       initializeCodeComponentStates(
@@ -721,7 +751,1201 @@ function PlasmicSettings__RenderFunc(props: {
                           data-plasmic-name={"form"}
                           data-plasmic-override={overrides.form}
                           {...child$Props}
-                        />
+                        >
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField__wEuAl
+                            )}
+                            hidden={true}
+                            initialValue={1}
+                            label={"id"}
+                            name={"id"}
+                          >
+                            <AntdInputNumber
+                              data-plasmic-name={"numberInput"}
+                              data-plasmic-override={overrides.numberInput}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.numberInput
+                              )}
+                              onChange={generateStateOnChangeProp($state, [
+                                "numberInput",
+                                "value"
+                              ])}
+                              type={"number"}
+                              value={generateStateValueProp($state, [
+                                "numberInput",
+                                "value"
+                              ])}
+                            />
+                          </FormItemWrapper>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___2YW8M
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__no4NW
+                              )}
+                            >
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__gtQeY
+                                )}
+                                initialValue={
+                                  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjdiMzkwYWI1YWI1NDYzZDUzYzQ2ZmVmMjBjNmRkYWRkZDZhMzNiOTM0MmM4ZDY5Yzk5MjAzZjY2OWJlOWUwNjY3MjlmNGVkMTRjOWI2ZWE3IiwiaWF0IjoxNzIwMDIwNjI2LjI3MDIzNCwibmJmIjoxNzIwMDIwNjI2LjI3MDIzNiwiZXhwIjoxNzUxNTU2NjI2LjIzMjAwOSwic3ViIjoiNjQwNzc4MSIsInNjb3BlcyI6WyJzaG9wcy5tYW5hZ2UiLCJzaG9wcy5yZWFkIiwiY2F0YWxvZy5yZWFkIiwib3JkZXJzLnJlYWQiLCJvcmRlcnMud3JpdGUiLCJwcm9kdWN0cy5yZWFkIiwicHJvZHVjdHMud3JpdGUiLCJ3ZWJob29rcy5yZWFkIiwid2ViaG9va3Mud3JpdGUiLCJ1cGxvYWRzLnJlYWQiLCJ1cGxvYWRzLndyaXRlIiwicHJpbnRfcHJvdmlkZXJzLnJlYWQiXX0.AFyPnNWKNsvgiKpYruqTiwhAkETlrssWwj8YPHI9TAYUEP1KGDw2GA23OhwQ4SEf6vAhb2wUHQGtLkSKgqU"
+                                }
+                                label={"printify_key"}
+                                name={"printify_key"}
+                              >
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.input3
+                                    ),
+                                    onChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "value",
+                                        ["input3", "value"],
+                                        AntdInput_Helpers
+                                      ),
+                                    value: generateStateValueProp($state, [
+                                      "input3",
+                                      "value"
+                                    ])
+                                  };
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "value",
+                                        plasmicStateName: "input3.value"
+                                      }
+                                    ],
+                                    [],
+                                    AntdInput_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <AntdInput
+                                      data-plasmic-name={"input3"}
+                                      data-plasmic-override={overrides.input3}
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()}
+                              </FormItemWrapper>
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__rwnti
+                                )}
+                                initialValue={
+                                  "R4R8UYOG4EybbEq7mA6btZw2DDcXgVHPc8lFQmsv"
+                                }
+                                label={"printful_key"}
+                                name={"printful_key"}
+                              >
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.input
+                                    ),
+                                    onChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "value",
+                                        ["input", "value"],
+                                        AntdInput_Helpers
+                                      ),
+                                    value: generateStateValueProp($state, [
+                                      "input",
+                                      "value"
+                                    ])
+                                  };
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "value",
+                                        plasmicStateName: "input.value"
+                                      }
+                                    ],
+                                    [],
+                                    AntdInput_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <AntdInput
+                                      data-plasmic-name={"input"}
+                                      data-plasmic-override={overrides.input}
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()}
+                              </FormItemWrapper>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__kZ08
+                              )}
+                            >
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__pewXk
+                                )}
+                                initialValue={{}}
+                                label={"printify_shop_id"}
+                                name={"printify_shop_id"}
+                              >
+                                <AntdSelect
+                                  data-plasmic-name={"select"}
+                                  data-plasmic-override={overrides.select}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.select
+                                  )}
+                                  defaultStylesClassName={classNames(
+                                    projectcss.root_reset,
+                                    projectcss.plasmic_default_styles,
+                                    projectcss.plasmic_mixins,
+                                    projectcss.plasmic_tokens,
+                                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                                    plasmic_plasmic_rich_components_css.plasmic_tokens
+                                  )}
+                                  onChange={generateStateOnChangeProp($state, [
+                                    "select",
+                                    "value"
+                                  ])}
+                                  options={(() => {
+                                    try {
+                                      return $queries.printifyGetShops.data.response.map(
+                                        shop => ({
+                                          value: shop.id,
+                                          label: shop.title
+                                        })
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  placeholder={"Select..."}
+                                  popupScopeClassName={sty["select__popup"]}
+                                  value={generateStateValueProp($state, [
+                                    "select",
+                                    "value"
+                                  ])}
+                                />
+                              </FormItemWrapper>
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__vweM5
+                                )}
+                                initialValue={null}
+                                label={"printful_shop_id"}
+                                name={"printful_shop_id"}
+                              >
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.input6
+                                    ),
+                                    onChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "value",
+                                        ["input6", "value"],
+                                        AntdInput_Helpers
+                                      ),
+                                    value: generateStateValueProp($state, [
+                                      "input6",
+                                      "value"
+                                    ])
+                                  };
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "value",
+                                        plasmicStateName: "input6.value"
+                                      }
+                                    ],
+                                    [],
+                                    AntdInput_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <AntdInput
+                                      data-plasmic-name={"input6"}
+                                      data-plasmic-override={overrides.input6}
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()}
+                              </FormItemWrapper>
+                            </div>
+                          </div>
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField__i8FtC
+                            )}
+                            hidden={true}
+                            initialValue={"golfx2@gmail.com"}
+                            label={"owner"}
+                            name={"owner"}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.input2
+                                ),
+                                onChange:
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["input2", "value"],
+                                    AntdInput_Helpers
+                                  ),
+                                value: generateStateValueProp($state, [
+                                  "input2",
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "input2.value"
+                                  }
+                                ],
+                                [],
+                                AntdInput_Helpers ?? {},
+                                child$Props
+                              );
+
+                              return (
+                                <AntdInput
+                                  data-plasmic-name={"input2"}
+                                  data-plasmic-override={overrides.input2}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </FormItemWrapper>
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField__wMbdV
+                            )}
+                            initialValue={
+                              "0b56c12b-e6ff-4823-b02c-5bc9e3057ff3"
+                            }
+                            label={"prodigi_key"}
+                            name={"prodigi_key"}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.input4
+                                ),
+                                onChange:
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["input4", "value"],
+                                    AntdInput_Helpers
+                                  ),
+                                value: generateStateValueProp($state, [
+                                  "input4",
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "input4.value"
+                                  }
+                                ],
+                                [],
+                                AntdInput_Helpers ?? {},
+                                child$Props
+                              );
+
+                              return (
+                                <AntdInput
+                                  data-plasmic-name={"input4"}
+                                  data-plasmic-override={overrides.input4}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </FormItemWrapper>
+                          <h5
+                            data-plasmic-name={"h5"}
+                            data-plasmic-override={overrides.h5}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h5,
+                              projectcss.__wab_text,
+                              sty.h5
+                            )}
+                          >
+                            {"Logo"}
+                          </h5>
+                          <UploadWrapper
+                            data-plasmic-name={"upload"}
+                            data-plasmic-override={overrides.upload}
+                            accept={"image/*"}
+                            className={classNames("__wab_instance", sty.upload)}
+                            dragAndDropFiles={true}
+                            files={generateStateValueProp($state, [
+                              "upload",
+                              "files"
+                            ])}
+                            listType={"picture-card"}
+                            maxCount={1}
+                            onFilesChange={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "upload",
+                                "files"
+                              ]).apply(null, eventArgs);
+                              (async files => {
+                                const $steps = {};
+
+                                $steps["updateFile"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["file"]
+                                        },
+                                        operation: 0,
+                                        value: $state.upload.files[0].uid
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateFile"] != null &&
+                                  typeof $steps["updateFile"] === "object" &&
+                                  typeof $steps["updateFile"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateFile"] = await $steps[
+                                    "updateFile"
+                                  ];
+                                }
+
+                                $steps["supabaseUploadFile"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        dataOp: {
+                                          sourceId: "fq3u296VTpoRcVc8quSCN3",
+                                          opId: "72a28a88-6705-4654-bfe5-737907296ad8",
+                                          userArgs: {
+                                            path: [$state.upload.files[0].uid],
+                                            content: [
+                                              $state.upload.files[0].contents
+                                            ],
+                                            contentType: [
+                                              $state.upload.files[0].type
+                                            ]
+                                          },
+                                          cacheKey: null,
+                                          invalidatedKeys: [
+                                            "plasmic_refresh_all"
+                                          ],
+                                          roleId: null
+                                        },
+                                        continueOnError: true
+                                      };
+                                      return (async ({
+                                        dataOp,
+                                        continueOnError
+                                      }) => {
+                                        try {
+                                          const response =
+                                            await executePlasmicDataOp(dataOp, {
+                                              userAuthToken:
+                                                dataSourcesCtx?.userAuthToken,
+                                              user: dataSourcesCtx?.user
+                                            });
+                                          await plasmicInvalidate(
+                                            dataOp.invalidatedKeys
+                                          );
+                                          return response;
+                                        } catch (e) {
+                                          if (!continueOnError) {
+                                            throw e;
+                                          }
+                                          return e;
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["supabaseUploadFile"] != null &&
+                                  typeof $steps["supabaseUploadFile"] ===
+                                    "object" &&
+                                  typeof $steps["supabaseUploadFile"].then ===
+                                    "function"
+                                ) {
+                                  $steps["supabaseUploadFile"] = await $steps[
+                                    "supabaseUploadFile"
+                                  ];
+                                }
+                              }).apply(null, eventArgs);
+                            }}
+                            showUploadList={true}
+                          >
+                            <AntdButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button___2EeLb
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__wnZx2
+                                )}
+                              >
+                                {"Upload"}
+                              </div>
+                            </AntdButton>
+                          </UploadWrapper>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ouBP
+                            )}
+                          >
+                            <FormItemWrapper
+                              className={classNames(
+                                "__wab_instance",
+                                sty.formField__bvlaI
+                              )}
+                              initialValue={(() => {
+                                try {
+                                  return $state.printifyId.data.response.id;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              label={
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__ez6Jk
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__pqr5U
+                                    )}
+                                  >
+                                    {"printify_logo_id"}
+                                  </div>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $state.upload.files[0].uid.length > 0
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicLink__
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.a,
+                                        projectcss.__wab_text,
+                                        sty.link___15Mre
+                                      )}
+                                      component={Link}
+                                      onClick={async event => {
+                                        const $steps = {};
+
+                                        $steps["supabaseGetSignedFileUrl"] =
+                                          true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "fq3u296VTpoRcVc8quSCN3",
+                                                    opId: "070fd442-7e10-4f01-bcf6-3f871be38bec",
+                                                    userArgs: {
+                                                      path: [
+                                                        $state.upload.files[0]
+                                                          .uid
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: null,
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                        if (
+                                          $steps["supabaseGetSignedFileUrl"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "supabaseGetSignedFileUrl"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "supabaseGetSignedFileUrl"
+                                          ].then === "function"
+                                        ) {
+                                          $steps["supabaseGetSignedFileUrl"] =
+                                            await $steps[
+                                              "supabaseGetSignedFileUrl"
+                                            ];
+                                        }
+
+                                        $steps["updateSignedUploadUrl"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "signedUploadUrl"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value:
+                                                  $steps
+                                                    .supabaseGetSignedFileUrl
+                                                    .signedUrl
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateSignedUploadUrl"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "updateSignedUploadUrl"
+                                          ] === "object" &&
+                                          typeof $steps["updateSignedUploadUrl"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateSignedUploadUrl"] =
+                                            await $steps[
+                                              "updateSignedUploadUrl"
+                                            ];
+                                        }
+
+                                        $steps["httpPost"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "fumskhn7h2QULzwkXAtFMC",
+                                                  opId: "d85caa96-070b-471b-ae16-9d57649083b6",
+                                                  userArgs: {
+                                                    body: [
+                                                      $state.signedUploadUrl
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId:
+                                                    "d035f350-edf5-4268-af03-4480b52522b0"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["httpPost"] != null &&
+                                          typeof $steps["httpPost"] ===
+                                            "object" &&
+                                          typeof $steps["httpPost"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["httpPost"] = await $steps[
+                                            "httpPost"
+                                          ];
+                                        }
+
+                                        $steps["updatePrintifyId"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["printifyId"]
+                                                },
+                                                operation: 0,
+                                                value: $steps.httpPost
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updatePrintifyId"] != null &&
+                                          typeof $steps["updatePrintifyId"] ===
+                                            "object" &&
+                                          typeof $steps["updatePrintifyId"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updatePrintifyId"] =
+                                            await $steps["updatePrintifyId"];
+                                        }
+                                      }}
+                                      platform={"nextjs"}
+                                    >
+                                      {"refresh"}
+                                    </PlasmicLink__>
+                                  ) : null}
+                                </Stack__>
+                              }
+                              name={"printify_logo_id"}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input7
+                                  ),
+                                  onChange:
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input7", "value"],
+                                      AntdInput_Helpers
+                                    ),
+                                  value: generateStateValueProp($state, [
+                                    "input7",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input7.value"
+                                    }
+                                  ],
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input7"}
+                                    data-plasmic-override={overrides.input7}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                            </FormItemWrapper>
+                            <FormItemWrapper
+                              className={classNames(
+                                "__wab_instance",
+                                sty.formField__xtjQq
+                              )}
+                              initialValue={(() => {
+                                try {
+                                  return $state.printfulId.data.response.result
+                                    .id;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              label={
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__xfEa
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__sxMyz
+                                    )}
+                                  >
+                                    {"printful_logo_id"}
+                                  </div>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $state.upload.files[0].uid.length > 0
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicLink__
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.a,
+                                        projectcss.__wab_text,
+                                        sty.link__jrDtq
+                                      )}
+                                      component={Link}
+                                      href={"https://www.plasmic.app/"}
+                                      onClick={async event => {
+                                        const $steps = {};
+
+                                        $steps["supabaseGetSignedFileUrl"] =
+                                          true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "fq3u296VTpoRcVc8quSCN3",
+                                                    opId: "070fd442-7e10-4f01-bcf6-3f871be38bec",
+                                                    userArgs: {
+                                                      path: [
+                                                        $state.upload.files[0]
+                                                          .uid
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: null,
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                        if (
+                                          $steps["supabaseGetSignedFileUrl"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "supabaseGetSignedFileUrl"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "supabaseGetSignedFileUrl"
+                                          ].then === "function"
+                                        ) {
+                                          $steps["supabaseGetSignedFileUrl"] =
+                                            await $steps[
+                                              "supabaseGetSignedFileUrl"
+                                            ];
+                                        }
+
+                                        $steps["updateSignedUploadUrl"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "signedUploadUrl"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value:
+                                                  $steps
+                                                    .supabaseGetSignedFileUrl
+                                                    .signedUrl
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateSignedUploadUrl"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "updateSignedUploadUrl"
+                                          ] === "object" &&
+                                          typeof $steps["updateSignedUploadUrl"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateSignedUploadUrl"] =
+                                            await $steps[
+                                              "updateSignedUploadUrl"
+                                            ];
+                                        }
+
+                                        $steps["httpPost"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "w9bT7zJHQBMsxuYyCMQHKC",
+                                                  opId: "b309a1f6-657a-49b1-a7d7-57004da303ba",
+                                                  userArgs: {
+                                                    body: [
+                                                      $state.signedUploadUrl
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId: null
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["httpPost"] != null &&
+                                          typeof $steps["httpPost"] ===
+                                            "object" &&
+                                          typeof $steps["httpPost"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["httpPost"] = await $steps[
+                                            "httpPost"
+                                          ];
+                                        }
+
+                                        $steps["updatePrintfulId"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["printfulId"]
+                                                },
+                                                operation: 0,
+                                                value: $steps.httpPost
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updatePrintfulId"] != null &&
+                                          typeof $steps["updatePrintfulId"] ===
+                                            "object" &&
+                                          typeof $steps["updatePrintfulId"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updatePrintfulId"] =
+                                            await $steps["updatePrintfulId"];
+                                        }
+                                      }}
+                                      platform={"nextjs"}
+                                    >
+                                      {"refresh"}
+                                    </PlasmicLink__>
+                                  ) : null}
+                                </Stack__>
+                              }
+                              name={"printful_logo_id"}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input5
+                                  ),
+                                  onChange:
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input5", "value"],
+                                      AntdInput_Helpers
+                                    ),
+                                  value: generateStateValueProp($state, [
+                                    "input5",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input5.value"
+                                    }
+                                  ],
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input5"}
+                                    data-plasmic-override={overrides.input5}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                            </FormItemWrapper>
+                          </div>
+                          <AntdButton
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button___2Zpg
+                            )}
+                            submitsForm={true}
+                            type={"primary"}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__perNs
+                              )}
+                            >
+                              {"Submit"}
+                            </div>
+                          </AntdButton>
+                        </FormWrapper>
                       );
                     })()}
                   </AntdModal>
@@ -754,11 +1978,82 @@ function PlasmicSettings__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "table", "modal", "form"],
-  pageLayout: ["pageLayout", "table", "modal", "form"],
+  root: [
+    "root",
+    "pageLayout",
+    "table",
+    "modal",
+    "form",
+    "numberInput",
+    "input3",
+    "input",
+    "select",
+    "input6",
+    "input2",
+    "input4",
+    "h5",
+    "upload",
+    "input7",
+    "input5"
+  ],
+  pageLayout: [
+    "pageLayout",
+    "table",
+    "modal",
+    "form",
+    "numberInput",
+    "input3",
+    "input",
+    "select",
+    "input6",
+    "input2",
+    "input4",
+    "h5",
+    "upload",
+    "input7",
+    "input5"
+  ],
   table: ["table"],
-  modal: ["modal", "form"],
-  form: ["form"]
+  modal: [
+    "modal",
+    "form",
+    "numberInput",
+    "input3",
+    "input",
+    "select",
+    "input6",
+    "input2",
+    "input4",
+    "h5",
+    "upload",
+    "input7",
+    "input5"
+  ],
+  form: [
+    "form",
+    "numberInput",
+    "input3",
+    "input",
+    "select",
+    "input6",
+    "input2",
+    "input4",
+    "h5",
+    "upload",
+    "input7",
+    "input5"
+  ],
+  numberInput: ["numberInput"],
+  input3: ["input3"],
+  input: ["input"],
+  select: ["select"],
+  input6: ["input6"],
+  input2: ["input2"],
+  input4: ["input4"],
+  h5: ["h5"],
+  upload: ["upload"],
+  input7: ["input7"],
+  input5: ["input5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -769,6 +2064,17 @@ type NodeDefaultElementType = {
   table: typeof RichTable;
   modal: typeof AntdModal;
   form: typeof FormWrapper;
+  numberInput: typeof AntdInputNumber;
+  input3: typeof AntdInput;
+  input: typeof AntdInput;
+  select: typeof AntdSelect;
+  input6: typeof AntdInput;
+  input2: typeof AntdInput;
+  input4: typeof AntdInput;
+  h5: "h5";
+  upload: typeof UploadWrapper;
+  input7: typeof AntdInput;
+  input5: typeof AntdInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -860,6 +2166,17 @@ export const PlasmicSettings = Object.assign(
     table: makeNodeComponent("table"),
     modal: makeNodeComponent("modal"),
     form: makeNodeComponent("form"),
+    numberInput: makeNodeComponent("numberInput"),
+    input3: makeNodeComponent("input3"),
+    input: makeNodeComponent("input"),
+    select: makeNodeComponent("select"),
+    input6: makeNodeComponent("input6"),
+    input2: makeNodeComponent("input2"),
+    input4: makeNodeComponent("input4"),
+    h5: makeNodeComponent("h5"),
+    upload: makeNodeComponent("upload"),
+    input7: makeNodeComponent("input7"),
+    input5: makeNodeComponent("input5"),
 
     // Metadata about props expected for PlasmicSettings
     internalVariantProps: PlasmicSettings__VariantProps,
