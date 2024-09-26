@@ -310,8 +310,8 @@ function PlasmicSettings__RenderFunc(props: {
       {
         path: "signedUploadUrl",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "printifyId",
@@ -341,21 +341,21 @@ function PlasmicSettings__RenderFunc(props: {
     query: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "3d49a3a6-7429-430d-ac0a-9d97e9c17d50",
+        opId: "81791845-f7a9-4d78-93d6-7770af2f46b4",
         userArgs: {},
-        cacheKey: `plasmic.$.3d49a3a6-7429-430d-ac0a-9d97e9c17d50.$.`,
+        cacheKey: `plasmic.$.81791845-f7a9-4d78-93d6-7770af2f46b4.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     }),
     printifyGetShops: usePlasmicDataOp(() => {
       return {
         sourceId: "fumskhn7h2QULzwkXAtFMC",
-        opId: "dafd553e-250f-444c-a2dd-fa913cad3589",
+        opId: "2d775cb7-1386-4ea5-b602-aebc388de068",
         userArgs: {},
-        cacheKey: `plasmic.$.dafd553e-250f-444c-a2dd-fa913cad3589.$.`,
+        cacheKey: `plasmic.$.2d775cb7-1386-4ea5-b602-aebc388de068.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     })
   };
@@ -443,6 +443,16 @@ function PlasmicSettings__RenderFunc(props: {
                             key: "printful_shop_id",
                             fieldId: "printful_shop_id",
                             isHidden: null
+                          },
+                          {
+                            key: "printful_logo_id",
+                            fieldId: "printful_logo_id",
+                            isHidden: null
+                          },
+                          {
+                            key: "printify_logo_id",
+                            fieldId: "printify_logo_id",
+                            isHidden: null
                           }
                         ];
                         __composite["1"]["isHidden"] = true;
@@ -450,6 +460,8 @@ function PlasmicSettings__RenderFunc(props: {
                         __composite["4"]["isHidden"] = true;
                         __composite["5"]["isHidden"] = true;
                         __composite["6"]["isHidden"] = true;
+                        __composite["7"]["isHidden"] = true;
+                        __composite["8"]["isHidden"] = true;
                         return __composite;
                       })(),
 
@@ -674,13 +686,14 @@ function PlasmicSettings__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                    opId: "803a0714-200b-4c73-8fb0-5e9a702621b4",
+                                    opId: "88f9ec69-ca84-4421-a2df-6cccbc86f51d",
                                     userArgs: {
                                       variables: [$state.form.value]
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId: null
+                                    roleId:
+                                      "d035f350-edf5-4268-af03-4480b52522b0"
                                   }
                                 };
                                 return (async ({ dataOp, continueOnError }) => {
@@ -1148,7 +1161,10 @@ function PlasmicSettings__RenderFunc(props: {
                                           variablePath: ["file"]
                                         },
                                         operation: 0,
-                                        value: $state.upload.files[0].uid
+                                        value:
+                                          $state.upload.files[
+                                            $state.upload.files.length - 1
+                                          ].uid
                                       };
                                       return (({
                                         variable,
@@ -1183,21 +1199,30 @@ function PlasmicSettings__RenderFunc(props: {
                                       const actionArgs = {
                                         dataOp: {
                                           sourceId: "fq3u296VTpoRcVc8quSCN3",
-                                          opId: "72a28a88-6705-4654-bfe5-737907296ad8",
+                                          opId: "da56b2ca-8360-49f9-80bb-960e27098b5a",
                                           userArgs: {
-                                            path: [$state.upload.files[0].uid],
+                                            path: [
+                                              $state.upload.files[
+                                                $state.upload.files.length - 1
+                                              ].uid
+                                            ],
                                             content: [
-                                              $state.upload.files[0].contents
+                                              $state.upload.files[
+                                                $state.upload.files.length - 1
+                                              ].contents
                                             ],
                                             contentType: [
-                                              $state.upload.files[0].type
+                                              $state.upload.files[
+                                                $state.upload.files.length - 1
+                                              ].type
                                             ]
                                           },
                                           cacheKey: null,
                                           invalidatedKeys: [
                                             "plasmic_refresh_all"
                                           ],
-                                          roleId: null
+                                          roleId:
+                                            "d035f350-edf5-4268-af03-4480b52522b0"
                                         },
                                         continueOnError: true
                                       };
@@ -1236,6 +1261,93 @@ function PlasmicSettings__RenderFunc(props: {
                                     "supabaseUploadFile"
                                   ];
                                 }
+
+                                $steps["getFileUrl"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        dataOp: {
+                                          sourceId: "fq3u296VTpoRcVc8quSCN3",
+                                          opId: "070fd442-7e10-4f01-bcf6-3f871be38bec",
+                                          userArgs: {
+                                            path: [$state.file]
+                                          },
+                                          cacheKey: null,
+                                          invalidatedKeys: null,
+                                          roleId: null
+                                        }
+                                      };
+                                      return (async ({
+                                        dataOp,
+                                        continueOnError
+                                      }) => {
+                                        try {
+                                          const response =
+                                            await executePlasmicDataOp(dataOp, {
+                                              userAuthToken:
+                                                dataSourcesCtx?.userAuthToken,
+                                              user: dataSourcesCtx?.user
+                                            });
+                                          await plasmicInvalidate(
+                                            dataOp.invalidatedKeys
+                                          );
+                                          return response;
+                                        } catch (e) {
+                                          if (!continueOnError) {
+                                            throw e;
+                                          }
+                                          return e;
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["getFileUrl"] != null &&
+                                  typeof $steps["getFileUrl"] === "object" &&
+                                  typeof $steps["getFileUrl"].then ===
+                                    "function"
+                                ) {
+                                  $steps["getFileUrl"] = await $steps[
+                                    "getFileUrl"
+                                  ];
+                                }
+
+                                $steps["updateSignedUploadUrl"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["signedUploadUrl"]
+                                        },
+                                        operation: 0,
+                                        value: $steps.getFileUrl
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateSignedUploadUrl"] != null &&
+                                  typeof $steps["updateSignedUploadUrl"] ===
+                                    "object" &&
+                                  typeof $steps["updateSignedUploadUrl"]
+                                    .then === "function"
+                                ) {
+                                  $steps["updateSignedUploadUrl"] =
+                                    await $steps["updateSignedUploadUrl"];
+                                }
                               }).apply(null, eventArgs);
                             }}
                             showUploadList={true}
@@ -1270,7 +1382,10 @@ function PlasmicSettings__RenderFunc(props: {
                               )}
                               initialValue={(() => {
                                 try {
-                                  return $state.printifyId.data.response.id;
+                                  return (
+                                    $queries.query.data.printify_logo_id ||
+                                    $state.printifyId.data.response.id
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1327,131 +1442,17 @@ function PlasmicSettings__RenderFunc(props: {
                                       onClick={async event => {
                                         const $steps = {};
 
-                                        $steps["supabaseGetSignedFileUrl"] =
-                                          true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  dataOp: {
-                                                    sourceId:
-                                                      "fq3u296VTpoRcVc8quSCN3",
-                                                    opId: "070fd442-7e10-4f01-bcf6-3f871be38bec",
-                                                    userArgs: {
-                                                      path: [
-                                                        $state.upload.files[0]
-                                                          .uid
-                                                      ]
-                                                    },
-                                                    cacheKey: null,
-                                                    invalidatedKeys: null,
-                                                    roleId: null
-                                                  }
-                                                };
-                                                return (async ({
-                                                  dataOp,
-                                                  continueOnError
-                                                }) => {
-                                                  try {
-                                                    const response =
-                                                      await executePlasmicDataOp(
-                                                        dataOp,
-                                                        {
-                                                          userAuthToken:
-                                                            dataSourcesCtx?.userAuthToken,
-                                                          user: dataSourcesCtx?.user
-                                                        }
-                                                      );
-                                                    await plasmicInvalidate(
-                                                      dataOp.invalidatedKeys
-                                                    );
-                                                    return response;
-                                                  } catch (e) {
-                                                    if (!continueOnError) {
-                                                      throw e;
-                                                    }
-                                                    return e;
-                                                  }
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                        if (
-                                          $steps["supabaseGetSignedFileUrl"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "supabaseGetSignedFileUrl"
-                                          ] === "object" &&
-                                          typeof $steps[
-                                            "supabaseGetSignedFileUrl"
-                                          ].then === "function"
-                                        ) {
-                                          $steps["supabaseGetSignedFileUrl"] =
-                                            await $steps[
-                                              "supabaseGetSignedFileUrl"
-                                            ];
-                                        }
-
-                                        $steps["updateSignedUploadUrl"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "signedUploadUrl"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value:
-                                                  $steps
-                                                    .supabaseGetSignedFileUrl
-                                                    .signedUrl
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateSignedUploadUrl"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "updateSignedUploadUrl"
-                                          ] === "object" &&
-                                          typeof $steps["updateSignedUploadUrl"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateSignedUploadUrl"] =
-                                            await $steps[
-                                              "updateSignedUploadUrl"
-                                            ];
-                                        }
-
                                         $steps["httpPost"] = true
                                           ? (() => {
                                               const actionArgs = {
                                                 dataOp: {
                                                   sourceId:
                                                     "fumskhn7h2QULzwkXAtFMC",
-                                                  opId: "d85caa96-070b-471b-ae16-9d57649083b6",
+                                                  opId: "0a54a9b7-b33b-4e1b-a555-ecf84b56914d",
                                                   userArgs: {
                                                     body: [
                                                       $state.signedUploadUrl
+                                                        .signedUrl
                                                     ]
                                                   },
                                                   cacheKey: null,
@@ -1553,6 +1554,7 @@ function PlasmicSettings__RenderFunc(props: {
                                 </Stack__>
                               }
                               name={"printify_logo_id"}
+                              preserve={false}
                             >
                               {(() => {
                                 const child$Props = {
@@ -1601,8 +1603,11 @@ function PlasmicSettings__RenderFunc(props: {
                               )}
                               initialValue={(() => {
                                 try {
-                                  return $state.printfulId.data.response.result
-                                    .id;
+                                  return (
+                                    $queries.query?.data?.printful_logo_id ||
+                                    $state?.printfulId.data?.response?.result
+                                      ?.id
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1656,124 +1661,9 @@ function PlasmicSettings__RenderFunc(props: {
                                         sty.link__jrDtq
                                       )}
                                       component={Link}
-                                      href={"https://www.plasmic.app/"}
+                                      href={""}
                                       onClick={async event => {
                                         const $steps = {};
-
-                                        $steps["supabaseGetSignedFileUrl"] =
-                                          true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  dataOp: {
-                                                    sourceId:
-                                                      "fq3u296VTpoRcVc8quSCN3",
-                                                    opId: "070fd442-7e10-4f01-bcf6-3f871be38bec",
-                                                    userArgs: {
-                                                      path: [
-                                                        $state.upload.files[0]
-                                                          .uid
-                                                      ]
-                                                    },
-                                                    cacheKey: null,
-                                                    invalidatedKeys: null,
-                                                    roleId: null
-                                                  }
-                                                };
-                                                return (async ({
-                                                  dataOp,
-                                                  continueOnError
-                                                }) => {
-                                                  try {
-                                                    const response =
-                                                      await executePlasmicDataOp(
-                                                        dataOp,
-                                                        {
-                                                          userAuthToken:
-                                                            dataSourcesCtx?.userAuthToken,
-                                                          user: dataSourcesCtx?.user
-                                                        }
-                                                      );
-                                                    await plasmicInvalidate(
-                                                      dataOp.invalidatedKeys
-                                                    );
-                                                    return response;
-                                                  } catch (e) {
-                                                    if (!continueOnError) {
-                                                      throw e;
-                                                    }
-                                                    return e;
-                                                  }
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                        if (
-                                          $steps["supabaseGetSignedFileUrl"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "supabaseGetSignedFileUrl"
-                                          ] === "object" &&
-                                          typeof $steps[
-                                            "supabaseGetSignedFileUrl"
-                                          ].then === "function"
-                                        ) {
-                                          $steps["supabaseGetSignedFileUrl"] =
-                                            await $steps[
-                                              "supabaseGetSignedFileUrl"
-                                            ];
-                                        }
-
-                                        $steps["updateSignedUploadUrl"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "signedUploadUrl"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value:
-                                                  $steps
-                                                    .supabaseGetSignedFileUrl
-                                                    .signedUrl
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateSignedUploadUrl"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "updateSignedUploadUrl"
-                                          ] === "object" &&
-                                          typeof $steps["updateSignedUploadUrl"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateSignedUploadUrl"] =
-                                            await $steps[
-                                              "updateSignedUploadUrl"
-                                            ];
-                                        }
 
                                         $steps["httpPost"] = true
                                           ? (() => {
@@ -1781,17 +1671,19 @@ function PlasmicSettings__RenderFunc(props: {
                                                 dataOp: {
                                                   sourceId:
                                                     "w9bT7zJHQBMsxuYyCMQHKC",
-                                                  opId: "b309a1f6-657a-49b1-a7d7-57004da303ba",
+                                                  opId: "89094968-8af4-4e55-8a9c-be8146bd0d7d",
                                                   userArgs: {
                                                     body: [
                                                       $state.signedUploadUrl
+                                                        .signedUrl
                                                     ]
                                                   },
                                                   cacheKey: null,
                                                   invalidatedKeys: [
                                                     "plasmic_refresh_all"
                                                   ],
-                                                  roleId: null
+                                                  roleId:
+                                                    "d035f350-edf5-4268-af03-4480b52522b0"
                                                 }
                                               };
                                               return (async ({
@@ -1885,6 +1777,7 @@ function PlasmicSettings__RenderFunc(props: {
                                 </Stack__>
                               }
                               name={"printful_logo_id"}
+                              preserve={false}
                             >
                               {(() => {
                                 const child$Props = {
@@ -2132,6 +2025,23 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
+function withPlasmicPageGuard<P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) {
+  const PageGuard: React.FC<P> = props => (
+    <PlasmicPageGuard__
+      minRole={"d035f350-edf5-4268-af03-4480b52522b0"}
+      appId={"2Up8DUmBB1Tx5dhznkvCW5"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={true}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 function withUsePlasmicAuth<P extends object>(
   WrappedComponent: React.ComponentType<P>
 ) {
@@ -2159,7 +2069,7 @@ function withUsePlasmicAuth<P extends object>(
 
 export const PlasmicSettings = Object.assign(
   // Top-level PlasmicSettings renders the root element
-  withUsePlasmicAuth(makeNodeComponent("root")),
+  withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("root"))),
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
