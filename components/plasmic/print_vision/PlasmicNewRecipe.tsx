@@ -511,7 +511,7 @@ function PlasmicNewRecipe__RenderFunc(props: {
                                 }
                               }).apply(null, eventArgs);
                             },
-                            pagination: false,
+                            pagination: true,
                             scopeClassName: sty["table__instance"],
                             selectedRowKey: generateStateValueProp($state, [
                               "table",
@@ -1277,6 +1277,29 @@ function PlasmicNewRecipe__RenderFunc(props: {
               </FormWrapper>
             );
           })()}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__mUy0J
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return undefined;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
         </div>
       </div>
     </React.Fragment>
