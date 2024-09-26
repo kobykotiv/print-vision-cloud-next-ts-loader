@@ -179,6 +179,14 @@ export type PlasmicTesteditrecipe__OverridesType = {
   select3?: Flex__<typeof AntdSelect>;
   input?: Flex__<typeof AntdInput>;
   numberInput5?: Flex__<typeof AntdInputNumber>;
+  modal?: Flex__<typeof AntdModal>;
+  form?: Flex__<typeof FormWrapper>;
+  input10?: Flex__<typeof AntdInput>;
+  textArea3?: Flex__<typeof AntdTextArea>;
+  numberInput25?: Flex__<typeof AntdInputNumber>;
+  numberInput26?: Flex__<typeof AntdInputNumber>;
+  numberInput27?: Flex__<typeof AntdInputNumber>;
+  numberInput28?: Flex__<typeof AntdInputNumber>;
   printfulPlaceholdersTable?: Flex__<typeof RichTable>;
   svg?: Flex__<"svg">;
 };
@@ -541,7 +549,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         path: "tabsEditPrintfulProduct.activeKey",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "3"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "1"
       },
       {
         path: "modalNewPlacehodler.open",
@@ -941,6 +949,70 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         path: "switch2.checked",
         type: "private",
         variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "form.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "input10.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "textArea3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
+      },
+      {
+        path: "numberInput25.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "numberInput26.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "numberInput27.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "numberInput28.value",
+        type: "private",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -4934,17 +5006,35 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                         dataOp: {
                                                           sourceId:
                                                             "83X9ZdYzYUYJtgqe5fwXeX",
-                                                          opId: "195a76f6-40ba-4d55-8387-fc0b6038bb56",
+                                                          opId: "127a8d6d-8f8e-4466-82a3-391a622fc5af",
                                                           userArgs: {
                                                             conditions: [
-                                                              $state
-                                                                .selectedPlaceholder
-                                                                .id
+                                                              $state.selectedPlaceholder
                                                             ],
                                                             variables: [
                                                               $state
                                                                 .formEditPrintifyPlaceholder
-                                                                .value
+                                                                .value.rotate,
+                                                              $state
+                                                                .formEditPrintifyPlaceholder
+                                                                .value.scale,
+                                                              $state
+                                                                .formEditPrintifyPlaceholder
+                                                                .value.x,
+                                                              $state
+                                                                .formEditPrintifyPlaceholder
+                                                                .value.y,
+                                                              $state
+                                                                .formEditPrintifyPlaceholder
+                                                                .value[
+                                                                "Printify Product ID"
+                                                              ],
+                                                              $state
+                                                                .formEditPrintifyPlaceholder
+                                                                .value.position,
+                                                              $state
+                                                                .formEditPrintifyPlaceholder
+                                                                .value.image_id
                                                             ]
                                                           },
                                                           cacheKey: null,
@@ -5056,6 +5146,39 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   ] = await $steps[
                                                     "updateModalEditPlaceholderOpen"
                                                   ];
+                                                }
+
+                                                $steps["invokeGlobalAction"] =
+                                                  true
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          args: [
+                                                            "success",
+                                                            "Placeholder updated"
+                                                          ]
+                                                        };
+                                                        return $globalActions[
+                                                          "plasmic-antd5-config-provider.showNotification"
+                                                        ]?.apply(null, [
+                                                          ...actionArgs.args
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps[
+                                                    "invokeGlobalAction"
+                                                  ] != null &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps["invokeGlobalAction"] =
+                                                    await $steps[
+                                                      "invokeGlobalAction"
+                                                    ];
                                                 }
                                               },
                                               onIsSubmittingChange:
@@ -5759,7 +5882,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                             ]
                                                           },
                                                           operation: 0,
-                                                          value: row
+                                                          value: row.id
                                                         };
                                                         return (({
                                                           variable,
@@ -5934,6 +6057,40 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                       "postgresDeleteMany"
                                                     ] = await $steps[
                                                       "postgresDeleteMany"
+                                                    ];
+                                                  }
+
+                                                  $steps["invokeGlobalAction"] =
+                                                    true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            args: [
+                                                              "warning",
+                                                              "Placeholder deleted"
+                                                            ]
+                                                          };
+                                                          return $globalActions[
+                                                            "plasmic-antd5-config-provider.showNotification"
+                                                          ]?.apply(null, [
+                                                            ...actionArgs.args
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                  if (
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] != null &&
+                                                    typeof $steps[
+                                                      "invokeGlobalAction"
+                                                    ] === "object" &&
+                                                    typeof $steps[
+                                                      "invokeGlobalAction"
+                                                    ].then === "function"
+                                                  ) {
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] = await $steps[
+                                                      "invokeGlobalAction"
                                                     ];
                                                   }
                                                 };
@@ -6287,6 +6444,11 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                 },
                                 rowActions: (() => {
                                   const __composite = [
+                                    {
+                                      type: "item",
+                                      label: null,
+                                      onClick: null
+                                    },
                                     { type: "item", label: null, onClick: null }
                                   ];
                                   __composite["0"]["label"] = "Edit";
@@ -6390,6 +6552,92 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                       ] = await $steps[
                                         "updateModalEditPrintfulProductOpen"
                                       ];
+                                    }
+                                  };
+                                  __composite["1"]["label"] = "Delete";
+                                  __composite["1"]["onClick"] = async (
+                                    rowKey,
+                                    row
+                                  ) => {
+                                    const $steps = {};
+
+                                    $steps["postgresDeleteMany"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            dataOp: {
+                                              sourceId:
+                                                "83X9ZdYzYUYJtgqe5fwXeX",
+                                              opId: "6e5db295-7a47-4e04-be84-3f132dba12a1",
+                                              userArgs: {
+                                                conditions: [row.id]
+                                              },
+                                              cacheKey: null,
+                                              invalidatedKeys: [
+                                                "plasmic_refresh_all"
+                                              ],
+                                              roleId: null
+                                            }
+                                          };
+                                          return (async ({
+                                            dataOp,
+                                            continueOnError
+                                          }) => {
+                                            try {
+                                              const response =
+                                                await executePlasmicDataOp(
+                                                  dataOp,
+                                                  {
+                                                    userAuthToken:
+                                                      dataSourcesCtx?.userAuthToken,
+                                                    user: dataSourcesCtx?.user
+                                                  }
+                                                );
+                                              await plasmicInvalidate(
+                                                dataOp.invalidatedKeys
+                                              );
+                                              return response;
+                                            } catch (e) {
+                                              if (!continueOnError) {
+                                                throw e;
+                                              }
+                                              return e;
+                                            }
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["postgresDeleteMany"] != null &&
+                                      typeof $steps["postgresDeleteMany"] ===
+                                        "object" &&
+                                      typeof $steps["postgresDeleteMany"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["postgresDeleteMany"] =
+                                        await $steps["postgresDeleteMany"];
+                                    }
+
+                                    $steps["invokeGlobalAction"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "warning",
+                                              "Printful product deleted"
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "plasmic-antd5-config-provider.showNotification"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
                                     }
                                   };
                                   return __composite;
@@ -6503,7 +6751,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.tabsEditPrintfulProduct
                                 )}
-                                defaultActiveKey={"3"}
+                                defaultActiveKey={"1"}
                                 items={
                                   <React.Fragment>
                                     <AntdTabItem
@@ -8905,6 +9153,395 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                           );
                                         })()}
                                       </AntdModal>
+                                      <AntdModal
+                                        data-plasmic-name={"modal"}
+                                        data-plasmic-override={overrides.modal}
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.modal
+                                        )}
+                                        defaultStylesClassName={classNames(
+                                          projectcss.root_reset,
+                                          projectcss.plasmic_default_styles,
+                                          projectcss.plasmic_mixins,
+                                          projectcss.plasmic_tokens,
+                                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                                        )}
+                                        hideFooter={true}
+                                        modalScopeClassName={
+                                          sty["modal__modal"]
+                                        }
+                                        onOpenChange={generateStateOnChangeProp(
+                                          $state,
+                                          ["modal", "open"]
+                                        )}
+                                        open={generateStateValueProp($state, [
+                                          "modal",
+                                          "open"
+                                        ])}
+                                        title={"Modal title"}
+                                        trigger={
+                                          <AntdButton
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.button__gCkPl
+                                            )}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__s6Cq2
+                                              )}
+                                            >
+                                              {"Show modal"}
+                                            </div>
+                                          </AntdButton>
+                                        }
+                                      >
+                                        {(() => {
+                                          const child$Props = {
+                                            className: classNames(
+                                              "__wab_instance",
+                                              sty.form
+                                            ),
+                                            extendedOnValuesChange:
+                                              generateStateOnChangePropForCodeComponents(
+                                                $state,
+                                                "value",
+                                                ["form", "value"],
+                                                FormWrapper_Helpers
+                                              ),
+                                            formItems: [
+                                              {
+                                                label: "Name",
+                                                name: "name",
+                                                inputType: "Text"
+                                              },
+                                              {
+                                                label: "Message",
+                                                name: "message",
+                                                inputType: "Text Area"
+                                              }
+                                            ],
+                                            labelCol: {
+                                              span: 8,
+                                              horizontalOnly: true
+                                            },
+                                            layout: "vertical",
+                                            mode: "advanced",
+                                            onIsSubmittingChange:
+                                              generateStateOnChangePropForCodeComponents(
+                                                $state,
+                                                "isSubmitting",
+                                                ["form", "isSubmitting"],
+                                                FormWrapper_Helpers
+                                              ),
+                                            ref: ref => {
+                                              $refs["form"] = ref;
+                                            },
+                                            submitSlot: null,
+                                            wrapperCol: {
+                                              span: 16,
+                                              horizontalOnly: true
+                                            }
+                                          };
+                                          initializeCodeComponentStates(
+                                            $state,
+                                            [
+                                              {
+                                                name: "value",
+                                                plasmicStateName: "form.value"
+                                              },
+                                              {
+                                                name: "isSubmitting",
+                                                plasmicStateName:
+                                                  "form.isSubmitting"
+                                              }
+                                            ],
+                                            [],
+                                            FormWrapper_Helpers ?? {},
+                                            child$Props
+                                          );
+
+                                          return (
+                                            <FormWrapper
+                                              data-plasmic-name={"form"}
+                                              data-plasmic-override={
+                                                overrides.form
+                                              }
+                                              {...child$Props}
+                                            >
+                                              <FormItemWrapper
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.formField__cBkkn
+                                                )}
+                                                label={"Name"}
+                                                name={"name"}
+                                              >
+                                                {(() => {
+                                                  const child$Props = {
+                                                    className: classNames(
+                                                      "__wab_instance",
+                                                      sty.input10
+                                                    ),
+                                                    onChange:
+                                                      generateStateOnChangePropForCodeComponents(
+                                                        $state,
+                                                        "value",
+                                                        ["input10", "value"],
+                                                        AntdInput_Helpers
+                                                      ),
+                                                    value:
+                                                      generateStateValueProp(
+                                                        $state,
+                                                        ["input10", "value"]
+                                                      )
+                                                  };
+                                                  initializeCodeComponentStates(
+                                                    $state,
+                                                    [
+                                                      {
+                                                        name: "value",
+                                                        plasmicStateName:
+                                                          "input10.value"
+                                                      }
+                                                    ],
+                                                    [],
+                                                    AntdInput_Helpers ?? {},
+                                                    child$Props
+                                                  );
+
+                                                  return (
+                                                    <AntdInput
+                                                      data-plasmic-name={
+                                                        "input10"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.input10
+                                                      }
+                                                      {...child$Props}
+                                                    />
+                                                  );
+                                                })()}
+                                              </FormItemWrapper>
+                                              <FormItemWrapper
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.formField___3HLzd
+                                                )}
+                                                label={"Message"}
+                                                name={"message"}
+                                              >
+                                                {(() => {
+                                                  const child$Props = {
+                                                    className: classNames(
+                                                      "__wab_instance",
+                                                      sty.textArea3
+                                                    ),
+                                                    onChange:
+                                                      generateStateOnChangePropForCodeComponents(
+                                                        $state,
+                                                        "value",
+                                                        ["textArea3", "value"],
+                                                        AntdTextArea_Helpers
+                                                      ),
+                                                    value:
+                                                      generateStateValueProp(
+                                                        $state,
+                                                        ["textArea3", "value"]
+                                                      )
+                                                  };
+                                                  initializeCodeComponentStates(
+                                                    $state,
+                                                    [
+                                                      {
+                                                        name: "value",
+                                                        plasmicStateName:
+                                                          "textArea3.value"
+                                                      }
+                                                    ],
+                                                    [],
+                                                    AntdTextArea_Helpers ?? {},
+                                                    child$Props
+                                                  );
+
+                                                  return (
+                                                    <AntdTextArea
+                                                      data-plasmic-name={
+                                                        "textArea3"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.textArea3
+                                                      }
+                                                      {...child$Props}
+                                                    />
+                                                  );
+                                                })()}
+                                              </FormItemWrapper>
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox___4X7Uo
+                                                )}
+                                              >
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__rtrkf
+                                                  )}
+                                                  label={"Scale"}
+                                                  name={"scale"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput25"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput25
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput25
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput25", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput25", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__dBb6D
+                                                  )}
+                                                  label={"X"}
+                                                  name={"x"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput26"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput26
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput26
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput26", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput26", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__wuKRd
+                                                  )}
+                                                  label={"Y"}
+                                                  name={"Y"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput27"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput27
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput27
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput27", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput27", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__cQhEb
+                                                  )}
+                                                  label={"Rotate"}
+                                                  name={"scale"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput28"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput28
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput28
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput28", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput28", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                              </div>
+                                              <AntdButton
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.button__oIeA
+                                                )}
+                                                submitsForm={true}
+                                                type={"primary"}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__n18Hw
+                                                  )}
+                                                >
+                                                  {"Submit"}
+                                                </div>
+                                              </AntdButton>
+                                            </FormWrapper>
+                                          );
+                                        })()}
+                                      </AntdModal>
                                       {(() => {
                                         const child$Props = {
                                           className: classNames(
@@ -8997,7 +9634,8 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 type: "item",
                                                 label: null,
                                                 onClick: null
-                                              }
+                                              },
+                                              { type: "item", label: null }
                                             ];
                                             __composite["0"]["label"] =
                                               "Delete";
@@ -9073,6 +9711,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                     ];
                                                 }
                                               };
+                                            __composite["1"]["label"] = "Edit";
                                             return __composite;
                                           })(),
 
@@ -9292,6 +9931,14 @@ const PlasmicDescendants = {
     "select3",
     "input",
     "numberInput5",
+    "modal",
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28",
     "printfulPlaceholdersTable",
     "svg"
   ],
@@ -9368,6 +10015,14 @@ const PlasmicDescendants = {
     "select3",
     "input",
     "numberInput5",
+    "modal",
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28",
     "printfulPlaceholdersTable"
   ],
   h1: ["h1"],
@@ -9442,6 +10097,14 @@ const PlasmicDescendants = {
     "select3",
     "input",
     "numberInput5",
+    "modal",
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28",
     "printfulPlaceholdersTable"
   ],
   populatePrintifyProducts: ["populatePrintifyProducts"],
@@ -9641,6 +10304,14 @@ const PlasmicDescendants = {
     "select3",
     "input",
     "numberInput5",
+    "modal",
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28",
     "printfulPlaceholdersTable"
   ],
   tabsEditPrintfulProduct: [
@@ -9672,6 +10343,14 @@ const PlasmicDescendants = {
     "select3",
     "input",
     "numberInput5",
+    "modal",
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28",
     "printfulPlaceholdersTable"
   ],
   formEditPrintfulProduct: [
@@ -9737,6 +10416,31 @@ const PlasmicDescendants = {
   select3: ["select3"],
   input: ["input"],
   numberInput5: ["numberInput5"],
+  modal: [
+    "modal",
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28"
+  ],
+  form: [
+    "form",
+    "input10",
+    "textArea3",
+    "numberInput25",
+    "numberInput26",
+    "numberInput27",
+    "numberInput28"
+  ],
+  input10: ["input10"],
+  textArea3: ["textArea3"],
+  numberInput25: ["numberInput25"],
+  numberInput26: ["numberInput26"],
+  numberInput27: ["numberInput27"],
+  numberInput28: ["numberInput28"],
   printfulPlaceholdersTable: ["printfulPlaceholdersTable"],
   svg: ["svg"]
 } as const;
@@ -9817,6 +10521,14 @@ type NodeDefaultElementType = {
   select3: typeof AntdSelect;
   input: typeof AntdInput;
   numberInput5: typeof AntdInputNumber;
+  modal: typeof AntdModal;
+  form: typeof FormWrapper;
+  input10: typeof AntdInput;
+  textArea3: typeof AntdTextArea;
+  numberInput25: typeof AntdInputNumber;
+  numberInput26: typeof AntdInputNumber;
+  numberInput27: typeof AntdInputNumber;
+  numberInput28: typeof AntdInputNumber;
   printfulPlaceholdersTable: typeof RichTable;
   svg: "svg";
 };
@@ -10001,6 +10713,14 @@ export const PlasmicTesteditrecipe = Object.assign(
     select3: makeNodeComponent("select3"),
     input: makeNodeComponent("input"),
     numberInput5: makeNodeComponent("numberInput5"),
+    modal: makeNodeComponent("modal"),
+    form: makeNodeComponent("form"),
+    input10: makeNodeComponent("input10"),
+    textArea3: makeNodeComponent("textArea3"),
+    numberInput25: makeNodeComponent("numberInput25"),
+    numberInput26: makeNodeComponent("numberInput26"),
+    numberInput27: makeNodeComponent("numberInput27"),
+    numberInput28: makeNodeComponent("numberInput28"),
     printfulPlaceholdersTable: makeNodeComponent("printfulPlaceholdersTable"),
     svg: makeNodeComponent("svg"),
 
