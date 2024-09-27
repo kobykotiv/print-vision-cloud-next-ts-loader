@@ -181,12 +181,13 @@ export type PlasmicTesteditrecipe__OverridesType = {
   numberInput5?: Flex__<typeof AntdInputNumber>;
   modal?: Flex__<typeof AntdModal>;
   form?: Flex__<typeof FormWrapper>;
-  input10?: Flex__<typeof AntdInput>;
-  textArea3?: Flex__<typeof AntdTextArea>;
   numberInput25?: Flex__<typeof AntdInputNumber>;
   numberInput26?: Flex__<typeof AntdInputNumber>;
   numberInput27?: Flex__<typeof AntdInputNumber>;
   numberInput28?: Flex__<typeof AntdInputNumber>;
+  input10?: Flex__<typeof AntdInput>;
+  input11?: Flex__<typeof AntdInput>;
+  select8?: Flex__<typeof AntdSelect>;
   printfulPlaceholdersTable?: Flex__<typeof RichTable>;
   svg?: Flex__<"svg">;
 };
@@ -976,22 +977,6 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
-        path: "input10.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "textArea3.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
-      },
-      {
         path: "numberInput25.value",
         type: "private",
         variableType: "text",
@@ -1011,6 +996,28 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
       },
       {
         path: "numberInput28.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input10.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input11.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "select8.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -1363,7 +1370,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return true;
+                                    return false;
                                   }
                                   throw e;
                                 }
@@ -1739,6 +1746,57 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                           ] = await $steps[
                                             "updateModalEditPrintifyProductOpen"
                                           ];
+                                        }
+
+                                        $steps["updateTabs2ActiveKey"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "tabs2",
+                                                    "activeKey"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: 1
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateTabs2ActiveKey"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "updateTabs2ActiveKey"
+                                          ] === "object" &&
+                                          typeof $steps["updateTabs2ActiveKey"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateTabs2ActiveKey"] =
+                                            await $steps[
+                                              "updateTabs2ActiveKey"
+                                            ];
                                         }
                                       };
                                       __composite["0"]["label"] = "Edit";
@@ -2871,337 +2929,68 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 </div>
                                               </AntdButton>
                                             ) : null}
-                                            {(() => {
-                                              try {
-                                                return (
-                                                  $queries
-                                                    .getSupPrintifyVariants.data
-                                                    .length ===
-                                                  $queries
-                                                    .queryGetPrintifyVariantsByBlueprintandPrintProvider
-                                                    .data.response.variants
-                                                    .length
-                                                );
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return false;
-                                                }
-                                                throw e;
-                                              }
-                                            })() ? (
+                                            <Stack__
+                                              as={"div"}
+                                              hasGap={true}
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__nFv9
+                                              )}
+                                            >
                                               <Stack__
                                                 as={"div"}
                                                 hasGap={true}
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox__nFv9
+                                                  sty.freeBox__eGy7I
                                                 )}
                                               >
-                                                <Stack__
-                                                  as={"div"}
-                                                  hasGap={true}
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    sty.freeBox__eGy7I
-                                                  )}
-                                                >
-                                                  <AntdSwitch
-                                                    data-plasmic-name={
-                                                      "_switch"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides._switch
-                                                    }
-                                                    checked={generateStateValueProp(
-                                                      $state,
-                                                      ["_switch", "checked"]
-                                                    )}
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty._switch
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["_switch", "checked"]
-                                                    )}
-                                                  />
-
-                                                  <AntdButton
-                                                    data-plasmic-name={
-                                                      "toggleIsEnabled"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.toggleIsEnabled
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.toggleIsEnabled
-                                                    )}
-                                                    onClick={async () => {
-                                                      const $steps = {};
-
-                                                      $steps[
-                                                        "postgresUpdateMany"
-                                                      ] = true
-                                                        ? (() => {
-                                                            const actionArgs = {
-                                                              dataOp: {
-                                                                sourceId:
-                                                                  "83X9ZdYzYUYJtgqe5fwXeX",
-                                                                opId: "b287c689-748d-424f-af02-17c6f2539b42",
-                                                                userArgs: {
-                                                                  query: [
-                                                                    $state
-                                                                      ._switch
-                                                                      .checked,
-                                                                    $state.tablePrintifyVariants.selectedRows
-                                                                      .map(
-                                                                        row =>
-                                                                          `"${row.identifier}"`
-                                                                      )
-                                                                      .join(",")
-                                                                  ]
-                                                                },
-                                                                cacheKey: null,
-                                                                invalidatedKeys:
-                                                                  [
-                                                                    "plasmic_refresh_all"
-                                                                  ],
-                                                                roleId: null
-                                                              }
-                                                            };
-                                                            return (async ({
-                                                              dataOp,
-                                                              continueOnError
-                                                            }) => {
-                                                              try {
-                                                                const response =
-                                                                  await executePlasmicDataOp(
-                                                                    dataOp,
-                                                                    {
-                                                                      userAuthToken:
-                                                                        dataSourcesCtx?.userAuthToken,
-                                                                      user: dataSourcesCtx?.user
-                                                                    }
-                                                                  );
-                                                                await plasmicInvalidate(
-                                                                  dataOp.invalidatedKeys
-                                                                );
-                                                                return response;
-                                                              } catch (e) {
-                                                                if (
-                                                                  !continueOnError
-                                                                ) {
-                                                                  throw e;
-                                                                }
-                                                                return e;
-                                                              }
-                                                            })?.apply(null, [
-                                                              actionArgs
-                                                            ]);
-                                                          })()
-                                                        : undefined;
-                                                      if (
-                                                        $steps[
-                                                          "postgresUpdateMany"
-                                                        ] != null &&
-                                                        typeof $steps[
-                                                          "postgresUpdateMany"
-                                                        ] === "object" &&
-                                                        typeof $steps[
-                                                          "postgresUpdateMany"
-                                                        ].then === "function"
-                                                      ) {
-                                                        $steps[
-                                                          "postgresUpdateMany"
-                                                        ] = await $steps[
-                                                          "postgresUpdateMany"
-                                                        ];
-                                                      }
-
-                                                      $steps["refreshData"] =
-                                                        true
-                                                          ? (() => {
-                                                              const actionArgs =
-                                                                {
-                                                                  queryInvalidation:
-                                                                    [
-                                                                      "plasmic_refresh_all"
-                                                                    ]
-                                                                };
-                                                              return (async ({
-                                                                queryInvalidation
-                                                              }) => {
-                                                                if (
-                                                                  !queryInvalidation
-                                                                ) {
-                                                                  return;
-                                                                }
-                                                                await plasmicInvalidate(
-                                                                  queryInvalidation
-                                                                );
-                                                              })?.apply(null, [
-                                                                actionArgs
-                                                              ]);
-                                                            })()
-                                                          : undefined;
-                                                      if (
-                                                        $steps["refreshData"] !=
-                                                          null &&
-                                                        typeof $steps[
-                                                          "refreshData"
-                                                        ] === "object" &&
-                                                        typeof $steps[
-                                                          "refreshData"
-                                                        ].then === "function"
-                                                      ) {
-                                                        $steps["refreshData"] =
-                                                          await $steps[
-                                                            "refreshData"
-                                                          ];
-                                                      }
-
-                                                      $steps[
-                                                        "invokeGlobalAction"
-                                                      ] = true
-                                                        ? (() => {
-                                                            const actionArgs = {
-                                                              args: [
-                                                                "success",
-                                                                `Selected rows toggled to ${$state._switch.checked}`
-                                                              ]
-                                                            };
-                                                            return $globalActions[
-                                                              "plasmic-antd5-config-provider.showNotification"
-                                                            ]?.apply(null, [
-                                                              ...actionArgs.args
-                                                            ]);
-                                                          })()
-                                                        : undefined;
-                                                      if (
-                                                        $steps[
-                                                          "invokeGlobalAction"
-                                                        ] != null &&
-                                                        typeof $steps[
-                                                          "invokeGlobalAction"
-                                                        ] === "object" &&
-                                                        typeof $steps[
-                                                          "invokeGlobalAction"
-                                                        ].then === "function"
-                                                      ) {
-                                                        $steps[
-                                                          "invokeGlobalAction"
-                                                        ] = await $steps[
-                                                          "invokeGlobalAction"
-                                                        ];
-                                                      }
-                                                    }}
-                                                  >
-                                                    <Stack__
-                                                      as={"div"}
-                                                      hasGap={true}
-                                                      className={classNames(
-                                                        projectcss.all,
-                                                        sty.freeBox__r1F66
-                                                      )}
-                                                    >
-                                                      <div
-                                                        className={classNames(
-                                                          projectcss.all,
-                                                          projectcss.__wab_text,
-                                                          sty.text__aOurw
-                                                        )}
-                                                      >
-                                                        {"Toggle is_enabled"}
-                                                      </div>
-                                                    </Stack__>
-                                                  </AntdButton>
-                                                </Stack__>
-                                                {(() => {
-                                                  const child$Props = {
-                                                    className: classNames(
-                                                      "__wab_instance",
-                                                      sty.inputPriceVariants
-                                                    ),
-                                                    onChange:
-                                                      generateStateOnChangePropForCodeComponents(
-                                                        $state,
-                                                        "value",
-                                                        [
-                                                          "inputPriceVariants",
-                                                          "value"
-                                                        ],
-                                                        AntdInput_Helpers
-                                                      ),
-                                                    placeholder:
-                                                      "Enter Price in Cents",
-                                                    value:
-                                                      generateStateValueProp(
-                                                        $state,
-                                                        [
-                                                          "inputPriceVariants",
-                                                          "value"
-                                                        ]
-                                                      )
-                                                  };
-                                                  initializeCodeComponentStates(
+                                                <AntdSwitch
+                                                  data-plasmic-name={"_switch"}
+                                                  data-plasmic-override={
+                                                    overrides._switch
+                                                  }
+                                                  checked={generateStateValueProp(
                                                     $state,
-                                                    [
-                                                      {
-                                                        name: "value",
-                                                        plasmicStateName:
-                                                          "inputPriceVariants.value"
-                                                      }
-                                                    ],
-                                                    [],
-                                                    AntdInput_Helpers ?? {},
-                                                    child$Props
-                                                  );
+                                                    ["_switch", "checked"]
+                                                  )}
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty._switch
+                                                  )}
+                                                  onChange={generateStateOnChangeProp(
+                                                    $state,
+                                                    ["_switch", "checked"]
+                                                  )}
+                                                />
 
-                                                  return (
-                                                    <AntdInput
-                                                      data-plasmic-name={
-                                                        "inputPriceVariants"
-                                                      }
-                                                      data-plasmic-override={
-                                                        overrides.inputPriceVariants
-                                                      }
-                                                      {...child$Props}
-                                                    />
-                                                  );
-                                                })()}
                                                 <AntdButton
                                                   data-plasmic-name={
-                                                    "syncPrice"
+                                                    "toggleIsEnabled"
                                                   }
                                                   data-plasmic-override={
-                                                    overrides.syncPrice
+                                                    overrides.toggleIsEnabled
                                                   }
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.syncPrice
+                                                    sty.toggleIsEnabled
                                                   )}
                                                   onClick={async () => {
                                                     const $steps = {};
 
                                                     $steps[
-                                                      "postgresUpdateMany6"
+                                                      "postgresUpdateMany"
                                                     ] = true
                                                       ? (() => {
                                                           const actionArgs = {
                                                             dataOp: {
                                                               sourceId:
                                                                 "83X9ZdYzYUYJtgqe5fwXeX",
-                                                              opId: "06f3d58a-e9d0-4ca4-b3f1-98d80f422937",
+                                                              opId: "b287c689-748d-424f-af02-17c6f2539b42",
                                                               userArgs: {
                                                                 query: [
-                                                                  $state
-                                                                    .inputPriceVariants
-                                                                    .value,
+                                                                  $state._switch
+                                                                    .checked,
                                                                   $state.tablePrintifyVariants.selectedRows
                                                                     .map(
                                                                       row =>
@@ -3250,19 +3039,19 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                       : undefined;
                                                     if (
                                                       $steps[
-                                                        "postgresUpdateMany6"
+                                                        "postgresUpdateMany"
                                                       ] != null &&
                                                       typeof $steps[
-                                                        "postgresUpdateMany6"
+                                                        "postgresUpdateMany"
                                                       ] === "object" &&
                                                       typeof $steps[
-                                                        "postgresUpdateMany6"
+                                                        "postgresUpdateMany"
                                                       ].then === "function"
                                                     ) {
                                                       $steps[
-                                                        "postgresUpdateMany6"
+                                                        "postgresUpdateMany"
                                                       ] = await $steps[
-                                                        "postgresUpdateMany6"
+                                                        "postgresUpdateMany"
                                                       ];
                                                     }
 
@@ -3312,7 +3101,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                           const actionArgs = {
                                                             args: [
                                                               "success",
-                                                              "sync complete"
+                                                              `Selected rows toggled to ${$state._switch.checked}`
                                                             ]
                                                           };
                                                           return $globalActions[
@@ -3341,18 +3130,252 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                     }
                                                   }}
                                                 >
-                                                  <div
+                                                  <Stack__
+                                                    as={"div"}
+                                                    hasGap={true}
                                                     className={classNames(
                                                       projectcss.all,
-                                                      projectcss.__wab_text,
-                                                      sty.text__rzLfw
+                                                      sty.freeBox__r1F66
                                                     )}
                                                   >
-                                                    {"Sync Price"}
-                                                  </div>
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__aOurw
+                                                      )}
+                                                    >
+                                                      {"Toggle is_enabled"}
+                                                    </div>
+                                                  </Stack__>
                                                 </AntdButton>
                                               </Stack__>
-                                            ) : null}
+                                              {(() => {
+                                                const child$Props = {
+                                                  className: classNames(
+                                                    "__wab_instance",
+                                                    sty.inputPriceVariants
+                                                  ),
+                                                  onChange:
+                                                    generateStateOnChangePropForCodeComponents(
+                                                      $state,
+                                                      "value",
+                                                      [
+                                                        "inputPriceVariants",
+                                                        "value"
+                                                      ],
+                                                      AntdInput_Helpers
+                                                    ),
+                                                  placeholder:
+                                                    "Enter Price in Cents",
+                                                  value: generateStateValueProp(
+                                                    $state,
+                                                    [
+                                                      "inputPriceVariants",
+                                                      "value"
+                                                    ]
+                                                  )
+                                                };
+                                                initializeCodeComponentStates(
+                                                  $state,
+                                                  [
+                                                    {
+                                                      name: "value",
+                                                      plasmicStateName:
+                                                        "inputPriceVariants.value"
+                                                    }
+                                                  ],
+                                                  [],
+                                                  AntdInput_Helpers ?? {},
+                                                  child$Props
+                                                );
+
+                                                return (
+                                                  <AntdInput
+                                                    data-plasmic-name={
+                                                      "inputPriceVariants"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.inputPriceVariants
+                                                    }
+                                                    {...child$Props}
+                                                  />
+                                                );
+                                              })()}
+                                              <AntdButton
+                                                data-plasmic-name={"syncPrice"}
+                                                data-plasmic-override={
+                                                  overrides.syncPrice
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.syncPrice
+                                                )}
+                                                onClick={async () => {
+                                                  const $steps = {};
+
+                                                  $steps[
+                                                    "postgresUpdateMany6"
+                                                  ] = true
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          dataOp: {
+                                                            sourceId:
+                                                              "83X9ZdYzYUYJtgqe5fwXeX",
+                                                            opId: "06f3d58a-e9d0-4ca4-b3f1-98d80f422937",
+                                                            userArgs: {
+                                                              query: [
+                                                                $state
+                                                                  .inputPriceVariants
+                                                                  .value,
+                                                                $state.tablePrintifyVariants.selectedRows
+                                                                  .map(
+                                                                    row =>
+                                                                      `"${row.identifier}"`
+                                                                  )
+                                                                  .join(",")
+                                                              ]
+                                                            },
+                                                            cacheKey: null,
+                                                            invalidatedKeys: [
+                                                              "plasmic_refresh_all"
+                                                            ],
+                                                            roleId: null
+                                                          }
+                                                        };
+                                                        return (async ({
+                                                          dataOp,
+                                                          continueOnError
+                                                        }) => {
+                                                          try {
+                                                            const response =
+                                                              await executePlasmicDataOp(
+                                                                dataOp,
+                                                                {
+                                                                  userAuthToken:
+                                                                    dataSourcesCtx?.userAuthToken,
+                                                                  user: dataSourcesCtx?.user
+                                                                }
+                                                              );
+                                                            await plasmicInvalidate(
+                                                              dataOp.invalidatedKeys
+                                                            );
+                                                            return response;
+                                                          } catch (e) {
+                                                            if (
+                                                              !continueOnError
+                                                            ) {
+                                                              throw e;
+                                                            }
+                                                            return e;
+                                                          }
+                                                        })?.apply(null, [
+                                                          actionArgs
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                  if (
+                                                    $steps[
+                                                      "postgresUpdateMany6"
+                                                    ] != null &&
+                                                    typeof $steps[
+                                                      "postgresUpdateMany6"
+                                                    ] === "object" &&
+                                                    typeof $steps[
+                                                      "postgresUpdateMany6"
+                                                    ].then === "function"
+                                                  ) {
+                                                    $steps[
+                                                      "postgresUpdateMany6"
+                                                    ] = await $steps[
+                                                      "postgresUpdateMany6"
+                                                    ];
+                                                  }
+
+                                                  $steps["refreshData"] = true
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          queryInvalidation: [
+                                                            "plasmic_refresh_all"
+                                                          ]
+                                                        };
+                                                        return (async ({
+                                                          queryInvalidation
+                                                        }) => {
+                                                          if (
+                                                            !queryInvalidation
+                                                          ) {
+                                                            return;
+                                                          }
+                                                          await plasmicInvalidate(
+                                                            queryInvalidation
+                                                          );
+                                                        })?.apply(null, [
+                                                          actionArgs
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                  if (
+                                                    $steps["refreshData"] !=
+                                                      null &&
+                                                    typeof $steps[
+                                                      "refreshData"
+                                                    ] === "object" &&
+                                                    typeof $steps["refreshData"]
+                                                      .then === "function"
+                                                  ) {
+                                                    $steps["refreshData"] =
+                                                      await $steps[
+                                                        "refreshData"
+                                                      ];
+                                                  }
+
+                                                  $steps["invokeGlobalAction"] =
+                                                    true
+                                                      ? (() => {
+                                                          const actionArgs = {
+                                                            args: [
+                                                              "success",
+                                                              "sync complete"
+                                                            ]
+                                                          };
+                                                          return $globalActions[
+                                                            "plasmic-antd5-config-provider.showNotification"
+                                                          ]?.apply(null, [
+                                                            ...actionArgs.args
+                                                          ]);
+                                                        })()
+                                                      : undefined;
+                                                  if (
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] != null &&
+                                                    typeof $steps[
+                                                      "invokeGlobalAction"
+                                                    ] === "object" &&
+                                                    typeof $steps[
+                                                      "invokeGlobalAction"
+                                                    ].then === "function"
+                                                  ) {
+                                                    $steps[
+                                                      "invokeGlobalAction"
+                                                    ] = await $steps[
+                                                      "invokeGlobalAction"
+                                                    ];
+                                                  }
+                                                }}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__rzLfw
+                                                  )}
+                                                >
+                                                  {"Sync Price"}
+                                                </div>
+                                              </AntdButton>
+                                            </Stack__>
                                             {(() => {
                                               const child$Props = {
                                                 canSelectRows: "multiple",
@@ -6226,9 +6249,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                 try {
                                   return (
                                     $queries.getSupPrintfulProducts.data
-                                      .length !==
-                                    $queries.getSupRecipeById.data
-                                      .printful_blueprints
+                                      .length === 0
                                   );
                                 } catch (e) {
                                   if (
@@ -6236,7 +6257,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return true;
+                                    return false;
                                   }
                                   throw e;
                                 }
@@ -7276,6 +7297,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               })()}
                                               label={"tags"}
                                               name={"tags"}
+                                              preserve={false}
                                             >
                                               {(() => {
                                                 const child$Props = {
@@ -9273,13 +9295,159 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               }
                                               {...child$Props}
                                             >
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__x8O2O
+                                                )}
+                                              >
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField___8Fs6Q
+                                                  )}
+                                                  initialValue={1}
+                                                  label={"Scale"}
+                                                  name={"scale"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput25"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput25
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput25
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput25", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput25", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__zTSuz
+                                                  )}
+                                                  initialValue={0.5}
+                                                  label={"X"}
+                                                  name={"x"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput26"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput26
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput26
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput26", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput26", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__hXx3K
+                                                  )}
+                                                  initialValue={0.5}
+                                                  label={"Y"}
+                                                  name={"Y"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput27"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput27
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput27
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput27", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput27", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                                <FormItemWrapper
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.formField__vXiH
+                                                  )}
+                                                  initialValue={0}
+                                                  label={"Rotate"}
+                                                  name={"rotate"}
+                                                  rules={[
+                                                    { ruleType: "required" }
+                                                  ]}
+                                                >
+                                                  <AntdInputNumber
+                                                    data-plasmic-name={
+                                                      "numberInput28"
+                                                    }
+                                                    data-plasmic-override={
+                                                      overrides.numberInput28
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.numberInput28
+                                                    )}
+                                                    onChange={generateStateOnChangeProp(
+                                                      $state,
+                                                      ["numberInput28", "value"]
+                                                    )}
+                                                    type={"number"}
+                                                    value={generateStateValueProp(
+                                                      $state,
+                                                      ["numberInput28", "value"]
+                                                    )}
+                                                  />
+                                                </FormItemWrapper>
+                                              </div>
                                               <FormItemWrapper
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.formField__cBkkn
+                                                  sty.formField__ubqTn
                                                 )}
-                                                label={"Name"}
-                                                name={"name"}
+                                                label={"Position"}
+                                                name={"position"}
+                                                rules={[
+                                                  { ruleType: "required" }
+                                                ]}
                                               >
                                                 {(() => {
                                                   const child$Props = {
@@ -9330,28 +9498,31 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               <FormItemWrapper
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.formField___3HLzd
+                                                  sty.formField__knxin
                                                 )}
-                                                label={"Message"}
-                                                name={"message"}
+                                                label={"Image_id"}
+                                                name={"position"}
+                                                rules={[
+                                                  { ruleType: "required" }
+                                                ]}
                                               >
                                                 {(() => {
                                                   const child$Props = {
                                                     className: classNames(
                                                       "__wab_instance",
-                                                      sty.textArea3
+                                                      sty.input11
                                                     ),
                                                     onChange:
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
-                                                        ["textArea3", "value"],
-                                                        AntdTextArea_Helpers
+                                                        ["input11", "value"],
+                                                        AntdInput_Helpers
                                                       ),
                                                     value:
                                                       generateStateValueProp(
                                                         $state,
-                                                        ["textArea3", "value"]
+                                                        ["input11", "value"]
                                                       )
                                                   };
                                                   initializeCodeComponentStates(
@@ -9360,170 +9531,95 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                       {
                                                         name: "value",
                                                         plasmicStateName:
-                                                          "textArea3.value"
+                                                          "input11.value"
                                                       }
                                                     ],
                                                     [],
-                                                    AntdTextArea_Helpers ?? {},
+                                                    AntdInput_Helpers ?? {},
                                                     child$Props
                                                   );
 
                                                   return (
-                                                    <AntdTextArea
+                                                    <AntdInput
                                                       data-plasmic-name={
-                                                        "textArea3"
+                                                        "input11"
                                                       }
                                                       data-plasmic-override={
-                                                        overrides.textArea3
+                                                        overrides.input11
                                                       }
                                                       {...child$Props}
                                                     />
                                                   );
                                                 })()}
                                               </FormItemWrapper>
-                                              <div
+                                              <FormItemWrapper
                                                 className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox___4X7Uo
+                                                  "__wab_instance",
+                                                  sty.formField__fNuka
                                                 )}
+                                                label={"Position"}
                                               >
-                                                <FormItemWrapper
+                                                <AntdSelect
+                                                  data-plasmic-name={"select8"}
+                                                  data-plasmic-override={
+                                                    overrides.select8
+                                                  }
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.formField__rtrkf
+                                                    sty.select8
                                                   )}
-                                                  label={"Scale"}
-                                                  name={"scale"}
-                                                  rules={[
-                                                    { ruleType: "required" }
-                                                  ]}
-                                                >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput25"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput25
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput25
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput25", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput25", "value"]
-                                                    )}
-                                                  />
-                                                </FormItemWrapper>
-                                                <FormItemWrapper
-                                                  className={classNames(
-                                                    "__wab_instance",
-                                                    sty.formField__dBb6D
+                                                  defaultStylesClassName={classNames(
+                                                    projectcss.root_reset,
+                                                    projectcss.plasmic_default_styles,
+                                                    projectcss.plasmic_mixins,
+                                                    projectcss.plasmic_tokens,
+                                                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                                                    plasmic_plasmic_rich_components_css.plasmic_tokens
                                                   )}
-                                                  label={"X"}
-                                                  name={"x"}
-                                                  rules={[
-                                                    { ruleType: "required" }
-                                                  ]}
-                                                >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput26"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput26
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput26
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput26", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput26", "value"]
-                                                    )}
-                                                  />
-                                                </FormItemWrapper>
-                                                <FormItemWrapper
-                                                  className={classNames(
-                                                    "__wab_instance",
-                                                    sty.formField__wuKRd
+                                                  onChange={generateStateOnChangeProp(
+                                                    $state,
+                                                    ["select8", "value"]
                                                   )}
-                                                  label={"Y"}
-                                                  name={"Y"}
-                                                  rules={[
-                                                    { ruleType: "required" }
-                                                  ]}
-                                                >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput27"
+                                                  options={(() => {
+                                                    try {
+                                                      return undefined;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return [
+                                                          {
+                                                            value: "option1",
+                                                            label: "Option 1",
+                                                            type: "option"
+                                                          },
+                                                          {
+                                                            value: "option2",
+                                                            label: "Option 2",
+                                                            type: "option"
+                                                          }
+                                                        ];
+                                                      }
+                                                      throw e;
                                                     }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput27
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput27
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput27", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput27", "value"]
-                                                    )}
-                                                  />
-                                                </FormItemWrapper>
-                                                <FormItemWrapper
-                                                  className={classNames(
-                                                    "__wab_instance",
-                                                    sty.formField__cQhEb
+                                                  })()}
+                                                  placeholder={"Select..."}
+                                                  popupScopeClassName={
+                                                    sty["select8__popup"]
+                                                  }
+                                                  value={generateStateValueProp(
+                                                    $state,
+                                                    ["select8", "value"]
                                                   )}
-                                                  label={"Rotate"}
-                                                  name={"scale"}
-                                                  rules={[
-                                                    { ruleType: "required" }
-                                                  ]}
-                                                >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput28"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput28
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput28
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput28", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput28", "value"]
-                                                    )}
-                                                  />
-                                                </FormItemWrapper>
-                                              </div>
+                                                />
+                                              </FormItemWrapper>
                                               <AntdButton
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.button__oIeA
+                                                  sty.button__irSa7
                                                 )}
                                                 submitsForm={true}
                                                 type={"primary"}
@@ -9532,7 +9628,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   className={classNames(
                                                     projectcss.all,
                                                     projectcss.__wab_text,
-                                                    sty.text__n18Hw
+                                                    sty.text__mawwQ
                                                   )}
                                                 >
                                                   {"Submit"}
@@ -9933,12 +10029,13 @@ const PlasmicDescendants = {
     "numberInput5",
     "modal",
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
     "numberInput28",
+    "input10",
+    "input11",
+    "select8",
     "printfulPlaceholdersTable",
     "svg"
   ],
@@ -10017,12 +10114,13 @@ const PlasmicDescendants = {
     "numberInput5",
     "modal",
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
     "numberInput28",
+    "input10",
+    "input11",
+    "select8",
     "printfulPlaceholdersTable"
   ],
   h1: ["h1"],
@@ -10099,12 +10197,13 @@ const PlasmicDescendants = {
     "numberInput5",
     "modal",
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
     "numberInput28",
+    "input10",
+    "input11",
+    "select8",
     "printfulPlaceholdersTable"
   ],
   populatePrintifyProducts: ["populatePrintifyProducts"],
@@ -10306,12 +10405,13 @@ const PlasmicDescendants = {
     "numberInput5",
     "modal",
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
     "numberInput28",
+    "input10",
+    "input11",
+    "select8",
     "printfulPlaceholdersTable"
   ],
   tabsEditPrintfulProduct: [
@@ -10345,12 +10445,13 @@ const PlasmicDescendants = {
     "numberInput5",
     "modal",
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
     "numberInput28",
+    "input10",
+    "input11",
+    "select8",
     "printfulPlaceholdersTable"
   ],
   formEditPrintfulProduct: [
@@ -10419,28 +10520,31 @@ const PlasmicDescendants = {
   modal: [
     "modal",
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
-    "numberInput28"
+    "numberInput28",
+    "input10",
+    "input11",
+    "select8"
   ],
   form: [
     "form",
-    "input10",
-    "textArea3",
     "numberInput25",
     "numberInput26",
     "numberInput27",
-    "numberInput28"
+    "numberInput28",
+    "input10",
+    "input11",
+    "select8"
   ],
-  input10: ["input10"],
-  textArea3: ["textArea3"],
   numberInput25: ["numberInput25"],
   numberInput26: ["numberInput26"],
   numberInput27: ["numberInput27"],
   numberInput28: ["numberInput28"],
+  input10: ["input10"],
+  input11: ["input11"],
+  select8: ["select8"],
   printfulPlaceholdersTable: ["printfulPlaceholdersTable"],
   svg: ["svg"]
 } as const;
@@ -10523,12 +10627,13 @@ type NodeDefaultElementType = {
   numberInput5: typeof AntdInputNumber;
   modal: typeof AntdModal;
   form: typeof FormWrapper;
-  input10: typeof AntdInput;
-  textArea3: typeof AntdTextArea;
   numberInput25: typeof AntdInputNumber;
   numberInput26: typeof AntdInputNumber;
   numberInput27: typeof AntdInputNumber;
   numberInput28: typeof AntdInputNumber;
+  input10: typeof AntdInput;
+  input11: typeof AntdInput;
+  select8: typeof AntdSelect;
   printfulPlaceholdersTable: typeof RichTable;
   svg: "svg";
 };
@@ -10715,12 +10820,13 @@ export const PlasmicTesteditrecipe = Object.assign(
     numberInput5: makeNodeComponent("numberInput5"),
     modal: makeNodeComponent("modal"),
     form: makeNodeComponent("form"),
-    input10: makeNodeComponent("input10"),
-    textArea3: makeNodeComponent("textArea3"),
     numberInput25: makeNodeComponent("numberInput25"),
     numberInput26: makeNodeComponent("numberInput26"),
     numberInput27: makeNodeComponent("numberInput27"),
     numberInput28: makeNodeComponent("numberInput28"),
+    input10: makeNodeComponent("input10"),
+    input11: makeNodeComponent("input11"),
+    select8: makeNodeComponent("select8"),
     printfulPlaceholdersTable: makeNodeComponent("printfulPlaceholdersTable"),
     svg: makeNodeComponent("svg"),
 
