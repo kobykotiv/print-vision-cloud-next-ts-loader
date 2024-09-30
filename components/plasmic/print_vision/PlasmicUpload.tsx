@@ -1236,7 +1236,9 @@ function PlasmicUpload__RenderFunc(props: {
                           hidden={false}
                           initialValue={(() => {
                             try {
-                              return $state.upload.files[0]?.uid;
+                              return $state.upload.files[
+                                $state.upload.files.length - 1
+                              ]?.uid;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1258,6 +1260,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input7
                               ),
+                              disabled: true,
                               onChange:
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
@@ -1265,7 +1268,7 @@ function PlasmicUpload__RenderFunc(props: {
                                   ["input7", "value"],
                                   AntdInput_Helpers
                                 ),
-                              readOnly: true,
+                              readOnly: false,
                               value: generateStateValueProp($state, [
                                 "input7",
                                 "value"
