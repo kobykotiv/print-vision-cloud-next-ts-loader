@@ -2400,6 +2400,7 @@ function PlasmicIncaseTesteditrecipe2__RenderFunc(props: {
                                                 label={"tags"}
                                                 name={"tags"}
                                                 preserve={false}
+                                                shouldUpdate={true}
                                               >
                                                 {(() => {
                                                   const child$Props = {
@@ -2552,7 +2553,7 @@ function PlasmicIncaseTesteditrecipe2__RenderFunc(props: {
                                               e?.plasmicType ===
                                                 "PlasmicUndefinedDataError"
                                             ) {
-                                              return true;
+                                              return false;
                                             }
                                             throw e;
                                           }
@@ -6020,6 +6021,60 @@ function PlasmicIncaseTesteditrecipe2__RenderFunc(props: {
                                         "updateModalEditPrintfulProductOpen"
                                       ] = await $steps[
                                         "updateModalEditPrintfulProductOpen"
+                                      ];
+                                    }
+
+                                    $steps[
+                                      "updateTabsEditPrintfulProductActiveKey"
+                                    ] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "tabsEditPrintfulProduct",
+                                                "activeKey"
+                                              ]
+                                            },
+                                            operation: 0,
+                                            value: "1"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps[
+                                        "updateTabsEditPrintfulProductActiveKey"
+                                      ] != null &&
+                                      typeof $steps[
+                                        "updateTabsEditPrintfulProductActiveKey"
+                                      ] === "object" &&
+                                      typeof $steps[
+                                        "updateTabsEditPrintfulProductActiveKey"
+                                      ].then === "function"
+                                    ) {
+                                      $steps[
+                                        "updateTabsEditPrintfulProductActiveKey"
+                                      ] = await $steps[
+                                        "updateTabsEditPrintfulProductActiveKey"
                                       ];
                                     }
                                   };

@@ -222,13 +222,24 @@
   max-width: 100%;
   min-width: 0;
 }
-.text__r0N0 {
+.freeBox__wEsg9 {
+  display: flex;
+  flex-direction: row;
   position: relative;
+  align-items: flex-end;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-Bo2_tT25lwh4);
   min-width: 0;
+  padding: 8px;
+}
+.text__r0N0 {
+  width: 212px;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-Bo2_tT25lwh4);
+  flex-shrink: 0;
 }
 .freeBox__s18Cf {
   display: flex;

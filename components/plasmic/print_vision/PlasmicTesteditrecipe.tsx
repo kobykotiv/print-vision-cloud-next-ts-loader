@@ -119,6 +119,7 @@ export type PlasmicTesteditrecipe__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   textArea?: Flex__<typeof AntdTextArea>;
   input3?: Flex__<typeof AntdInput>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
   _switch?: Flex__<typeof AntdSwitch>;
   toggleIsEnabled?: Flex__<typeof AntdButton>;
   inputPriceVariants?: Flex__<typeof AntdInput>;
@@ -2314,6 +2315,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 rules={[
                                                   { ruleType: "required" }
                                                 ]}
+                                                shouldUpdate={true}
                                               >
                                                 <AntdSelect
                                                   data-plasmic-name={"select"}
@@ -2395,6 +2397,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 rules={[
                                                   { ruleType: "required" }
                                                 ]}
+                                                shouldUpdate={true}
                                               >
                                                 {(() => {
                                                   const child$Props = {
@@ -2469,6 +2472,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 rules={[
                                                   { ruleType: "required" }
                                                 ]}
+                                                shouldUpdate={true}
                                               >
                                                 {(() => {
                                                   const child$Props = {
@@ -2538,6 +2542,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                 label={"tags"}
                                                 name={"tags"}
                                                 preserve={false}
+                                                shouldUpdate={true}
                                               >
                                                 {(() => {
                                                   const child$Props = {
@@ -2625,60 +2630,122 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                           </div>
                                         }
                                       >
-                                        {(() => {
-                                          try {
-                                            return (
-                                              $queries
-                                                .queryGetPrintifyVariantsByBlueprintandPrintProvider
-                                                ?.error !== undefined
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return false;
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__wEsg9
+                                          )}
+                                        >
+                                          {(() => {
+                                            try {
+                                              return (
+                                                $queries
+                                                  .queryGetPrintifyVariantsByBlueprintandPrintProvider
+                                                  ?.error !== undefined
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return false;
+                                              }
+                                              throw e;
                                             }
-                                            throw e;
-                                          }
-                                        })() ? (
-                                          <div
+                                          })() ? (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__r0N0
+                                              )}
+                                            >
+                                              <React.Fragment>
+                                                {(() => {
+                                                  try {
+                                                    return (
+                                                      $queries
+                                                        .queryGetPrintifyVariantsByBlueprintandPrintProvider
+                                                        ?.error.error
+                                                        .statusCode +
+                                                      "\n" +
+                                                      $queries
+                                                        .queryGetPrintifyVariantsByBlueprintandPrintProvider
+                                                        ?.error.error.details
+                                                        .error +
+                                                      "\n\n(Check your Product Config) or "
+                                                      // Display error details for Printify variants query
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                              </React.Fragment>
+                                            </div>
+                                          ) : null}
+                                          <PlasmicLink__
+                                            data-plasmic-name={"link"}
+                                            data-plasmic-override={
+                                              overrides.link
+                                            }
                                             className={classNames(
                                               projectcss.all,
+                                              projectcss.a,
                                               projectcss.__wab_text,
-                                              sty.text__r0N0
+                                              sty.link
                                             )}
+                                            component={Link}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["refreshData"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      queryInvalidation: [
+                                                        "e2812273-f8ca-486e-9604-f9b9aaf8b586",
+                                                        "ca591123-2c6a-42ec-ab41-c76d32d823a7",
+                                                        "e2812273-f8ca-486e-9604-f9b9aaf8b586",
+                                                        "ca591123-2c6a-42ec-ab41-c76d32d823a7"
+                                                      ]
+                                                    };
+                                                    return (async ({
+                                                      queryInvalidation
+                                                    }) => {
+                                                      if (!queryInvalidation) {
+                                                        return;
+                                                      }
+                                                      await plasmicInvalidate(
+                                                        queryInvalidation
+                                                      );
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["refreshData"] != null &&
+                                                typeof $steps["refreshData"] ===
+                                                  "object" &&
+                                                typeof $steps["refreshData"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["refreshData"] =
+                                                  await $steps["refreshData"];
+                                              }
+                                            }}
+                                            platform={"nextjs"}
                                           >
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return (
-                                                    $queries
-                                                      .queryGetPrintifyVariantsByBlueprintandPrintProvider
-                                                      ?.error.error.statusCode +
-                                                    "\n" +
-                                                    $queries
-                                                      .queryGetPrintifyVariantsByBlueprintandPrintProvider
-                                                      ?.error.error.details
-                                                      .error +
-                                                    "\n\n(Check your Product Config)"
-                                                    // Display error details for Printify variants query
-                                                  );
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          </div>
-                                        ) : null}
+                                            {"Refresh"}
+                                          </PlasmicLink__>
+                                        </div>
                                         {(() => {
                                           try {
                                             return !$queries
@@ -10063,6 +10130,7 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "input3",
+    "link",
     "_switch",
     "toggleIsEnabled",
     "inputPriceVariants",
@@ -10148,6 +10216,7 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "input3",
+    "link",
     "_switch",
     "toggleIsEnabled",
     "inputPriceVariants",
@@ -10231,6 +10300,7 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "input3",
+    "link",
     "_switch",
     "toggleIsEnabled",
     "inputPriceVariants",
@@ -10312,6 +10382,7 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "input3",
+    "link",
     "_switch",
     "toggleIsEnabled",
     "inputPriceVariants",
@@ -10350,6 +10421,7 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "input3",
+    "link",
     "_switch",
     "toggleIsEnabled",
     "inputPriceVariants",
@@ -10392,6 +10464,7 @@ const PlasmicDescendants = {
   input2: ["input2"],
   textArea: ["textArea"],
   input3: ["input3"],
+  link: ["link"],
   _switch: ["_switch"],
   toggleIsEnabled: ["toggleIsEnabled"],
   inputPriceVariants: ["inputPriceVariants"],
@@ -10661,6 +10734,7 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   textArea: typeof AntdTextArea;
   input3: typeof AntdInput;
+  link: "a";
   _switch: typeof AntdSwitch;
   toggleIsEnabled: typeof AntdButton;
   inputPriceVariants: typeof AntdInput;
@@ -10848,6 +10922,7 @@ export const PlasmicTesteditrecipe = Object.assign(
     input2: makeNodeComponent("input2"),
     textArea: makeNodeComponent("textArea"),
     input3: makeNodeComponent("input3"),
+    link: makeNodeComponent("link"),
     _switch: makeNodeComponent("_switch"),
     toggleIsEnabled: makeNodeComponent("toggleIsEnabled"),
     inputPriceVariants: makeNodeComponent("inputPriceVariants"),
