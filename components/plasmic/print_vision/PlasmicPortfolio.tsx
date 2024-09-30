@@ -472,12 +472,20 @@ function PlasmicPortfolio__RenderFunc(props: {
                           key: "printify_id",
                           fieldId: "printify_id",
                           isHidden: null
+                        },
+                        { key: "recipe_ids", fieldId: "recipe_ids" },
+                        { key: "tags", fieldId: "tags" },
+                        {
+                          key: "prodigi_id",
+                          fieldId: "prodigi_id",
+                          isHidden: null
                         }
                       ];
                       __composite["4"]["isHidden"] = true;
                       __composite["5"]["dataType"] = "string";
                       __composite["5"]["isHidden"] = true;
                       __composite["7"]["isHidden"] = true;
+                      __composite["10"]["isHidden"] = true;
                       return __composite;
                     })(),
 
@@ -1121,7 +1129,9 @@ function PlasmicPortfolio__RenderFunc(props: {
                       initialValue={"Sad Girl"}
                       label={"title"}
                       name={"title"}
+                      preserve={false}
                       rules={[{ ruleType: "required" }]}
+                      shouldUpdate={true}
                     >
                       {(() => {
                         const child$Props = {
@@ -1213,10 +1223,13 @@ function PlasmicPortfolio__RenderFunc(props: {
                       initialValue={"Description"}
                       label={"description"}
                       name={"description"}
+                      preserve={false}
                       rules={[{ ruleType: "required" }]}
+                      shouldUpdate={true}
                     >
                       {(() => {
                         const child$Props = {
+                          autoSize: true,
                           className: classNames("__wab_instance", sty.textArea),
                           onChange: generateStateOnChangePropForCodeComponents(
                             $state,
@@ -1397,6 +1410,8 @@ function PlasmicPortfolio__RenderFunc(props: {
                       initialValue={"hello,goodbye"}
                       label={"tags"}
                       name={"tags"}
+                      preserve={false}
+                      shouldUpdate={true}
                     >
                       {(() => {
                         const child$Props = {
@@ -1506,6 +1521,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                       label={"recipe_ids"}
                       name={"recipe_ids"}
                       rules={[{ ruleType: "required" }]}
+                      shouldUpdate={true}
                     >
                       {(() => {
                         const child$Props = {
@@ -1517,6 +1533,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                             ["input7", "value"],
                             AntdInput_Helpers
                           ),
+                          readOnly: true,
                           value: generateStateValueProp($state, [
                             "input7",
                             "value"
