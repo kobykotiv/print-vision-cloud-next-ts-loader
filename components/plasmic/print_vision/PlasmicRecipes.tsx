@@ -197,11 +197,11 @@ function PlasmicRecipes__RenderFunc(props: {
     queryGetRecipesByUser: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "e207f29b-e1b1-48fa-ac78-f45405da2270",
+        opId: "d79ead4a-46aa-48bd-9e75-c375c164e664",
         userArgs: {},
-        cacheKey: `plasmic.$.e207f29b-e1b1-48fa-ac78-f45405da2270.$.`,
+        cacheKey: `plasmic.$.d79ead4a-46aa-48bd-9e75-c375c164e664.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     })
   };
@@ -459,13 +459,14 @@ function PlasmicRecipes__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                    opId: "d0e077ba-c9ac-402f-bad7-09cbd77bb0b4",
+                                    opId: "8c224b1e-5b82-42f2-b6b0-6acf04182521",
                                     userArgs: {
                                       conditions: [row.id]
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId: null
+                                    roleId:
+                                      "d035f350-edf5-4268-af03-4480b52522b0"
                                   }
                                 };
                                 return (async ({ dataOp, continueOnError }) => {
@@ -686,6 +687,23 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
+function withPlasmicPageGuard<P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) {
+  const PageGuard: React.FC<P> = props => (
+    <PlasmicPageGuard__
+      minRole={"d035f350-edf5-4268-af03-4480b52522b0"}
+      appId={"2Up8DUmBB1Tx5dhznkvCW5"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={true}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 function withUsePlasmicAuth<P extends object>(
   WrappedComponent: React.ComponentType<P>
 ) {
@@ -713,7 +731,7 @@ function withUsePlasmicAuth<P extends object>(
 
 export const PlasmicRecipes = Object.assign(
   // Top-level PlasmicRecipes renders the root element
-  withUsePlasmicAuth(makeNodeComponent("root")),
+  withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("root"))),
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),

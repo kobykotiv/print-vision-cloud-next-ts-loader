@@ -457,7 +457,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 args: [
                                   (() => {
                                     try {
-                                      return $state.form.value.image_id;
+                                      return $state.form?.value?.image_id;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -469,7 +469,9 @@ function PlasmicUpload__RenderFunc(props: {
                                       throw e;
                                     }
                                   })(),
-                                  $state.upload.files[0].uid
+                                  $state.upload.files[
+                                    $state.upload.files.length - 1
+                                  ].uid
                                 ]
                               };
                               return (({ tplRef, action, args }) => {
