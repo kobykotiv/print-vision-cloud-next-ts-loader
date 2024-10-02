@@ -1164,7 +1164,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
         sourceId: "fumskhn7h2QULzwkXAtFMC",
         opId: "221445e4-deb2-4d71-9956-3d6e7314b8da",
         userArgs: {
-          path: [$queries.getSupPrintifyProducts.data[0].blueprint_id]
+          path: [$state.selectedProduct.blueprint_id]
         },
         cacheKey: `plasmic.$.221445e4-deb2-4d71-9956-3d6e7314b8da.$.`,
         invalidatedKeys: null,
@@ -2305,27 +2305,6 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   sty.formField__q4O5S
                                                 )}
                                                 hidden={false}
-                                                initialValue={(() => {
-                                                  try {
-                                                    return (
-                                                      parseInt(
-                                                        $state.selectedProduct
-                                                          .print_provider
-                                                      ) ||
-                                                      $state.selectedProduct
-                                                        .print_provider
-                                                    );
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return ``;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}
                                                 label={"print_provider"}
                                                 name={"print_provider"}
                                                 preserve={false}
@@ -2343,7 +2322,6 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                     "__wab_instance",
                                                     sty.select
                                                   )}
-                                                  defaultOpen={false}
                                                   defaultStylesClassName={classNames(
                                                     projectcss.root_reset,
                                                     projectcss.plasmic_default_styles,
@@ -2352,6 +2330,9 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                     plasmic_antd_5_hostless_css.plasmic_tokens,
                                                     plasmic_plasmic_rich_components_css.plasmic_tokens
                                                   )}
+                                                  dropdownMatchSelectWidth={
+                                                    false
+                                                  }
                                                   onChange={generateStateOnChangeProp(
                                                     $state,
                                                     ["select", "value"]
@@ -2383,7 +2364,6 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   popupScopeClassName={
                                                     sty["select__popup"]
                                                   }
-                                                  showSearch={false}
                                                   value={generateStateValueProp(
                                                     $state,
                                                     ["select", "value"]
