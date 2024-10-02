@@ -169,7 +169,7 @@ function PlasmicPageLayout__RenderFunc(props: {
         __composite["0"]["name"] = "Templates";
         __composite["1"]["path"] = `/portfolio`;
         __composite["1"]["name"] = "Portfolio";
-        __composite["2"]["path"] = `/upload-2`;
+        __composite["2"]["path"] = `/upload`;
         __composite["2"]["name"] = "Upload";
         __composite["3"]["path"] = `/settings`;
         __composite["3"]["name"] = "Settings";

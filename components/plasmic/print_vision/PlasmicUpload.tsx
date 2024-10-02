@@ -449,48 +449,6 @@ function PlasmicUpload__RenderFunc(props: {
                       (async files => {
                         const $steps = {};
 
-                        $steps["runActionOnForm"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                tplRef: "form",
-                                action: "setFieldValue",
-                                args: [
-                                  (() => {
-                                    try {
-                                      return $state.form?.value?.image_id;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return ["$state", "form", "value"];
-                                      }
-                                      throw e;
-                                    }
-                                  })(),
-                                  $state.upload.files[
-                                    $state.upload.files.length - 1
-                                  ].uid
-                                ]
-                              };
-                              return (({ tplRef, action, args }) => {
-                                return $refs?.[tplRef]?.[action]?.(
-                                  ...(args ?? [])
-                                );
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runActionOnForm"] != null &&
-                          typeof $steps["runActionOnForm"] === "object" &&
-                          typeof $steps["runActionOnForm"].then === "function"
-                        ) {
-                          $steps["runActionOnForm"] = await $steps[
-                            "runActionOnForm"
-                          ];
-                        }
-
                         $steps["updateFile"] = true
                           ? (() => {
                               const actionArgs = {
@@ -573,6 +531,48 @@ function PlasmicUpload__RenderFunc(props: {
                         ) {
                           $steps["supabaseUploadFile"] = await $steps[
                             "supabaseUploadFile"
+                          ];
+                        }
+
+                        $steps["runActionOnForm"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                tplRef: "form",
+                                action: "setFieldValue",
+                                args: [
+                                  (() => {
+                                    try {
+                                      return $state.form?.value?.image_id;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return ["$state", "form", "value"];
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  $state.upload.files[
+                                    $state.upload.files.length - 1
+                                  ].uid
+                                ]
+                              };
+                              return (({ tplRef, action, args }) => {
+                                return $refs?.[tplRef]?.[action]?.(
+                                  ...(args ?? [])
+                                );
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runActionOnForm"] != null &&
+                          typeof $steps["runActionOnForm"] === "object" &&
+                          typeof $steps["runActionOnForm"].then === "function"
+                        ) {
+                          $steps["runActionOnForm"] = await $steps[
+                            "runActionOnForm"
                           ];
                         }
                       }).apply(null, eventArgs);
