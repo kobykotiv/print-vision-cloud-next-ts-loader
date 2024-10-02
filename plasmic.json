@@ -846,20 +846,6 @@
           "path": "/upload"
         },
         {
-          "id": "AaOssH5xfyrP",
-          "name": "EditRecipev2",
-          "type": "managed",
-          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
-          "renderModuleFilePath": "plasmic/print_vision/PlasmicEditRecipev2.tsx",
-          "importSpec": {
-            "modulePath": "../pages/recipes-2/[id].tsx"
-          },
-          "cssFilePath": "plasmic/print_vision/PlasmicEditRecipev2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/recipes-2/[id]"
-        },
-        {
           "id": "tQs3K4I5HXpb",
           "name": "Backend",
           "type": "managed",
@@ -872,20 +858,6 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/backend"
-        },
-        {
-          "id": "DiJakqijeg9T",
-          "name": "Editrecipe",
-          "type": "managed",
-          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
-          "renderModuleFilePath": "plasmic/print_vision/PlasmicEditrecipe.tsx",
-          "importSpec": {
-            "modulePath": "../pages/recipes-4/[id].tsx"
-          },
-          "cssFilePath": "plasmic/print_vision/PlasmicEditrecipe.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/recipes-4/[id]"
         },
         {
           "id": "n5jcfqnGZy-O",
@@ -942,18 +914,18 @@
           "path": "/new-recipe-2"
         },
         {
-          "id": "9SMzhF3Rl3hY",
-          "name": "IncaseTesteditrecipe2",
+          "id": "wn2lQbNR4QPE",
+          "name": "TestUpload2",
           "type": "managed",
           "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
-          "renderModuleFilePath": "plasmic/print_vision/PlasmicIncaseTesteditrecipe2.tsx",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicTestUpload2.tsx",
           "importSpec": {
-            "modulePath": "../pages/recipes-6/[id].tsx"
+            "modulePath": "../pages/upload-2.tsx"
           },
-          "cssFilePath": "plasmic/print_vision/PlasmicIncaseTesteditrecipe2.module.css",
+          "cssFilePath": "plasmic/print_vision/PlasmicTestUpload2.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/recipes-6/[id]"
+          "path": "/upload-2"
         }
       ],
       "icons": [

@@ -2020,7 +2020,24 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                 "modalEditPrintifyProduct",
                                 "open"
                               ])}
-                              title={"Modal title"}
+                              title={
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.selectedProduct.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "Modal title";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              }
                               trigger={null}
                               width={"90%"}
                             >
@@ -6915,7 +6932,24 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                 "modalEditPrintfulProduct",
                                 "open"
                               ])}
-                              title={"Modal title"}
+                              title={
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.selectedProduct.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "Modal title";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              }
                               trigger={null}
                               width={"80%"}
                             >

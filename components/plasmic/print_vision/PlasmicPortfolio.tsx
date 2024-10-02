@@ -899,6 +899,38 @@ function PlasmicPortfolio__RenderFunc(props: {
                         ["table2", "selectedRowKeys"],
                         RichTable_Helpers
                       ).apply(null, eventArgs);
+                      (async (rowKeys, rows) => {
+                        const $steps = {};
+
+                        $steps["runActionOnForm"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                tplRef: "form",
+                                action: "setFieldValue",
+                                args: [
+                                  ["recipe_ids"],
+                                  $state.table2.selectedRows.map(i =>
+                                    parseInt(i.id)
+                                  )
+                                ]
+                              };
+                              return (({ tplRef, action, args }) => {
+                                return $refs?.[tplRef]?.[action]?.(
+                                  ...(args ?? [])
+                                );
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runActionOnForm"] != null &&
+                          typeof $steps["runActionOnForm"] === "object" &&
+                          typeof $steps["runActionOnForm"].then === "function"
+                        ) {
+                          $steps["runActionOnForm"] = await $steps[
+                            "runActionOnForm"
+                          ];
+                        }
+                      }).apply(null, eventArgs);
                     },
                     scopeClassName: sty["table2__instance"],
                     selectedRowKey: generateStateValueProp($state, [
@@ -1526,7 +1558,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input7),
-                          disabled: true,
+                          disabled: false,
                           onChange: generateStateOnChangePropForCodeComponents(
                             $state,
                             "value",
