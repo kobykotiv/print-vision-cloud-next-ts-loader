@@ -467,7 +467,11 @@ function PlasmicPortfolio__RenderFunc(props: {
                           dataType: null,
                           isHidden: null
                         },
-                        { key: "image_id", fieldId: "image_id" },
+                        {
+                          key: "image_id",
+                          fieldId: "image_id",
+                          isHidden: null
+                        },
                         {
                           key: "printify_id",
                           fieldId: "printify_id",
@@ -484,6 +488,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                       __composite["4"]["isHidden"] = true;
                       __composite["5"]["dataType"] = "string";
                       __composite["5"]["isHidden"] = true;
+                      __composite["6"]["isHidden"] = true;
                       __composite["7"]["isHidden"] = true;
                       __composite["10"]["isHidden"] = true;
                       return __composite;
@@ -1018,7 +1023,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                               sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
                               opId: "0420ddd7-9936-45fb-a243-f5ff7802eaf1",
                               userArgs: {
-                                keys: [parseInt($state.selectedRow.id)],
+                                keys: [$state.form.value.id],
                                 variables: [$state.form.value]
                               },
                               cacheKey: null,
@@ -1061,7 +1066,8 @@ function PlasmicPortfolio__RenderFunc(props: {
                               objRoot: $state,
                               variablePath: ["modalEditDeisgn", "open"]
                             },
-                            operation: 4
+                            operation: 0,
+                            value: false
                           };
                           return (({
                             variable,
@@ -1074,9 +1080,8 @@ function PlasmicPortfolio__RenderFunc(props: {
                             }
                             const { objRoot, variablePath } = variable;
 
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
@@ -1539,9 +1544,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                       )}
                       initialValue={(() => {
                         try {
-                          return $state.table2.selectedRows.map(i =>
-                            parseInt(i.id)
-                          );
+                          return $state.table2?.selectedRows.map(i => i.id);
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
