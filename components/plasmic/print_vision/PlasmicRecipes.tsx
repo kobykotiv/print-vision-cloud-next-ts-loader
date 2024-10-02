@@ -407,23 +407,10 @@ function PlasmicRecipes__RenderFunc(props: {
                         __composite["0"]["onClick"] = async (rowKey, row) => {
                           const $steps = {};
 
-                          $steps["goToTesteditrecipe"] = true
+                          $steps["goToTestnewRecipe2"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/recipes-5/${(() => {
-                                    try {
-                                      return row.id;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}`
+                                  destination: `/new-recipe-2`
                                 };
                                 return (({ destination }) => {
                                   if (
@@ -440,13 +427,13 @@ function PlasmicRecipes__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["goToTesteditrecipe"] != null &&
-                            typeof $steps["goToTesteditrecipe"] === "object" &&
-                            typeof $steps["goToTesteditrecipe"].then ===
+                            $steps["goToTestnewRecipe2"] != null &&
+                            typeof $steps["goToTestnewRecipe2"] === "object" &&
+                            typeof $steps["goToTestnewRecipe2"].then ===
                               "function"
                           ) {
-                            $steps["goToTesteditrecipe"] = await $steps[
-                              "goToTesteditrecipe"
+                            $steps["goToTestnewRecipe2"] = await $steps[
+                              "goToTestnewRecipe2"
                             ];
                           }
                         };
