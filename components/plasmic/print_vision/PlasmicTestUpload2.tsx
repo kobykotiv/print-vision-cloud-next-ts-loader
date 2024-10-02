@@ -688,16 +688,9 @@ function PlasmicTestUpload2__RenderFunc(props: {
                               const actionArgs = {
                                 dataOp: {
                                   sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                  opId: "b9d536f4-8612-4dc9-8411-c248fbc508ca",
+                                  opId: "11629cc5-8d8e-4028-a2bc-8a25e4d16070",
                                   userArgs: {
-                                    variables: [
-                                      $state.form.value.description,
-                                      $state.file,
-                                      $state.form?.value?.printify_id || "",
-                                      $state.form.value?.printful_id || "",
-                                      $state.form.value.tags,
-                                      $state.form.value.title
-                                    ]
+                                    variables: [$state.form.value]
                                   },
                                   cacheKey: null,
                                   invalidatedKeys: ["plasmic_refresh_all"],
@@ -1310,7 +1303,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                             "__wab_instance",
                             sty.formField__ydARc
                           )}
-                          hidden={false}
+                          hidden={true}
                           initialValue={(() => {
                             try {
                               return $state.file;
@@ -1327,7 +1320,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                           label={"image_id"}
                           name={"image_id"}
                           preserve={false}
-                          rules={[]}
+                          rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
                             const child$Props = {

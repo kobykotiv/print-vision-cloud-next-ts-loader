@@ -2343,6 +2343,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                     "__wab_instance",
                                                     sty.select
                                                   )}
+                                                  defaultOpen={false}
                                                   defaultStylesClassName={classNames(
                                                     projectcss.root_reset,
                                                     projectcss.plasmic_default_styles,
@@ -2382,6 +2383,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   popupScopeClassName={
                                                     sty["select__popup"]
                                                   }
+                                                  showSearch={false}
                                                   value={generateStateValueProp(
                                                     $state,
                                                     ["select", "value"]
