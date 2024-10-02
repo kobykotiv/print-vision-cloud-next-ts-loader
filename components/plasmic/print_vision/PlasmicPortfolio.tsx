@@ -489,6 +489,8 @@ function PlasmicPortfolio__RenderFunc(props: {
                       return __composite;
                     })(),
 
+                    hideColumnPicker: true,
+                    hideExports: true,
                     onRowSelectionChanged: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
                         $state,
@@ -1552,13 +1554,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       })()}
                       label={"recipe_ids"}
                       name={"recipe_ids"}
+                      preserve={false}
                       rules={[{ ruleType: "required" }]}
                       shouldUpdate={true}
                     >
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input7),
-                          disabled: false,
+                          disabled: true,
                           onChange: generateStateOnChangePropForCodeComponents(
                             $state,
                             "value",
