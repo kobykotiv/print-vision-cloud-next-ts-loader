@@ -1253,6 +1253,7 @@ function PlasmicUpload__RenderFunc(props: {
                           name={"image_id"}
                           preserve={false}
                           rules={[{ ruleType: "required" }]}
+                          shouldUpdate={true}
                         >
                           {(() => {
                             const child$Props = {
@@ -1260,7 +1261,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input7
                               ),
-                              disabled: true,
+                              disabled: false,
                               onChange:
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
@@ -1268,7 +1269,7 @@ function PlasmicUpload__RenderFunc(props: {
                                   ["input7", "value"],
                                   AntdInput_Helpers
                                 ),
-                              readOnly: false,
+                              readOnly: true,
                               value: generateStateValueProp($state, [
                                 "input7",
                                 "value"
@@ -1346,7 +1347,9 @@ function PlasmicUpload__RenderFunc(props: {
                             );
                           })()}
                         </FormItemWrapper>
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__qOe4U
@@ -2302,7 +2305,7 @@ function PlasmicUpload__RenderFunc(props: {
                               );
                             })()}
                           </FormItemWrapper>
-                        </div>
+                        </Stack__>
                         <AntdButton
                           className={classNames(
                             "__wab_instance",

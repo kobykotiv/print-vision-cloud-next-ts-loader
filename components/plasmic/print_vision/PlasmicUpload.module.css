@@ -140,18 +140,32 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 24px;
   min-width: 0;
-  padding: 8px;
+}
+.freeBox__qOe4U > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-_m46Z7TakRfI));
+  width: calc(100% + var(--token-_m46Z7TakRfI));
+}
+.freeBox__qOe4U > :global(.__wab_flex-container) > *,
+.freeBox__qOe4U > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__qOe4U > :global(.__wab_flex-container) > picture > img,
+.freeBox__qOe4U
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-_m46Z7TakRfI);
 }
 .formField__q2W49:global(.__wab_instance) {
-  width: 100%;
-  min-width: 0;
+  width: auto;
 }
 .freeBox__bNd6Z {
   display: flex;
@@ -161,7 +175,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
 .freeBox__bNd6Z > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -186,9 +199,8 @@
   object-fit: cover;
 }
 .formField__xk5Vs:global(.__wab_instance) {
-  width: 100%;
+  width: auto;
   margin-bottom: 24px;
-  min-width: 0;
 }
 .freeBox__boKvl {
   display: flex;
@@ -198,7 +210,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
 }
 .freeBox__boKvl > :global(.__wab_flex-container) {
   flex-direction: row;
