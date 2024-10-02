@@ -69,9 +69,9 @@ import {
 import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/component
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -106,7 +106,6 @@ export type PlasmicPortfolio__OverridesType = {
   modalPreviewDesign?: Flex__<typeof AntdModal>;
   img?: Flex__<typeof PlasmicImg__>;
   modalEditDeisgn?: Flex__<typeof AntdModal>;
-  table2?: Flex__<typeof RichTable>;
   form?: Flex__<typeof FormWrapper>;
   numberInput?: Flex__<typeof AntdInputNumber>;
   input?: Flex__<typeof AntdInput>;
@@ -119,6 +118,7 @@ export type PlasmicPortfolio__OverridesType = {
   input6?: Flex__<typeof AntdInput>;
   input7?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof AntdButton>;
+  table2?: Flex__<typeof RichTable>;
   modalDeleteDesign?: Flex__<typeof AntdModal>;
 };
 
@@ -222,8 +222,8 @@ function PlasmicPortfolio__RenderFunc(props: {
       {
         path: "selectedRow",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "modalEditDeisgn.open",
@@ -639,10 +639,70 @@ function PlasmicPortfolio__RenderFunc(props: {
                             "updateModalEditDeisgnOpen"
                           ];
                         }
+
+                        $steps["runActionOnForm4"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                tplRef: "form",
+                                action: "setFieldsValue",
+                                args: [$state.selectedRow]
+                              };
+                              return (({ tplRef, action, args }) => {
+                                return $refs?.[tplRef]?.[action]?.(
+                                  ...(args ?? [])
+                                );
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runActionOnForm4"] != null &&
+                          typeof $steps["runActionOnForm4"] === "object" &&
+                          typeof $steps["runActionOnForm4"].then === "function"
+                        ) {
+                          $steps["runActionOnForm4"] = await $steps[
+                            "runActionOnForm4"
+                          ];
+                        }
                       };
                       __composite["2"]["label"] = "Delete";
                       __composite["2"]["onClick"] = async (rowKey, row) => {
                         const $steps = {};
+
+                        $steps["updateSelectedRow"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectedRow"]
+                                },
+                                operation: 0,
+                                value: row
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSelectedRow"] != null &&
+                          typeof $steps["updateSelectedRow"] === "object" &&
+                          typeof $steps["updateSelectedRow"].then === "function"
+                        ) {
+                          $steps["updateSelectedRow"] = await $steps[
+                            "updateSelectedRow"
+                          ];
+                        }
 
                         $steps["updateModalDeleteDesignOpen"] = true
                           ? (() => {
@@ -820,178 +880,11 @@ function PlasmicPortfolio__RenderFunc(props: {
             trigger={null}
             width={"80%"}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__fPv30)}>
-              <div className={classNames(projectcss.all, sty.freeBox__bniBb)}>
-                {(() => {
-                  const child$Props = {
-                    canSelectRows: "multiple",
-                    className: classNames("__wab_instance", sty.table2),
-                    data: (() => {
-                      try {
-                        return $queries.componentDataGetRecipes;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    fields: (() => {
-                      const __composite = [
-                        { key: "id", fieldId: "id" },
-                        {
-                          key: "created_at",
-                          fieldId: "created_at",
-                          isHidden: null
-                        },
-                        { key: "title", fieldId: "title" },
-                        { key: "owner", fieldId: "owner", isHidden: null },
-                        {
-                          key: "Printfy Product ID",
-                          fieldId: "Printfy Product ID",
-                          isHidden: null
-                        },
-                        {
-                          key: "printify_blueprints",
-                          fieldId: "printify_blueprints",
-                          isHidden: null
-                        },
-                        {
-                          key: "fk_printify_product_id",
-                          fieldId: "fk_printify_product_id",
-                          isHidden: null
-                        },
-                        {
-                          key: "printful_blueprints",
-                          fieldId: "printful_blueprints",
-                          isHidden: null
-                        }
-                      ];
-                      __composite["1"]["isHidden"] = true;
-                      __composite["3"]["isHidden"] = true;
-                      __composite["4"]["isHidden"] = true;
-                      __composite["5"]["isHidden"] = true;
-                      __composite["6"]["isHidden"] = true;
-                      __composite["7"]["isHidden"] = true;
-                      return __composite;
-                    })(),
-
-                    hideColumnPicker: true,
-                    hideExports: true,
-                    onRowSelectionChanged: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "selectedRowKey",
-                        ["table2", "selectedRowKey"],
-                        RichTable_Helpers
-                      ).apply(null, eventArgs);
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "selectedRow",
-                        ["table2", "selectedRow"],
-                        RichTable_Helpers
-                      ).apply(null, eventArgs);
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "selectedRows",
-                        ["table2", "selectedRows"],
-                        RichTable_Helpers
-                      ).apply(null, eventArgs);
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "selectedRowKeys",
-                        ["table2", "selectedRowKeys"],
-                        RichTable_Helpers
-                      ).apply(null, eventArgs);
-                      (async (rowKeys, rows) => {
-                        const $steps = {};
-
-                        $steps["runActionOnForm"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                tplRef: "form",
-                                action: "setFieldValue",
-                                args: [
-                                  ["recipe_ids"],
-                                  $state.table2.selectedRows.map(i =>
-                                    parseInt(i.id)
-                                  )
-                                ]
-                              };
-                              return (({ tplRef, action, args }) => {
-                                return $refs?.[tplRef]?.[action]?.(
-                                  ...(args ?? [])
-                                );
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runActionOnForm"] != null &&
-                          typeof $steps["runActionOnForm"] === "object" &&
-                          typeof $steps["runActionOnForm"].then === "function"
-                        ) {
-                          $steps["runActionOnForm"] = await $steps[
-                            "runActionOnForm"
-                          ];
-                        }
-                      }).apply(null, eventArgs);
-                    },
-                    scopeClassName: sty["table2__instance"],
-                    selectedRowKey: generateStateValueProp($state, [
-                      "table2",
-                      "selectedRowKey"
-                    ]),
-                    selectedRowKeys: generateStateValueProp($state, [
-                      "table2",
-                      "selectedRowKeys"
-                    ]),
-                    themeResetClassName: classNames(
-                      projectcss.root_reset,
-                      projectcss.root_reset_tags,
-                      projectcss.plasmic_default_styles,
-                      projectcss.plasmic_mixins,
-                      projectcss.plasmic_tokens,
-                      plasmic_antd_5_hostless_css.plasmic_tokens,
-                      plasmic_plasmic_rich_components_css.plasmic_tokens
-                    )
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "selectedRowKey",
-                        plasmicStateName: "table2.selectedRowKey"
-                      },
-                      {
-                        name: "selectedRow",
-                        plasmicStateName: "table2.selectedRow"
-                      },
-                      {
-                        name: "selectedRows",
-                        plasmicStateName: "table2.selectedRows"
-                      },
-                      {
-                        name: "selectedRowKeys",
-                        plasmicStateName: "table2.selectedRowKeys"
-                      }
-                    ],
-                    [],
-                    RichTable_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <RichTable
-                      data-plasmic-name={"table2"}
-                      data-plasmic-override={overrides.table2}
-                      {...child$Props}
-                    />
-                  );
-                })()}
-              </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__fPv30)}
+            >
               {(() => {
                 const child$Props = {
                   className: classNames("__wab_instance", sty.form),
@@ -1165,7 +1058,19 @@ function PlasmicPortfolio__RenderFunc(props: {
                         "__wab_instance",
                         sty.formField__dLgN4
                       )}
-                      initialValue={"Sad Girl"}
+                      initialValue={(() => {
+                        try {
+                          return $state.selectedRow.title;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       label={"title"}
                       name={"title"}
                       preserve={false}
@@ -1259,7 +1164,19 @@ function PlasmicPortfolio__RenderFunc(props: {
                         "__wab_instance",
                         sty.formField__gfvcY
                       )}
-                      initialValue={"Description"}
+                      initialValue={(() => {
+                        try {
+                          return $state.selectedRow.description;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       label={"description"}
                       name={"description"}
                       preserve={false}
@@ -1446,7 +1363,19 @@ function PlasmicPortfolio__RenderFunc(props: {
                         "__wab_instance",
                         sty.formField__cFxBz
                       )}
-                      initialValue={"hello,goodbye"}
+                      initialValue={(() => {
+                        try {
+                          return $state.selectedRow.tags;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       label={"tags"}
                       name={"tags"}
                       preserve={false}
@@ -1619,7 +1548,176 @@ function PlasmicPortfolio__RenderFunc(props: {
                   </FormWrapper>
                 );
               })()}
-            </div>
+              {(() => {
+                const child$Props = {
+                  canSelectRows: "multiple",
+                  className: classNames("__wab_instance", sty.table2),
+                  data: (() => {
+                    try {
+                      return $queries.componentDataGetRecipes;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
+                  fields: (() => {
+                    const __composite = [
+                      { key: "id", fieldId: "id" },
+                      {
+                        key: "created_at",
+                        fieldId: "created_at",
+                        isHidden: null
+                      },
+                      { key: "title", fieldId: "title" },
+                      { key: "owner", fieldId: "owner", isHidden: null },
+                      {
+                        key: "Printfy Product ID",
+                        fieldId: "Printfy Product ID",
+                        isHidden: null
+                      },
+                      {
+                        key: "printify_blueprints",
+                        fieldId: "printify_blueprints",
+                        isHidden: null
+                      },
+                      {
+                        key: "fk_printify_product_id",
+                        fieldId: "fk_printify_product_id",
+                        isHidden: null
+                      },
+                      {
+                        key: "printful_blueprints",
+                        fieldId: "printful_blueprints",
+                        isHidden: null
+                      }
+                    ];
+                    __composite["1"]["isHidden"] = true;
+                    __composite["3"]["isHidden"] = true;
+                    __composite["4"]["isHidden"] = true;
+                    __composite["5"]["isHidden"] = true;
+                    __composite["6"]["isHidden"] = true;
+                    __composite["7"]["isHidden"] = true;
+                    return __composite;
+                  })(),
+
+                  hideColumnPicker: true,
+                  hideExports: true,
+                  onRowSelectionChanged: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "selectedRowKey",
+                      ["table2", "selectedRowKey"],
+                      RichTable_Helpers
+                    ).apply(null, eventArgs);
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "selectedRow",
+                      ["table2", "selectedRow"],
+                      RichTable_Helpers
+                    ).apply(null, eventArgs);
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "selectedRows",
+                      ["table2", "selectedRows"],
+                      RichTable_Helpers
+                    ).apply(null, eventArgs);
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "selectedRowKeys",
+                      ["table2", "selectedRowKeys"],
+                      RichTable_Helpers
+                    ).apply(null, eventArgs);
+                    (async (rowKeys, rows) => {
+                      const $steps = {};
+
+                      $steps["runActionOnForm"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              tplRef: "form",
+                              action: "setFieldValue",
+                              args: [
+                                ["recipe_ids"],
+                                $state.table2.selectedRows.map(i =>
+                                  parseInt(i.id)
+                                )
+                              ]
+                            };
+                            return (({ tplRef, action, args }) => {
+                              return $refs?.[tplRef]?.[action]?.(
+                                ...(args ?? [])
+                              );
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runActionOnForm"] != null &&
+                        typeof $steps["runActionOnForm"] === "object" &&
+                        typeof $steps["runActionOnForm"].then === "function"
+                      ) {
+                        $steps["runActionOnForm"] = await $steps[
+                          "runActionOnForm"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  },
+                  scopeClassName: sty["table2__instance"],
+                  selectedRowKey: generateStateValueProp($state, [
+                    "table2",
+                    "selectedRowKey"
+                  ]),
+                  selectedRowKeys: generateStateValueProp($state, [
+                    "table2",
+                    "selectedRowKeys"
+                  ]),
+                  themeResetClassName: classNames(
+                    projectcss.root_reset,
+                    projectcss.root_reset_tags,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
+                  )
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "selectedRowKey",
+                      plasmicStateName: "table2.selectedRowKey"
+                    },
+                    {
+                      name: "selectedRow",
+                      plasmicStateName: "table2.selectedRow"
+                    },
+                    {
+                      name: "selectedRows",
+                      plasmicStateName: "table2.selectedRows"
+                    },
+                    {
+                      name: "selectedRowKeys",
+                      plasmicStateName: "table2.selectedRowKeys"
+                    }
+                  ],
+                  [],
+                  RichTable_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <RichTable
+                    data-plasmic-name={"table2"}
+                    data-plasmic-override={overrides.table2}
+                    {...child$Props}
+                  />
+                );
+              })()}
+            </Stack__>
           </AntdModal>
           <AntdModal
             data-plasmic-name={"modalDeleteDesign"}
@@ -1718,27 +1816,30 @@ function PlasmicPortfolio__RenderFunc(props: {
             ])}
             open={generateStateValueProp($state, ["modalDeleteDesign", "open"])}
             title={
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (() => {
-                      return (
-                        'Are you sure you want to Delete "' +
-                        $state.selectedRow.title +
-                        '" ?'
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Are you Sure You Want to Delete?";
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return (() => {
+                        return (
+                          'Are you sure you want to Delete "' +
+                          $state.selectedRow.title +
+                          '" ?'
+                        );
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Are you Sure You Want to Delete?";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
+                  })()
+                }}
+              />
             }
             trigger={null}
           >
@@ -1768,7 +1869,6 @@ const PlasmicDescendants = {
     "modalPreviewDesign",
     "img",
     "modalEditDeisgn",
-    "table2",
     "form",
     "numberInput",
     "input",
@@ -1781,6 +1881,7 @@ const PlasmicDescendants = {
     "input6",
     "input7",
     "button",
+    "table2",
     "modalDeleteDesign"
   ],
   pageLayout: ["pageLayout", "table"],
@@ -1789,7 +1890,6 @@ const PlasmicDescendants = {
   img: ["img"],
   modalEditDeisgn: [
     "modalEditDeisgn",
-    "table2",
     "form",
     "numberInput",
     "input",
@@ -1801,9 +1901,9 @@ const PlasmicDescendants = {
     "textArea2",
     "input6",
     "input7",
-    "button"
+    "button",
+    "table2"
   ],
-  table2: ["table2"],
   form: [
     "form",
     "numberInput",
@@ -1829,6 +1929,7 @@ const PlasmicDescendants = {
   input6: ["input6"],
   input7: ["input7"],
   button: ["button"],
+  table2: ["table2"],
   modalDeleteDesign: ["modalDeleteDesign"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1841,7 +1942,6 @@ type NodeDefaultElementType = {
   modalPreviewDesign: typeof AntdModal;
   img: typeof PlasmicImg__;
   modalEditDeisgn: typeof AntdModal;
-  table2: typeof RichTable;
   form: typeof FormWrapper;
   numberInput: typeof AntdInputNumber;
   input: typeof AntdInput;
@@ -1854,6 +1954,7 @@ type NodeDefaultElementType = {
   input6: typeof AntdInput;
   input7: typeof AntdInput;
   button: typeof AntdButton;
+  table2: typeof RichTable;
   modalDeleteDesign: typeof AntdModal;
 };
 
@@ -1964,7 +2065,6 @@ export const PlasmicPortfolio = Object.assign(
     modalPreviewDesign: makeNodeComponent("modalPreviewDesign"),
     img: makeNodeComponent("img"),
     modalEditDeisgn: makeNodeComponent("modalEditDeisgn"),
-    table2: makeNodeComponent("table2"),
     form: makeNodeComponent("form"),
     numberInput: makeNodeComponent("numberInput"),
     input: makeNodeComponent("input"),
@@ -1977,6 +2077,7 @@ export const PlasmicPortfolio = Object.assign(
     input6: makeNodeComponent("input6"),
     input7: makeNodeComponent("input7"),
     button: makeNodeComponent("button"),
+    table2: makeNodeComponent("table2"),
     modalDeleteDesign: makeNodeComponent("modalDeleteDesign"),
 
     // Metadata about props expected for PlasmicPortfolio
