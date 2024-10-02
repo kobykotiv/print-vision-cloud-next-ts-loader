@@ -266,7 +266,7 @@ function PlasmicRecipes__RenderFunc(props: {
                       data-plasmic-name={"button"}
                       data-plasmic-override={overrides.button}
                       className={classNames("__wab_instance", sty.button)}
-                      href={`/new-recipe`}
+                      href={`/new-recipe-2`}
                       onClick={async () => {
                         const $steps = {};
 
@@ -407,10 +407,23 @@ function PlasmicRecipes__RenderFunc(props: {
                         __composite["0"]["onClick"] = async (rowKey, row) => {
                           const $steps = {};
 
-                          $steps["goToTestnewRecipe2"] = true
+                          $steps["goToTesteditrecipe"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/new-recipe-2`
+                                  destination: `/recipes-5/${(() => {
+                                    try {
+                                      return row.id;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}`
                                 };
                                 return (({ destination }) => {
                                   if (
@@ -427,13 +440,13 @@ function PlasmicRecipes__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["goToTestnewRecipe2"] != null &&
-                            typeof $steps["goToTestnewRecipe2"] === "object" &&
-                            typeof $steps["goToTestnewRecipe2"].then ===
+                            $steps["goToTesteditrecipe"] != null &&
+                            typeof $steps["goToTesteditrecipe"] === "object" &&
+                            typeof $steps["goToTesteditrecipe"].then ===
                               "function"
                           ) {
-                            $steps["goToTestnewRecipe2"] = await $steps[
-                              "goToTestnewRecipe2"
+                            $steps["goToTesteditrecipe"] = await $steps[
+                              "goToTesteditrecipe"
                             ];
                           }
                         };

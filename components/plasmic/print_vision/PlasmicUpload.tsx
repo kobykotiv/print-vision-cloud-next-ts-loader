@@ -453,7 +453,10 @@ function PlasmicUpload__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 operation: 0,
-                                value: $state.upload.files[0].uid,
+                                value:
+                                  $state.upload.files[
+                                    $state.upload.files.length - 1
+                                  ].uid,
                                 variable: {
                                   objRoot: $state,
                                   variablePath: ["file"]
@@ -1233,12 +1236,23 @@ function PlasmicUpload__RenderFunc(props: {
                             "__wab_instance",
                             sty.formField__skge2
                           )}
+                          dependencies={(() => {
+                            try {
+                              return $state.file;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
                           hidden={false}
                           initialValue={(() => {
                             try {
-                              return $state.upload.files[
-                                $state.upload.files.length - 1
-                              ]?.uid;
+                              return $state.file;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1261,7 +1275,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input7
                               ),
-                              disabled: false,
+                              disabled: true,
                               onChange:
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
@@ -1269,7 +1283,7 @@ function PlasmicUpload__RenderFunc(props: {
                                   ["input7", "value"],
                                   AntdInput_Helpers
                                 ),
-                              readOnly: true,
+                              readOnly: false,
                               value: generateStateValueProp($state, [
                                 "input7",
                                 "value"
