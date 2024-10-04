@@ -535,7 +535,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                                 }).apply(null, eventArgs);
                               },
                               pageSize: 20,
-                              pagination: true,
+                              pagination: false,
                               scopeClassName: sty["table__instance"],
                               selectedRowKey: generateStateValueProp($state, [
                                 "table",
@@ -791,7 +791,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                                 }).apply(null, eventArgs);
                               },
                               pageSize: 20,
-                              pagination: true,
+                              pagination: false,
                               scopeClassName: sty["table2__instance"],
                               selectedRowKey: generateStateValueProp($state, [
                                 "table2",
