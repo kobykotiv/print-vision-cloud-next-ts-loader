@@ -369,11 +369,6 @@
           "checksum": "66c557cc22fc0f064013e65999e3822d"
         },
         {
-          "assetId": "2Up8DUmBB1Tx5dhznkvCW5",
-          "type": "projectCss",
-          "checksum": "20d1cd7e71235035da9e78057d2f0a3a"
-        },
-        {
           "type": "renderModule",
           "assetId": "LvgsS-EMlkfG",
           "checksum": "5ecfba36ad7eaadbfe675cde20f91b64"
@@ -382,6 +377,11 @@
           "type": "cssRules",
           "assetId": "LvgsS-EMlkfG",
           "checksum": "5ecfba36ad7eaadbfe675cde20f91b64"
+        },
+        {
+          "assetId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "type": "projectCss",
+          "checksum": "20d1cd7e71235035da9e78057d2f0a3a"
         }
       ],
       "codegenVersion": "0.0.1"
