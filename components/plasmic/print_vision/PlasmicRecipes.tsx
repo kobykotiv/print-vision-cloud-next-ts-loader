@@ -407,10 +407,10 @@ function PlasmicRecipes__RenderFunc(props: {
                         __composite["0"]["onClick"] = async (rowKey, row) => {
                           const $steps = {};
 
-                          $steps["goToIncaseTesteditrecipe2"] = true
+                          $steps["goToIncaseTesteditrecipe3"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/recipes-6/${(() => {
+                                  destination: `/recipes-7/${(() => {
                                     try {
                                       return row.id;
                                     } catch (e) {
@@ -440,14 +440,14 @@ function PlasmicRecipes__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["goToIncaseTesteditrecipe2"] != null &&
-                            typeof $steps["goToIncaseTesteditrecipe2"] ===
+                            $steps["goToIncaseTesteditrecipe3"] != null &&
+                            typeof $steps["goToIncaseTesteditrecipe3"] ===
                               "object" &&
-                            typeof $steps["goToIncaseTesteditrecipe2"].then ===
+                            typeof $steps["goToIncaseTesteditrecipe3"].then ===
                               "function"
                           ) {
-                            $steps["goToIncaseTesteditrecipe2"] = await $steps[
-                              "goToIncaseTesteditrecipe2"
+                            $steps["goToIncaseTesteditrecipe3"] = await $steps[
+                              "goToIncaseTesteditrecipe3"
                             ];
                           }
                         };
