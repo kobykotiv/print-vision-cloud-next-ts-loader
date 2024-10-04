@@ -301,12 +301,12 @@
         {
           "type": "renderModule",
           "assetId": "n5jcfqnGZy-O",
-          "checksum": "24b3d2721b33adbb8dc83d668c862fcb"
+          "checksum": "c22c082b198d12e6c431248d0781d4ec"
         },
         {
           "type": "cssRules",
           "assetId": "n5jcfqnGZy-O",
-          "checksum": "24b3d2721b33adbb8dc83d668c862fcb"
+          "checksum": "c22c082b198d12e6c431248d0781d4ec"
         },
         {
           "type": "renderModule",
@@ -361,17 +361,27 @@
         {
           "type": "renderModule",
           "assetId": "wn2lQbNR4QPE",
-          "checksum": "77f070cf64413bada422b42853cac467"
+          "checksum": "66c557cc22fc0f064013e65999e3822d"
         },
         {
           "type": "cssRules",
           "assetId": "wn2lQbNR4QPE",
-          "checksum": "77f070cf64413bada422b42853cac467"
+          "checksum": "66c557cc22fc0f064013e65999e3822d"
         },
         {
           "assetId": "2Up8DUmBB1Tx5dhznkvCW5",
           "type": "projectCss",
           "checksum": "20d1cd7e71235035da9e78057d2f0a3a"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "LvgsS-EMlkfG",
+          "checksum": "5ecfba36ad7eaadbfe675cde20f91b64"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "LvgsS-EMlkfG",
+          "checksum": "5ecfba36ad7eaadbfe675cde20f91b64"
         }
       ],
       "codegenVersion": "0.0.1"

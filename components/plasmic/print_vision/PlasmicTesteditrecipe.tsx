@@ -6517,374 +6517,428 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                               ) : null}
                             </div>
                             {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.tablePrintfulProducts
-                                ),
-                                data: (() => {
-                                  try {
-                                    return $queries.getSupPrintfulProducts;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                fields: (() => {
-                                  const __composite = [
-                                    { key: "id", fieldId: "id" },
-                                    {
-                                      key: "placeholder_ids",
-                                      fieldId: "placeholder_ids",
-                                      isHidden: null
-                                    },
-                                    { key: "title", fieldId: "title" },
-                                    {
-                                      key: "description",
-                                      fieldId: "description"
-                                    },
-                                    {
-                                      key: "email",
-                                      fieldId: "email",
-                                      isHidden: null
-                                    },
-                                    {
-                                      key: "variant_ids",
-                                      fieldId: "variant_ids",
-                                      isHidden: null
-                                    },
-                                    {
-                                      key: "sync_product_id",
-                                      fieldId: "sync_product_id",
-                                      isHidden: null
-                                    },
-                                    { key: "tags", fieldId: "tags" },
-                                    {
-                                      key: "recipe_id",
-                                      fieldId: "recipe_id",
-                                      isHidden: null
-                                    },
-                                    {
-                                      key: "blueprint_id",
-                                      fieldId: "blueprint_id",
-                                      isHidden: null
-                                    },
-                                    {
-                                      key: "created_at",
-                                      fieldId: "created_at",
-                                      isHidden: null
-                                    }
-                                  ];
-                                  __composite["1"]["isHidden"] = true;
-                                  __composite["4"]["isHidden"] = true;
-                                  __composite["5"]["isHidden"] = true;
-                                  __composite["6"]["isHidden"] = true;
-                                  __composite["8"]["isHidden"] = true;
-                                  __composite["9"]["isHidden"] = false;
-                                  __composite["10"]["isHidden"] = true;
-                                  return __composite;
-                                })(),
-
-                                hideColumnPicker: true,
-                                hideExports: true,
-                                hideSearch: false,
-                                onRowSelectionChanged: async (
-                                  ...eventArgs: any
-                                ) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "selectedRowKey",
-                                    ["tablePrintfulProducts", "selectedRowKey"],
-                                    RichTable_Helpers
-                                  ).apply(null, eventArgs);
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "selectedRow",
-                                    ["tablePrintfulProducts", "selectedRow"],
-                                    RichTable_Helpers
-                                  ).apply(null, eventArgs);
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "selectedRows",
-                                    ["tablePrintfulProducts", "selectedRows"],
-                                    RichTable_Helpers
-                                  ).apply(null, eventArgs);
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "selectedRowKeys",
-                                    [
-                                      "tablePrintfulProducts",
-                                      "selectedRowKeys"
-                                    ],
-                                    RichTable_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                rowActions: (() => {
-                                  const __composite = [
-                                    {
-                                      type: "item",
-                                      label: null,
-                                      onClick: null
-                                    },
-                                    { type: "item", label: null, onClick: null }
-                                  ];
-                                  __composite["0"]["label"] = "Edit";
-                                  __composite["0"]["onClick"] = async (
-                                    rowKey,
-                                    row
-                                  ) => {
-                                    const $steps = {};
-
-                                    $steps["updateSelectedProduct"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["selectedProduct"]
-                                            },
-                                            operation: 0,
-                                            value: row
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["updateSelectedProduct"] != null &&
-                                      typeof $steps["updateSelectedProduct"] ===
-                                        "object" &&
-                                      typeof $steps["updateSelectedProduct"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["updateSelectedProduct"] =
-                                        await $steps["updateSelectedProduct"];
-                                    }
-
-                                    $steps[
-                                      "updateModalEditPrintfulProductOpen"
-                                    ] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: [
-                                                "modalEditPrintfulProduct",
-                                                "open"
-                                              ]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps[
-                                        "updateModalEditPrintfulProductOpen"
-                                      ] != null &&
-                                      typeof $steps[
-                                        "updateModalEditPrintfulProductOpen"
-                                      ] === "object" &&
-                                      typeof $steps[
-                                        "updateModalEditPrintfulProductOpen"
-                                      ].then === "function"
-                                    ) {
-                                      $steps[
-                                        "updateModalEditPrintfulProductOpen"
-                                      ] = await $steps[
-                                        "updateModalEditPrintfulProductOpen"
+                              try {
+                                return (
+                                  $queries.getSupPrintfulProducts.data
+                                    .length !== 0
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })()
+                              ? (() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.tablePrintfulProducts
+                                    ),
+                                    data: (() => {
+                                      try {
+                                        return $queries.getSupPrintfulProducts;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    fields: (() => {
+                                      const __composite = [
+                                        { key: "id", fieldId: "id" },
+                                        {
+                                          key: "placeholder_ids",
+                                          fieldId: "placeholder_ids",
+                                          isHidden: null
+                                        },
+                                        { key: "title", fieldId: "title" },
+                                        {
+                                          key: "description",
+                                          fieldId: "description"
+                                        },
+                                        {
+                                          key: "email",
+                                          fieldId: "email",
+                                          isHidden: null
+                                        },
+                                        {
+                                          key: "variant_ids",
+                                          fieldId: "variant_ids",
+                                          isHidden: null
+                                        },
+                                        {
+                                          key: "sync_product_id",
+                                          fieldId: "sync_product_id",
+                                          isHidden: null
+                                        },
+                                        { key: "tags", fieldId: "tags" },
+                                        {
+                                          key: "recipe_id",
+                                          fieldId: "recipe_id",
+                                          isHidden: null
+                                        },
+                                        {
+                                          key: "blueprint_id",
+                                          fieldId: "blueprint_id",
+                                          isHidden: null
+                                        },
+                                        {
+                                          key: "created_at",
+                                          fieldId: "created_at",
+                                          isHidden: null
+                                        }
                                       ];
-                                    }
-                                  };
-                                  __composite["1"]["label"] = "Delete";
-                                  __composite["1"]["onClick"] = async (
-                                    rowKey,
-                                    row
-                                  ) => {
-                                    const $steps = {};
+                                      __composite["1"]["isHidden"] = true;
+                                      __composite["4"]["isHidden"] = true;
+                                      __composite["5"]["isHidden"] = true;
+                                      __composite["6"]["isHidden"] = true;
+                                      __composite["8"]["isHidden"] = true;
+                                      __composite["9"]["isHidden"] = false;
+                                      __composite["10"]["isHidden"] = true;
+                                      return __composite;
+                                    })(),
 
-                                    $steps["postgresDeleteMany"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            dataOp: {
-                                              sourceId:
-                                                "83X9ZdYzYUYJtgqe5fwXeX",
-                                              opId: "6e5db295-7a47-4e04-be84-3f132dba12a1",
-                                              userArgs: {
-                                                conditions: [row.id]
-                                              },
-                                              cacheKey: null,
-                                              invalidatedKeys: [
-                                                "plasmic_refresh_all"
-                                              ],
-                                              roleId: null
-                                            }
-                                          };
-                                          return (async ({
-                                            dataOp,
-                                            continueOnError
-                                          }) => {
-                                            try {
-                                              const response =
-                                                await executePlasmicDataOp(
-                                                  dataOp,
-                                                  {
-                                                    userAuthToken:
-                                                      dataSourcesCtx?.userAuthToken,
-                                                    user: dataSourcesCtx?.user
-                                                  }
+                                    hideColumnPicker: true,
+                                    hideExports: true,
+                                    hideSearch: false,
+                                    onRowSelectionChanged: async (
+                                      ...eventArgs: any
+                                    ) => {
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "selectedRowKey",
+                                        [
+                                          "tablePrintfulProducts",
+                                          "selectedRowKey"
+                                        ],
+                                        RichTable_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "selectedRow",
+                                        [
+                                          "tablePrintfulProducts",
+                                          "selectedRow"
+                                        ],
+                                        RichTable_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "selectedRows",
+                                        [
+                                          "tablePrintfulProducts",
+                                          "selectedRows"
+                                        ],
+                                        RichTable_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "selectedRowKeys",
+                                        [
+                                          "tablePrintfulProducts",
+                                          "selectedRowKeys"
+                                        ],
+                                        RichTable_Helpers
+                                      ).apply(null, eventArgs);
+                                    },
+                                    rowActions: (() => {
+                                      const __composite = [
+                                        {
+                                          type: "item",
+                                          label: null,
+                                          onClick: null
+                                        },
+                                        {
+                                          type: "item",
+                                          label: null,
+                                          onClick: null
+                                        }
+                                      ];
+                                      __composite["0"]["label"] = "Edit";
+                                      __composite["0"]["onClick"] = async (
+                                        rowKey,
+                                        row
+                                      ) => {
+                                        const $steps = {};
+
+                                        $steps["updateSelectedProduct"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "selectedProduct"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: row
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
                                                 );
-                                              await plasmicInvalidate(
-                                                dataOp.invalidatedKeys
-                                              );
-                                              return response;
-                                            } catch (e) {
-                                              if (!continueOnError) {
-                                                throw e;
-                                              }
-                                              return e;
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["postgresDeleteMany"] != null &&
-                                      typeof $steps["postgresDeleteMany"] ===
-                                        "object" &&
-                                      typeof $steps["postgresDeleteMany"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["postgresDeleteMany"] =
-                                        await $steps["postgresDeleteMany"];
-                                    }
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateSelectedProduct"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "updateSelectedProduct"
+                                          ] === "object" &&
+                                          typeof $steps["updateSelectedProduct"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateSelectedProduct"] =
+                                            await $steps[
+                                              "updateSelectedProduct"
+                                            ];
+                                        }
 
-                                    $steps["invokeGlobalAction"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "warning",
-                                              "Printful product deleted"
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "plasmic-antd5-config-provider.showNotification"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["invokeGlobalAction"] != null &&
-                                      typeof $steps["invokeGlobalAction"] ===
-                                        "object" &&
-                                      typeof $steps["invokeGlobalAction"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["invokeGlobalAction"] =
-                                        await $steps["invokeGlobalAction"];
-                                    }
+                                        $steps[
+                                          "updateModalEditPrintfulProductOpen"
+                                        ] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "modalEditPrintfulProduct",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps[
+                                            "updateModalEditPrintfulProductOpen"
+                                          ] != null &&
+                                          typeof $steps[
+                                            "updateModalEditPrintfulProductOpen"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "updateModalEditPrintfulProductOpen"
+                                          ].then === "function"
+                                        ) {
+                                          $steps[
+                                            "updateModalEditPrintfulProductOpen"
+                                          ] = await $steps[
+                                            "updateModalEditPrintfulProductOpen"
+                                          ];
+                                        }
+                                      };
+                                      __composite["1"]["label"] = "Delete";
+                                      __composite["1"]["onClick"] = async (
+                                        rowKey,
+                                        row
+                                      ) => {
+                                        const $steps = {};
+
+                                        $steps["postgresDeleteMany"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "83X9ZdYzYUYJtgqe5fwXeX",
+                                                  opId: "6e5db295-7a47-4e04-be84-3f132dba12a1",
+                                                  userArgs: {
+                                                    conditions: [row.id]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId: null
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["postgresDeleteMany"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "postgresDeleteMany"
+                                          ] === "object" &&
+                                          typeof $steps["postgresDeleteMany"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["postgresDeleteMany"] =
+                                            await $steps["postgresDeleteMany"];
+                                        }
+
+                                        $steps["invokeGlobalAction"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "warning",
+                                                  "Printful product deleted"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "plasmic-antd5-config-provider.showNotification"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["invokeGlobalAction"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "invokeGlobalAction"
+                                          ] === "object" &&
+                                          typeof $steps["invokeGlobalAction"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["invokeGlobalAction"] =
+                                            await $steps["invokeGlobalAction"];
+                                        }
+                                      };
+                                      return __composite;
+                                    })(),
+
+                                    scopeClassName:
+                                      sty["tablePrintfulProducts__instance"],
+                                    selectedRowKey: generateStateValueProp(
+                                      $state,
+                                      [
+                                        "tablePrintfulProducts",
+                                        "selectedRowKey"
+                                      ]
+                                    ),
+                                    selectedRowKeys: generateStateValueProp(
+                                      $state,
+                                      [
+                                        "tablePrintfulProducts",
+                                        "selectedRowKeys"
+                                      ]
+                                    ),
+                                    themeResetClassName: classNames(
+                                      projectcss.root_reset,
+                                      projectcss.root_reset_tags,
+                                      projectcss.plasmic_default_styles,
+                                      projectcss.plasmic_mixins,
+                                      projectcss.plasmic_tokens,
+                                      plasmic_antd_5_hostless_css.plasmic_tokens,
+                                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                                    )
                                   };
-                                  return __composite;
-                                })(),
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "selectedRowKey",
+                                        plasmicStateName:
+                                          "tablePrintfulProducts.selectedRowKey"
+                                      },
+                                      {
+                                        name: "selectedRow",
+                                        plasmicStateName:
+                                          "tablePrintfulProducts.selectedRow"
+                                      },
+                                      {
+                                        name: "selectedRows",
+                                        plasmicStateName:
+                                          "tablePrintfulProducts.selectedRows"
+                                      },
+                                      {
+                                        name: "selectedRowKeys",
+                                        plasmicStateName:
+                                          "tablePrintfulProducts.selectedRowKeys"
+                                      }
+                                    ],
+                                    [],
+                                    RichTable_Helpers ?? {},
+                                    child$Props
+                                  );
 
-                                scopeClassName:
-                                  sty["tablePrintfulProducts__instance"],
-                                selectedRowKey: generateStateValueProp($state, [
-                                  "tablePrintfulProducts",
-                                  "selectedRowKey"
-                                ]),
-                                selectedRowKeys: generateStateValueProp(
-                                  $state,
-                                  ["tablePrintfulProducts", "selectedRowKeys"]
-                                ),
-                                themeResetClassName: classNames(
-                                  projectcss.root_reset,
-                                  projectcss.root_reset_tags,
-                                  projectcss.plasmic_default_styles,
-                                  projectcss.plasmic_mixins,
-                                  projectcss.plasmic_tokens,
-                                  plasmic_antd_5_hostless_css.plasmic_tokens,
-                                  plasmic_plasmic_rich_components_css.plasmic_tokens
-                                )
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "selectedRowKey",
-                                    plasmicStateName:
-                                      "tablePrintfulProducts.selectedRowKey"
-                                  },
-                                  {
-                                    name: "selectedRow",
-                                    plasmicStateName:
-                                      "tablePrintfulProducts.selectedRow"
-                                  },
-                                  {
-                                    name: "selectedRows",
-                                    plasmicStateName:
-                                      "tablePrintfulProducts.selectedRows"
-                                  },
-                                  {
-                                    name: "selectedRowKeys",
-                                    plasmicStateName:
-                                      "tablePrintfulProducts.selectedRowKeys"
-                                  }
-                                ],
-                                [],
-                                RichTable_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <RichTable
-                                  data-plasmic-name={"tablePrintfulProducts"}
-                                  data-plasmic-override={
-                                    overrides.tablePrintfulProducts
-                                  }
-                                  {...child$Props}
-                                />
-                              );
-                            })()}
+                                  return (
+                                    <RichTable
+                                      data-plasmic-name={
+                                        "tablePrintfulProducts"
+                                      }
+                                      data-plasmic-override={
+                                        overrides.tablePrintfulProducts
+                                      }
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()
+                              : null}
                             <AntdModal
                               data-plasmic-name={"modalEditPrintfulProduct"}
                               data-plasmic-override={

@@ -646,138 +646,6 @@ function PlasmicTestUpload2__RenderFunc(props: {
                       labelCol: { span: 8, horizontalOnly: true },
                       layout: "vertical",
                       mode: "advanced",
-                      onFinish: async values => {
-                        const $steps = {};
-
-                        $steps["updateEmail"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["email"]
-                                },
-                                operation: 0,
-                                value: currentUser.email
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateEmail"] != null &&
-                          typeof $steps["updateEmail"] === "object" &&
-                          typeof $steps["updateEmail"].then === "function"
-                        ) {
-                          $steps["updateEmail"] = await $steps["updateEmail"];
-                        }
-
-                        $steps["defaultSubmit"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                dataOp: {
-                                  sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                  opId: "11629cc5-8d8e-4028-a2bc-8a25e4d16070",
-                                  userArgs: {
-                                    variables: [$state.form.value]
-                                  },
-                                  cacheKey: null,
-                                  invalidatedKeys: ["plasmic_refresh_all"],
-                                  roleId: "d035f350-edf5-4268-af03-4480b52522b0"
-                                }
-                              };
-                              return (async ({ dataOp, continueOnError }) => {
-                                try {
-                                  const response = await executePlasmicDataOp(
-                                    dataOp,
-                                    {
-                                      userAuthToken:
-                                        dataSourcesCtx?.userAuthToken,
-                                      user: dataSourcesCtx?.user
-                                    }
-                                  );
-                                  await plasmicInvalidate(
-                                    dataOp.invalidatedKeys
-                                  );
-                                  return response;
-                                } catch (e) {
-                                  if (!continueOnError) {
-                                    throw e;
-                                  }
-                                  return e;
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["defaultSubmit"] != null &&
-                          typeof $steps["defaultSubmit"] === "object" &&
-                          typeof $steps["defaultSubmit"].then === "function"
-                        ) {
-                          $steps["defaultSubmit"] = await $steps[
-                            "defaultSubmit"
-                          ];
-                        }
-
-                        $steps["refreshData"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                queryInvalidation: ["plasmic_refresh_all"]
-                              };
-                              return (async ({ queryInvalidation }) => {
-                                if (!queryInvalidation) {
-                                  return;
-                                }
-                                await plasmicInvalidate(queryInvalidation);
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["refreshData"] != null &&
-                          typeof $steps["refreshData"] === "object" &&
-                          typeof $steps["refreshData"].then === "function"
-                        ) {
-                          $steps["refreshData"] = await $steps["refreshData"];
-                        }
-
-                        $steps["goToPortfolio"] = true
-                          ? (() => {
-                              const actionArgs = { destination: `/portfolio` };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["goToPortfolio"] != null &&
-                          typeof $steps["goToPortfolio"] === "object" &&
-                          typeof $steps["goToPortfolio"].then === "function"
-                        ) {
-                          $steps["goToPortfolio"] = await $steps[
-                            "goToPortfolio"
-                          ];
-                        }
-                      },
                       onIsSubmittingChange:
                         generateStateOnChangePropForCodeComponents(
                           $state,
@@ -1303,7 +1171,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                             "__wab_instance",
                             sty.formField__ydARc
                           )}
-                          hidden={true}
+                          hidden={false}
                           initialValue={(() => {
                             try {
                               return $state.file;
@@ -1441,7 +1309,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                             )}
                             initialValue={(() => {
                               try {
-                                return $state.printifyId.data.response.id;
+                                return $state.printifyId.data.response.id.toString();
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -1727,6 +1595,20 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                     ["input9", "value"],
                                     AntdInput_Helpers
                                   ),
+                                placeholder: (() => {
+                                  try {
+                                    return $state.printifyId.data.response.id;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
                                 readOnly: true,
                                 value: generateStateValueProp($state, [
                                   "input9",
@@ -1762,8 +1644,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                             )}
                             initialValue={(() => {
                               try {
-                                return $state.printfulId.data.response.result
-                                  .id;
+                                return $state.printfulId.data.response.result.id.toString();
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2048,6 +1929,21 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                     ["input6", "value"],
                                     AntdInput_Helpers
                                   ),
+                                placeholder: (() => {
+                                  try {
+                                    return $state.printfulId.data.response
+                                      .result.id;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
                                 readOnly: true,
                                 value: generateStateValueProp($state, [
                                   "input6",
@@ -2405,6 +2301,154 @@ function PlasmicTestUpload2__RenderFunc(props: {
                           })()}
                           onClick={async () => {
                             const $steps = {};
+
+                            $steps["updateEmail"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["email"]
+                                    },
+                                    operation: 0,
+                                    value: currentUser.email
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateEmail"] != null &&
+                              typeof $steps["updateEmail"] === "object" &&
+                              typeof $steps["updateEmail"].then === "function"
+                            ) {
+                              $steps["updateEmail"] = await $steps[
+                                "updateEmail"
+                              ];
+                            }
+
+                            $steps["postgresCreate"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    dataOp: {
+                                      sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                      opId: "6356dc06-264c-43ab-9933-9245e4fe375c",
+                                      userArgs: {
+                                        variables: [
+                                          {
+                                            ...$state.form.value,
+                                            printify_id:
+                                              $state.printifyId.data.response
+                                                .id,
+                                            printful_id:
+                                              $state.printfulId.data.response
+                                                .result.id,
+                                            image_id: $state.file
+                                          }
+                                        ]
+                                      },
+                                      cacheKey: null,
+                                      invalidatedKeys: ["plasmic_refresh_all"],
+                                      roleId: null
+                                    }
+                                  };
+                                  return (async ({
+                                    dataOp,
+                                    continueOnError
+                                  }) => {
+                                    try {
+                                      const response =
+                                        await executePlasmicDataOp(dataOp, {
+                                          userAuthToken:
+                                            dataSourcesCtx?.userAuthToken,
+                                          user: dataSourcesCtx?.user
+                                        });
+                                      await plasmicInvalidate(
+                                        dataOp.invalidatedKeys
+                                      );
+                                      return response;
+                                    } catch (e) {
+                                      if (!continueOnError) {
+                                        throw e;
+                                      }
+                                      return e;
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["postgresCreate"] != null &&
+                              typeof $steps["postgresCreate"] === "object" &&
+                              typeof $steps["postgresCreate"].then ===
+                                "function"
+                            ) {
+                              $steps["postgresCreate"] = await $steps[
+                                "postgresCreate"
+                              ];
+                            }
+
+                            $steps["refreshData"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    queryInvalidation: ["plasmic_refresh_all"]
+                                  };
+                                  return (async ({ queryInvalidation }) => {
+                                    if (!queryInvalidation) {
+                                      return;
+                                    }
+                                    await plasmicInvalidate(queryInvalidation);
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["refreshData"] != null &&
+                              typeof $steps["refreshData"] === "object" &&
+                              typeof $steps["refreshData"].then === "function"
+                            ) {
+                              $steps["refreshData"] = await $steps[
+                                "refreshData"
+                              ];
+                            }
+
+                            $steps["goToPortfolio"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: `/portfolio`
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToPortfolio"] != null &&
+                              typeof $steps["goToPortfolio"] === "object" &&
+                              typeof $steps["goToPortfolio"].then === "function"
+                            ) {
+                              $steps["goToPortfolio"] = await $steps[
+                                "goToPortfolio"
+                              ];
+                            }
                           }}
                           submitsForm={true}
                           type={"primary"}

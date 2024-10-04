@@ -926,6 +926,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/upload-2"
+        },
+        {
+          "id": "LvgsS-EMlkfG",
+          "name": "Text",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicText.tsx",
+          "importSpec": {
+            "modulePath": "Text.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicText.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
