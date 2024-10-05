@@ -1807,8 +1807,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               const actionArgs = {
                                                 tplRef:
                                                   "formEditPrintifyProduct",
-                                                action: "setFieldsValue",
-                                                args: [$state.selectedProduct]
+                                                action: "resetFields"
                                               };
                                               return (({
                                                 tplRef,
@@ -6812,6 +6811,44 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                             "updateModalEditPrintfulProductOpen"
                                           ] = await $steps[
                                             "updateModalEditPrintfulProductOpen"
+                                          ];
+                                        }
+
+                                        $steps[
+                                          "runActionOnFormEditPrintifyProduct"
+                                        ] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                tplRef:
+                                                  "formEditPrintifyProduct",
+                                                action: "resetFields"
+                                              };
+                                              return (({
+                                                tplRef,
+                                                action,
+                                                args
+                                              }) => {
+                                                return $refs?.[tplRef]?.[
+                                                  action
+                                                ]?.(...(args ?? []));
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ] != null &&
+                                          typeof $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ].then === "function"
+                                        ) {
+                                          $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ] = await $steps[
+                                            "runActionOnFormEditPrintifyProduct"
                                           ];
                                         }
                                       };
