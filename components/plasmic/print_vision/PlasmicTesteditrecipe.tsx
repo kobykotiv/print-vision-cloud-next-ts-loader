@@ -1694,58 +1694,40 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                         }
 
                                         $steps[
-                                          "updateModalEditPrintifyProductOpen"
+                                          "runActionOnFormEditPrintifyProduct"
                                         ] = true
                                           ? (() => {
                                               const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "modalEditPrintifyProduct",
-                                                    "open"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
+                                                tplRef:
+                                                  "formEditPrintifyProduct",
+                                                action: "resetFields"
                                               };
                                               return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
+                                                tplRef,
+                                                action,
+                                                args
                                               }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
+                                                return $refs?.[tplRef]?.[
+                                                  action
+                                                ]?.(...(args ?? []));
                                               })?.apply(null, [actionArgs]);
                                             })()
                                           : undefined;
                                         if (
                                           $steps[
-                                            "updateModalEditPrintifyProductOpen"
+                                            "runActionOnFormEditPrintifyProduct"
                                           ] != null &&
                                           typeof $steps[
-                                            "updateModalEditPrintifyProductOpen"
+                                            "runActionOnFormEditPrintifyProduct"
                                           ] === "object" &&
                                           typeof $steps[
-                                            "updateModalEditPrintifyProductOpen"
+                                            "runActionOnFormEditPrintifyProduct"
                                           ].then === "function"
                                         ) {
                                           $steps[
-                                            "updateModalEditPrintifyProductOpen"
+                                            "runActionOnFormEditPrintifyProduct"
                                           ] = await $steps[
-                                            "updateModalEditPrintifyProductOpen"
+                                            "runActionOnFormEditPrintifyProduct"
                                           ];
                                         }
 
@@ -1801,40 +1783,58 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                         }
 
                                         $steps[
-                                          "runActionOnFormEditPrintifyProduct"
+                                          "updateModalEditPrintifyProductOpen"
                                         ] = true
                                           ? (() => {
                                               const actionArgs = {
-                                                tplRef:
-                                                  "formEditPrintifyProduct",
-                                                action: "resetFields"
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "modalEditPrintifyProduct",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
                                               };
                                               return (({
-                                                tplRef,
-                                                action,
-                                                args
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
                                               }) => {
-                                                return $refs?.[tplRef]?.[
-                                                  action
-                                                ]?.(...(args ?? []));
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
                                               })?.apply(null, [actionArgs]);
                                             })()
                                           : undefined;
                                         if (
                                           $steps[
-                                            "runActionOnFormEditPrintifyProduct"
+                                            "updateModalEditPrintifyProductOpen"
                                           ] != null &&
                                           typeof $steps[
-                                            "runActionOnFormEditPrintifyProduct"
+                                            "updateModalEditPrintifyProductOpen"
                                           ] === "object" &&
                                           typeof $steps[
-                                            "runActionOnFormEditPrintifyProduct"
+                                            "updateModalEditPrintifyProductOpen"
                                           ].then === "function"
                                         ) {
                                           $steps[
-                                            "runActionOnFormEditPrintifyProduct"
+                                            "updateModalEditPrintifyProductOpen"
                                           ] = await $steps[
-                                            "runActionOnFormEditPrintifyProduct"
+                                            "updateModalEditPrintifyProductOpen"
                                           ];
                                         }
                                       };
@@ -2343,6 +2343,22 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                                   sty.formField__q4O5S
                                                 )}
                                                 hidden={false}
+                                                initialValue={(() => {
+                                                  try {
+                                                    return $state
+                                                      .selectedProduct
+                                                      .print_provider;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
                                                 label={"print_provider"}
                                                 name={"print_provider"}
                                                 preserve={false}
@@ -7320,7 +7336,9 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               })()}
                                               label={"title"}
                                               name={"title"}
+                                              preserve={false}
                                               rules={[{ ruleType: "required" }]}
+                                              shouldUpdate={true}
                                             >
                                               {(() => {
                                                 const child$Props = {
@@ -7420,7 +7438,9 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               })()}
                                               label={"description"}
                                               name={"description"}
+                                              preserve={false}
                                               rules={[{ ruleType: "required" }]}
+                                              shouldUpdate={true}
                                             >
                                               {(() => {
                                                 const child$Props = {
@@ -7607,6 +7627,7 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                               label={"tags"}
                                               name={"tags"}
                                               preserve={false}
+                                              shouldUpdate={true}
                                             >
                                               {(() => {
                                                 const child$Props = {
