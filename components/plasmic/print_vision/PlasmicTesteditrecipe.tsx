@@ -72,9 +72,9 @@ import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/SchemaForm";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -1798,6 +1798,45 @@ function PlasmicTesteditrecipe__RenderFunc(props: {
                                             await $steps[
                                               "updateTabs2ActiveKey"
                                             ];
+                                        }
+
+                                        $steps[
+                                          "runActionOnFormEditPrintifyProduct"
+                                        ] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                tplRef:
+                                                  "formEditPrintifyProduct",
+                                                action: "setFieldsValue",
+                                                args: [$state.selectedProduct]
+                                              };
+                                              return (({
+                                                tplRef,
+                                                action,
+                                                args
+                                              }) => {
+                                                return $refs?.[tplRef]?.[
+                                                  action
+                                                ]?.(...(args ?? []));
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ] != null &&
+                                          typeof $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ].then === "function"
+                                        ) {
+                                          $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ] = await $steps[
+                                            "runActionOnFormEditPrintifyProduct"
+                                          ];
                                         }
                                       };
                                       __composite["0"]["label"] = "Edit";
