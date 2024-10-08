@@ -189,8 +189,9 @@ export type PlasmicTesteditrecipe2__OverridesType = {
   numberInput26?: Flex__<typeof AntdInputNumber>;
   numberInput27?: Flex__<typeof AntdInputNumber>;
   numberInput28?: Flex__<typeof AntdInputNumber>;
-  input10?: Flex__<typeof AntdInput>;
-  input11?: Flex__<typeof AntdInput>;
+  select9?: Flex__<typeof AntdSelect>;
+  imageId?: Flex__<typeof FormItemWrapper>;
+  select10?: Flex__<typeof AntdSelect>;
   select8?: Flex__<typeof AntdSelect>;
   printfulPlaceholdersTable?: Flex__<typeof RichTable>;
   svg?: Flex__<"svg">;
@@ -1057,23 +1058,18 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "input10.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "input11.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
         path: "select8.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select9[].value",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "select10.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -2519,15 +2515,52 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   sty.title
                                                 )}
                                               >
-                                                <div
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
                                                   className={classNames(
                                                     projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__dXof1
+                                                    sty.freeBox__ylw2B
                                                   )}
                                                 >
-                                                  {"title"}
-                                                </div>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__dXof1
+                                                    )}
+                                                  >
+                                                    {"title"}
+                                                  </div>
+                                                  {(() => {
+                                                    try {
+                                                      return $state.titleTag
+                                                        .value === ""
+                                                        ? true
+                                                        : undefined;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return true;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })() ? (
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__nIq9Z
+                                                      )}
+                                                    >
+                                                      {"*Title is required"}
+                                                    </div>
+                                                  ) : null}
+                                                </Stack__>
                                                 {(() => {
                                                   const child$Props = {
                                                     className: classNames(
@@ -2588,15 +2621,55 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   sty.description
                                                 )}
                                               >
-                                                <div
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
                                                   className={classNames(
                                                     projectcss.all,
-                                                    projectcss.__wab_text,
-                                                    sty.text__y4Cdr
+                                                    sty.freeBox__inzGr
                                                   )}
                                                 >
-                                                  {"description"}
-                                                </div>
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__y4Cdr
+                                                    )}
+                                                  >
+                                                    {"description"}
+                                                  </div>
+                                                  {(() => {
+                                                    try {
+                                                      return $state
+                                                        .descriptionTag
+                                                        .value === ""
+                                                        ? true
+                                                        : undefined;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return true;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })() ? (
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__ehKlt
+                                                      )}
+                                                    >
+                                                      {
+                                                        "*Description is required"
+                                                      }
+                                                    </div>
+                                                  ) : null}
+                                                </Stack__>
                                                 {(() => {
                                                   const child$Props = {
                                                     autoSize: true,
@@ -2725,6 +2798,25 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.button__e5CQ
                                                 )}
+                                                disabled={(() => {
+                                                  try {
+                                                    return $state.titleTag
+                                                      .value === "" ||
+                                                      $state.descriptionTag
+                                                        .value === ""
+                                                      ? true
+                                                      : undefined;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
                                                 submitsForm={true}
                                                 type={"primary"}
                                               >
@@ -4811,6 +4903,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput8
                                                       )}
+                                                      min={0}
                                                       onChange={generateStateOnChangeProp(
                                                         $state,
                                                         [
@@ -4818,6 +4911,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           "value"
                                                         ]
                                                       )}
+                                                      step={0.05}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -4851,6 +4945,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput10
                                                       )}
+                                                      min={0}
                                                       onChange={generateStateOnChangeProp(
                                                         $state,
                                                         [
@@ -4858,6 +4953,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           "value"
                                                         ]
                                                       )}
+                                                      step={0.05}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -4891,6 +4987,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput11
                                                       )}
+                                                      min={0}
                                                       onChange={generateStateOnChangeProp(
                                                         $state,
                                                         [
@@ -4898,6 +4995,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           "value"
                                                         ]
                                                       )}
+                                                      step={0.05}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -4944,6 +5042,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput12
                                                       )}
+                                                      max={359}
+                                                      min={0}
                                                       onChange={generateStateOnChangeProp(
                                                         $state,
                                                         [
@@ -4951,6 +5051,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           "value"
                                                         ]
                                                       )}
+                                                      step={1}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -7248,21 +7349,15 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           )
                                                         ],
                                                         variables: [
-                                                          $state
-                                                            .formEditPrintfulProduct
-                                                            .value.id,
-                                                          $state
-                                                            .formEditPrintfulProduct
-                                                            .value.description,
-                                                          $state
-                                                            .formEditPrintfulProduct
-                                                            .value.recipe_id,
+                                                          $state.selectedProduct
+                                                            .blueprint_id,
+                                                          $state.textTagZ.value,
+                                                          $state.selectedProduct
+                                                            .recipe_id,
                                                           $state
                                                             .formEditPrintfulProduct
                                                             .value.tags,
-                                                          $state
-                                                            .formEditPrintfulProduct
-                                                            .value.title
+                                                          $state.titleTagz.value
                                                         ]
                                                       },
                                                       cacheKey: null,
@@ -7308,6 +7403,37 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                             ) {
                                               $steps["defaultSubmit"] =
                                                 await $steps["defaultSubmit"];
+                                            }
+
+                                            $steps["invokeGlobalAction"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    args: [
+                                                      "success",
+                                                      "Product updated"
+                                                    ]
+                                                  };
+                                                  return $globalActions[
+                                                    "plasmic-antd5-config-provider.showNotification"
+                                                  ]?.apply(null, [
+                                                    ...actionArgs.args
+                                                  ]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["invokeGlobalAction"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["invokeGlobalAction"] =
+                                                await $steps[
+                                                  "invokeGlobalAction"
+                                                ];
                                             }
                                           },
                                           onIsSubmittingChange:
@@ -7402,11 +7528,27 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               <div
                                                 className={classNames(
                                                   projectcss.all,
-                                                  projectcss.__wab_text,
-                                                  sty.text__bgneq
+                                                  sty.freeBox___911OF
                                                 )}
                                               >
-                                                {"Title"}
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__bgneq
+                                                  )}
+                                                >
+                                                  {"Title"}
+                                                </div>
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__o86Ll
+                                                  )}
+                                                >
+                                                  {"Title"}
+                                                </div>
                                               </div>
                                               {(() => {
                                                 const child$Props = {
@@ -8744,6 +8886,10 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 return __composite;
                                               })(),
 
+                                              hideColumnPicker: true,
+                                              hideDensity: true,
+                                              hideExports: true,
+                                              hideSelectionBar: false,
                                               onRowSelectionChanged: async (
                                                 ...eventArgs: any
                                               ) => {
@@ -9786,10 +9932,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput25
                                                     )}
+                                                    min={0}
                                                     onChange={generateStateOnChangeProp(
                                                       $state,
                                                       ["numberInput25", "value"]
                                                     )}
+                                                    step={0.05}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -9820,10 +9968,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput26
                                                     )}
+                                                    min={0}
                                                     onChange={generateStateOnChangeProp(
                                                       $state,
                                                       ["numberInput26", "value"]
                                                     )}
+                                                    step={0.05}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -9854,10 +10004,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput27
                                                     )}
+                                                    min={0}
                                                     onChange={generateStateOnChangeProp(
                                                       $state,
                                                       ["numberInput27", "value"]
                                                     )}
+                                                    step={0.05}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -9888,10 +10040,13 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput28
                                                     )}
+                                                    max={359}
+                                                    min={0}
                                                     onChange={generateStateOnChangeProp(
                                                       $state,
                                                       ["numberInput28", "value"]
                                                     )}
+                                                    step={1}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -9900,126 +10055,286 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   />
                                                 </FormItemWrapper>
                                               </div>
-                                              <FormItemWrapper
-                                                className={classNames(
-                                                  "__wab_instance",
-                                                  sty.formField__sMyVl
-                                                )}
-                                                label={"Position"}
-                                                name={"position"}
-                                                rules={[
-                                                  { ruleType: "required" }
-                                                ]}
-                                              >
-                                                {(() => {
-                                                  const child$Props = {
-                                                    className: classNames(
-                                                      "__wab_instance",
-                                                      sty.input10
-                                                    ),
-                                                    onChange:
-                                                      generateStateOnChangePropForCodeComponents(
-                                                        $state,
-                                                        "value",
-                                                        ["input10", "value"],
-                                                        AntdInput_Helpers
-                                                      ),
-                                                    value:
-                                                      generateStateValueProp(
-                                                        $state,
-                                                        ["input10", "value"]
-                                                      )
-                                                  };
-                                                  initializeCodeComponentStates(
-                                                    $state,
-                                                    [
-                                                      {
-                                                        name: "value",
-                                                        plasmicStateName:
-                                                          "input10.value"
-                                                      }
-                                                    ],
-                                                    [],
-                                                    AntdInput_Helpers ?? {},
-                                                    child$Props
-                                                  );
-
+                                              {(_par =>
+                                                !_par
+                                                  ? []
+                                                  : Array.isArray(_par)
+                                                  ? _par
+                                                  : [_par])(
+                                                (() => {
+                                                  try {
+                                                    return $queries.queryGetPrintfulBlueprint.data.response.result.product.options.filter(
+                                                      option =>
+                                                        option.id !== "notes"
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return [];
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              ).map(
+                                                (
+                                                  __plasmic_item_0,
+                                                  __plasmic_idx_0
+                                                ) => {
+                                                  const currentItem =
+                                                    __plasmic_item_0;
+                                                  const currentIndex =
+                                                    __plasmic_idx_0;
                                                   return (
-                                                    <AntdInput
-                                                      data-plasmic-name={
-                                                        "input10"
+                                                    <FormItemWrapper
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.formField__sMyVl
+                                                      )}
+                                                      key={currentIndex}
+                                                      label={
+                                                        <React.Fragment>
+                                                          {(() => {
+                                                            try {
+                                                              return currentItem.title;
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return "Position";
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })()}
+                                                        </React.Fragment>
                                                       }
-                                                      data-plasmic-override={
-                                                        overrides.input10
-                                                      }
-                                                      {...child$Props}
-                                                    />
+                                                      name={(() => {
+                                                        try {
+                                                          return currentItem.id;
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return undefined;
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()}
+                                                      rules={[
+                                                        { ruleType: "required" }
+                                                      ]}
+                                                    >
+                                                      {(() => {
+                                                        const child$Props = {
+                                                          className: classNames(
+                                                            "__wab_instance",
+                                                            sty.select9
+                                                          ),
+                                                          defaultStylesClassName:
+                                                            classNames(
+                                                              projectcss.root_reset,
+                                                              projectcss.plasmic_default_styles,
+                                                              projectcss.plasmic_mixins,
+                                                              projectcss.plasmic_tokens,
+                                                              plasmic_antd_5_hostless_css.plasmic_tokens,
+                                                              plasmic_plasmic_rich_components_css.plasmic_tokens
+                                                            ),
+                                                          onChange:
+                                                            generateStateOnChangeProp(
+                                                              $state,
+                                                              [
+                                                                "select9",
+                                                                __plasmic_idx_0,
+                                                                "value"
+                                                              ]
+                                                            ),
+                                                          options: (() => {
+                                                            try {
+                                                              return Object.entries(
+                                                                currentItem.values
+                                                              ).map(
+                                                                ([
+                                                                  id,
+                                                                  value
+                                                                ]) => ({
+                                                                  id,
+                                                                  value
+                                                                })
+                                                              );
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return [];
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          placeholder:
+                                                            "Select...",
+                                                          popupScopeClassName:
+                                                            sty[
+                                                              "select9__popup"
+                                                            ],
+                                                          value:
+                                                            generateStateValueProp(
+                                                              $state,
+                                                              [
+                                                                "select9",
+                                                                __plasmic_idx_0,
+                                                                "value"
+                                                              ]
+                                                            )
+                                                        };
+                                                        initializeCodeComponentStates(
+                                                          $state,
+                                                          [
+                                                            {
+                                                              name: "value",
+                                                              plasmicStateName:
+                                                                "select9[].value"
+                                                            }
+                                                          ],
+                                                          [__plasmic_idx_0],
+                                                          undefined ?? {},
+                                                          child$Props
+                                                        );
+                                                        initializePlasmicStates(
+                                                          $state,
+                                                          [
+                                                            {
+                                                              name: "select9[].value",
+                                                              initFunc: ({
+                                                                $props,
+                                                                $state,
+                                                                $queries
+                                                              }) => undefined
+                                                            }
+                                                          ],
+                                                          [__plasmic_idx_0]
+                                                        );
+                                                        return (
+                                                          <AntdSelect
+                                                            data-plasmic-name={
+                                                              "select9"
+                                                            }
+                                                            data-plasmic-override={
+                                                              overrides.select9
+                                                            }
+                                                            {...child$Props}
+                                                          />
+                                                        );
+                                                      })()}
+                                                    </FormItemWrapper>
                                                   );
-                                                })()}
-                                              </FormItemWrapper>
+                                                }
+                                              )}
                                               <FormItemWrapper
+                                                data-plasmic-name={"imageId"}
+                                                data-plasmic-override={
+                                                  overrides.imageId
+                                                }
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.formField__bvvU
+                                                  sty.imageId
                                                 )}
                                                 label={"Image_id"}
                                                 name={"position"}
+                                                preserve={false}
                                                 rules={[
                                                   { ruleType: "required" }
                                                 ]}
+                                                shouldUpdate={true}
                                               >
-                                                {(() => {
-                                                  const child$Props = {
-                                                    className: classNames(
-                                                      "__wab_instance",
-                                                      sty.input11
-                                                    ),
-                                                    onChange:
-                                                      generateStateOnChangePropForCodeComponents(
-                                                        $state,
-                                                        "value",
-                                                        ["input11", "value"],
-                                                        AntdInput_Helpers
-                                                      ),
-                                                    value:
-                                                      generateStateValueProp(
-                                                        $state,
-                                                        ["input11", "value"]
-                                                      )
-                                                  };
-                                                  initializeCodeComponentStates(
+                                                <AntdSelect
+                                                  data-plasmic-name={"select10"}
+                                                  data-plasmic-override={
+                                                    overrides.select10
+                                                  }
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.select10
+                                                  )}
+                                                  defaultStylesClassName={classNames(
+                                                    projectcss.root_reset,
+                                                    projectcss.plasmic_default_styles,
+                                                    projectcss.plasmic_mixins,
+                                                    projectcss.plasmic_tokens,
+                                                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                                                    plasmic_plasmic_rich_components_css.plasmic_tokens
+                                                  )}
+                                                  onChange={generateStateOnChangeProp(
                                                     $state,
-                                                    [
+                                                    ["select10", "value"]
+                                                  )}
+                                                  options={(() => {
+                                                    const __composite = [
                                                       {
-                                                        name: "value",
-                                                        plasmicStateName:
-                                                          "input11.value"
+                                                        value: null,
+                                                        label: null,
+                                                        type: "option"
+                                                      },
+                                                      {
+                                                        value: null,
+                                                        label: null,
+                                                        type: "option"
                                                       }
-                                                    ],
-                                                    [],
-                                                    AntdInput_Helpers ?? {},
-                                                    child$Props
-                                                  );
-
-                                                  return (
-                                                    <AntdInput
-                                                      data-plasmic-name={
-                                                        "input11"
-                                                      }
-                                                      data-plasmic-override={
-                                                        overrides.input11
-                                                      }
-                                                      {...child$Props}
-                                                    />
-                                                  );
-                                                })()}
+                                                    ];
+                                                    __composite["0"]["value"] =
+                                                      "design";
+                                                    __composite["0"]["label"] =
+                                                      "Design";
+                                                    __composite["1"]["value"] =
+                                                      "logo";
+                                                    __composite["1"]["label"] =
+                                                      "Logo";
+                                                    return __composite;
+                                                  })()}
+                                                  placeholder={"Select..."}
+                                                  popupScopeClassName={
+                                                    sty["select10__popup"]
+                                                  }
+                                                  value={generateStateValueProp(
+                                                    $state,
+                                                    ["select10", "value"]
+                                                  )}
+                                                />
                                               </FormItemWrapper>
                                               <FormItemWrapper
                                                 className={classNames(
                                                   "__wab_instance",
                                                   sty.formField__nrzuc
                                                 )}
-                                                label={"Position"}
+                                                label={
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      projectcss.__wab_text,
+                                                      sty.text__pmhMz
+                                                    )}
+                                                  >
+                                                    {"Position"}
+                                                  </div>
+                                                }
+                                                preserve={false}
+                                                rules={[
+                                                  {
+                                                    ruleType: "required",
+                                                    message: "Required"
+                                                  }
+                                                ]}
+                                                shouldUpdate={true}
                                               >
                                                 <AntdSelect
                                                   data-plasmic-name={"select8"}
@@ -10044,7 +10359,18 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   )}
                                                   options={(() => {
                                                     try {
-                                                      return undefined;
+                                                      return $queries.queryGetPrinfulBlueprint.data.response.result.product.files
+                                                        .filter(
+                                                          file =>
+                                                            !file.id.includes(
+                                                              "preview"
+                                                            )
+                                                        )
+                                                        .map(i => ({
+                                                          label:
+                                                            i.id.toUpperCase(),
+                                                          value: i.id
+                                                        }));
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
@@ -10498,8 +10824,9 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8",
     "printfulPlaceholdersTable",
     "svg"
@@ -10586,8 +10913,9 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8",
     "printfulPlaceholdersTable"
   ],
@@ -10672,8 +11000,9 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8",
     "printfulPlaceholdersTable"
   ],
@@ -10891,8 +11220,9 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8",
     "printfulPlaceholdersTable"
   ],
@@ -10931,8 +11261,9 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8",
     "printfulPlaceholdersTable"
   ],
@@ -11006,8 +11337,9 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8"
   ],
   form: [
@@ -11016,16 +11348,18 @@ const PlasmicDescendants = {
     "numberInput26",
     "numberInput27",
     "numberInput28",
-    "input10",
-    "input11",
+    "select9",
+    "imageId",
+    "select10",
     "select8"
   ],
   numberInput25: ["numberInput25"],
   numberInput26: ["numberInput26"],
   numberInput27: ["numberInput27"],
   numberInput28: ["numberInput28"],
-  input10: ["input10"],
-  input11: ["input11"],
+  select9: ["select9"],
+  imageId: ["imageId", "select10"],
+  select10: ["select10"],
   select8: ["select8"],
   printfulPlaceholdersTable: ["printfulPlaceholdersTable"],
   svg: ["svg"]
@@ -11116,8 +11450,9 @@ type NodeDefaultElementType = {
   numberInput26: typeof AntdInputNumber;
   numberInput27: typeof AntdInputNumber;
   numberInput28: typeof AntdInputNumber;
-  input10: typeof AntdInput;
-  input11: typeof AntdInput;
+  select9: typeof AntdSelect;
+  imageId: typeof FormItemWrapper;
+  select10: typeof AntdSelect;
   select8: typeof AntdSelect;
   printfulPlaceholdersTable: typeof RichTable;
   svg: "svg";
@@ -11312,8 +11647,9 @@ export const PlasmicTesteditrecipe2 = Object.assign(
     numberInput26: makeNodeComponent("numberInput26"),
     numberInput27: makeNodeComponent("numberInput27"),
     numberInput28: makeNodeComponent("numberInput28"),
-    input10: makeNodeComponent("input10"),
-    input11: makeNodeComponent("input11"),
+    select9: makeNodeComponent("select9"),
+    imageId: makeNodeComponent("imageId"),
+    select10: makeNodeComponent("select10"),
     select8: makeNodeComponent("select8"),
     printfulPlaceholdersTable: makeNodeComponent("printfulPlaceholdersTable"),
     svg: makeNodeComponent("svg"),
