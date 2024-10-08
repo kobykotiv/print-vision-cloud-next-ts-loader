@@ -939,6 +939,20 @@
           "cssFilePath": "plasmic/print_vision/PlasmicText.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Lz5lrD59R3ma",
+          "name": "Testeditrecipe2",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicTesteditrecipe2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/recipes-8/[id].tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicTesteditrecipe2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/recipes-8/[id]"
         }
       ],
       "icons": [
