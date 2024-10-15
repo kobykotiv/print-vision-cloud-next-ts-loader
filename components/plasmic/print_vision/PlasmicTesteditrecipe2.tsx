@@ -153,6 +153,12 @@ export type PlasmicTesteditrecipe2__OverridesType = {
   select6?: Flex__<typeof AntdSelect>;
   select7?: Flex__<typeof AntdSelect>;
   tablePrintifyPlaceholders?: Flex__<typeof RichTable>;
+  search?: Flex__<"div">;
+  form2?: Flex__<typeof FormWrapper>;
+  input12?: Flex__<typeof AntdInput>;
+  textArea?: Flex__<typeof AntdTextArea>;
+  tableHead2?: Flex__<"div">;
+  tableBody?: Flex__<"div">;
   tablePrintfulProducts?: Flex__<typeof RichTable>;
   modalEditPrintfulProduct?: Flex__<typeof AntdModal>;
   tabsEditPrintfulProduct?: Flex__<typeof AntdTabs>;
@@ -173,14 +179,14 @@ export type PlasmicTesteditrecipe2__OverridesType = {
   inputPriceVariants2?: Flex__<typeof AntdInput>;
   printfulVariantsTable?: Flex__<typeof RichTable>;
   modal?: Flex__<typeof AntdModal>;
-  printfulNewPlaceholder?: Flex__<typeof FormWrapper>;
-  numberInput?: Flex__<typeof AntdInputNumber>;
-  numberInput2?: Flex__<typeof AntdInputNumber>;
-  numberInput3?: Flex__<typeof AntdInputNumber>;
-  numberInput4?: Flex__<typeof AntdInputNumber>;
-  select2?: Flex__<typeof AntdSelect>;
+  form?: Flex__<typeof FormWrapper>;
+  input?: Flex__<typeof AntdInput>;
+  input2?: Flex__<typeof AntdInput>;
+  input5?: Flex__<typeof AntdInput>;
+  input10?: Flex__<typeof AntdInput>;
   select3?: Flex__<typeof AntdSelect>;
   select8?: Flex__<typeof AntdSelect>;
+  input11?: Flex__<typeof AntdInput>;
   printfulPlaceholdersTable?: Flex__<typeof RichTable>;
   svg?: Flex__<"svg">;
 };
@@ -921,25 +927,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
-      },
-      {
-        path: "printfulNewPlaceholder.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        refName: "printfulNewPlaceholder",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "printfulNewPlaceholder.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-
-        refName: "printfulNewPlaceholder",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "printfulPlaceholderOptions",
@@ -948,33 +936,54 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "numberInput.value",
+        path: "form.value",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "numberInput2.value",
+        path: "form.isSubmitting",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
-        path: "numberInput3.value",
+        path: "input.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "numberInput4.value",
+        path: "input2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "select2[].value",
+        path: "input5.value",
         type: "private",
-        variableType: "text"
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input10.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
         path: "select3.value",
@@ -987,6 +996,72 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input11.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input12.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => '""',
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "form2.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form2.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "textArea.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
+      },
+      {
+        path: "variable2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable3",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable4",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => '""'
+      },
+      {
+        path: "search2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1028,11 +1103,11 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
     getSupPrintifyProducts: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "08720828-183c-491d-8a91-833f109da095",
+        opId: "96976b7c-aae9-4f5b-af98-d3e298594c95",
         userArgs: {
-          filters: [parseInt($ctx.params.id)]
+          filters: [parseInt($ctx.params.id), $state.search2]
         },
-        cacheKey: `plasmic.$.08720828-183c-491d-8a91-833f109da095.$.`,
+        cacheKey: `plasmic.$.96976b7c-aae9-4f5b-af98-d3e298594c95.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -1195,6 +1270,26 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
           path: [parseInt($state.selectedProduct.blueprint_id)]
         },
         cacheKey: `plasmic.$.91ced04a-655c-4a98-8520-46ce40dfb694.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    totalPrintifyPlaceholder: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "bf72220c-046c-48a8-83c7-c687e23f1955",
+        userArgs: {},
+        cacheKey: `plasmic.$.bf72220c-046c-48a8-83c7-c687e23f1955.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    totalPrintifyProductVariant: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "b440d1dd-ab06-4a0d-8c5e-4bd286924ed6",
+        userArgs: {},
+        cacheKey: `plasmic.$.b440d1dd-ab06-4a0d-8c5e-4bd286924ed6.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -1476,556 +1571,495 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                               ) : null}
                             </div>
                             {(() => {
-                              try {
-                                return (
-                                  $queries.getSupPrintifyProducts?.data
-                                    ?.length > 0
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
-                              }
-                            })()
-                              ? (() => {
-                                  const child$Props = {
-                                    className: classNames(
-                                      "__wab_instance",
-                                      sty.tablePrintifyProducts
-                                    ),
-                                    data: (() => {
-                                      try {
-                                        return $queries.getSupPrintifyProducts;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    fields: (() => {
-                                      const __composite = [
-                                        { key: "id", fieldId: "id" },
-                                        { key: "title", fieldId: "title" },
-                                        {
-                                          key: "print_provider",
-                                          fieldId: "print_provider"
-                                        },
-                                        {
-                                          key: "owner",
-                                          fieldId: "owner",
-                                          isHidden: null
-                                        },
-                                        {
-                                          key: "variant_ids",
-                                          fieldId: "variant_ids",
-                                          isHidden: null
-                                        },
-                                        {
-                                          key: "description",
-                                          fieldId: "description"
-                                        },
-                                        {
-                                          key: "placeholder_ids",
-                                          fieldId: "placeholder_ids",
-                                          isHidden: null
-                                        },
-                                        {
-                                          key: "recipe_id",
-                                          fieldId: "recipe_id",
-                                          isHidden: null
-                                        },
-                                        { key: "tags", fieldId: "tags" },
-                                        {
-                                          key: "sync_product_id",
-                                          fieldId: "sync_product_id",
-                                          isHidden: null
-                                        },
-                                        {
-                                          key: "created_at",
-                                          fieldId: "created_at",
-                                          isHidden: null
-                                        },
-                                        {
-                                          key: "blueprint_id",
-                                          fieldId: "blueprint_id",
-                                          isHidden: null
-                                        },
-                                        {
-                                          key: "email",
-                                          fieldId: "email",
-                                          isHidden: null
-                                        }
-                                      ];
-                                      __composite["3"]["isHidden"] = true;
-                                      __composite["4"]["isHidden"] = true;
-                                      __composite["6"]["isHidden"] = true;
-                                      __composite["7"]["isHidden"] = true;
-                                      __composite["9"]["isHidden"] = true;
-                                      __composite["10"]["isHidden"] = true;
-                                      __composite["11"]["isHidden"] = false;
-                                      __composite["12"]["isHidden"] = true;
-                                      return __composite;
-                                    })(),
-
-                                    hideColumnPicker: true,
-                                    hideExports: true,
-                                    hideSearch: false,
-                                    onRowSelectionChanged: async (
-                                      ...eventArgs: any
-                                    ) => {
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "selectedRowKey",
-                                        [
-                                          "tablePrintifyProducts",
-                                          "selectedRowKey"
-                                        ],
-                                        RichTable_Helpers
-                                      ).apply(null, eventArgs);
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "selectedRow",
-                                        [
-                                          "tablePrintifyProducts",
-                                          "selectedRow"
-                                        ],
-                                        RichTable_Helpers
-                                      ).apply(null, eventArgs);
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "selectedRows",
-                                        [
-                                          "tablePrintifyProducts",
-                                          "selectedRows"
-                                        ],
-                                        RichTable_Helpers
-                                      ).apply(null, eventArgs);
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "selectedRowKeys",
-                                        [
-                                          "tablePrintifyProducts",
-                                          "selectedRowKeys"
-                                        ],
-                                        RichTable_Helpers
-                                      ).apply(null, eventArgs);
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.tablePrintifyProducts
+                                ),
+                                data: (() => {
+                                  try {
+                                    return $queries.getSupPrintifyProducts;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                fields: (() => {
+                                  const __composite = [
+                                    { key: "id", fieldId: "id" },
+                                    { key: "title", fieldId: "title" },
+                                    {
+                                      key: "print_provider",
+                                      fieldId: "print_provider"
                                     },
-                                    pageSize: 20,
-                                    pagination: true,
-                                    rowActions: (() => {
-                                      const __composite = [
-                                        {
-                                          type: "item",
-                                          onClick: null,
-                                          label: null
-                                        },
-                                        {
-                                          type: "item",
-                                          label: null,
-                                          onClick: null
-                                        }
-                                      ];
-                                      __composite["0"]["onClick"] = async (
-                                        rowKey,
-                                        row
-                                      ) => {
-                                        const $steps = {};
+                                    {
+                                      key: "owner",
+                                      fieldId: "owner",
+                                      isHidden: null
+                                    },
+                                    {
+                                      key: "variant_ids",
+                                      fieldId: "variant_ids",
+                                      isHidden: null
+                                    },
+                                    {
+                                      key: "description",
+                                      fieldId: "description"
+                                    },
+                                    {
+                                      key: "placeholder_ids",
+                                      fieldId: "placeholder_ids",
+                                      isHidden: null
+                                    },
+                                    {
+                                      key: "recipe_id",
+                                      fieldId: "recipe_id",
+                                      isHidden: null
+                                    },
+                                    { key: "tags", fieldId: "tags" },
+                                    {
+                                      key: "sync_product_id",
+                                      fieldId: "sync_product_id",
+                                      isHidden: null
+                                    },
+                                    {
+                                      key: "created_at",
+                                      fieldId: "created_at",
+                                      isHidden: null
+                                    },
+                                    {
+                                      key: "blueprint_id",
+                                      fieldId: "blueprint_id",
+                                      isHidden: null
+                                    },
+                                    {
+                                      key: "email",
+                                      fieldId: "email",
+                                      isHidden: null
+                                    }
+                                  ];
+                                  __composite["3"]["isHidden"] = true;
+                                  __composite["4"]["isHidden"] = true;
+                                  __composite["6"]["isHidden"] = true;
+                                  __composite["7"]["isHidden"] = true;
+                                  __composite["9"]["isHidden"] = true;
+                                  __composite["10"]["isHidden"] = true;
+                                  __composite["11"]["isHidden"] = false;
+                                  __composite["12"]["isHidden"] = true;
+                                  return __composite;
+                                })(),
 
-                                        $steps["updateSelectedProduct"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "selectedProduct"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: row
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateSelectedProduct"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "updateSelectedProduct"
-                                          ] === "object" &&
-                                          typeof $steps["updateSelectedProduct"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateSelectedProduct"] =
-                                            await $steps[
-                                              "updateSelectedProduct"
-                                            ];
-                                        }
-
-                                        $steps[
-                                          "runActionOnFormEditPrintifyProduct"
-                                        ] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                tplRef:
-                                                  "formEditPrintifyProduct",
-                                                action: "resetFields"
-                                              };
-                                              return (({
-                                                tplRef,
-                                                action,
-                                                args
-                                              }) => {
-                                                return $refs?.[tplRef]?.[
-                                                  action
-                                                ]?.(...(args ?? []));
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps[
-                                            "runActionOnFormEditPrintifyProduct"
-                                          ] != null &&
-                                          typeof $steps[
-                                            "runActionOnFormEditPrintifyProduct"
-                                          ] === "object" &&
-                                          typeof $steps[
-                                            "runActionOnFormEditPrintifyProduct"
-                                          ].then === "function"
-                                        ) {
-                                          $steps[
-                                            "runActionOnFormEditPrintifyProduct"
-                                          ] = await $steps[
-                                            "runActionOnFormEditPrintifyProduct"
-                                          ];
-                                        }
-
-                                        $steps["updateTabs2ActiveKey"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "tabs2",
-                                                    "activeKey"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: "1"
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateTabs2ActiveKey"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "updateTabs2ActiveKey"
-                                          ] === "object" &&
-                                          typeof $steps["updateTabs2ActiveKey"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateTabs2ActiveKey"] =
-                                            await $steps[
-                                              "updateTabs2ActiveKey"
-                                            ];
-                                        }
-
-                                        $steps[
-                                          "updateModalEditPrintifyProductOpen"
-                                        ] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "modalEditPrintifyProduct",
-                                                    "open"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps[
-                                            "updateModalEditPrintifyProductOpen"
-                                          ] != null &&
-                                          typeof $steps[
-                                            "updateModalEditPrintifyProductOpen"
-                                          ] === "object" &&
-                                          typeof $steps[
-                                            "updateModalEditPrintifyProductOpen"
-                                          ].then === "function"
-                                        ) {
-                                          $steps[
-                                            "updateModalEditPrintifyProductOpen"
-                                          ] = await $steps[
-                                            "updateModalEditPrintifyProductOpen"
-                                          ];
-                                        }
-                                      };
-                                      __composite["0"]["label"] = "Edit";
-                                      __composite["1"]["label"] = "Delete";
-                                      __composite["1"]["onClick"] = async (
-                                        rowKey,
-                                        row
-                                      ) => {
-                                        const $steps = {};
-
-                                        $steps["postgresDeleteMany"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                dataOp: {
-                                                  sourceId:
-                                                    "83X9ZdYzYUYJtgqe5fwXeX",
-                                                  opId: "1e5a66d3-7935-4543-98e5-903c820c380f",
-                                                  userArgs: {
-                                                    conditions: [row.id]
-                                                  },
-                                                  cacheKey: null,
-                                                  invalidatedKeys: [],
-                                                  roleId:
-                                                    "d035f350-edf5-4268-af03-4480b52522b0"
-                                                }
-                                              };
-                                              return (async ({
-                                                dataOp,
-                                                continueOnError
-                                              }) => {
-                                                try {
-                                                  const response =
-                                                    await executePlasmicDataOp(
-                                                      dataOp,
-                                                      {
-                                                        userAuthToken:
-                                                          dataSourcesCtx?.userAuthToken,
-                                                        user: dataSourcesCtx?.user
-                                                      }
-                                                    );
-                                                  await plasmicInvalidate(
-                                                    dataOp.invalidatedKeys
-                                                  );
-                                                  return response;
-                                                } catch (e) {
-                                                  if (!continueOnError) {
-                                                    throw e;
-                                                  }
-                                                  return e;
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["postgresDeleteMany"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "postgresDeleteMany"
-                                          ] === "object" &&
-                                          typeof $steps["postgresDeleteMany"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["postgresDeleteMany"] =
-                                            await $steps["postgresDeleteMany"];
-                                        }
-
-                                        $steps["refreshData"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                queryInvalidation: [
-                                                  "plasmic_refresh_all"
-                                                ]
-                                              };
-                                              return (async ({
-                                                queryInvalidation
-                                              }) => {
-                                                if (!queryInvalidation) {
-                                                  return;
-                                                }
-                                                await plasmicInvalidate(
-                                                  queryInvalidation
-                                                );
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["refreshData"] != null &&
-                                          typeof $steps["refreshData"] ===
-                                            "object" &&
-                                          typeof $steps["refreshData"].then ===
-                                            "function"
-                                        ) {
-                                          $steps["refreshData"] = await $steps[
-                                            "refreshData"
-                                          ];
-                                        }
-
-                                        $steps["invokeGlobalAction"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                args: ["warning", "Row Deleted"]
-                                              };
-                                              return $globalActions[
-                                                "plasmic-antd5-config-provider.showNotification"
-                                              ]?.apply(null, [
-                                                ...actionArgs.args
-                                              ]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["invokeGlobalAction"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "invokeGlobalAction"
-                                          ] === "object" &&
-                                          typeof $steps["invokeGlobalAction"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["invokeGlobalAction"] =
-                                            await $steps["invokeGlobalAction"];
-                                        }
-                                      };
-                                      return __composite;
-                                    })(),
-
-                                    scopeClassName:
-                                      sty["tablePrintifyProducts__instance"],
-                                    selectedRowKey: generateStateValueProp(
-                                      $state,
-                                      [
-                                        "tablePrintifyProducts",
-                                        "selectedRowKey"
-                                      ]
-                                    ),
-                                    selectedRowKeys: generateStateValueProp(
-                                      $state,
-                                      [
-                                        "tablePrintifyProducts",
-                                        "selectedRowKeys"
-                                      ]
-                                    ),
-                                    themeResetClassName: classNames(
-                                      projectcss.root_reset,
-                                      projectcss.root_reset_tags,
-                                      projectcss.plasmic_default_styles,
-                                      projectcss.plasmic_mixins,
-                                      projectcss.plasmic_tokens,
-                                      plasmic_antd_5_hostless_css.plasmic_tokens,
-                                      plasmic_plasmic_rich_components_css.plasmic_tokens
-                                    )
-                                  };
-                                  initializeCodeComponentStates(
+                                hideColumnPicker: true,
+                                hideExports: true,
+                                hideSearch: false,
+                                onRowSelectionChanged: async (
+                                  ...eventArgs: any
+                                ) => {
+                                  generateStateOnChangePropForCodeComponents(
                                     $state,
+                                    "selectedRowKey",
+                                    ["tablePrintifyProducts", "selectedRowKey"],
+                                    RichTable_Helpers
+                                  ).apply(null, eventArgs);
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "selectedRow",
+                                    ["tablePrintifyProducts", "selectedRow"],
+                                    RichTable_Helpers
+                                  ).apply(null, eventArgs);
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "selectedRows",
+                                    ["tablePrintifyProducts", "selectedRows"],
+                                    RichTable_Helpers
+                                  ).apply(null, eventArgs);
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "selectedRowKeys",
                                     [
-                                      {
-                                        name: "selectedRowKey",
-                                        plasmicStateName:
-                                          "tablePrintifyProducts.selectedRowKey"
-                                      },
-                                      {
-                                        name: "selectedRow",
-                                        plasmicStateName:
-                                          "tablePrintifyProducts.selectedRow"
-                                      },
-                                      {
-                                        name: "selectedRows",
-                                        plasmicStateName:
-                                          "tablePrintifyProducts.selectedRows"
-                                      },
-                                      {
-                                        name: "selectedRowKeys",
-                                        plasmicStateName:
-                                          "tablePrintifyProducts.selectedRowKeys"
-                                      }
+                                      "tablePrintifyProducts",
+                                      "selectedRowKeys"
                                     ],
-                                    [],
-                                    RichTable_Helpers ?? {},
-                                    child$Props
-                                  );
+                                    RichTable_Helpers
+                                  ).apply(null, eventArgs);
+                                },
+                                pageSize: 20,
+                                pagination: true,
+                                rowActions: (() => {
+                                  const __composite = [
+                                    {
+                                      type: "item",
+                                      onClick: null,
+                                      label: null
+                                    },
+                                    { type: "item", label: null, onClick: null }
+                                  ];
+                                  __composite["0"]["onClick"] = async (
+                                    rowKey,
+                                    row
+                                  ) => {
+                                    const $steps = {};
 
-                                  return (
-                                    <RichTable
-                                      data-plasmic-name={
-                                        "tablePrintifyProducts"
-                                      }
-                                      data-plasmic-override={
-                                        overrides.tablePrintifyProducts
-                                      }
-                                      {...child$Props}
-                                    />
-                                  );
-                                })()
-                              : null}
+                                    $steps["updateSelectedProduct"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["selectedProduct"]
+                                            },
+                                            operation: 0,
+                                            value: row
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateSelectedProduct"] != null &&
+                                      typeof $steps["updateSelectedProduct"] ===
+                                        "object" &&
+                                      typeof $steps["updateSelectedProduct"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateSelectedProduct"] =
+                                        await $steps["updateSelectedProduct"];
+                                    }
+
+                                    $steps[
+                                      "runActionOnFormEditPrintifyProduct"
+                                    ] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            tplRef: "formEditPrintifyProduct",
+                                            action: "resetFields"
+                                          };
+                                          return (({
+                                            tplRef,
+                                            action,
+                                            args
+                                          }) => {
+                                            return $refs?.[tplRef]?.[action]?.(
+                                              ...(args ?? [])
+                                            );
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps[
+                                        "runActionOnFormEditPrintifyProduct"
+                                      ] != null &&
+                                      typeof $steps[
+                                        "runActionOnFormEditPrintifyProduct"
+                                      ] === "object" &&
+                                      typeof $steps[
+                                        "runActionOnFormEditPrintifyProduct"
+                                      ].then === "function"
+                                    ) {
+                                      $steps[
+                                        "runActionOnFormEditPrintifyProduct"
+                                      ] = await $steps[
+                                        "runActionOnFormEditPrintifyProduct"
+                                      ];
+                                    }
+
+                                    $steps["updateTabs2ActiveKey"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "tabs2",
+                                                "activeKey"
+                                              ]
+                                            },
+                                            operation: 0,
+                                            value: "1"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateTabs2ActiveKey"] != null &&
+                                      typeof $steps["updateTabs2ActiveKey"] ===
+                                        "object" &&
+                                      typeof $steps["updateTabs2ActiveKey"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateTabs2ActiveKey"] =
+                                        await $steps["updateTabs2ActiveKey"];
+                                    }
+
+                                    $steps[
+                                      "updateModalEditPrintifyProductOpen"
+                                    ] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "modalEditPrintifyProduct",
+                                                "open"
+                                              ]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps[
+                                        "updateModalEditPrintifyProductOpen"
+                                      ] != null &&
+                                      typeof $steps[
+                                        "updateModalEditPrintifyProductOpen"
+                                      ] === "object" &&
+                                      typeof $steps[
+                                        "updateModalEditPrintifyProductOpen"
+                                      ].then === "function"
+                                    ) {
+                                      $steps[
+                                        "updateModalEditPrintifyProductOpen"
+                                      ] = await $steps[
+                                        "updateModalEditPrintifyProductOpen"
+                                      ];
+                                    }
+                                  };
+                                  __composite["0"]["label"] = "Edit";
+                                  __composite["1"]["label"] = "Delete";
+                                  __composite["1"]["onClick"] = async (
+                                    rowKey,
+                                    row
+                                  ) => {
+                                    const $steps = {};
+
+                                    $steps["postgresDeleteMany"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            dataOp: {
+                                              sourceId:
+                                                "83X9ZdYzYUYJtgqe5fwXeX",
+                                              opId: "1e5a66d3-7935-4543-98e5-903c820c380f",
+                                              userArgs: {
+                                                conditions: [row.id]
+                                              },
+                                              cacheKey: null,
+                                              invalidatedKeys: [],
+                                              roleId:
+                                                "d035f350-edf5-4268-af03-4480b52522b0"
+                                            }
+                                          };
+                                          return (async ({
+                                            dataOp,
+                                            continueOnError
+                                          }) => {
+                                            try {
+                                              const response =
+                                                await executePlasmicDataOp(
+                                                  dataOp,
+                                                  {
+                                                    userAuthToken:
+                                                      dataSourcesCtx?.userAuthToken,
+                                                    user: dataSourcesCtx?.user
+                                                  }
+                                                );
+                                              await plasmicInvalidate(
+                                                dataOp.invalidatedKeys
+                                              );
+                                              return response;
+                                            } catch (e) {
+                                              if (!continueOnError) {
+                                                throw e;
+                                              }
+                                              return e;
+                                            }
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["postgresDeleteMany"] != null &&
+                                      typeof $steps["postgresDeleteMany"] ===
+                                        "object" &&
+                                      typeof $steps["postgresDeleteMany"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["postgresDeleteMany"] =
+                                        await $steps["postgresDeleteMany"];
+                                    }
+
+                                    $steps["refreshData"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            queryInvalidation: [
+                                              "plasmic_refresh_all"
+                                            ]
+                                          };
+                                          return (async ({
+                                            queryInvalidation
+                                          }) => {
+                                            if (!queryInvalidation) {
+                                              return;
+                                            }
+                                            await plasmicInvalidate(
+                                              queryInvalidation
+                                            );
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["refreshData"] != null &&
+                                      typeof $steps["refreshData"] ===
+                                        "object" &&
+                                      typeof $steps["refreshData"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["refreshData"] = await $steps[
+                                        "refreshData"
+                                      ];
+                                    }
+
+                                    $steps["invokeGlobalAction"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: ["warning", "Row Deleted"]
+                                          };
+                                          return $globalActions[
+                                            "plasmic-antd5-config-provider.showNotification"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["invokeGlobalAction"] != null &&
+                                      typeof $steps["invokeGlobalAction"] ===
+                                        "object" &&
+                                      typeof $steps["invokeGlobalAction"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["invokeGlobalAction"] =
+                                        await $steps["invokeGlobalAction"];
+                                    }
+                                  };
+                                  return __composite;
+                                })(),
+
+                                scopeClassName:
+                                  sty["tablePrintifyProducts__instance"],
+                                selectedRowKey: generateStateValueProp($state, [
+                                  "tablePrintifyProducts",
+                                  "selectedRowKey"
+                                ]),
+                                selectedRowKeys: generateStateValueProp(
+                                  $state,
+                                  ["tablePrintifyProducts", "selectedRowKeys"]
+                                ),
+                                themeResetClassName: classNames(
+                                  projectcss.root_reset,
+                                  projectcss.root_reset_tags,
+                                  projectcss.plasmic_default_styles,
+                                  projectcss.plasmic_mixins,
+                                  projectcss.plasmic_tokens,
+                                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                                  plasmic_plasmic_rich_components_css.plasmic_tokens
+                                )
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "selectedRowKey",
+                                    plasmicStateName:
+                                      "tablePrintifyProducts.selectedRowKey"
+                                  },
+                                  {
+                                    name: "selectedRow",
+                                    plasmicStateName:
+                                      "tablePrintifyProducts.selectedRow"
+                                  },
+                                  {
+                                    name: "selectedRows",
+                                    plasmicStateName:
+                                      "tablePrintifyProducts.selectedRows"
+                                  },
+                                  {
+                                    name: "selectedRowKeys",
+                                    plasmicStateName:
+                                      "tablePrintifyProducts.selectedRowKeys"
+                                  }
+                                ],
+                                [],
+                                RichTable_Helpers ?? {},
+                                child$Props
+                              );
+
+                              return (
+                                <RichTable
+                                  data-plasmic-name={"tablePrintifyProducts"}
+                                  data-plasmic-override={
+                                    overrides.tablePrintifyProducts
+                                  }
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
                             <AntdModal
                               data-plasmic-name={"modalEditPrintifyProduct"}
                               data-plasmic-override={
@@ -2189,8 +2223,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                               .formEditPrintifyProduct
                                                               .value
                                                               .print_provider,
-                                                            $state.titleTag
-                                                              .value,
+                                                            $state.titleTag.value
+                                                              .charAt(0)
+                                                              .toUpperCase() +
+                                                              $state.titleTag.value.slice(
+                                                                1
+                                                              ),
                                                             $state
                                                               .formEditPrintifyProduct
                                                               .value.tags
@@ -2198,7 +2236,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         },
                                                         cacheKey: null,
                                                         invalidatedKeys: [
-                                                          "08720828-183c-491d-8a91-833f109da095",
+                                                          "96976b7c-aae9-4f5b-af98-d3e298594c95",
                                                           "fabbf223-5116-4499-a1f9-c10e58a5420f",
                                                           "221445e4-deb2-4d71-9956-3d6e7314b8da",
                                                           "e2812273-f8ca-486e-9604-f9b9aaf8b586"
@@ -2827,7 +2865,6 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           ?.error.error.details
                                                           .error +
                                                         "\n\n(Check your Product Config) or "
-                                                        // Display error details for Printify variants query
                                                       );
                                                     } catch (e) {
                                                       if (
@@ -6545,6 +6582,1077 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                 />
                               </div>
                             </AntdModal>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__rF9RU
+                              )}
+                            >
+                              <div
+                                data-plasmic-name={"search"}
+                                data-plasmic-override={overrides.search}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.search
+                                )}
+                              >
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.form2
+                                    ),
+                                    extendedOnValuesChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "value",
+                                        ["form2", "value"],
+                                        FormWrapper_Helpers
+                                      ),
+                                    formItems: [
+                                      {
+                                        label: "Name",
+                                        name: "name",
+                                        inputType: "Text"
+                                      },
+                                      {
+                                        label: "Message",
+                                        name: "message",
+                                        inputType: "Text Area"
+                                      }
+                                    ],
+                                    labelCol: { span: 8, horizontalOnly: true },
+                                    layout: "vertical",
+                                    mode: "advanced",
+                                    onFinish: async values => {
+                                      const $steps = {};
+
+                                      $steps["updateVariable5"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["search2"]
+                                              },
+                                              operation: 0,
+                                              value:
+                                                $state.form2.value.search
+                                                  .charAt(0)
+                                                  .toUpperCase() +
+                                                $state.form2.value.search.slice(
+                                                  1
+                                                )
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateVariable5"] != null &&
+                                        typeof $steps["updateVariable5"] ===
+                                          "object" &&
+                                        typeof $steps["updateVariable5"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateVariable5"] =
+                                          await $steps["updateVariable5"];
+                                      }
+                                    },
+                                    onIsSubmittingChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "isSubmitting",
+                                        ["form2", "isSubmitting"],
+                                        FormWrapper_Helpers
+                                      ),
+                                    ref: ref => {
+                                      $refs["form2"] = ref;
+                                    },
+                                    submitSlot: null,
+                                    wrapperCol: {
+                                      span: 16,
+                                      horizontalOnly: true
+                                    }
+                                  };
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "value",
+                                        plasmicStateName: "form2.value"
+                                      },
+                                      {
+                                        name: "isSubmitting",
+                                        plasmicStateName: "form2.isSubmitting"
+                                      }
+                                    ],
+                                    [],
+                                    FormWrapper_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <FormWrapper
+                                      data-plasmic-name={"form2"}
+                                      data-plasmic-override={overrides.form2}
+                                      {...child$Props}
+                                    >
+                                      <FormItemWrapper
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.formField__x1Dk2
+                                        )}
+                                        initialValue={``}
+                                        label={null}
+                                        name={"search"}
+                                      >
+                                        {(() => {
+                                          const child$Props = {
+                                            className: classNames(
+                                              "__wab_instance",
+                                              sty.input12
+                                            ),
+                                            onChange:
+                                              generateStateOnChangePropForCodeComponents(
+                                                $state,
+                                                "value",
+                                                ["input12", "value"],
+                                                AntdInput_Helpers
+                                              ),
+                                            value: generateStateValueProp(
+                                              $state,
+                                              ["input12", "value"]
+                                            )
+                                          };
+                                          initializeCodeComponentStates(
+                                            $state,
+                                            [
+                                              {
+                                                name: "value",
+                                                plasmicStateName:
+                                                  "input12.value"
+                                              }
+                                            ],
+                                            [],
+                                            AntdInput_Helpers ?? {},
+                                            child$Props
+                                          );
+
+                                          return (
+                                            <AntdInput
+                                              data-plasmic-name={"input12"}
+                                              data-plasmic-override={
+                                                overrides.input12
+                                              }
+                                              {...child$Props}
+                                            />
+                                          );
+                                        })()}
+                                      </FormItemWrapper>
+                                      <FormItemWrapper
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.formField__vtO7D
+                                        )}
+                                        label={"Message"}
+                                        name={"message"}
+                                      >
+                                        {(() => {
+                                          const child$Props = {
+                                            className: classNames(
+                                              "__wab_instance",
+                                              sty.textArea
+                                            ),
+                                            onChange:
+                                              generateStateOnChangePropForCodeComponents(
+                                                $state,
+                                                "value",
+                                                ["textArea", "value"],
+                                                AntdTextArea_Helpers
+                                              ),
+                                            value: generateStateValueProp(
+                                              $state,
+                                              ["textArea", "value"]
+                                            )
+                                          };
+                                          initializeCodeComponentStates(
+                                            $state,
+                                            [
+                                              {
+                                                name: "value",
+                                                plasmicStateName:
+                                                  "textArea.value"
+                                              }
+                                            ],
+                                            [],
+                                            AntdTextArea_Helpers ?? {},
+                                            child$Props
+                                          );
+
+                                          return (
+                                            <AntdTextArea
+                                              data-plasmic-name={"textArea"}
+                                              data-plasmic-override={
+                                                overrides.textArea
+                                              }
+                                              {...child$Props}
+                                            />
+                                          );
+                                        })()}
+                                      </FormItemWrapper>
+                                      <AntdButton
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.button__jcw2E
+                                        )}
+                                        submitsForm={true}
+                                        type={"primary"}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__wMpbz
+                                          )}
+                                        >
+                                          {"Search"}
+                                        </div>
+                                      </AntdButton>
+                                    </FormWrapper>
+                                  );
+                                })()}
+                              </div>
+                              <div
+                                data-plasmic-name={"tableHead2"}
+                                data-plasmic-override={overrides.tableHead2}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.tableHead2
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__fgMcn
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__iQ20
+                                    )}
+                                  >
+                                    {"validations"}
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__b44Qf
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__vXpuN
+                                    )}
+                                  >
+                                    {"id"}
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__h4Zzk
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__fReH
+                                    )}
+                                  >
+                                    {"title"}
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__vrTf8
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__ghlsB
+                                    )}
+                                  >
+                                    {"Print_provider"}
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___7E9O5
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__mt1Ht
+                                    )}
+                                  >
+                                    {"tags"}
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__q94RE
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__ukUkW
+                                    )}
+                                  >
+                                    {"blueprints_id"}
+                                  </div>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__kvmMu
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___0Io1P
+                                    )}
+                                  >
+                                    {"actions"}
+                                  </div>
+                                </div>
+                              </div>
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return $queries.getSupPrintifyProducts.data;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <Stack__
+                                    as={"div"}
+                                    data-plasmic-name={"tableBody"}
+                                    data-plasmic-override={overrides.tableBody}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.tableBody
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__e3LPr
+                                      )}
+                                    >
+                                      {(() => {
+                                        try {
+                                          return currentItem.print_provider ===
+                                            null
+                                            ? true
+                                            : undefined;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__rgxVi
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__l59Bz
+                                            )}
+                                          >
+                                            {"no print provider"}
+                                          </div>
+                                        </div>
+                                      ) : null}
+                                      {(() => {
+                                        try {
+                                          return $queries.totalPrintifyPlaceholder.data.filter(
+                                            row =>
+                                              row["Printify Product ID"] ===
+                                              currentItem.id
+                                          ).length === 0
+                                            ? true
+                                            : undefined;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox___3QAen
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text___7ZvwX
+                                            )}
+                                          >
+                                            {"no printify placeholder"}
+                                          </div>
+                                        </div>
+                                      ) : null}
+                                      {(() => {
+                                        try {
+                                          return $queries.totalPrintifyProductVariant.data.filter(
+                                            row =>
+                                              row["printify_product_id"] ===
+                                              currentItem.id
+                                          ).length === 0
+                                            ? true
+                                            : undefined;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__bhVXg
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__nEbap
+                                            )}
+                                          >
+                                            {"no printify variant"}
+                                          </div>
+                                        </div>
+                                      ) : null}
+                                    </Stack__>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__nDeHg
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__cf2Hl
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__rSo9Q
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.id;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "id";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__yoaZt
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__n5Iy6
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.title;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "title";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__jgf0U
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__dDrM
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.print_provider;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "Print_provider";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__a54Oy
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__duBDj
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.tags;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "tags";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__uhInn
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__vsH85
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return currentItem.blueprint_id;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "blueprints_id";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                      </div>
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__tj8K0
+                                        )}
+                                      >
+                                        <AntdButton
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.button__ocEtf
+                                          )}
+                                          onClick={async () => {
+                                            const $steps = {};
+
+                                            $steps["updateSelectedProduct"] =
+                                              true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: [
+                                                          "selectedProduct"
+                                                        ]
+                                                      },
+                                                      operation: 0,
+                                                      value: currentItem
+                                                    };
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps["updateSelectedProduct"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "updateSelectedProduct"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "updateSelectedProduct"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["updateSelectedProduct"] =
+                                                await $steps[
+                                                  "updateSelectedProduct"
+                                                ];
+                                            }
+
+                                            $steps[
+                                              "runActionOnFormEditPrintifyProduct"
+                                            ] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    tplRef:
+                                                      "formEditPrintifyProduct",
+                                                    action: "resetFields"
+                                                  };
+                                                  return (({
+                                                    tplRef,
+                                                    action,
+                                                    args
+                                                  }) => {
+                                                    return $refs?.[tplRef]?.[
+                                                      action
+                                                    ]?.(...(args ?? []));
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps[
+                                                "runActionOnFormEditPrintifyProduct"
+                                              ] != null &&
+                                              typeof $steps[
+                                                "runActionOnFormEditPrintifyProduct"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "runActionOnFormEditPrintifyProduct"
+                                              ].then === "function"
+                                            ) {
+                                              $steps[
+                                                "runActionOnFormEditPrintifyProduct"
+                                              ] = await $steps[
+                                                "runActionOnFormEditPrintifyProduct"
+                                              ];
+                                            }
+
+                                            $steps["updateTabs2ActiveKey"] =
+                                              true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: [
+                                                          "tabs2",
+                                                          "activeKey"
+                                                        ]
+                                                      },
+                                                      operation: 0,
+                                                      value: "1"
+                                                    };
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps["updateTabs2ActiveKey"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "updateTabs2ActiveKey"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "updateTabs2ActiveKey"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["updateTabs2ActiveKey"] =
+                                                await $steps[
+                                                  "updateTabs2ActiveKey"
+                                                ];
+                                            }
+
+                                            $steps[
+                                              "updateModalEditPrintifyProductOpen"
+                                            ] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: [
+                                                        "modalEditPrintifyProduct",
+                                                        "open"
+                                                      ]
+                                                    },
+                                                    operation: 0,
+                                                    value: true
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps[
+                                                "updateModalEditPrintifyProductOpen"
+                                              ] != null &&
+                                              typeof $steps[
+                                                "updateModalEditPrintifyProductOpen"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "updateModalEditPrintifyProductOpen"
+                                              ].then === "function"
+                                            ) {
+                                              $steps[
+                                                "updateModalEditPrintifyProductOpen"
+                                              ] = await $steps[
+                                                "updateModalEditPrintifyProductOpen"
+                                              ];
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text___0FnH9
+                                            )}
+                                          >
+                                            {"Edit"}
+                                          </div>
+                                        </AntdButton>
+                                        <AntdButton
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.button__hFjW
+                                          )}
+                                          onClick={async () => {
+                                            const $steps = {};
+
+                                            $steps["postgresDeleteMany"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    dataOp: {
+                                                      sourceId:
+                                                        "83X9ZdYzYUYJtgqe5fwXeX",
+                                                      opId: "0e74a710-6c89-4aa0-8b77-a22d1089e40a",
+                                                      userArgs: {
+                                                        conditions: [
+                                                          currentItem.id
+                                                        ]
+                                                      },
+                                                      cacheKey: null,
+                                                      invalidatedKeys: [
+                                                        "plasmic_refresh_all"
+                                                      ],
+                                                      roleId: null
+                                                    }
+                                                  };
+                                                  return (async ({
+                                                    dataOp,
+                                                    continueOnError
+                                                  }) => {
+                                                    try {
+                                                      const response =
+                                                        await executePlasmicDataOp(
+                                                          dataOp,
+                                                          {
+                                                            userAuthToken:
+                                                              dataSourcesCtx?.userAuthToken,
+                                                            user: dataSourcesCtx?.user
+                                                          }
+                                                        );
+                                                      await plasmicInvalidate(
+                                                        dataOp.invalidatedKeys
+                                                      );
+                                                      return response;
+                                                    } catch (e) {
+                                                      if (!continueOnError) {
+                                                        throw e;
+                                                      }
+                                                      return e;
+                                                    }
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["postgresDeleteMany"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "postgresDeleteMany"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "postgresDeleteMany"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["postgresDeleteMany"] =
+                                                await $steps[
+                                                  "postgresDeleteMany"
+                                                ];
+                                            }
+
+                                            $steps["invokeGlobalAction"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    args: [
+                                                      "warning",
+                                                      "Printify product deleted"
+                                                    ]
+                                                  };
+                                                  return $globalActions[
+                                                    "plasmic-antd5-config-provider.showNotification"
+                                                  ]?.apply(null, [
+                                                    ...actionArgs.args
+                                                  ]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["invokeGlobalAction"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["invokeGlobalAction"] =
+                                                await $steps[
+                                                  "invokeGlobalAction"
+                                                ];
+                                            }
+
+                                            $steps["refreshData"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    queryInvalidation: [
+                                                      "plasmic_refresh_all"
+                                                    ]
+                                                  };
+                                                  return (async ({
+                                                    queryInvalidation
+                                                  }) => {
+                                                    if (!queryInvalidation) {
+                                                      return;
+                                                    }
+                                                    await plasmicInvalidate(
+                                                      queryInvalidation
+                                                    );
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["refreshData"] != null &&
+                                              typeof $steps["refreshData"] ===
+                                                "object" &&
+                                              typeof $steps["refreshData"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["refreshData"] =
+                                                await $steps["refreshData"];
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__kxPi8
+                                            )}
+                                          >
+                                            {"delete"}
+                                          </div>
+                                        </AntdButton>
+                                      </Stack__>
+                                    </div>
+                                  </Stack__>
+                                );
+                              })}
+                            </Stack__>
                           </Stack__>
                         </AntdTabItem>
                         <AntdTabItem
@@ -9189,7 +10297,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           "modal",
                                           "open"
                                         ])}
-                                        title={"Add Placeholder"}
+                                        title={"New Placeholder"}
                                         trigger={
                                           <AntdButton
                                             className={classNames(
@@ -9213,16 +10321,13 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           const child$Props = {
                                             className: classNames(
                                               "__wab_instance",
-                                              sty.printfulNewPlaceholder
+                                              sty.form
                                             ),
                                             extendedOnValuesChange:
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
-                                                [
-                                                  "printfulNewPlaceholder",
-                                                  "value"
-                                                ],
+                                                ["form", "value"],
                                                 FormWrapper_Helpers
                                               ),
                                             formItems: [
@@ -9252,32 +10357,10 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       dataOp: {
                                                         sourceId:
                                                           "83X9ZdYzYUYJtgqe5fwXeX",
-                                                        opId: "1b9091f3-6dc5-4044-8035-66472042046e",
+                                                        opId: "49b9f3e6-3f05-4a04-8549-72d35555d9c9",
                                                         userArgs: {
                                                           variables: [
-                                                            $state
-                                                              .printfulNewPlaceholder
-                                                              .value.x,
-                                                            $state
-                                                              .printfulNewPlaceholder
-                                                              .value.Y,
-                                                            $state
-                                                              .printfulNewPlaceholder
-                                                              .value.scale,
-                                                            $state
-                                                              .printfulNewPlaceholder
-                                                              .value.rotate,
-                                                            parseInt(
-                                                              $state
-                                                                .selectedProduct
-                                                                .id
-                                                            ),
-                                                            $state
-                                                              .formEditPrintifyPlaceholder
-                                                              .value.position,
-                                                            $state
-                                                              .formEditPrintifyPlaceholder
-                                                              .value.image_id
+                                                            $state.form.value
                                                           ]
                                                         },
                                                         cacheKey: null,
@@ -9330,20 +10413,48 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "postgresCreate"
                                                   ];
                                               }
+
+                                              $steps["invokeGlobalAction"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "success",
+                                                          "Placeholder created"
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "plasmic-antd5-config-provider.showNotification"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["invokeGlobalAction"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["invokeGlobalAction"] =
+                                                  await $steps[
+                                                    "invokeGlobalAction"
+                                                  ];
+                                              }
                                             },
                                             onIsSubmittingChange:
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "isSubmitting",
-                                                [
-                                                  "printfulNewPlaceholder",
-                                                  "isSubmitting"
-                                                ],
+                                                ["form", "isSubmitting"],
                                                 FormWrapper_Helpers
                                               ),
                                             ref: ref => {
-                                              $refs["printfulNewPlaceholder"] =
-                                                ref;
+                                              $refs["form"] = ref;
                                             },
                                             submitSlot: null,
                                             wrapperCol: {
@@ -9356,13 +10467,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                             [
                                               {
                                                 name: "value",
-                                                plasmicStateName:
-                                                  "printfulNewPlaceholder.value"
+                                                plasmicStateName: "form.value"
                                               },
                                               {
                                                 name: "isSubmitting",
                                                 plasmicStateName:
-                                                  "printfulNewPlaceholder.isSubmitting"
+                                                  "form.isSubmitting"
                                               }
                                             ],
                                             [],
@@ -9372,326 +10482,264 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
 
                                           return (
                                             <FormWrapper
-                                              data-plasmic-name={
-                                                "printfulNewPlaceholder"
-                                              }
+                                              data-plasmic-name={"form"}
                                               data-plasmic-override={
-                                                overrides.printfulNewPlaceholder
+                                                overrides.form
                                               }
                                               {...child$Props}
                                             >
-                                              <div
+                                              <Stack__
+                                                as={"div"}
+                                                hasGap={true}
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox___8Tm7
+                                                  sty.freeBox__i22P
                                                 )}
                                               >
                                                 <FormItemWrapper
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.formField__iyIpp
+                                                    sty.formField__upZsD
                                                   )}
-                                                  initialValue={1}
+                                                  initialValue={"1"}
                                                   label={"Scale"}
                                                   name={"scale"}
                                                   rules={[
                                                     { ruleType: "required" }
                                                   ]}
                                                 >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
+                                                  {(() => {
+                                                    const child$Props = {
+                                                      className: classNames(
+                                                        "__wab_instance",
+                                                        sty.input
+                                                      ),
+                                                      onChange:
+                                                        generateStateOnChangePropForCodeComponents(
+                                                          $state,
+                                                          "value",
+                                                          ["input", "value"],
+                                                          AntdInput_Helpers
+                                                        ),
+                                                      value:
+                                                        generateStateValueProp(
+                                                          $state,
+                                                          ["input", "value"]
+                                                        )
+                                                    };
+                                                    initializeCodeComponentStates(
                                                       $state,
-                                                      ["numberInput", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput", "value"]
-                                                    )}
-                                                  />
+                                                      [
+                                                        {
+                                                          name: "value",
+                                                          plasmicStateName:
+                                                            "input.value"
+                                                        }
+                                                      ],
+                                                      [],
+                                                      AntdInput_Helpers ?? {},
+                                                      child$Props
+                                                    );
+
+                                                    return (
+                                                      <AntdInput
+                                                        data-plasmic-name={
+                                                          "input"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.input
+                                                        }
+                                                        {...child$Props}
+                                                      />
+                                                    );
+                                                  })()}
                                                 </FormItemWrapper>
                                                 <FormItemWrapper
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.formField__sSwSf
+                                                    sty.formField__gvXYw
                                                   )}
-                                                  initialValue={0.5}
+                                                  initialValue={"0.50"}
                                                   label={"X"}
                                                   name={"x"}
                                                   rules={[
                                                     { ruleType: "required" }
                                                   ]}
                                                 >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput2"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput2
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput2
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
+                                                  {(() => {
+                                                    const child$Props = {
+                                                      className: classNames(
+                                                        "__wab_instance",
+                                                        sty.input2
+                                                      ),
+                                                      onChange:
+                                                        generateStateOnChangePropForCodeComponents(
+                                                          $state,
+                                                          "value",
+                                                          ["input2", "value"],
+                                                          AntdInput_Helpers
+                                                        ),
+                                                      value:
+                                                        generateStateValueProp(
+                                                          $state,
+                                                          ["input2", "value"]
+                                                        )
+                                                    };
+                                                    initializeCodeComponentStates(
                                                       $state,
-                                                      ["numberInput2", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput2", "value"]
-                                                    )}
-                                                  />
+                                                      [
+                                                        {
+                                                          name: "value",
+                                                          plasmicStateName:
+                                                            "input2.value"
+                                                        }
+                                                      ],
+                                                      [],
+                                                      AntdInput_Helpers ?? {},
+                                                      child$Props
+                                                    );
+
+                                                    return (
+                                                      <AntdInput
+                                                        data-plasmic-name={
+                                                          "input2"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.input2
+                                                        }
+                                                        {...child$Props}
+                                                      />
+                                                    );
+                                                  })()}
                                                 </FormItemWrapper>
                                                 <FormItemWrapper
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.formField__bgony
+                                                    sty.formField___1JvAt
                                                   )}
-                                                  initialValue={0.5}
+                                                  initialValue={"0.50"}
                                                   label={"Y"}
-                                                  name={"Y"}
+                                                  name={"y"}
                                                   rules={[
                                                     { ruleType: "required" }
                                                   ]}
                                                 >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput3"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput3
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput3
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
+                                                  {(() => {
+                                                    const child$Props = {
+                                                      className: classNames(
+                                                        "__wab_instance",
+                                                        sty.input5
+                                                      ),
+                                                      onChange:
+                                                        generateStateOnChangePropForCodeComponents(
+                                                          $state,
+                                                          "value",
+                                                          ["input5", "value"],
+                                                          AntdInput_Helpers
+                                                        ),
+                                                      value:
+                                                        generateStateValueProp(
+                                                          $state,
+                                                          ["input5", "value"]
+                                                        )
+                                                    };
+                                                    initializeCodeComponentStates(
                                                       $state,
-                                                      ["numberInput3", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput3", "value"]
-                                                    )}
-                                                  />
+                                                      [
+                                                        {
+                                                          name: "value",
+                                                          plasmicStateName:
+                                                            "input5.value"
+                                                        }
+                                                      ],
+                                                      [],
+                                                      AntdInput_Helpers ?? {},
+                                                      child$Props
+                                                    );
+
+                                                    return (
+                                                      <AntdInput
+                                                        data-plasmic-name={
+                                                          "input5"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.input5
+                                                        }
+                                                        {...child$Props}
+                                                      />
+                                                    );
+                                                  })()}
                                                 </FormItemWrapper>
                                                 <FormItemWrapper
                                                   className={classNames(
                                                     "__wab_instance",
-                                                    sty.formField__uTr4D
+                                                    sty.formField__gwJq
                                                   )}
-                                                  initialValue={0}
+                                                  initialValue={"0"}
                                                   label={"Rotate"}
                                                   name={"rotate"}
                                                   rules={[
                                                     { ruleType: "required" }
                                                   ]}
                                                 >
-                                                  <AntdInputNumber
-                                                    data-plasmic-name={
-                                                      "numberInput4"
-                                                    }
-                                                    data-plasmic-override={
-                                                      overrides.numberInput4
-                                                    }
-                                                    className={classNames(
-                                                      "__wab_instance",
-                                                      sty.numberInput4
-                                                    )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput4", "value"]
-                                                    )}
-                                                    type={"number"}
-                                                    value={generateStateValueProp(
-                                                      $state,
-                                                      ["numberInput4", "value"]
-                                                    )}
-                                                  />
-                                                </FormItemWrapper>
-                                              </div>
-                                              {(_par =>
-                                                !_par
-                                                  ? []
-                                                  : Array.isArray(_par)
-                                                  ? _par
-                                                  : [_par])(
-                                                (() => {
-                                                  try {
-                                                    return $queries.queryGetPrinfulBlueprint.data.response.result.product.options.filter(
-                                                      option =>
-                                                        option.id !== "notes" &&
-                                                        option.id !== "mockup"
-                                                    );
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return [];
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()
-                                              ).map(
-                                                (
-                                                  __plasmic_item_0,
-                                                  __plasmic_idx_0
-                                                ) => {
-                                                  const currentItem =
-                                                    __plasmic_item_0;
-                                                  const currentIndex =
-                                                    __plasmic_idx_0;
-                                                  return (
-                                                    <FormItemWrapper
-                                                      className={classNames(
+                                                  {(() => {
+                                                    const child$Props = {
+                                                      className: classNames(
                                                         "__wab_instance",
-                                                        sty.formField__uxnhg
-                                                      )}
-                                                      key={currentIndex}
-                                                      label={
-                                                        "currentItem.title"
-                                                      }
-                                                    >
-                                                      {(() => {
-                                                        const child$Props = {
-                                                          className: classNames(
-                                                            "__wab_instance",
-                                                            sty.select2
-                                                          ),
-                                                          defaultStylesClassName:
-                                                            classNames(
-                                                              projectcss.root_reset,
-                                                              projectcss.plasmic_default_styles,
-                                                              projectcss.plasmic_mixins,
-                                                              projectcss.plasmic_tokens,
-                                                              plasmic_antd_5_hostless_css.plasmic_tokens,
-                                                              plasmic_plasmic_rich_components_css.plasmic_tokens
-                                                            ),
-                                                          onChange:
-                                                            generateStateOnChangeProp(
-                                                              $state,
-                                                              [
-                                                                "select2",
-                                                                __plasmic_idx_0,
-                                                                "value"
-                                                              ]
-                                                            ),
-                                                          options: (() => {
-                                                            try {
-                                                              return currentItem.values;
-                                                            } catch (e) {
-                                                              if (
-                                                                e instanceof
-                                                                  TypeError ||
-                                                                e?.plasmicType ===
-                                                                  "PlasmicUndefinedDataError"
-                                                              ) {
-                                                                return [
-                                                                  {
-                                                                    value:
-                                                                      "option1",
-                                                                    label:
-                                                                      "Option 1",
-                                                                    type: "option"
-                                                                  },
-                                                                  {
-                                                                    value:
-                                                                      "option2",
-                                                                    label:
-                                                                      "Option 2",
-                                                                    type: "option"
-                                                                  }
-                                                                ];
-                                                              }
-                                                              throw e;
-                                                            }
-                                                          })(),
-                                                          placeholder:
-                                                            "Select...",
-                                                          popupScopeClassName:
-                                                            sty[
-                                                              "select2__popup"
-                                                            ],
-                                                          value:
-                                                            generateStateValueProp(
-                                                              $state,
-                                                              [
-                                                                "select2",
-                                                                __plasmic_idx_0,
-                                                                "value"
-                                                              ]
-                                                            )
-                                                        };
-                                                        initializeCodeComponentStates(
+                                                        sty.input10
+                                                      ),
+                                                      onChange:
+                                                        generateStateOnChangePropForCodeComponents(
                                                           $state,
-                                                          [
-                                                            {
-                                                              name: "value",
-                                                              plasmicStateName:
-                                                                "select2[].value"
-                                                            }
-                                                          ],
-                                                          [__plasmic_idx_0],
-                                                          undefined ?? {},
-                                                          child$Props
-                                                        );
-                                                        initializePlasmicStates(
+                                                          "value",
+                                                          ["input10", "value"],
+                                                          AntdInput_Helpers
+                                                        ),
+                                                      value:
+                                                        generateStateValueProp(
                                                           $state,
-                                                          [
-                                                            {
-                                                              name: "select2[].value",
-                                                              initFunc: ({
-                                                                $props,
-                                                                $state,
-                                                                $queries
-                                                              }) => undefined
-                                                            }
-                                                          ],
-                                                          [__plasmic_idx_0]
-                                                        );
-                                                        return (
-                                                          <AntdSelect
-                                                            data-plasmic-name={
-                                                              "select2"
-                                                            }
-                                                            data-plasmic-override={
-                                                              overrides.select2
-                                                            }
-                                                            {...child$Props}
-                                                          />
-                                                        );
-                                                      })()}
-                                                    </FormItemWrapper>
-                                                  );
-                                                }
-                                              )}
+                                                          ["input10", "value"]
+                                                        )
+                                                    };
+                                                    initializeCodeComponentStates(
+                                                      $state,
+                                                      [
+                                                        {
+                                                          name: "value",
+                                                          plasmicStateName:
+                                                            "input10.value"
+                                                        }
+                                                      ],
+                                                      [],
+                                                      AntdInput_Helpers ?? {},
+                                                      child$Props
+                                                    );
+
+                                                    return (
+                                                      <AntdInput
+                                                        data-plasmic-name={
+                                                          "input10"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.input10
+                                                        }
+                                                        {...child$Props}
+                                                      />
+                                                    );
+                                                  })()}
+                                                </FormItemWrapper>
+                                              </Stack__>
                                               <FormItemWrapper
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.formField___8B1Xp
+                                                  sty.formField__aA6Mz
                                                 )}
-                                                label={"Image_id"}
-                                                name={"image_id"}
-                                                preserve={false}
+                                                initialValue={undefined}
+                                                label={"position"}
+                                                name={"position"}
                                                 rules={[
                                                   { ruleType: "required" }
                                                 ]}
-                                                shouldUpdate={true}
                                               >
                                                 <AntdSelect
                                                   data-plasmic-name={"select3"}
@@ -9715,27 +10763,29 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     ["select3", "value"]
                                                   )}
                                                   options={(() => {
-                                                    const __composite = [
-                                                      {
-                                                        value: null,
-                                                        label: null,
-                                                        type: "option"
-                                                      },
-                                                      {
-                                                        value: null,
-                                                        label: null,
-                                                        type: "option"
+                                                    try {
+                                                      return $queries.queryGetPrinfulBlueprint.data.response.result.product.files
+                                                        .filter(
+                                                          i =>
+                                                            i.id !== "mockup" &&
+                                                            i.id !== "preview"
+                                                        )
+                                                        .map(i => ({
+                                                          value: i.id,
+                                                          label:
+                                                            i.id.toLocaleUpperCase()
+                                                        }));
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
                                                       }
-                                                    ];
-                                                    __composite["0"]["value"] =
-                                                      "design";
-                                                    __composite["0"]["label"] =
-                                                      "Design";
-                                                    __composite["1"]["value"] =
-                                                      "logo";
-                                                    __composite["1"]["label"] =
-                                                      "Logo";
-                                                    return __composite;
+                                                      throw e;
+                                                    }
                                                   })()}
                                                   placeholder={"Select..."}
                                                   popupScopeClassName={
@@ -9750,18 +10800,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               <FormItemWrapper
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.formField__pIx8C
+                                                  sty.formField__fvCeo
                                                 )}
-                                                label={"Position"}
-                                                name={"position"}
-                                                preserve={false}
+                                                initialValue={undefined}
+                                                label={"image_id"}
+                                                name={"image_id"}
                                                 rules={[
-                                                  {
-                                                    ruleType: "required",
-                                                    message: "Required"
-                                                  }
+                                                  { ruleType: "required" }
                                                 ]}
-                                                shouldUpdate={true}
                                               >
                                                 <AntdSelect
                                                   data-plasmic-name={"select8"}
@@ -9785,44 +10831,27 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     ["select8", "value"]
                                                   )}
                                                   options={(() => {
-                                                    try {
-                                                      return $queries.queryGetPrinfulBlueprint.data.response.result.product.files
-                                                        .filter(
-                                                          file =>
-                                                            !file.id.includes(
-                                                              "preview"
-                                                            )
-                                                        )
-                                                        .map(i => ({
-                                                          label:
-                                                            i.id
-                                                              .charAt(0)
-                                                              .toUpperCase() +
-                                                            i.id.slice(1),
-                                                          value: i.id
-                                                        }));
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return [
-                                                          {
-                                                            value: "option1",
-                                                            label: "Option 1",
-                                                            type: "option"
-                                                          },
-                                                          {
-                                                            value: "option2",
-                                                            label: "Option 2",
-                                                            type: "option"
-                                                          }
-                                                        ];
+                                                    const __composite = [
+                                                      {
+                                                        value: null,
+                                                        label: null,
+                                                        type: "option"
+                                                      },
+                                                      {
+                                                        value: null,
+                                                        label: null,
+                                                        type: "option"
                                                       }
-                                                      throw e;
-                                                    }
+                                                    ];
+                                                    __composite["0"]["value"] =
+                                                      "Design";
+                                                    __composite["0"]["label"] =
+                                                      "Design";
+                                                    __composite["1"]["value"] =
+                                                      "Logo";
+                                                    __composite["1"]["label"] =
+                                                      "Logo";
+                                                    return __composite;
                                                   })()}
                                                   placeholder={"Select..."}
                                                   popupScopeClassName={
@@ -9834,10 +10863,82 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   )}
                                                 />
                                               </FormItemWrapper>
+                                              <FormItemWrapper
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.formField__apSHa
+                                                )}
+                                                initialValue={(() => {
+                                                  try {
+                                                    return parseInt(
+                                                      $state.selectedProduct.id
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return undefined;
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                                label={"Rotate"}
+                                                name={"printful_product_id"}
+                                                rules={[]}
+                                              >
+                                                {(() => {
+                                                  const child$Props = {
+                                                    className: classNames(
+                                                      "__wab_instance",
+                                                      sty.input11
+                                                    ),
+                                                    onChange:
+                                                      generateStateOnChangePropForCodeComponents(
+                                                        $state,
+                                                        "value",
+                                                        ["input11", "value"],
+                                                        AntdInput_Helpers
+                                                      ),
+                                                    type: "text",
+                                                    value:
+                                                      generateStateValueProp(
+                                                        $state,
+                                                        ["input11", "value"]
+                                                      )
+                                                  };
+                                                  initializeCodeComponentStates(
+                                                    $state,
+                                                    [
+                                                      {
+                                                        name: "value",
+                                                        plasmicStateName:
+                                                          "input11.value"
+                                                      }
+                                                    ],
+                                                    [],
+                                                    AntdInput_Helpers ?? {},
+                                                    child$Props
+                                                  );
+
+                                                  return (
+                                                    <AntdInput
+                                                      data-plasmic-name={
+                                                        "input11"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.input11
+                                                      }
+                                                      {...child$Props}
+                                                    />
+                                                  );
+                                                })()}
+                                              </FormItemWrapper>
                                               <AntdButton
                                                 className={classNames(
                                                   "__wab_instance",
-                                                  sty.button__gbjY
+                                                  sty.button__bV2
                                                 )}
                                                 submitsForm={true}
                                                 type={"primary"}
@@ -9846,7 +10947,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   className={classNames(
                                                     projectcss.all,
                                                     projectcss.__wab_text,
-                                                    sty.text___8SaHn
+                                                    sty.text__kzWmd
                                                   )}
                                                 >
                                                   {"Submit"}
@@ -10228,6 +11329,12 @@ const PlasmicDescendants = {
     "select6",
     "select7",
     "tablePrintifyPlaceholders",
+    "search",
+    "form2",
+    "input12",
+    "textArea",
+    "tableHead2",
+    "tableBody",
     "tablePrintfulProducts",
     "modalEditPrintfulProduct",
     "tabsEditPrintfulProduct",
@@ -10248,14 +11355,14 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
     "select8",
+    "input11",
     "printfulPlaceholdersTable",
     "svg"
   ],
@@ -10305,6 +11412,12 @@ const PlasmicDescendants = {
     "select6",
     "select7",
     "tablePrintifyPlaceholders",
+    "search",
+    "form2",
+    "input12",
+    "textArea",
+    "tableHead2",
+    "tableBody",
     "tablePrintfulProducts",
     "modalEditPrintfulProduct",
     "tabsEditPrintfulProduct",
@@ -10325,14 +11438,14 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
     "select8",
+    "input11",
     "printfulPlaceholdersTable"
   ],
   h1: ["h1"],
@@ -10380,6 +11493,12 @@ const PlasmicDescendants = {
     "select6",
     "select7",
     "tablePrintifyPlaceholders",
+    "search",
+    "form2",
+    "input12",
+    "textArea",
+    "tableHead2",
+    "tableBody",
     "tablePrintfulProducts",
     "modalEditPrintfulProduct",
     "tabsEditPrintfulProduct",
@@ -10400,14 +11519,14 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
     "select8",
+    "input11",
     "printfulPlaceholdersTable"
   ],
   populatePrintifyProducts: ["populatePrintifyProducts"],
@@ -10587,6 +11706,12 @@ const PlasmicDescendants = {
   select6: ["select6"],
   select7: ["select7"],
   tablePrintifyPlaceholders: ["tablePrintifyPlaceholders"],
+  search: ["search", "form2", "input12", "textArea"],
+  form2: ["form2", "input12", "textArea"],
+  input12: ["input12"],
+  textArea: ["textArea"],
+  tableHead2: ["tableHead2"],
+  tableBody: ["tableBody"],
   tablePrintfulProducts: ["tablePrintfulProducts"],
   modalEditPrintfulProduct: [
     "modalEditPrintfulProduct",
@@ -10608,14 +11733,14 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
     "select8",
+    "input11",
     "printfulPlaceholdersTable"
   ],
   tabsEditPrintfulProduct: [
@@ -10637,14 +11762,14 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
     "select8",
+    "input11",
     "printfulPlaceholdersTable"
   ],
   formEditPrintfulProduct: [
@@ -10678,32 +11803,32 @@ const PlasmicDescendants = {
   printfulVariantsTable: ["printfulVariantsTable"],
   modal: [
     "modal",
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
-    "select8"
+    "select8",
+    "input11"
   ],
-  printfulNewPlaceholder: [
-    "printfulNewPlaceholder",
-    "numberInput",
-    "numberInput2",
-    "numberInput3",
-    "numberInput4",
-    "select2",
+  form: [
+    "form",
+    "input",
+    "input2",
+    "input5",
+    "input10",
     "select3",
-    "select8"
+    "select8",
+    "input11"
   ],
-  numberInput: ["numberInput"],
-  numberInput2: ["numberInput2"],
-  numberInput3: ["numberInput3"],
-  numberInput4: ["numberInput4"],
-  select2: ["select2"],
+  input: ["input"],
+  input2: ["input2"],
+  input5: ["input5"],
+  input10: ["input10"],
   select3: ["select3"],
   select8: ["select8"],
+  input11: ["input11"],
   printfulPlaceholdersTable: ["printfulPlaceholdersTable"],
   svg: ["svg"]
 } as const;
@@ -10757,6 +11882,12 @@ type NodeDefaultElementType = {
   select6: typeof AntdSelect;
   select7: typeof AntdSelect;
   tablePrintifyPlaceholders: typeof RichTable;
+  search: "div";
+  form2: typeof FormWrapper;
+  input12: typeof AntdInput;
+  textArea: typeof AntdTextArea;
+  tableHead2: "div";
+  tableBody: "div";
   tablePrintfulProducts: typeof RichTable;
   modalEditPrintfulProduct: typeof AntdModal;
   tabsEditPrintfulProduct: typeof AntdTabs;
@@ -10777,14 +11908,14 @@ type NodeDefaultElementType = {
   inputPriceVariants2: typeof AntdInput;
   printfulVariantsTable: typeof RichTable;
   modal: typeof AntdModal;
-  printfulNewPlaceholder: typeof FormWrapper;
-  numberInput: typeof AntdInputNumber;
-  numberInput2: typeof AntdInputNumber;
-  numberInput3: typeof AntdInputNumber;
-  numberInput4: typeof AntdInputNumber;
-  select2: typeof AntdSelect;
+  form: typeof FormWrapper;
+  input: typeof AntdInput;
+  input2: typeof AntdInput;
+  input5: typeof AntdInput;
+  input10: typeof AntdInput;
   select3: typeof AntdSelect;
   select8: typeof AntdSelect;
+  input11: typeof AntdInput;
   printfulPlaceholdersTable: typeof RichTable;
   svg: "svg";
 };
@@ -10942,6 +12073,12 @@ export const PlasmicTesteditrecipe2 = Object.assign(
     select6: makeNodeComponent("select6"),
     select7: makeNodeComponent("select7"),
     tablePrintifyPlaceholders: makeNodeComponent("tablePrintifyPlaceholders"),
+    search: makeNodeComponent("search"),
+    form2: makeNodeComponent("form2"),
+    input12: makeNodeComponent("input12"),
+    textArea: makeNodeComponent("textArea"),
+    tableHead2: makeNodeComponent("tableHead2"),
+    tableBody: makeNodeComponent("tableBody"),
     tablePrintfulProducts: makeNodeComponent("tablePrintfulProducts"),
     modalEditPrintfulProduct: makeNodeComponent("modalEditPrintfulProduct"),
     tabsEditPrintfulProduct: makeNodeComponent("tabsEditPrintfulProduct"),
@@ -10962,14 +12099,14 @@ export const PlasmicTesteditrecipe2 = Object.assign(
     inputPriceVariants2: makeNodeComponent("inputPriceVariants2"),
     printfulVariantsTable: makeNodeComponent("printfulVariantsTable"),
     modal: makeNodeComponent("modal"),
-    printfulNewPlaceholder: makeNodeComponent("printfulNewPlaceholder"),
-    numberInput: makeNodeComponent("numberInput"),
-    numberInput2: makeNodeComponent("numberInput2"),
-    numberInput3: makeNodeComponent("numberInput3"),
-    numberInput4: makeNodeComponent("numberInput4"),
-    select2: makeNodeComponent("select2"),
+    form: makeNodeComponent("form"),
+    input: makeNodeComponent("input"),
+    input2: makeNodeComponent("input2"),
+    input5: makeNodeComponent("input5"),
+    input10: makeNodeComponent("input10"),
     select3: makeNodeComponent("select3"),
     select8: makeNodeComponent("select8"),
+    input11: makeNodeComponent("input11"),
     printfulPlaceholdersTable: makeNodeComponent("printfulPlaceholdersTable"),
     svg: makeNodeComponent("svg"),
 
