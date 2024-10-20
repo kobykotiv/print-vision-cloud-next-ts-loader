@@ -171,6 +171,7 @@ export type PlasmicTesteditrecipe2__OverridesType = {
   numberInput15?: Flex__<typeof AntdInputNumber>;
   numberInput16?: Flex__<typeof AntdInputNumber>;
   input7?: Flex__<typeof AntdInput>;
+  select10?: Flex__<typeof AntdSelect>;
   numberInput17?: Flex__<typeof AntdInputNumber>;
   numberInput18?: Flex__<typeof AntdInputNumber>;
   input8?: Flex__<typeof AntdInput>;
@@ -1139,6 +1140,18 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "select10.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select102",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -9083,6 +9096,153 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                             <FormItemWrapper
                                               className={classNames(
                                                 "__wab_instance",
+                                                sty.formField__wbEgB
+                                              )}
+                                              label={
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__buK2D
+                                                  )}
+                                                >
+                                                  {"Printing Technique"}
+                                                </div>
+                                              }
+                                              name={"printing_technique"}
+                                              preserve={false}
+                                              rules={[{ ruleType: "required" }]}
+                                              shouldUpdate={true}
+                                            >
+                                              <AntdSelect
+                                                data-plasmic-name={"select10"}
+                                                data-plasmic-override={
+                                                  overrides.select10
+                                                }
+                                                className={classNames(
+                                                  "__wab_instance",
+                                                  sty.select10
+                                                )}
+                                                defaultStylesClassName={classNames(
+                                                  projectcss.root_reset,
+                                                  projectcss.plasmic_default_styles,
+                                                  projectcss.plasmic_mixins,
+                                                  projectcss.plasmic_tokens,
+                                                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                                                  plasmic_plasmic_rich_components_css.plasmic_tokens
+                                                )}
+                                                dropdownMatchSelectWidth={true}
+                                                mode={"single"}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["select10", "value"]
+                                                  ).apply(null, eventArgs);
+                                                  (async (value, option) => {
+                                                    const $steps = {};
+
+                                                    $steps["updateSelect102"] =
+                                                      true
+                                                        ? (() => {
+                                                            const actionArgs = {
+                                                              variable: {
+                                                                objRoot: $state,
+                                                                variablePath: [
+                                                                  "select102"
+                                                                ]
+                                                              },
+                                                              operation: 0,
+                                                              value: value
+                                                            };
+                                                            return (({
+                                                              variable,
+                                                              value,
+                                                              startIndex,
+                                                              deleteCount
+                                                            }) => {
+                                                              if (!variable) {
+                                                                return;
+                                                              }
+                                                              const {
+                                                                objRoot,
+                                                                variablePath
+                                                              } = variable;
+
+                                                              $stateSet(
+                                                                objRoot,
+                                                                variablePath,
+                                                                value
+                                                              );
+                                                              return value;
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                    if (
+                                                      $steps[
+                                                        "updateSelect102"
+                                                      ] != null &&
+                                                      typeof $steps[
+                                                        "updateSelect102"
+                                                      ] === "object" &&
+                                                      typeof $steps[
+                                                        "updateSelect102"
+                                                      ].then === "function"
+                                                    ) {
+                                                      $steps[
+                                                        "updateSelect102"
+                                                      ] = await $steps[
+                                                        "updateSelect102"
+                                                      ];
+                                                    }
+                                                  }).apply(null, eventArgs);
+                                                }}
+                                                options={(() => {
+                                                  try {
+                                                    return $queries.queryGetPrintfulBlueprint.data.response.result.product.techniques.map(
+                                                      tech => ({
+                                                        key: tech.key,
+                                                        label: tech.display_name
+                                                      })
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return [
+                                                        {
+                                                          value: "option1",
+                                                          label: "Option 1",
+                                                          type: "option"
+                                                        },
+                                                        {
+                                                          value: "option2",
+                                                          label: "Option 2",
+                                                          type: "option"
+                                                        }
+                                                      ];
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                                placeholder={"Select..."}
+                                                popupScopeClassName={
+                                                  sty["select10__popup"]
+                                                }
+                                                value={generateStateValueProp(
+                                                  $state,
+                                                  ["select10", "value"]
+                                                )}
+                                              />
+                                            </FormItemWrapper>
+                                            <FormItemWrapper
+                                              className={classNames(
+                                                "__wab_instance",
                                                 sty.formField__pp6Pj
                                               )}
                                               hidden={true}
@@ -9316,7 +9476,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       }
                                                     })()}
                                                     preserve={false}
-                                                    rules={[]}
+                                                    rules={[
+                                                      { ruleType: "required" }
+                                                    ]}
                                                     shouldUpdate={true}
                                                   >
                                                     {(() => {
@@ -13084,6 +13246,7 @@ const PlasmicDescendants = {
     "numberInput15",
     "numberInput16",
     "input7",
+    "select10",
     "numberInput17",
     "numberInput18",
     "input8",
@@ -13175,6 +13338,7 @@ const PlasmicDescendants = {
     "numberInput15",
     "numberInput16",
     "input7",
+    "select10",
     "numberInput17",
     "numberInput18",
     "input8",
@@ -13264,6 +13428,7 @@ const PlasmicDescendants = {
     "numberInput15",
     "numberInput16",
     "input7",
+    "select10",
     "numberInput17",
     "numberInput18",
     "input8",
@@ -13486,6 +13651,7 @@ const PlasmicDescendants = {
     "numberInput15",
     "numberInput16",
     "input7",
+    "select10",
     "numberInput17",
     "numberInput18",
     "input8",
@@ -13517,6 +13683,7 @@ const PlasmicDescendants = {
     "numberInput15",
     "numberInput16",
     "input7",
+    "select10",
     "numberInput17",
     "numberInput18",
     "input8",
@@ -13547,6 +13714,7 @@ const PlasmicDescendants = {
     "numberInput15",
     "numberInput16",
     "input7",
+    "select10",
     "numberInput17",
     "numberInput18",
     "input8",
@@ -13560,6 +13728,7 @@ const PlasmicDescendants = {
   numberInput15: ["numberInput15"],
   numberInput16: ["numberInput16"],
   input7: ["input7"],
+  select10: ["select10"],
   numberInput17: ["numberInput17"],
   numberInput18: ["numberInput18"],
   input8: ["input8"],
@@ -13676,6 +13845,7 @@ type NodeDefaultElementType = {
   numberInput15: typeof AntdInputNumber;
   numberInput16: typeof AntdInputNumber;
   input7: typeof AntdInput;
+  select10: typeof AntdSelect;
   numberInput17: typeof AntdInputNumber;
   numberInput18: typeof AntdInputNumber;
   input8: typeof AntdInput;
@@ -13875,6 +14045,7 @@ export const PlasmicTesteditrecipe2 = Object.assign(
     numberInput15: makeNodeComponent("numberInput15"),
     numberInput16: makeNodeComponent("numberInput16"),
     input7: makeNodeComponent("input7"),
+    select10: makeNodeComponent("select10"),
     numberInput17: makeNodeComponent("numberInput17"),
     numberInput18: makeNodeComponent("numberInput18"),
     input8: makeNodeComponent("input8"),
