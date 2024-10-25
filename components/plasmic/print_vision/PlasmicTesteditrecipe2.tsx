@@ -8452,7 +8452,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     dataOp: {
                                                       sourceId:
                                                         "83X9ZdYzYUYJtgqe5fwXeX",
-                                                      opId: "f279c5c0-70e7-419b-832e-b7786b88da2e",
+                                                      opId: "bd6c5eea-3c19-4758-ba37-bce428476227",
                                                       userArgs: {
                                                         keys: [
                                                           parseInt(
@@ -8491,7 +8491,11 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                               return acc;
                                                             },
                                                             {}
-                                                          )
+                                                          ),
+                                                          $state
+                                                            .formEditPrintfulProduct
+                                                            .value
+                                                            .printing_technique
                                                         ]
                                                       },
                                                       cacheKey: null,
@@ -9204,8 +9208,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   try {
                                                     return $queries.queryGetPrintfulBlueprint.data.response.result.product.techniques.map(
                                                       tech => ({
-                                                        key: tech.key,
-                                                        label: tech.display_name
+                                                        label:
+                                                          tech.display_name,
+                                                        value: tech.key
                                                       })
                                                     );
                                                   } catch (e) {
@@ -12533,6 +12538,40 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                             )}
                                           >
                                             {"no printful variant"}
+                                          </div>
+                                        </div>
+                                      ) : null}
+                                      {(() => {
+                                        try {
+                                          return currentItem.printing_technique ===
+                                            null
+                                            ? true
+                                            : undefined;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox___8IyGi
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__iKdIo
+                                            )}
+                                          >
+                                            {"no printing technique"}
                                           </div>
                                         </div>
                                       ) : null}

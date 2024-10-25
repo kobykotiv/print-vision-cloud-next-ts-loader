@@ -2408,6 +2408,27 @@
   font-size: 12px;
   min-width: 0;
 }
+.freeBox___8IyGi {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-fDNuFs9Skt3p);
+  padding: 8px;
+}
+.text__iKdIo {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-zy6xhYnWF8Y7);
+  padding-right: 0px;
+  font-size: 12px;
+  min-width: 0;
+}
 .freeBox__bh8F8 {
   display: flex;
   flex-direction: row;
