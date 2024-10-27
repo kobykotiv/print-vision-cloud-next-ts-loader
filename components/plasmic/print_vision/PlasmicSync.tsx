@@ -198,7 +198,7 @@ function PlasmicSync__RenderFunc(props: {
         path: "confirmSyncIndividual.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "table.selectedRowKey",
