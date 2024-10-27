@@ -1,40 +1,51 @@
-import * as React from "react";
-import {
-  PlasmicRadixUiButton,
-  DefaultRadixUiButtonProps
-} from "./plasmic/radix_ui/PlasmicRadixUiButton";
+import React, { MouseEventHandler } from 'react';
 
-import {
-  ButtonRef,
-  HtmlAnchorOnlyProps,
-  HtmlButtonOnlyProps
-} from "@plasmicapp/react-web";
-
-export interface RadixUiButtonProps extends DefaultRadixUiButtonProps {
-  // Feel free to add any additional props that this component should receive
+interface RadixUiButtonProps {
+  label: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
 }
-function RadixUiButton_(props: RadixUiButtonProps, ref: ButtonRef) {
-  const { plasmicProps } = PlasmicRadixUiButton.useBehavior<RadixUiButtonProps>(
-    props,
-    ref
+
+/**
+ * Custom button component that mimics Radix UI button functionality
+ * with TypeScript type safety and standard HTML button implementation
+ */
+const RadixUiButton: React.FC<RadixUiButtonProps> = ({ 
+  label, 
+  onClick, 
+  variant = 'primary', 
+  size = 'medium' 
+}) => {
+  // Generate size-specific classes
+  const sizeClasses = {
+    small: 'px-2 py-1 text-sm',
+    medium: 'px-4 py-2 text-base',
+    large: 'px-6 py-3 text-lg'
+  };
+
+  // Generate variant-specific classes
+  const variantClasses = {
+    primary: 'bg-blue-500 hover:bg-blue-600 text-white',
+    secondary: 'bg-gray-500 hover:bg-gray-600 text-white'
+  };
+
+  return (
+    <button
+      className={`
+        rounded-md 
+        font-medium 
+        transition-colors 
+        duration-200 
+        ${sizeClasses[size]} 
+        ${variantClasses[variant]}
+      `}
+      onClick={onClick}
+      type="button"
+    >
+      {label}
+    </button>
   );
-  return <PlasmicRadixUiButton {...plasmicProps} />;
-}
-
-export type ButtonComponentType = {
-  (
-    props: Omit<RadixUiButtonProps, HtmlAnchorOnlyProps> & {
-      ref?: React.Ref<HTMLButtonElement>;
-    }
-  ): React.ReactElement;
-  (
-    props: Omit<RadixUiButtonProps, HtmlButtonOnlyProps> & {
-      ref?: React.Ref<HTMLAnchorElement>;
-    }
-  ): React.ReactElement;
 };
-const RadixUiButton = React.forwardRef(
-  RadixUiButton_
-) as any as ButtonComponentType;
 
-export default Object.assign(RadixUiButton, { __plumeType: "button" });
+export default RadixUiButton;

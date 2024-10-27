@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { RichLayout } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-layout";
+import { RichLayout } from "@plasmicpkgs/plasmic-rich-components";
 import { LoadingBoundary } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";

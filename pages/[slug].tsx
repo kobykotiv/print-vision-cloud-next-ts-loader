@@ -9,7 +9,20 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 
 import Error from "next/error";
 import { useRouter } from "next/router";
-import { PLASMIC } from "@/plasmic-init";
+import { PLASMIC } from "../plasmic-init";
+
+// List of paths that have static pages
+const STATIC_PAGES = [
+  'upload',
+  'recipes',
+  'portfolio',
+  'new-recipe',
+  'backend',
+  'upload-2',
+  'new-recipe-2',
+  'settings',
+  ''  // for root path '/'
+];
 
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
@@ -36,8 +49,8 @@ export default function PlasmicLoaderPage(props: {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { catchall } = context.params ?? {};
-  const plasmicPath = typeof catchall === 'string' ? catchall : Array.isArray(catchall) ? `/${catchall.join('/')}` : '/';
+  const { slug } = context.params ?? {};
+  const plasmicPath = `/${slug}`;
   const plasmicData = await PLASMIC.maybeFetchComponentData(plasmicPath);
   if (!plasmicData) {
     // non-Plasmic catch-all
@@ -62,11 +75,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const pageModules = await PLASMIC.fetchPages();
   return {
-    paths: pageModules.map((mod) => ({
-      params: {
-        catchall: mod.path.substring(1).split("/"),
-      },
-    })),
+    paths: pageModules
+      .map((mod) => mod.path.substring(1)) // Remove leading slash
+      .filter((path) => !STATIC_PAGES.includes(path)) // Filter out static pages
+      .map((path) => ({
+        params: { slug: path }
+      })),
     fallback: "blocking",
   };
 }
