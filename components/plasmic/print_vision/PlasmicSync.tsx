@@ -288,11 +288,11 @@ function PlasmicSync__RenderFunc(props: {
     queryGetProductsFromRecipe: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "a153d009-81ec-4d71-b806-918d26ea9db6",
+        opId: "aeeaa2cd-af31-413c-8808-a60d5356ee2a",
         userArgs: {
-          filters: [$ctx.params.recipe]
+          query: [$ctx.params.recipe]
         },
-        cacheKey: `plasmic.$.a153d009-81ec-4d71-b806-918d26ea9db6.$.`,
+        cacheKey: `plasmic.$.aeeaa2cd-af31-413c-8808-a60d5356ee2a.$.`,
         invalidatedKeys: null,
         roleId: null
       };

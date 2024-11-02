@@ -953,6 +953,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/recipes-8/[id]"
+        },
+        {
+          "id": "liJQbHcUxWVA",
+          "name": "Portfolio2",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicPortfolio2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/portfolio-2.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicPortfolio2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/portfolio-2"
         }
       ],
       "icons": [

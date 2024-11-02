@@ -916,7 +916,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: var(--token-WxyGMLCV1Pdq);
+  background: #dbefff;
   min-width: 0;
   padding: 0px 8px;
   border: 1px solid var(--token-WxvvgatuPYoJ);
@@ -932,7 +932,7 @@
   max-width: 150px;
   min-width: 0;
   padding: 8px;
-  border-right: 1px solid var(--token-Pxe4wDL2kJpb);
+  border-right: 1px solid #d9d9d9;
 }
 .text__iQ20 {
   width: 50px;
@@ -1078,9 +1078,9 @@
   margin-bottom: 30px;
   min-width: 0;
   padding: 20px 8px;
-  border-right: 1px solid var(--token-Pxe4wDL2kJpb);
+  border-right: 1px solid #d9d9d9;
   border-bottom: 1px solid var(--token-ReYtjy5W-zM7);
-  border-left: 1px solid var(--token-Pxe4wDL2kJpb);
+  border-left: 1px solid #d9d9d9;
 }
 .tableBody > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -1333,7 +1333,7 @@
 .button__ocEtf:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  background: var(--token-AkJsX7eWcpyM);
+  background: #bae0ff;
 }
 .text___0FnH9 {
   position: relative;
@@ -1346,7 +1346,7 @@
 .button__hFjW:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  background: var(--token-a78v3Ul_J4it);
+  background: #ffccc7;
 }
 .text__kxPi8 {
   position: relative;
