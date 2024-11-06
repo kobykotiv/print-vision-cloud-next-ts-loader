@@ -417,6 +417,12 @@ function PlasmicSync__RenderFunc(props: {
                             key: "recipe_id",
                             fieldId: "recipe_id",
                             isHidden: null
+                          },
+                          { key: "recipe_ids", fieldId: "recipe_ids" },
+                          {
+                            key: "prodigi_id",
+                            fieldId: "prodigi_id",
+                            isHidden: null
                           }
                         ];
                         __composite["2"]["isHidden"] = false;
@@ -427,6 +433,7 @@ function PlasmicSync__RenderFunc(props: {
                         __composite["9"]["isHidden"] = true;
                         __composite["10"]["isHidden"] = true;
                         __composite["12"]["isHidden"] = true;
+                        __composite["14"]["isHidden"] = true;
                         return __composite;
                       })(),
 
@@ -560,20 +567,43 @@ function PlasmicSync__RenderFunc(props: {
                               onClick={async () => {
                                 const $steps = {};
 
-                                $steps["runCode"] = true
+                                $steps["useIntegration"] = true
                                   ? (() => {
                                       const actionArgs = {};
-                                      return (({ customFunction }) => {
-                                        return customFunction();
+                                      return (async ({
+                                        dataOp,
+                                        continueOnError
+                                      }) => {
+                                        try {
+                                          const response =
+                                            await executePlasmicDataOp(dataOp, {
+                                              userAuthToken:
+                                                dataSourcesCtx?.userAuthToken,
+                                              user: dataSourcesCtx?.user
+                                            });
+                                          await plasmicInvalidate(
+                                            dataOp.invalidatedKeys
+                                          );
+                                          return response;
+                                        } catch (e) {
+                                          if (!continueOnError) {
+                                            throw e;
+                                          }
+                                          return e;
+                                        }
                                       })?.apply(null, [actionArgs]);
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
+                                  $steps["useIntegration"] != null &&
+                                  typeof $steps["useIntegration"] ===
+                                    "object" &&
+                                  typeof $steps["useIntegration"].then ===
+                                    "function"
                                 ) {
-                                  $steps["runCode"] = await $steps["runCode"];
+                                  $steps["useIntegration"] = await $steps[
+                                    "useIntegration"
+                                  ];
                                 }
                               }}
                             >
