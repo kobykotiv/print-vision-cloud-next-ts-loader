@@ -1403,6 +1403,18 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    getPrintifyBluePp: usePlasmicDataOp(() => {
+      return {
+        sourceId: "fumskhn7h2QULzwkXAtFMC",
+        opId: "221445e4-deb2-4d71-9956-3d6e7314b8da",
+        userArgs: {
+          path: [$state.selectedProduct.blueprint_id]
+        },
+        cacheKey: `plasmic.$.221445e4-deb2-4d71-9956-3d6e7314b8da.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -2534,15 +2546,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   )}
                                                   options={(() => {
                                                     try {
-                                                      return $queries.queryGetPrintifyBlueprintPp?.data.response.map(
-                                                        i => ({
+                                                      return $queries.queryGetPrintifyBlueprintPp?.data.response
+                                                        .sort((a, b) =>
+                                                          a.title.localeCompare(
+                                                            b.title
+                                                          )
+                                                        )
+                                                        .map(i => ({
                                                           label:
                                                             i.title +
                                                             " : " +
                                                             i.id,
                                                           value: i.id
-                                                        })
-                                                      );
+                                                        }));
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
@@ -7453,6 +7469,36 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 await $steps[
                                                   "updateSelectedProduct"
                                                 ];
+                                            }
+
+                                            $steps["refreshData"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    queryInvalidation: [
+                                                      "221445e4-deb2-4d71-9956-3d6e7314b8da"
+                                                    ]
+                                                  };
+                                                  return (async ({
+                                                    queryInvalidation
+                                                  }) => {
+                                                    if (!queryInvalidation) {
+                                                      return;
+                                                    }
+                                                    await plasmicInvalidate(
+                                                      queryInvalidation
+                                                    );
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["refreshData"] != null &&
+                                              typeof $steps["refreshData"] ===
+                                                "object" &&
+                                              typeof $steps["refreshData"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["refreshData"] =
+                                                await $steps["refreshData"];
                                             }
 
                                             $steps[

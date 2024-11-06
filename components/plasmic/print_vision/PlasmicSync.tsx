@@ -320,6 +320,16 @@ function PlasmicSync__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    syncDesignProduct: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "618b7129-54e1-4cfc-a1f9-96eb9d026d90",
+        userArgs: {},
+        cacheKey: `plasmic.$.618b7129-54e1-4cfc-a1f9-96eb9d026d90.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {

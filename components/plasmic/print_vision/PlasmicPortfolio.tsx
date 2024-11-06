@@ -873,6 +873,22 @@ function PlasmicPortfolio__RenderFunc(props: {
                               sty.text__lIIku
                             )}
                           >
+                            {"validations"}
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___8THK
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__tOd6Y
+                            )}
+                          >
                             {"id"}
                           </div>
                         </div>
@@ -969,6 +985,109 @@ function PlasmicPortfolio__RenderFunc(props: {
                             )}
                             key={currentIndex}
                           >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__pLnM2
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return currentItem.recipe_ids
+                                    ? undefined
+                                    : true;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___2Da9H
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__jf73U
+                                    )}
+                                  >
+                                    {"No recipe_id"}
+                                  </div>
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return currentItem.recipe_ids
+                                    ? true
+                                    : undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__xvqxy
+                                  )}
+                                >
+                                  {(() => {
+                                    try {
+                                      return !currentItem.recipe_ids.some(id =>
+                                        $queries.test.data
+                                          .map(item => item.recipe_id)
+                                          .includes(id)
+                                      )
+                                        ? true
+                                        : undefined;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox___3JgDr
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__uHOoX
+                                        )}
+                                      >
+                                        {"recipe_id's invalid"}
+                                      </div>
+                                    </div>
+                                  ) : null}
+                                </div>
+                              ) : null}
+                            </Stack__>
                             <div
                               className={classNames(
                                 projectcss.all,
