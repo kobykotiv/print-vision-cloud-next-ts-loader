@@ -181,13 +181,12 @@ export type PlasmicTesteditrecipe2__OverridesType = {
   inputPriceVariants2?: Flex__<typeof AntdInput>;
   printfulVariantsTable?: Flex__<typeof RichTable>;
   modal?: Flex__<typeof AntdModal>;
-  form?: Flex__<typeof FormWrapper>;
+  printfulPlaceholderNew?: Flex__<typeof FormWrapper>;
   input?: Flex__<typeof AntdInput>;
   input2?: Flex__<typeof AntdInput>;
   input5?: Flex__<typeof AntdInput>;
   input10?: Flex__<typeof AntdInput>;
   select3?: Flex__<typeof AntdSelect>;
-  select2?: Flex__<typeof AntdSelect>;
   select8?: Flex__<typeof AntdSelect>;
   input11?: Flex__<typeof AntdInput>;
   printfulPlaceholdersTable?: Flex__<typeof RichTable>;
@@ -945,21 +944,21 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "form.value",
+        path: "printfulPlaceholderNew.value",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
-        refName: "form",
+        refName: "printfulPlaceholderNew",
         onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "form.isSubmitting",
+        path: "printfulPlaceholderNew.isSubmitting",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
-        refName: "form",
+        refName: "printfulPlaceholderNew",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
@@ -1071,11 +1070,6 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "select2[].value",
-        type: "private",
-        variableType: "text"
       },
       {
         path: "select9[].value",
@@ -1289,7 +1283,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
         roleId: null
       };
     }),
-    queryGetPrintifyBlueprintPp: usePlasmicDataOp(() => {
+    getPrintifyBlueprintPp: usePlasmicDataOp(() => {
       return {
         sourceId: "fumskhn7h2QULzwkXAtFMC",
         opId: "221445e4-deb2-4d71-9956-3d6e7314b8da",
@@ -2546,7 +2540,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   )}
                                                   options={(() => {
                                                     try {
-                                                      return $queries.queryGetPrintifyBlueprintPp?.data.response
+                                                      return $queries.getPrintifyBlueprintPp?.data.response
                                                         .sort((a, b) =>
                                                           a.title.localeCompare(
                                                             b.title
@@ -3588,7 +3582,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.inputPriceVariants
                                                     ),
-                                                    onChange:
+                                                    onChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
@@ -3597,9 +3593,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           "value"
                                                         ],
                                                         AntdInput_Helpers
-                                                      ),
+                                                      ).apply(null, eventArgs);
+                                                      (async event => {
+                                                        const $steps = {};
+                                                      }).apply(null, eventArgs);
+                                                    },
                                                     placeholder:
                                                       "Enter Price in Cents",
+                                                    type: "number",
                                                     value:
                                                       generateStateValueProp(
                                                         $state,
@@ -10559,6 +10560,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   throw e;
                                                 }
                                               })(),
+                                              defaultSize: "small",
                                               fields: (() => {
                                                 const __composite = [
                                                   { key: "id", fieldId: "id" },
@@ -10659,6 +10661,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   RichTable_Helpers
                                                 ).apply(null, eventArgs);
                                               },
+                                              pagination: false,
                                               rowActions: (() => {
                                                 const __composite = [
                                                   {
@@ -10668,7 +10671,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   }
                                                 ];
                                                 __composite["0"]["label"] =
-                                                  "delete";
+                                                  "Delete";
                                                 __composite["0"]["onClick"] =
                                                   async (rowKey, row) => {
                                                     const $steps = {};
@@ -10917,13 +10920,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           const child$Props = {
                                             className: classNames(
                                               "__wab_instance",
-                                              sty.form
+                                              sty.printfulPlaceholderNew
                                             ),
                                             extendedOnValuesChange:
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
-                                                ["form", "value"],
+                                                [
+                                                  "printfulPlaceholderNew",
+                                                  "value"
+                                                ],
                                                 FormWrapper_Helpers
                                               ),
                                             formItems: [
@@ -10956,7 +10962,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         opId: "49b9f3e6-3f05-4a04-8549-72d35555d9c9",
                                                         userArgs: {
                                                           variables: [
-                                                            $state.form.value
+                                                            $state
+                                                              .printfulPlaceholderNew
+                                                              .value
                                                           ]
                                                         },
                                                         cacheKey: null,
@@ -11046,11 +11054,15 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "isSubmitting",
-                                                ["form", "isSubmitting"],
+                                                [
+                                                  "printfulPlaceholderNew",
+                                                  "isSubmitting"
+                                                ],
                                                 FormWrapper_Helpers
                                               ),
                                             ref: ref => {
-                                              $refs["form"] = ref;
+                                              $refs["printfulPlaceholderNew"] =
+                                                ref;
                                             },
                                             submitSlot: null,
                                             wrapperCol: {
@@ -11063,12 +11075,13 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                             [
                                               {
                                                 name: "value",
-                                                plasmicStateName: "form.value"
+                                                plasmicStateName:
+                                                  "printfulPlaceholderNew.value"
                                               },
                                               {
                                                 name: "isSubmitting",
                                                 plasmicStateName:
-                                                  "form.isSubmitting"
+                                                  "printfulPlaceholderNew.isSubmitting"
                                               }
                                             ],
                                             [],
@@ -11078,9 +11091,11 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
 
                                           return (
                                             <FormWrapper
-                                              data-plasmic-name={"form"}
+                                              data-plasmic-name={
+                                                "printfulPlaceholderNew"
+                                              }
                                               data-plasmic-override={
-                                                overrides.form
+                                                overrides.printfulPlaceholderNew
                                               }
                                               {...child$Props}
                                             >
@@ -11117,6 +11132,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           ["input", "value"],
                                                           AntdInput_Helpers
                                                         ),
+                                                      type: "number",
                                                       value:
                                                         generateStateValueProp(
                                                           $state,
@@ -11175,6 +11191,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           ["input2", "value"],
                                                           AntdInput_Helpers
                                                         ),
+                                                      type: "number",
                                                       value:
                                                         generateStateValueProp(
                                                           $state,
@@ -11233,6 +11250,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           ["input5", "value"],
                                                           AntdInput_Helpers
                                                         ),
+                                                      type: "number",
                                                       value:
                                                         generateStateValueProp(
                                                           $state,
@@ -11291,6 +11309,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           ["input10", "value"],
                                                           AntdInput_Helpers
                                                         ),
+                                                      type: "number",
                                                       value:
                                                         generateStateValueProp(
                                                           $state,
@@ -11393,185 +11412,6 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   )}
                                                 />
                                               </FormItemWrapper>
-                                              {(_par =>
-                                                !_par
-                                                  ? []
-                                                  : Array.isArray(_par)
-                                                  ? _par
-                                                  : [_par])(
-                                                (() => {
-                                                  try {
-                                                    return $queries.queryGetPrintfulBlueprint.data.response.result.product.options.filter(
-                                                      option =>
-                                                        !option.id.includes(
-                                                          "notes"
-                                                        )
-                                                    );
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return [];
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()
-                                              ).map(
-                                                (
-                                                  __plasmic_item_0,
-                                                  __plasmic_idx_0
-                                                ) => {
-                                                  const currentItem =
-                                                    __plasmic_item_0;
-                                                  const currentIndex =
-                                                    __plasmic_idx_0;
-                                                  return (
-                                                    <FormItemWrapper
-                                                      className={classNames(
-                                                        "__wab_instance",
-                                                        sty.formField___4LnR6
-                                                      )}
-                                                      key={currentIndex}
-                                                      label={
-                                                        <div
-                                                          className={classNames(
-                                                            projectcss.all,
-                                                            projectcss.__wab_text,
-                                                            sty.text__cc44
-                                                          )}
-                                                        >
-                                                          <React.Fragment>
-                                                            {(() => {
-                                                              try {
-                                                                return currentItem.title;
-                                                              } catch (e) {
-                                                                if (
-                                                                  e instanceof
-                                                                    TypeError ||
-                                                                  e?.plasmicType ===
-                                                                    "PlasmicUndefinedDataError"
-                                                                ) {
-                                                                  return "Label";
-                                                                }
-                                                                throw e;
-                                                              }
-                                                            })()}
-                                                          </React.Fragment>
-                                                        </div>
-                                                      }
-                                                      name={(() => {
-                                                        try {
-                                                          return currentItem.id;
-                                                        } catch (e) {
-                                                          if (
-                                                            e instanceof
-                                                              TypeError ||
-                                                            e?.plasmicType ===
-                                                              "PlasmicUndefinedDataError"
-                                                          ) {
-                                                            return undefined;
-                                                          }
-                                                          throw e;
-                                                        }
-                                                      })()}
-                                                    >
-                                                      {(() => {
-                                                        const child$Props = {
-                                                          className: classNames(
-                                                            "__wab_instance",
-                                                            sty.select2
-                                                          ),
-                                                          defaultStylesClassName:
-                                                            classNames(
-                                                              projectcss.root_reset,
-                                                              projectcss.plasmic_default_styles,
-                                                              projectcss.plasmic_mixins,
-                                                              projectcss.plasmic_tokens,
-                                                              plasmic_antd_5_hostless_css.plasmic_tokens,
-                                                              plasmic_plasmic_rich_components_css.plasmic_tokens
-                                                            ),
-                                                          onChange:
-                                                            generateStateOnChangeProp(
-                                                              $state,
-                                                              [
-                                                                "select2",
-                                                                __plasmic_idx_0,
-                                                                "value"
-                                                              ]
-                                                            ),
-                                                          options: [
-                                                            {
-                                                              value: "option1",
-                                                              label: "Option 1",
-                                                              type: "option"
-                                                            },
-                                                            {
-                                                              value: "option2",
-                                                              label: "Option 2",
-                                                              type: "option"
-                                                            }
-                                                          ],
-                                                          placeholder:
-                                                            "Select...",
-                                                          popupScopeClassName:
-                                                            sty[
-                                                              "select2__popup"
-                                                            ],
-                                                          value:
-                                                            generateStateValueProp(
-                                                              $state,
-                                                              [
-                                                                "select2",
-                                                                __plasmic_idx_0,
-                                                                "value"
-                                                              ]
-                                                            )
-                                                        };
-                                                        initializeCodeComponentStates(
-                                                          $state,
-                                                          [
-                                                            {
-                                                              name: "value",
-                                                              plasmicStateName:
-                                                                "select2[].value"
-                                                            }
-                                                          ],
-                                                          [__plasmic_idx_0],
-                                                          undefined ?? {},
-                                                          child$Props
-                                                        );
-                                                        initializePlasmicStates(
-                                                          $state,
-                                                          [
-                                                            {
-                                                              name: "select2[].value",
-                                                              initFunc: ({
-                                                                $props,
-                                                                $state,
-                                                                $queries
-                                                              }) => undefined
-                                                            }
-                                                          ],
-                                                          [__plasmic_idx_0]
-                                                        );
-                                                        return (
-                                                          <AntdSelect
-                                                            data-plasmic-name={
-                                                              "select2"
-                                                            }
-                                                            data-plasmic-override={
-                                                              overrides.select2
-                                                            }
-                                                            {...child$Props}
-                                                          />
-                                                        );
-                                                      })()}
-                                                    </FormItemWrapper>
-                                                  );
-                                                }
-                                              )}
                                               <FormItemWrapper
                                                 className={classNames(
                                                   "__wab_instance",
@@ -13341,13 +13181,12 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "form",
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11",
     "printfulPlaceholdersTable",
@@ -13433,13 +13272,12 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "form",
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11",
     "printfulPlaceholdersTable",
@@ -13523,13 +13361,12 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "form",
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11",
     "printfulPlaceholdersTable",
@@ -13746,13 +13583,12 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "form",
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11",
     "printfulPlaceholdersTable"
@@ -13778,13 +13614,12 @@ const PlasmicDescendants = {
     "inputPriceVariants2",
     "printfulVariantsTable",
     "modal",
-    "form",
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11",
     "printfulPlaceholdersTable"
@@ -13824,24 +13659,22 @@ const PlasmicDescendants = {
   printfulVariantsTable: ["printfulVariantsTable"],
   modal: [
     "modal",
-    "form",
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11"
   ],
-  form: [
-    "form",
+  printfulPlaceholderNew: [
+    "printfulPlaceholderNew",
     "input",
     "input2",
     "input5",
     "input10",
     "select3",
-    "select2",
     "select8",
     "input11"
   ],
@@ -13850,7 +13683,6 @@ const PlasmicDescendants = {
   input5: ["input5"],
   input10: ["input10"],
   select3: ["select3"],
-  select2: ["select2"],
   select8: ["select8"],
   input11: ["input11"],
   printfulPlaceholdersTable: ["printfulPlaceholdersTable"],
@@ -13940,13 +13772,12 @@ type NodeDefaultElementType = {
   inputPriceVariants2: typeof AntdInput;
   printfulVariantsTable: typeof RichTable;
   modal: typeof AntdModal;
-  form: typeof FormWrapper;
+  printfulPlaceholderNew: typeof FormWrapper;
   input: typeof AntdInput;
   input2: typeof AntdInput;
   input5: typeof AntdInput;
   input10: typeof AntdInput;
   select3: typeof AntdSelect;
-  select2: typeof AntdSelect;
   select8: typeof AntdSelect;
   input11: typeof AntdInput;
   printfulPlaceholdersTable: typeof RichTable;
@@ -14140,13 +13971,12 @@ export const PlasmicTesteditrecipe2 = Object.assign(
     inputPriceVariants2: makeNodeComponent("inputPriceVariants2"),
     printfulVariantsTable: makeNodeComponent("printfulVariantsTable"),
     modal: makeNodeComponent("modal"),
-    form: makeNodeComponent("form"),
+    printfulPlaceholderNew: makeNodeComponent("printfulPlaceholderNew"),
     input: makeNodeComponent("input"),
     input2: makeNodeComponent("input2"),
     input5: makeNodeComponent("input5"),
     input10: makeNodeComponent("input10"),
     select3: makeNodeComponent("select3"),
-    select2: makeNodeComponent("select2"),
     select8: makeNodeComponent("select8"),
     input11: makeNodeComponent("input11"),
     printfulPlaceholdersTable: makeNodeComponent("printfulPlaceholdersTable"),
