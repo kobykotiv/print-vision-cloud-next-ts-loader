@@ -3965,6 +3965,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           eventArgs
                                                         );
                                                       },
+                                                    pagination: false,
                                                     rowActions: (() => {
                                                       const __composite = [
                                                         {
