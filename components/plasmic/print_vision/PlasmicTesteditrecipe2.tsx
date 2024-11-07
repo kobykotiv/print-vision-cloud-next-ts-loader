@@ -2534,10 +2534,65 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   dropdownMatchSelectWidth={
                                                     false
                                                   }
-                                                  onChange={generateStateOnChangeProp(
-                                                    $state,
-                                                    ["select", "value"]
-                                                  )}
+                                                  onChange={async (
+                                                    ...eventArgs: any
+                                                  ) => {
+                                                    generateStateOnChangeProp(
+                                                      $state,
+                                                      ["select", "value"]
+                                                    ).apply(null, eventArgs);
+                                                    (async (value, option) => {
+                                                      const $steps = {};
+
+                                                      $steps["refreshData"] =
+                                                        true
+                                                          ? (() => {
+                                                              const actionArgs =
+                                                                {
+                                                                  queryInvalidation:
+                                                                    [
+                                                                      "88b8d0dd-ed60-474c-a8c0-50c2a187ab26",
+                                                                      "e2812273-f8ca-486e-9604-f9b9aaf8b586",
+                                                                      "ca591123-2c6a-42ec-ab41-c76d32d823a7",
+                                                                      "ca591123-2c6a-42ec-ab41-c76d32d823a7",
+                                                                      "ca591123-2c6a-42ec-ab41-c76d32d823a7",
+                                                                      "e2812273-f8ca-486e-9604-f9b9aaf8b586",
+                                                                      "e2812273-f8ca-486e-9604-f9b9aaf8b586"
+                                                                    ]
+                                                                };
+                                                              return (async ({
+                                                                queryInvalidation
+                                                              }) => {
+                                                                if (
+                                                                  !queryInvalidation
+                                                                ) {
+                                                                  return;
+                                                                }
+                                                                await plasmicInvalidate(
+                                                                  queryInvalidation
+                                                                );
+                                                              })?.apply(null, [
+                                                                actionArgs
+                                                              ]);
+                                                            })()
+                                                          : undefined;
+                                                      if (
+                                                        $steps["refreshData"] !=
+                                                          null &&
+                                                        typeof $steps[
+                                                          "refreshData"
+                                                        ] === "object" &&
+                                                        typeof $steps[
+                                                          "refreshData"
+                                                        ].then === "function"
+                                                      ) {
+                                                        $steps["refreshData"] =
+                                                          await $steps[
+                                                            "refreshData"
+                                                          ];
+                                                      }
+                                                    }).apply(null, eventArgs);
+                                                  }}
                                                   options={(() => {
                                                     try {
                                                       return $queries.getPrintifyBlueprintPp?.data.response
@@ -3001,85 +3056,64 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 </React.Fragment>
                                               </div>
                                             ) : null}
-                                            {(() => {
-                                              try {
-                                                return (
-                                                  $queries
-                                                    .getSupPrintifyVariants.data
-                                                    .length === 0
-                                                );
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return true;
-                                                }
-                                                throw e;
+                                            <PlasmicLink__
+                                              data-plasmic-name={"link"}
+                                              data-plasmic-override={
+                                                overrides.link
                                               }
-                                            })() ? (
-                                              <PlasmicLink__
-                                                data-plasmic-name={"link"}
-                                                data-plasmic-override={
-                                                  overrides.link
-                                                }
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.a,
-                                                  projectcss.__wab_text,
-                                                  sty.link
-                                                )}
-                                                component={Link}
-                                                onClick={async event => {
-                                                  const $steps = {};
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.a,
+                                                projectcss.__wab_text,
+                                                sty.link
+                                              )}
+                                              component={Link}
+                                              onClick={async event => {
+                                                const $steps = {};
 
-                                                  $steps["refreshData"] = true
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          queryInvalidation: [
-                                                            "e2812273-f8ca-486e-9604-f9b9aaf8b586",
-                                                            "ca591123-2c6a-42ec-ab41-c76d32d823a7",
-                                                            "e2812273-f8ca-486e-9604-f9b9aaf8b586",
-                                                            "ca591123-2c6a-42ec-ab41-c76d32d823a7"
-                                                          ]
-                                                        };
-                                                        return (async ({
+                                                $steps["refreshData"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        queryInvalidation: [
+                                                          "e2812273-f8ca-486e-9604-f9b9aaf8b586",
+                                                          "ca591123-2c6a-42ec-ab41-c76d32d823a7",
+                                                          "e2812273-f8ca-486e-9604-f9b9aaf8b586",
+                                                          "ca591123-2c6a-42ec-ab41-c76d32d823a7"
+                                                        ]
+                                                      };
+                                                      return (async ({
+                                                        queryInvalidation
+                                                      }) => {
+                                                        if (
+                                                          !queryInvalidation
+                                                        ) {
+                                                          return;
+                                                        }
+                                                        await plasmicInvalidate(
                                                           queryInvalidation
-                                                        }) => {
-                                                          if (
-                                                            !queryInvalidation
-                                                          ) {
-                                                            return;
-                                                          }
-                                                          await plasmicInvalidate(
-                                                            queryInvalidation
-                                                          );
-                                                        })?.apply(null, [
-                                                          actionArgs
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                  if (
-                                                    $steps["refreshData"] !=
-                                                      null &&
-                                                    typeof $steps[
-                                                      "refreshData"
-                                                    ] === "object" &&
-                                                    typeof $steps["refreshData"]
-                                                      .then === "function"
-                                                  ) {
-                                                    $steps["refreshData"] =
-                                                      await $steps[
-                                                        "refreshData"
-                                                      ];
-                                                  }
-                                                }}
-                                                platform={"nextjs"}
-                                              >
-                                                {"Refresh"}
-                                              </PlasmicLink__>
-                                            ) : null}
+                                                        );
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["refreshData"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "refreshData"
+                                                  ] === "object" &&
+                                                  typeof $steps["refreshData"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["refreshData"] =
+                                                    await $steps["refreshData"];
+                                                }
+                                              }}
+                                              platform={"nextjs"}
+                                            >
+                                              {"Refresh"}
+                                            </PlasmicLink__>
                                             {(() => {
                                               try {
                                                 return (
@@ -3331,11 +3365,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 return (
                                                   $queries
                                                     .getSupPrintifyVariants.data
-                                                    .length ===
-                                                  $queries
-                                                    .queryGetPrintifyVariantsByBlueprintandPrintProvider
-                                                    .data.response.variants
-                                                    .length
+                                                    .length !== 0
                                                 );
                                               } catch (e) {
                                                 if (

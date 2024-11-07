@@ -1186,6 +1186,7 @@ function PlasmicSync__RenderFunc(props: {
                               fields: (() => {
                                 const __composite = [
                                   { key: "id", fieldId: "id" },
+                                  { key: "title", fieldId: "title" },
                                   {
                                     key: "print_provider",
                                     fieldId: "print_provider"
@@ -1215,29 +1216,33 @@ function PlasmicSync__RenderFunc(props: {
                                     fieldId: "recipe_id",
                                     isHidden: null
                                   },
-                                  { key: "tags", fieldId: "tags" },
                                   {
                                     key: "sync_product_id",
                                     fieldId: "sync_product_id"
                                   },
-                                  { key: "created_at", fieldId: "created_at" },
+                                  {
+                                    key: "created_at",
+                                    fieldId: "created_at",
+                                    isHidden: null
+                                  },
                                   {
                                     key: "blueprint_id",
                                     fieldId: "blueprint_id",
                                     dataType: null
                                   },
-                                  { key: "title", fieldId: "title" },
+                                  { key: "tags", fieldId: "tags" },
                                   {
                                     key: "email",
                                     fieldId: "email",
                                     isHidden: null
                                   }
                                 ];
-                                __composite["2"]["isHidden"] = true;
                                 __composite["3"]["isHidden"] = true;
                                 __composite["4"]["isHidden"] = true;
                                 __composite["5"]["isHidden"] = true;
                                 __composite["6"]["isHidden"] = true;
+                                __composite["7"]["isHidden"] = true;
+                                __composite["9"]["isHidden"] = true;
                                 __composite["10"]["dataType"] = "string";
                                 __composite["12"]["isHidden"] = true;
                                 return __composite;
@@ -1274,6 +1279,7 @@ function PlasmicSync__RenderFunc(props: {
                                   RichTable_Helpers
                                 ).apply(null, eventArgs);
                               },
+                              pagination: false,
                               rowActions: (() => {
                                 const __composite = [
                                   { type: "item", label: null, onClick: null }
