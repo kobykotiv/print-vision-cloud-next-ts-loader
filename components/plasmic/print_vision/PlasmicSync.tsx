@@ -657,7 +657,7 @@ function PlasmicSync__RenderFunc(props: {
                                       const actionArgs = {
                                         dataOp: {
                                           sourceId: "fumskhn7h2QULzwkXAtFMC",
-                                          opId: "04cf9552-4c35-48c6-9116-b48c89dfbec4",
+                                          opId: "33639399-7459-487f-8250-64965974643f",
                                           userArgs: {
                                             body: [
                                               (() => {
@@ -748,8 +748,10 @@ function PlasmicSync__RenderFunc(props: {
                                           },
                                           cacheKey: null,
                                           invalidatedKeys: [],
-                                          roleId: null
-                                        }
+                                          roleId:
+                                            "d035f350-edf5-4268-af03-4480b52522b0"
+                                        },
+                                        continueOnError: false
                                       };
                                       return (async ({
                                         dataOp,
@@ -783,61 +785,24 @@ function PlasmicSync__RenderFunc(props: {
                                 $steps["httpPost"] = await $steps["httpPost"];
                               }
 
-                              $steps["postgresUpdateById"] =
-                                $state.variable.sync_product_id === null
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["syncState"]
-                                        },
-                                        operation: 0,
-                                        value: $steps.httpPost
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["postgresUpdateById"] != null &&
-                                typeof $steps["postgresUpdateById"] ===
-                                  "object" &&
-                                typeof $steps["postgresUpdateById"].then ===
-                                  "function"
-                              ) {
-                                $steps["postgresUpdateById"] = await $steps[
-                                  "postgresUpdateById"
-                                ];
-                              }
-
-                              $steps["postgresUpdateById2"] =
+                              $steps["postgresCreate"] =
                                 $state.variable.sync_product_id === null
                                   ? (() => {
                                       const actionArgs = {
                                         dataOp: {
                                           sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                          opId: "74ba98e2-2f53-4030-9404-a041d9b2a02d",
+                                          opId: "fb343923-4598-49cc-b442-b650b1c757a8",
                                           userArgs: {
-                                            keys: [$state.variable.id],
                                             variables: [
-                                              $state.syncState.data.response.id
+                                              $ctx.params.design,
+                                              $state.syncState.data.response.id,
+                                              $state.variable.id
                                             ]
                                           },
                                           cacheKey: null,
-                                          invalidatedKeys: [],
+                                          invalidatedKeys: [
+                                            "plasmic_refresh_all"
+                                          ],
                                           roleId: null
                                         }
                                       };
@@ -866,39 +831,89 @@ function PlasmicSync__RenderFunc(props: {
                                     })()
                                   : undefined;
                               if (
-                                $steps["postgresUpdateById2"] != null &&
-                                typeof $steps["postgresUpdateById2"] ===
-                                  "object" &&
-                                typeof $steps["postgresUpdateById2"].then ===
+                                $steps["postgresCreate"] != null &&
+                                typeof $steps["postgresCreate"] === "object" &&
+                                typeof $steps["postgresCreate"].then ===
                                   "function"
                               ) {
-                                $steps["postgresUpdateById2"] = await $steps[
-                                  "postgresUpdateById2"
+                                $steps["postgresCreate"] = await $steps[
+                                  "postgresCreate"
                                 ];
                               }
 
-                              $steps["refreshData"] = true
+                              $steps["useIntegration"] =
+                                $state.variable.sync_product_id === null
+                                  ? (() => {
+                                      const actionArgs = {};
+                                      return (async ({
+                                        dataOp,
+                                        continueOnError
+                                      }) => {
+                                        try {
+                                          const response =
+                                            await executePlasmicDataOp(dataOp, {
+                                              userAuthToken:
+                                                dataSourcesCtx?.userAuthToken,
+                                              user: dataSourcesCtx?.user
+                                            });
+                                          await plasmicInvalidate(
+                                            dataOp.invalidatedKeys
+                                          );
+                                          return response;
+                                        } catch (e) {
+                                          if (!continueOnError) {
+                                            throw e;
+                                          }
+                                          return e;
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["useIntegration"] != null &&
+                                typeof $steps["useIntegration"] === "object" &&
+                                typeof $steps["useIntegration"].then ===
+                                  "function"
+                              ) {
+                                $steps["useIntegration"] = await $steps[
+                                  "useIntegration"
+                                ];
+                              }
+
+                              $steps["updateVariable"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      queryInvalidation: ["plasmic_refresh_all"]
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["variable"]
+                                      },
+                                      operation: 0
                                     };
-                                    return (async ({ queryInvalidation }) => {
-                                      if (!queryInvalidation) {
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
                                         return;
                                       }
-                                      await plasmicInvalidate(
-                                        queryInvalidation
-                                      );
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["refreshData"] != null &&
-                                typeof $steps["refreshData"] === "object" &&
-                                typeof $steps["refreshData"].then === "function"
+                                $steps["updateVariable"] != null &&
+                                typeof $steps["updateVariable"] === "object" &&
+                                typeof $steps["updateVariable"].then ===
+                                  "function"
                               ) {
-                                $steps["refreshData"] = await $steps[
-                                  "refreshData"
+                                $steps["updateVariable"] = await $steps[
+                                  "updateVariable"
                                 ];
                               }
                             }}
