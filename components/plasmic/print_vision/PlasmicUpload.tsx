@@ -1275,7 +1275,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input7
                               ),
-                              disabled: true,
+                              disabled: false,
                               onChange:
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
@@ -1283,7 +1283,7 @@ function PlasmicUpload__RenderFunc(props: {
                                   ["input7", "value"],
                                   AntdInput_Helpers
                                 ),
-                              readOnly: false,
+                              readOnly: true,
                               value: generateStateValueProp($state, [
                                 "input7",
                                 "value"
