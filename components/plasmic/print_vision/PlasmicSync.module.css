@@ -536,12 +536,17 @@
   max-width: 100%;
   object-fit: cover;
   background: var(--token-DxfYAkV7QVUJ);
+  transition-property: background;
+  transition-duration: 1s;
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 1s;
 }
 .text__gasXp {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: var(--token-zy6xhYnWF8Y7);
   min-width: 0;
 }
 .updateVariable:global(.__wab_instance) {

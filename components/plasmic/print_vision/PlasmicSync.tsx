@@ -339,11 +339,11 @@ function PlasmicSync__RenderFunc(props: {
     queryRecipe: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "1eff6c0a-8798-488d-be54-4fbe525286d1",
+        opId: "902d3424-206d-42f3-a4a9-22fa2c40f767",
         userArgs: {
-          keys: [$ctx.params.recipe]
+          query: [$ctx.params.recipe.split(",").map(id => parseInt(id))]
         },
-        cacheKey: `plasmic.$.1eff6c0a-8798-488d-be54-4fbe525286d1.$.`,
+        cacheKey: `plasmic.$.902d3424-206d-42f3-a4a9-22fa2c40f767.$.`,
         invalidatedKeys: null,
         roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
