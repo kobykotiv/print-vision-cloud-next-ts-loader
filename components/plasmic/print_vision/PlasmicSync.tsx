@@ -73,6 +73,13 @@ import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
+import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -98,9 +105,19 @@ export type PlasmicSync__OverridesType = {
   pageLayout?: Flex__<typeof PageLayout>;
   table2?: Flex__<typeof RichTable>;
   tabs?: Flex__<typeof AntdTabs>;
-  button?: Flex__<typeof AntdButton>;
   confirmSyncIndividual?: Flex__<typeof AntdModal>;
   table?: Flex__<typeof RichTable>;
+  table3?: Flex__<"div">;
+  tableHead?: Flex__<"div">;
+  tableBody?: Flex__<"div">;
+  validate?: Flex__<"div">;
+  updateVariable?: Flex__<typeof ConditionGuard>;
+  updateVariable2?: Flex__<typeof ConditionGuard>;
+  timer?: Flex__<typeof Timer>;
+  former?: Flex__<typeof FormWrapper>;
+  input?: Flex__<typeof AntdInput>;
+  input2?: Flex__<typeof AntdInput>;
+  input3?: Flex__<typeof AntdInput>;
 };
 
 export interface DefaultSyncProps {}
@@ -142,6 +159,8 @@ function PlasmicSync__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -243,6 +262,66 @@ function PlasmicSync__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "counter",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "invalidSyncDesign",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "former.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "former",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "former.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "former",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "input3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "syncAllIds",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -336,6 +415,18 @@ function PlasmicSync__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    placeholder: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "e183df9e-abbe-4e5f-a20d-dc0eda82bb31",
+        userArgs: {
+          filters: [$state.variable.id]
+        },
+        cacheKey: `plasmic.$.e183df9e-abbe-4e5f-a20d-dc0eda82bb31.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -378,6 +469,29 @@ function PlasmicSync__RenderFunc(props: {
             <DataCtxReader__>
               {$ctx => (
                 <React.Fragment>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w3ViD
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.counter;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.table2),
@@ -574,51 +688,89 @@ function PlasmicSync__RenderFunc(props: {
                             )}
                           >
                             <AntdButton
-                              data-plasmic-name={"button"}
-                              data-plasmic-override={overrides.button}
                               className={classNames(
                                 "__wab_instance",
-                                sty.button
+                                sty.button__m8Hvw
                               )}
                               onClick={async () => {
                                 const $steps = {};
 
-                                $steps["useIntegration"] = true
+                                $steps["syncAllIds"] = true
                                   ? (() => {
-                                      const actionArgs = {};
-                                      return (async ({
-                                        dataOp,
-                                        continueOnError
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["syncAllIds"]
+                                        },
+                                        operation: 0,
+                                        value:
+                                          $queries.queryGetProductsFromRecipe.data.map(
+                                            item => ({ id: item.id })
+                                          )
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
                                       }) => {
-                                        try {
-                                          const response =
-                                            await executePlasmicDataOp(dataOp, {
-                                              userAuthToken:
-                                                dataSourcesCtx?.userAuthToken,
-                                              user: dataSourcesCtx?.user
-                                            });
-                                          await plasmicInvalidate(
-                                            dataOp.invalidatedKeys
-                                          );
-                                          return response;
-                                        } catch (e) {
-                                          if (!continueOnError) {
-                                            throw e;
-                                          }
-                                          return e;
+                                        if (!variable) {
+                                          return;
                                         }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
                                       })?.apply(null, [actionArgs]);
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["useIntegration"] != null &&
-                                  typeof $steps["useIntegration"] ===
-                                    "object" &&
-                                  typeof $steps["useIntegration"].then ===
+                                  $steps["syncAllIds"] != null &&
+                                  typeof $steps["syncAllIds"] === "object" &&
+                                  typeof $steps["syncAllIds"].then ===
                                     "function"
                                 ) {
-                                  $steps["useIntegration"] = await $steps[
-                                    "useIntegration"
+                                  $steps["syncAllIds"] = await $steps[
+                                    "syncAllIds"
+                                  ];
+                                }
+
+                                $steps["updateVariable"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["variable"]
+                                        },
+                                        operation: 0
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateVariable"] != null &&
+                                  typeof $steps["updateVariable"] ===
+                                    "object" &&
+                                  typeof $steps["updateVariable"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateVariable"] = await $steps[
+                                    "updateVariable"
                                   ];
                                 }
                               }}
@@ -766,26 +918,19 @@ function PlasmicSync__RenderFunc(props: {
                                                   $queries.queryDesign.data[0]
                                                     .title +
                                                   " - " +
-                                                  $queries
-                                                    .queryGetProductsFromRecipe
-                                                    .data[0].title;
+                                                  $state.variable.title;
                                                 const description =
                                                   $queries.queryDesign.data[0]
                                                     .description +
                                                   " - " +
-                                                  $queries
-                                                    .queryGetProductsFromRecipe
-                                                    .data[0].description;
+                                                  $state.variable.description;
                                                 const blueprint_id = parseInt(
-                                                  $queries
-                                                    .queryGetProductsFromRecipe
-                                                    .data[0].blueprint_id
+                                                  $state.variable.blueprint_id
                                                 );
                                                 const print_provider_id =
                                                   parseInt(
-                                                    $queries
-                                                      .queryGetProductsFromRecipe
-                                                      .data[0].print_provider
+                                                    $state.variable
+                                                      .print_provider
                                                   );
                                                 const variants =
                                                   $queries.queryGetPrintifyVariants.data.map(
@@ -799,9 +944,7 @@ function PlasmicSync__RenderFunc(props: {
                                                       is_enabled: true
                                                     })
                                                   );
-                                                const design =
-                                                  $queries.queryDesign.data[0]
-                                                    .printify_id;
+                                                const design = 1;
                                                 const placeholders =
                                                   $queries
                                                     .queryGetPrintifyPlaceholders
@@ -980,6 +1123,65 @@ function PlasmicSync__RenderFunc(props: {
                               ) {
                                 $steps["postgresCreateNew"] = await $steps[
                                   "postgresCreateNew"
+                                ];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: ["success", "Synced successfully"]
+                                    };
+                                    return $globalActions[
+                                      "plasmic-antd5-config-provider.showNotification"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+
+                              $steps["updateVariable"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["variable"]
+                                      },
+                                      operation: 0
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateVariable"] != null &&
+                                typeof $steps["updateVariable"] === "object" &&
+                                typeof $steps["updateVariable"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateVariable"] = await $steps[
+                                  "updateVariable"
                                 ];
                               }
                             }}
@@ -1399,6 +1601,1248 @@ function PlasmicSync__RenderFunc(props: {
                               />
                             );
                           })()}
+                          <div
+                            data-plasmic-name={"table3"}
+                            data-plasmic-override={overrides.table3}
+                            className={classNames(projectcss.all, sty.table3)}
+                          >
+                            <div
+                              data-plasmic-name={"tableHead"}
+                              data-plasmic-override={overrides.tableHead}
+                              className={classNames(
+                                projectcss.all,
+                                sty.tableHead
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ekiKy
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___1L1DY
+                                  )}
+                                >
+                                  {"validations"}
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ii4I
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ifF09
+                                  )}
+                                >
+                                  {"id"}
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___3QaDy
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__c6NUy
+                                  )}
+                                >
+                                  {"Created_at"}
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__qfpPs
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__seq8M
+                                  )}
+                                >
+                                  {"title"}
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__i5YHr
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__i9UZq
+                                  )}
+                                >
+                                  {"print_provider"}
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__acBfp
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___3Sfzb
+                                  )}
+                                >
+                                  {"blueprint_id"}
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__aGChF
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ve9Km
+                                  )}
+                                >
+                                  {"actions"}
+                                </div>
+                              </div>
+                            </div>
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return $queries.queryGetProductsFromRecipe
+                                    .data;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <div
+                                  data-plasmic-name={"tableBody"}
+                                  data-plasmic-override={overrides.tableBody}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.tableBody
+                                  )}
+                                  key={currentIndex}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__jGuQw
+                                    )}
+                                  >
+                                    {(() => {
+                                      try {
+                                        return $queries.syncDesignProduct.data.find(
+                                          row =>
+                                            row.printify_product_id ===
+                                            currentItem.id
+                                        )
+                                          ? undefined
+                                          : true;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })() ? (
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"validate"}
+                                        data-plasmic-override={
+                                          overrides.validate
+                                        }
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.validate
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__lvKgv
+                                          )}
+                                        >
+                                          {
+                                            "Matching sync design product does not exist"
+                                          }
+                                        </div>
+                                        <AntdButton
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.button___6BdO
+                                          )}
+                                          onClick={async () => {
+                                            const $steps = {};
+
+                                            $steps["postgresCreate"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    dataOp: {
+                                                      sourceId:
+                                                        "83X9ZdYzYUYJtgqe5fwXeX",
+                                                      opId: "cf240271-327f-43d2-984c-18f31dbf3eb4",
+                                                      userArgs: {
+                                                        variables: [
+                                                          $ctx.params.design,
+                                                          currentItem.id
+                                                        ]
+                                                      },
+                                                      cacheKey: null,
+                                                      invalidatedKeys: [
+                                                        "plasmic_refresh_all"
+                                                      ],
+                                                      roleId: null
+                                                    }
+                                                  };
+                                                  return (async ({
+                                                    dataOp,
+                                                    continueOnError
+                                                  }) => {
+                                                    try {
+                                                      const response =
+                                                        await executePlasmicDataOp(
+                                                          dataOp,
+                                                          {
+                                                            userAuthToken:
+                                                              dataSourcesCtx?.userAuthToken,
+                                                            user: dataSourcesCtx?.user
+                                                          }
+                                                        );
+                                                      await plasmicInvalidate(
+                                                        dataOp.invalidatedKeys
+                                                      );
+                                                      return response;
+                                                    } catch (e) {
+                                                      if (!continueOnError) {
+                                                        throw e;
+                                                      }
+                                                      return e;
+                                                    }
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["postgresCreate"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "postgresCreate"
+                                              ] === "object" &&
+                                              typeof $steps["postgresCreate"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["postgresCreate"] =
+                                                await $steps["postgresCreate"];
+                                            }
+
+                                            $steps["invokeGlobalAction"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    args: [
+                                                      "success",
+                                                      "Created successfully."
+                                                    ]
+                                                  };
+                                                  return $globalActions[
+                                                    "plasmic-antd5-config-provider.showNotification"
+                                                  ]?.apply(null, [
+                                                    ...actionArgs.args
+                                                  ]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["invokeGlobalAction"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "invokeGlobalAction"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["invokeGlobalAction"] =
+                                                await $steps[
+                                                  "invokeGlobalAction"
+                                                ];
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text___3DvPk
+                                            )}
+                                          >
+                                            {"Create new"}
+                                          </div>
+                                        </AntdButton>
+                                      </Stack__>
+                                    ) : null}
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__i8YSf
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___2OuSz
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.id;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return " ";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__wM42F
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__cxkau
+                                      )}
+                                    >
+                                      {"Created_at"}
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__h8FRm
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__gVbHv
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.title;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "title";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__wsf4C
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__yPv
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.print_provider;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "print_provider";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__uggD
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__uUwd8
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.blueprint_id;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "blueprint_id";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__bmrPd
+                                    )}
+                                  >
+                                    <AntdButton
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.button__nt7Qb
+                                      )}
+                                      disabled={(() => {
+                                        try {
+                                          return $queries.syncDesignProduct.data.find(
+                                            row =>
+                                              row.printify_product_id ===
+                                              currentItem.id
+                                          )
+                                            ? undefined
+                                            : true;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return false;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      onClick={async () => {
+                                        const $steps = {};
+
+                                        $steps["updateVariable"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["variable"]
+                                                },
+                                                operation: 0,
+                                                value: currentItem
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateVariable"] != null &&
+                                          typeof $steps["updateVariable"] ===
+                                            "object" &&
+                                          typeof $steps["updateVariable"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateVariable"] =
+                                            await $steps["updateVariable"];
+                                        }
+
+                                        $steps["updateVariable2"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "confirmSyncIndividual",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 4
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                const oldValue = $stateGet(
+                                                  objRoot,
+                                                  variablePath
+                                                );
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  !oldValue
+                                                );
+                                                return !oldValue;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateVariable2"] != null &&
+                                          typeof $steps["updateVariable2"] ===
+                                            "object" &&
+                                          typeof $steps["updateVariable2"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateVariable2"] =
+                                            await $steps["updateVariable2"];
+                                        }
+                                      }}
+                                      size={"large"}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__gasXp
+                                        )}
+                                      >
+                                        {"Sync"}
+                                      </div>
+                                    </AntdButton>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                            <ConditionGuard
+                              data-plasmic-name={"updateVariable"}
+                              data-plasmic-override={overrides.updateVariable}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.updateVariable
+                              )}
+                              condition={(() => {
+                                try {
+                                  return $state.counter < 25;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              onNotSatisfied={async () => {
+                                const $steps = {};
+
+                                $steps["updateVariable2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["invalidSyncDesign"]
+                                        },
+                                        operation: 0,
+                                        value:
+                                          $queries.queryGetProductsFromRecipe.data
+                                            .filter(
+                                              product =>
+                                                !$queries.syncDesignProduct.data.some(
+                                                  row =>
+                                                    row.printify_product_id ===
+                                                    product.id
+                                                )
+                                            )
+                                            .map(product => product.id)
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateVariable2"] != null &&
+                                  typeof $steps["updateVariable2"] ===
+                                    "object" &&
+                                  typeof $steps["updateVariable2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateVariable2"] = await $steps[
+                                    "updateVariable2"
+                                  ];
+                                }
+                              }}
+                            />
+
+                            <ConditionGuard
+                              data-plasmic-name={"updateVariable2"}
+                              data-plasmic-override={overrides.updateVariable2}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.updateVariable2
+                              )}
+                              condition={(() => {
+                                try {
+                                  return $state.counter < 40;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              onNotSatisfied={async () => {
+                                const $steps = {};
+
+                                $steps["runActionOnFormer"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        tplRef: "former",
+                                        action: "setFieldValue",
+                                        args: [
+                                          [
+                                            "$state",
+                                            "former",
+                                            "value",
+                                            "printify_product_id"
+                                          ],
+                                          $state.invalidSyncDesign.map(id =>
+                                            parseInt(id)
+                                          )
+                                        ]
+                                      };
+                                      return (({ tplRef, action, args }) => {
+                                        return $refs?.[tplRef]?.[action]?.(
+                                          ...(args ?? [])
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runActionOnFormer"] != null &&
+                                  typeof $steps["runActionOnFormer"] ===
+                                    "object" &&
+                                  typeof $steps["runActionOnFormer"].then ===
+                                    "function"
+                                ) {
+                                  $steps["runActionOnFormer"] = await $steps[
+                                    "runActionOnFormer"
+                                  ];
+                                }
+
+                                $steps["postgresCreateMany"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        dataOp: {
+                                          sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                          opId: "8bbf7403-8cf9-41f1-9c86-301fb29b1c6f",
+                                          userArgs: {
+                                            variables: [
+                                              (() => {
+                                                return $state.invalidSyncDesign
+                                                  .map(id => parseInt(id))
+                                                  .map(id => ({
+                                                    printify_product_id: id,
+                                                    design_id:
+                                                      $state.former.value
+                                                        .design_id,
+                                                    email:
+                                                      $state.former.value.email
+                                                  }));
+                                              })()
+                                            ]
+                                          },
+                                          cacheKey: null,
+                                          invalidatedKeys: [
+                                            "plasmic_refresh_all"
+                                          ],
+                                          roleId: null
+                                        }
+                                      };
+                                      return (async ({
+                                        dataOp,
+                                        continueOnError
+                                      }) => {
+                                        try {
+                                          const response =
+                                            await executePlasmicDataOp(dataOp, {
+                                              userAuthToken:
+                                                dataSourcesCtx?.userAuthToken,
+                                              user: dataSourcesCtx?.user
+                                            });
+                                          await plasmicInvalidate(
+                                            dataOp.invalidatedKeys
+                                          );
+                                          return response;
+                                        } catch (e) {
+                                          if (!continueOnError) {
+                                            throw e;
+                                          }
+                                          return e;
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["postgresCreateMany"] != null &&
+                                  typeof $steps["postgresCreateMany"] ===
+                                    "object" &&
+                                  typeof $steps["postgresCreateMany"].then ===
+                                    "function"
+                                ) {
+                                  $steps["postgresCreateMany"] = await $steps[
+                                    "postgresCreateMany"
+                                  ];
+                                }
+
+                                $steps["refreshData"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        queryInvalidation: [
+                                          "plasmic_refresh_all"
+                                        ]
+                                      };
+                                      return (async ({ queryInvalidation }) => {
+                                        if (!queryInvalidation) {
+                                          return;
+                                        }
+                                        await plasmicInvalidate(
+                                          queryInvalidation
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["refreshData"] != null &&
+                                  typeof $steps["refreshData"] === "object" &&
+                                  typeof $steps["refreshData"].then ===
+                                    "function"
+                                ) {
+                                  $steps["refreshData"] = await $steps[
+                                    "refreshData"
+                                  ];
+                                }
+                              }}
+                            />
+
+                            <AntdButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button___7GwC
+                              )}
+                              onClick={async () => {
+                                const $steps = {};
+
+                                $steps["postgresDeleteMany"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        dataOp: {
+                                          sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                          opId: "9295c64b-ca4f-465f-b429-7a1928080d92",
+                                          userArgs: {},
+                                          cacheKey: null,
+                                          invalidatedKeys: [
+                                            "plasmic_refresh_all"
+                                          ],
+                                          roleId: null
+                                        }
+                                      };
+                                      return (async ({
+                                        dataOp,
+                                        continueOnError
+                                      }) => {
+                                        try {
+                                          const response =
+                                            await executePlasmicDataOp(dataOp, {
+                                              userAuthToken:
+                                                dataSourcesCtx?.userAuthToken,
+                                              user: dataSourcesCtx?.user
+                                            });
+                                          await plasmicInvalidate(
+                                            dataOp.invalidatedKeys
+                                          );
+                                          return response;
+                                        } catch (e) {
+                                          if (!continueOnError) {
+                                            throw e;
+                                          }
+                                          return e;
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["postgresDeleteMany"] != null &&
+                                  typeof $steps["postgresDeleteMany"] ===
+                                    "object" &&
+                                  typeof $steps["postgresDeleteMany"].then ===
+                                    "function"
+                                ) {
+                                  $steps["postgresDeleteMany"] = await $steps[
+                                    "postgresDeleteMany"
+                                  ];
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__huWuC
+                                )}
+                              >
+                                {"Button"}
+                              </div>
+                            </AntdButton>
+                            <Timer
+                              data-plasmic-name={"timer"}
+                              data-plasmic-override={overrides.timer}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.timer
+                              )}
+                              intervalSeconds={0.1}
+                              isRunning={true}
+                              onTick={async () => {
+                                const $steps = {};
+
+                                $steps["updateVariable2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["counter"]
+                                        },
+                                        operation: 2
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        const oldValue = $stateGet(
+                                          objRoot,
+                                          variablePath
+                                        );
+                                        $stateSet(
+                                          objRoot,
+                                          variablePath,
+                                          oldValue + 1
+                                        );
+                                        return oldValue + 1;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateVariable2"] != null &&
+                                  typeof $steps["updateVariable2"] ===
+                                    "object" &&
+                                  typeof $steps["updateVariable2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateVariable2"] = await $steps[
+                                    "updateVariable2"
+                                  ];
+                                }
+                              }}
+                              runWhileEditing={true}
+                            />
+
+                            {(() => {
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.former
+                                ),
+                                extendedOnValuesChange:
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["former", "value"],
+                                    FormWrapper_Helpers
+                                  ),
+                                formItems: [
+                                  {
+                                    label: "Name",
+                                    name: "name",
+                                    inputType: "Text"
+                                  },
+                                  {
+                                    label: "Message",
+                                    name: "message",
+                                    inputType: "Text Area"
+                                  }
+                                ],
+                                labelCol: { span: 8, horizontalOnly: true },
+                                layout: "vertical",
+                                mode: "advanced",
+                                onIsSubmittingChange:
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "isSubmitting",
+                                    ["former", "isSubmitting"],
+                                    FormWrapper_Helpers
+                                  ),
+                                ref: ref => {
+                                  $refs["former"] = ref;
+                                },
+                                submitSlot: null,
+                                wrapperCol: { span: 16, horizontalOnly: true }
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "former.value"
+                                  },
+                                  {
+                                    name: "isSubmitting",
+                                    plasmicStateName: "former.isSubmitting"
+                                  }
+                                ],
+                                [],
+                                FormWrapper_Helpers ?? {},
+                                child$Props
+                              );
+
+                              return (
+                                <FormWrapper
+                                  data-plasmic-name={"former"}
+                                  data-plasmic-override={overrides.former}
+                                  {...child$Props}
+                                >
+                                  <FormItemWrapper
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.formField__ftj5M
+                                    )}
+                                    initialValue={(() => {
+                                      try {
+                                        return $state.invalidSyncDesign.map(
+                                          id => parseInt(id)
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                    label={"Name"}
+                                    name={"printify_product_id"}
+                                  >
+                                    {(() => {
+                                      const child$Props = {
+                                        className: classNames(
+                                          "__wab_instance",
+                                          sty.input
+                                        ),
+                                        onChange:
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "value",
+                                            ["input", "value"],
+                                            AntdInput_Helpers
+                                          ),
+                                        value: generateStateValueProp($state, [
+                                          "input",
+                                          "value"
+                                        ])
+                                      };
+                                      initializeCodeComponentStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "value",
+                                            plasmicStateName: "input.value"
+                                          }
+                                        ],
+                                        [],
+                                        AntdInput_Helpers ?? {},
+                                        child$Props
+                                      );
+
+                                      return (
+                                        <AntdInput
+                                          data-plasmic-name={"input"}
+                                          data-plasmic-override={
+                                            overrides.input
+                                          }
+                                          {...child$Props}
+                                        />
+                                      );
+                                    })()}
+                                  </FormItemWrapper>
+                                  <FormItemWrapper
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.formField__c7D6V
+                                    )}
+                                    initialValue={(() => {
+                                      try {
+                                        return parseInt($ctx.params.design);
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                    label={"Name"}
+                                    name={"design_id"}
+                                  >
+                                    {(() => {
+                                      const child$Props = {
+                                        className: classNames(
+                                          "__wab_instance",
+                                          sty.input2
+                                        ),
+                                        onChange:
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "value",
+                                            ["input2", "value"],
+                                            AntdInput_Helpers
+                                          ),
+                                        value: generateStateValueProp($state, [
+                                          "input2",
+                                          "value"
+                                        ])
+                                      };
+                                      initializeCodeComponentStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "value",
+                                            plasmicStateName: "input2.value"
+                                          }
+                                        ],
+                                        [],
+                                        AntdInput_Helpers ?? {},
+                                        child$Props
+                                      );
+
+                                      return (
+                                        <AntdInput
+                                          data-plasmic-name={"input2"}
+                                          data-plasmic-override={
+                                            overrides.input2
+                                          }
+                                          {...child$Props}
+                                        />
+                                      );
+                                    })()}
+                                  </FormItemWrapper>
+                                  <FormItemWrapper
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.formField__etNls
+                                    )}
+                                    initialValue={(() => {
+                                      try {
+                                        return currentUser.email;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                    label={"Name"}
+                                    name={"email"}
+                                  >
+                                    {(() => {
+                                      const child$Props = {
+                                        className: classNames(
+                                          "__wab_instance",
+                                          sty.input3
+                                        ),
+                                        onChange:
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "value",
+                                            ["input3", "value"],
+                                            AntdInput_Helpers
+                                          ),
+                                        value: generateStateValueProp($state, [
+                                          "input3",
+                                          "value"
+                                        ])
+                                      };
+                                      initializeCodeComponentStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "value",
+                                            plasmicStateName: "input3.value"
+                                          }
+                                        ],
+                                        [],
+                                        AntdInput_Helpers ?? {},
+                                        child$Props
+                                      );
+
+                                      return (
+                                        <AntdInput
+                                          data-plasmic-name={"input3"}
+                                          data-plasmic-override={
+                                            overrides.input3
+                                          }
+                                          {...child$Props}
+                                        />
+                                      );
+                                    })()}
+                                  </FormItemWrapper>
+                                  <AntdButton
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button__yuWAv
+                                    )}
+                                    submitsForm={true}
+                                    type={"primary"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__kwrTr
+                                      )}
+                                    >
+                                      {"Submit"}
+                                    </div>
+                                  </AntdButton>
+                                </FormWrapper>
+                              );
+                            })()}
+                          </div>
                         </AntdTabItem>
                         <AntdTabItem
                           className={classNames(
@@ -1455,23 +2899,80 @@ const PlasmicDescendants = {
     "pageLayout",
     "table2",
     "tabs",
-    "button",
     "confirmSyncIndividual",
-    "table"
+    "table",
+    "table3",
+    "tableHead",
+    "tableBody",
+    "validate",
+    "updateVariable",
+    "updateVariable2",
+    "timer",
+    "former",
+    "input",
+    "input2",
+    "input3"
   ],
   pageLayout: [
     "pageLayout",
     "table2",
     "tabs",
-    "button",
     "confirmSyncIndividual",
-    "table"
+    "table",
+    "table3",
+    "tableHead",
+    "tableBody",
+    "validate",
+    "updateVariable",
+    "updateVariable2",
+    "timer",
+    "former",
+    "input",
+    "input2",
+    "input3"
   ],
   table2: ["table2"],
-  tabs: ["tabs", "button", "confirmSyncIndividual", "table"],
-  button: ["button"],
+  tabs: [
+    "tabs",
+    "confirmSyncIndividual",
+    "table",
+    "table3",
+    "tableHead",
+    "tableBody",
+    "validate",
+    "updateVariable",
+    "updateVariable2",
+    "timer",
+    "former",
+    "input",
+    "input2",
+    "input3"
+  ],
   confirmSyncIndividual: ["confirmSyncIndividual"],
-  table: ["table"]
+  table: ["table"],
+  table3: [
+    "table3",
+    "tableHead",
+    "tableBody",
+    "validate",
+    "updateVariable",
+    "updateVariable2",
+    "timer",
+    "former",
+    "input",
+    "input2",
+    "input3"
+  ],
+  tableHead: ["tableHead"],
+  tableBody: ["tableBody", "validate"],
+  validate: ["validate"],
+  updateVariable: ["updateVariable"],
+  updateVariable2: ["updateVariable2"],
+  timer: ["timer"],
+  former: ["former", "input", "input2", "input3"],
+  input: ["input"],
+  input2: ["input2"],
+  input3: ["input3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1481,9 +2982,19 @@ type NodeDefaultElementType = {
   pageLayout: typeof PageLayout;
   table2: typeof RichTable;
   tabs: typeof AntdTabs;
-  button: typeof AntdButton;
   confirmSyncIndividual: typeof AntdModal;
   table: typeof RichTable;
+  table3: "div";
+  tableHead: "div";
+  tableBody: "div";
+  validate: "div";
+  updateVariable: typeof ConditionGuard;
+  updateVariable2: typeof ConditionGuard;
+  timer: typeof Timer;
+  former: typeof FormWrapper;
+  input: typeof AntdInput;
+  input2: typeof AntdInput;
+  input3: typeof AntdInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1591,9 +3102,19 @@ export const PlasmicSync = Object.assign(
     pageLayout: makeNodeComponent("pageLayout"),
     table2: makeNodeComponent("table2"),
     tabs: makeNodeComponent("tabs"),
-    button: makeNodeComponent("button"),
     confirmSyncIndividual: makeNodeComponent("confirmSyncIndividual"),
     table: makeNodeComponent("table"),
+    table3: makeNodeComponent("table3"),
+    tableHead: makeNodeComponent("tableHead"),
+    tableBody: makeNodeComponent("tableBody"),
+    validate: makeNodeComponent("validate"),
+    updateVariable: makeNodeComponent("updateVariable"),
+    updateVariable2: makeNodeComponent("updateVariable2"),
+    timer: makeNodeComponent("timer"),
+    former: makeNodeComponent("former"),
+    input: makeNodeComponent("input"),
+    input2: makeNodeComponent("input2"),
+    input3: makeNodeComponent("input3"),
 
     // Metadata about props expected for PlasmicSync
     internalVariantProps: PlasmicSync__VariantProps,

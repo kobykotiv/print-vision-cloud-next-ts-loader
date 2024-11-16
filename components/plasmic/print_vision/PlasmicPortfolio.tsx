@@ -104,6 +104,7 @@ export type PlasmicPortfolio__OverridesType = {
   pageLayout?: Flex__<typeof PageLayout>;
   table?: Flex__<typeof RichTable>;
   mainTable?: Flex__<"div">;
+  table3?: Flex__<"div">;
   tableHead?: Flex__<"div">;
   tableBody?: Flex__<"div">;
   modalPreviewDesign?: Flex__<typeof AntdModal>;
@@ -853,7 +854,9 @@ function PlasmicPortfolio__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.mainTable)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__sIziC)}
+                      data-plasmic-name={"table3"}
+                      data-plasmic-override={overrides.table3}
+                      className={classNames(projectcss.all, sty.table3)}
                     >
                       <div
                         data-plasmic-name={"tableHead"}
@@ -2623,6 +2626,7 @@ const PlasmicDescendants = {
     "pageLayout",
     "table",
     "mainTable",
+    "table3",
     "tableHead",
     "tableBody",
     "modalPreviewDesign",
@@ -2642,9 +2646,17 @@ const PlasmicDescendants = {
     "table2",
     "modalDeleteDesign"
   ],
-  pageLayout: ["pageLayout", "table", "mainTable", "tableHead", "tableBody"],
+  pageLayout: [
+    "pageLayout",
+    "table",
+    "mainTable",
+    "table3",
+    "tableHead",
+    "tableBody"
+  ],
   table: ["table"],
-  mainTable: ["mainTable", "tableHead", "tableBody"],
+  mainTable: ["mainTable", "table3", "tableHead", "tableBody"],
+  table3: ["table3", "tableHead", "tableBody"],
   tableHead: ["tableHead"],
   tableBody: ["tableBody"],
   modalPreviewDesign: ["modalPreviewDesign", "img"],
@@ -2698,6 +2710,7 @@ type NodeDefaultElementType = {
   pageLayout: typeof PageLayout;
   table: typeof RichTable;
   mainTable: "div";
+  table3: "div";
   tableHead: "div";
   tableBody: "div";
   modalPreviewDesign: typeof AntdModal;
@@ -2823,6 +2836,7 @@ export const PlasmicPortfolio = Object.assign(
     pageLayout: makeNodeComponent("pageLayout"),
     table: makeNodeComponent("table"),
     mainTable: makeNodeComponent("mainTable"),
+    table3: makeNodeComponent("table3"),
     tableHead: makeNodeComponent("tableHead"),
     tableBody: makeNodeComponent("tableBody"),
     modalPreviewDesign: makeNodeComponent("modalPreviewDesign"),
