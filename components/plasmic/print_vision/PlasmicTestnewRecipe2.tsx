@@ -499,6 +499,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                                   ["table", "selectedRowKeys"],
                                   RichTable_Helpers
                                 ).apply(null, eventArgs);
+
                                 (async (rowKeys, rows) => {
                                   const $steps = {};
 
@@ -755,6 +756,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                                   ["table2", "selectedRowKeys"],
                                   RichTable_Helpers
                                 ).apply(null, eventArgs);
+
                                 (async (rowKeys, rows) => {
                                   const $steps = {};
 
@@ -852,6 +854,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                         "tabs",
                         "activeKey"
                       ]).apply(null, eventArgs);
+
                       (async activeKey => {
                         const $steps = {};
 
@@ -939,13 +942,14 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
           {(() => {
             const child$Props = {
               className: classNames("__wab_instance", sty.form),
-              extendedOnValuesChange:
+              extendedOnValuesChange: async (...eventArgs: any) => {
                 generateStateOnChangePropForCodeComponents(
                   $state,
                   "value",
                   ["form", "value"],
                   FormWrapper_Helpers
-                ),
+                ).apply(null, eventArgs);
+              },
               formItems: [
                 { label: "Name", name: "name", inputType: "Text" },
                 { label: "Message", name: "message", inputType: "Text Area" }
@@ -1074,12 +1078,14 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                   $steps["goToRecipes"] = await $steps["goToRecipes"];
                 }
               },
-              onIsSubmittingChange: generateStateOnChangePropForCodeComponents(
-                $state,
-                "isSubmitting",
-                ["form", "isSubmitting"],
-                FormWrapper_Helpers
-              ),
+              onIsSubmittingChange: async (...eventArgs: any) => {
+                generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "isSubmitting",
+                  ["form", "isSubmitting"],
+                  FormWrapper_Helpers
+                ).apply(null, eventArgs);
+              },
               ref: ref => {
                 $refs["form"] = ref;
               },
@@ -1144,12 +1150,14 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.input),
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input", "value"],
-                        AntdInput_Helpers
-                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+                      },
                       value: generateStateValueProp($state, ["input", "value"])
                     };
                     initializeCodeComponentStates(
@@ -1196,12 +1204,14 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.input2),
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input2", "value"],
-                        AntdInput_Helpers
-                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input2", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+                      },
                       value: generateStateValueProp($state, ["input2", "value"])
                     };
                     initializeCodeComponentStates(
@@ -1258,12 +1268,14 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.input3),
                       disabled: true,
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input3", "value"],
-                        AntdInput_Helpers
-                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input3", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+                      },
                       readOnly: false,
                       value: generateStateValueProp($state, ["input3", "value"])
                     };
@@ -1321,12 +1333,14 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.input4),
                       disabled: true,
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input4", "value"],
-                        AntdInput_Helpers
-                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input4", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+                      },
                       readOnly: false,
                       value: generateStateValueProp($state, ["input4", "value"])
                     };

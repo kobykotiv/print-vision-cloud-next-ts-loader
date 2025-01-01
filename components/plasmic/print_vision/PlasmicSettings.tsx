@@ -109,7 +109,7 @@ export type PlasmicSettings__OverridesType = {
   input3?: Flex__<typeof AntdInput>;
   input?: Flex__<typeof AntdInput>;
   select?: Flex__<typeof AntdSelect>;
-  input6?: Flex__<typeof AntdInput>;
+  select2?: Flex__<typeof AntdSelect>;
   input2?: Flex__<typeof AntdInput>;
   input4?: Flex__<typeof AntdInput>;
   h5?: Flex__<"h5">;
@@ -280,14 +280,6 @@ function PlasmicSettings__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "input6.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
         path: "input7.value",
         type: "private",
         variableType: "text",
@@ -324,6 +316,12 @@ function PlasmicSettings__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "select2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -356,6 +354,16 @@ function PlasmicSettings__RenderFunc(props: {
         cacheKey: `plasmic.$.2d775cb7-1386-4ea5-b602-aebc388de068.$.`,
         invalidatedKeys: null,
         roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    printfulGetShops: usePlasmicDataOp(() => {
+      return {
+        sourceId: "w9bT7zJHQBMsxuYyCMQHKC",
+        opId: "487251d6-10c5-4397-b5e2-78b0a0f8d9e6",
+        userArgs: {},
+        cacheKey: `plasmic.$.487251d6-10c5-4397-b5e2-78b0a0f8d9e6.$.`,
+        invalidatedKeys: null,
+        roleId: null
       };
     })
   };
@@ -648,10 +656,12 @@ function PlasmicSettings__RenderFunc(props: {
                     )}
                     hideFooter={true}
                     modalScopeClassName={sty["modal__modal"]}
-                    onOpenChange={generateStateOnChangeProp($state, [
-                      "modal",
-                      "open"
-                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal",
+                        "open"
+                      ]).apply(null, eventArgs);
+                    }}
                     open={generateStateValueProp($state, ["modal", "open"])}
                     title={"Settings"}
                     trigger={null}
@@ -660,13 +670,14 @@ function PlasmicSettings__RenderFunc(props: {
                     {(() => {
                       const child$Props = {
                         className: classNames("__wab_instance", sty.form),
-                        extendedOnValuesChange:
+                        extendedOnValuesChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
                             "value",
                             ["form", "value"],
                             FormWrapper_Helpers
-                          ),
+                          ).apply(null, eventArgs);
+                        },
                         formItems: [
                           { label: "Name", name: "name", inputType: "Text" },
                           {
@@ -729,13 +740,14 @@ function PlasmicSettings__RenderFunc(props: {
                             ];
                           }
                         },
-                        onIsSubmittingChange:
+                        onIsSubmittingChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
                             "isSubmitting",
                             ["form", "isSubmitting"],
                             FormWrapper_Helpers
-                          ),
+                          ).apply(null, eventArgs);
+                        },
                         ref: ref => {
                           $refs["form"] = ref;
                         },
@@ -782,10 +794,12 @@ function PlasmicSettings__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.numberInput
                               )}
-                              onChange={generateStateOnChangeProp($state, [
-                                "numberInput",
-                                "value"
-                              ])}
+                              onChange={async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "numberInput",
+                                  "value"
+                                ]).apply(null, eventArgs);
+                              }}
                               type={"number"}
                               value={generateStateValueProp($state, [
                                 "numberInput",
@@ -822,13 +836,14 @@ function PlasmicSettings__RenderFunc(props: {
                                       "__wab_instance",
                                       sty.input3
                                     ),
-                                    onChange:
+                                    onChange: async (...eventArgs: any) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "value",
                                         ["input3", "value"],
                                         AntdInput_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     value: generateStateValueProp($state, [
                                       "input3",
                                       "value"
@@ -873,13 +888,14 @@ function PlasmicSettings__RenderFunc(props: {
                                       "__wab_instance",
                                       sty.input
                                     ),
-                                    onChange:
+                                    onChange: async (...eventArgs: any) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "value",
                                         ["input", "value"],
                                         AntdInput_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     value: generateStateValueProp($state, [
                                       "input",
                                       "value"
@@ -938,10 +954,12 @@ function PlasmicSettings__RenderFunc(props: {
                                     plasmic_antd_5_hostless_css.plasmic_tokens,
                                     plasmic_plasmic_rich_components_css.plasmic_tokens
                                   )}
-                                  onChange={generateStateOnChangeProp($state, [
-                                    "select",
-                                    "value"
-                                  ])}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "select",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                  }}
                                   options={(() => {
                                     try {
                                       return $queries.printifyGetShops.data.response.map(
@@ -978,45 +996,64 @@ function PlasmicSettings__RenderFunc(props: {
                                 label={"printful_shop_id"}
                                 name={"printful_shop_id"}
                               >
-                                {(() => {
-                                  const child$Props = {
-                                    className: classNames(
-                                      "__wab_instance",
-                                      sty.input6
-                                    ),
-                                    onChange:
-                                      generateStateOnChangePropForCodeComponents(
-                                        $state,
-                                        "value",
-                                        ["input6", "value"],
-                                        AntdInput_Helpers
-                                      ),
-                                    value: generateStateValueProp($state, [
-                                      "input6",
+                                <AntdSelect
+                                  data-plasmic-name={"select2"}
+                                  data-plasmic-override={overrides.select2}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.select2
+                                  )}
+                                  defaultStylesClassName={classNames(
+                                    projectcss.root_reset,
+                                    projectcss.plasmic_default_styles,
+                                    projectcss.plasmic_mixins,
+                                    projectcss.plasmic_tokens,
+                                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                                    plasmic_plasmic_rich_components_css.plasmic_tokens
+                                  )}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "select2",
                                       "value"
-                                    ])
-                                  };
-                                  initializeCodeComponentStates(
-                                    $state,
-                                    [
-                                      {
-                                        name: "value",
-                                        plasmicStateName: "input6.value"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  options={(() => {
+                                    try {
+                                      return $queries.printfulGetShops.data.response.result.map(
+                                        item => ({
+                                          label: item.name,
+                                          value: item.id
+                                        })
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [
+                                          {
+                                            value: "option1",
+                                            label: "Option 1",
+                                            type: "option"
+                                          },
+                                          {
+                                            value: "option2",
+                                            label: "Option 2",
+                                            type: "option"
+                                          }
+                                        ];
                                       }
-                                    ],
-                                    [],
-                                    AntdInput_Helpers ?? {},
-                                    child$Props
-                                  );
-
-                                  return (
-                                    <AntdInput
-                                      data-plasmic-name={"input6"}
-                                      data-plasmic-override={overrides.input6}
-                                      {...child$Props}
-                                    />
-                                  );
-                                })()}
+                                      throw e;
+                                    }
+                                  })()}
+                                  placeholder={"Select..."}
+                                  popupScopeClassName={sty["select2__popup"]}
+                                  value={generateStateValueProp($state, [
+                                    "select2",
+                                    "value"
+                                  ])}
+                                />
                               </FormItemWrapper>
                             </div>
                           </div>
@@ -1036,13 +1073,14 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.input2
                                 ),
-                                onChange:
+                                onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["input2", "value"],
                                     AntdInput_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 value: generateStateValueProp($state, [
                                   "input2",
                                   "value"
@@ -1087,13 +1125,14 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.input4
                                 ),
-                                onChange:
+                                onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["input4", "value"],
                                     AntdInput_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 value: generateStateValueProp($state, [
                                   "input4",
                                   "value"
@@ -1150,6 +1189,7 @@ function PlasmicSettings__RenderFunc(props: {
                                 "upload",
                                 "files"
                               ]).apply(null, eventArgs);
+
                               (async files => {
                                 const $steps = {};
 
@@ -1562,13 +1602,14 @@ function PlasmicSettings__RenderFunc(props: {
                                     "__wab_instance",
                                     sty.input7
                                   ),
-                                  onChange:
+                                  onChange: async (...eventArgs: any) => {
                                     generateStateOnChangePropForCodeComponents(
                                       $state,
                                       "value",
                                       ["input7", "value"],
                                       AntdInput_Helpers
-                                    ),
+                                    ).apply(null, eventArgs);
+                                  },
                                   value: generateStateValueProp($state, [
                                     "input7",
                                     "value"
@@ -1785,13 +1826,14 @@ function PlasmicSettings__RenderFunc(props: {
                                     "__wab_instance",
                                     sty.input5
                                   ),
-                                  onChange:
+                                  onChange: async (...eventArgs: any) => {
                                     generateStateOnChangePropForCodeComponents(
                                       $state,
                                       "value",
                                       ["input5", "value"],
                                       AntdInput_Helpers
-                                    ),
+                                    ).apply(null, eventArgs);
+                                  },
                                   value: generateStateValueProp($state, [
                                     "input5",
                                     "value"
@@ -1881,7 +1923,7 @@ const PlasmicDescendants = {
     "input3",
     "input",
     "select",
-    "input6",
+    "select2",
     "input2",
     "input4",
     "h5",
@@ -1898,7 +1940,7 @@ const PlasmicDescendants = {
     "input3",
     "input",
     "select",
-    "input6",
+    "select2",
     "input2",
     "input4",
     "h5",
@@ -1914,7 +1956,7 @@ const PlasmicDescendants = {
     "input3",
     "input",
     "select",
-    "input6",
+    "select2",
     "input2",
     "input4",
     "h5",
@@ -1928,7 +1970,7 @@ const PlasmicDescendants = {
     "input3",
     "input",
     "select",
-    "input6",
+    "select2",
     "input2",
     "input4",
     "h5",
@@ -1940,7 +1982,7 @@ const PlasmicDescendants = {
   input3: ["input3"],
   input: ["input"],
   select: ["select"],
-  input6: ["input6"],
+  select2: ["select2"],
   input2: ["input2"],
   input4: ["input4"],
   h5: ["h5"],
@@ -1961,7 +2003,7 @@ type NodeDefaultElementType = {
   input3: typeof AntdInput;
   input: typeof AntdInput;
   select: typeof AntdSelect;
-  input6: typeof AntdInput;
+  select2: typeof AntdSelect;
   input2: typeof AntdInput;
   input4: typeof AntdInput;
   h5: "h5";
@@ -2080,7 +2122,7 @@ export const PlasmicSettings = Object.assign(
     input3: makeNodeComponent("input3"),
     input: makeNodeComponent("input"),
     select: makeNodeComponent("select"),
-    input6: makeNodeComponent("input6"),
+    select2: makeNodeComponent("select2"),
     input2: makeNodeComponent("input2"),
     input4: makeNodeComponent("input4"),
     h5: makeNodeComponent("h5"),

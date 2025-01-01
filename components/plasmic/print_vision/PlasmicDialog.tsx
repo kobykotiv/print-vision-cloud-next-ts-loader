@@ -207,7 +207,12 @@ function PlasmicDialog__RenderFunc(props: {
         { [sty.dialognoTrigger]: hasVariant($state, "noTrigger", "noTrigger") }
       )}
       defaultOpen={true}
-      onOpenChange={generateStateOnChangeProp($state, ["dialog", "open"])}
+      onOpenChange={async (...eventArgs: any) => {
+        generateStateOnChangeProp($state, ["dialog", "open"]).apply(
+          null,
+          eventArgs
+        );
+      }}
       open={generateStateValueProp($state, ["dialog", "open"])}
       themeResetClass={classNames(
         projectcss.root_reset,

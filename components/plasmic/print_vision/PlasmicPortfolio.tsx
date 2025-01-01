@@ -1575,10 +1575,12 @@ function PlasmicPortfolio__RenderFunc(props: {
             )}
             hideFooter={true}
             modalScopeClassName={sty["modalPreviewDesign__modal"]}
-            onOpenChange={generateStateOnChangeProp($state, [
-              "modalPreviewDesign",
-              "open"
-            ])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "modalPreviewDesign",
+                "open"
+              ]).apply(null, eventArgs);
+            }}
             open={generateStateValueProp($state, [
               "modalPreviewDesign",
               "open"
@@ -1629,10 +1631,12 @@ function PlasmicPortfolio__RenderFunc(props: {
             )}
             hideFooter={true}
             modalScopeClassName={sty["modalEditDeisgn__modal"]}
-            onOpenChange={generateStateOnChangeProp($state, [
-              "modalEditDeisgn",
-              "open"
-            ])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "modalEditDeisgn",
+                "open"
+              ]).apply(null, eventArgs);
+            }}
             open={generateStateValueProp($state, ["modalEditDeisgn", "open"])}
             title={"Edit Design"}
             trigger={null}
@@ -1646,13 +1650,14 @@ function PlasmicPortfolio__RenderFunc(props: {
               {(() => {
                 const child$Props = {
                   className: classNames("__wab_instance", sty.form),
-                  extendedOnValuesChange:
+                  extendedOnValuesChange: async (...eventArgs: any) => {
                     generateStateOnChangePropForCodeComponents(
                       $state,
                       "value",
                       ["form", "value"],
                       FormWrapper_Helpers
-                    ),
+                    ).apply(null, eventArgs);
+                  },
                   formItems: [
                     { label: "Name", name: "name", inputType: "Text" },
                     {
@@ -1747,13 +1752,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       ];
                     }
                   },
-                  onIsSubmittingChange:
+                  onIsSubmittingChange: async (...eventArgs: any) => {
                     generateStateOnChangePropForCodeComponents(
                       $state,
                       "isSubmitting",
                       ["form", "isSubmitting"],
                       FormWrapper_Helpers
-                    ),
+                    ).apply(null, eventArgs);
+                  },
                   ref: ref => {
                     $refs["form"] = ref;
                   },
@@ -1800,10 +1806,12 @@ function PlasmicPortfolio__RenderFunc(props: {
                           "__wab_instance",
                           sty.numberInput
                         )}
-                        onChange={generateStateOnChangeProp($state, [
-                          "numberInput",
-                          "value"
-                        ])}
+                        onChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "numberInput",
+                            "value"
+                          ]).apply(null, eventArgs);
+                        }}
                         type={"number"}
                         value={generateStateValueProp($state, [
                           "numberInput",
@@ -1838,12 +1846,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "input",
                             "value"
@@ -1884,12 +1894,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input2),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input2", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input2", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "input2",
                             "value"
@@ -1945,12 +1957,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                         const child$Props = {
                           autoSize: true,
                           className: classNames("__wab_instance", sty.textArea),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["textArea", "value"],
-                            AntdTextArea_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["textArea", "value"],
+                              AntdTextArea_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "textArea",
                             "value"
@@ -1991,12 +2005,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input3),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input3", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input3", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "input3",
                             "value"
@@ -2037,12 +2053,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input4),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input4", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input4", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "input4",
                             "value"
@@ -2083,12 +2101,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input5),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input5", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input5", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "input5",
                             "value"
@@ -2145,12 +2165,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                             "__wab_instance",
                             sty.textArea2
                           ),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["textArea2", "value"],
-                            AntdTextArea_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["textArea2", "value"],
+                              AntdTextArea_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "textArea2",
                             "value"
@@ -2191,12 +2213,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                       {(() => {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input6),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input6", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input6", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           value: generateStateValueProp($state, [
                             "input6",
                             "value"
@@ -2252,12 +2276,14 @@ function PlasmicPortfolio__RenderFunc(props: {
                         const child$Props = {
                           className: classNames("__wab_instance", sty.input7),
                           disabled: true,
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input7", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input7", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
                           readOnly: true,
                           value: generateStateValueProp($state, [
                             "input7",
@@ -2391,6 +2417,7 @@ function PlasmicPortfolio__RenderFunc(props: {
                       ["table2", "selectedRowKeys"],
                       RichTable_Helpers
                     ).apply(null, eventArgs);
+
                     (async (rowKeys, rows) => {
                       const $steps = {};
 
@@ -2569,10 +2596,12 @@ function PlasmicPortfolio__RenderFunc(props: {
                 ];
               }
             }}
-            onOpenChange={generateStateOnChangeProp($state, [
-              "modalDeleteDesign",
-              "open"
-            ])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "modalDeleteDesign",
+                "open"
+              ]).apply(null, eventArgs);
+            }}
             open={generateStateValueProp($state, ["modalDeleteDesign", "open"])}
             title={
               <div

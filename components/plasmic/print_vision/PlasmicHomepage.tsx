@@ -85,6 +85,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   pageLayout?: Flex__<typeof PageLayout>;
+  h1?: Flex__<"h1">;
 };
 
 export interface DefaultHomepageProps {}
@@ -161,9 +162,39 @@ function PlasmicHomepage__RenderFunc(props: {
           <PageLayout
             data-plasmic-name={"pageLayout"}
             data-plasmic-override={overrides.pageLayout}
-            children={null}
             className={classNames("__wab_instance", sty.pageLayout)}
-          />
+          >
+            <DataCtxReader__>
+              {$ctx => (
+                <h1
+                  data-plasmic-name={"h1"}
+                  data-plasmic-override={overrides.h1}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h1,
+                    projectcss.__wab_text,
+                    sty.h1
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return "Welcome Back " + currentUser.email;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "Welcome Back";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </h1>
+              )}
+            </DataCtxReader__>
+          </PageLayout>
         </div>
       </div>
     </React.Fragment>
@@ -171,8 +202,9 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout"],
-  pageLayout: ["pageLayout"]
+  root: ["root", "pageLayout", "h1"],
+  pageLayout: ["pageLayout", "h1"],
+  h1: ["h1"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -180,6 +212,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
+  h1: "h1";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -285,6 +318,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
+    h1: makeNodeComponent("h1"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

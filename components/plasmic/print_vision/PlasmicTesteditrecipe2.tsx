@@ -2197,10 +2197,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                               modalScopeClassName={
                                 sty["modalEditPrintifyProduct__modal"]
                               }
-                              onOpenChange={generateStateOnChangeProp($state, [
-                                "modalEditPrintifyProduct",
-                                "open"
-                              ])}
+                              onOpenChange={async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "modalEditPrintifyProduct",
+                                  "open"
+                                ]).apply(null, eventArgs);
+                              }}
                               open={generateStateValueProp($state, [
                                 "modalEditPrintifyProduct",
                                 "open"
@@ -2282,7 +2284,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.formEditPrintifyProduct
                                             ),
-                                            extendedOnValuesChange:
+                                            extendedOnValuesChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
@@ -2291,7 +2295,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "value"
                                                 ],
                                                 FormWrapper_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             formItems: [
                                               {
                                                 label: "Name",
@@ -2435,7 +2440,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   ];
                                               }
                                             },
-                                            onIsSubmittingChange:
+                                            onIsSubmittingChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "isSubmitting",
@@ -2444,7 +2451,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "isSubmitting"
                                                 ],
                                                 FormWrapper_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             ref: ref => {
                                               $refs["formEditPrintifyProduct"] =
                                                 ref;
@@ -2541,6 +2549,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       $state,
                                                       ["select", "value"]
                                                     ).apply(null, eventArgs);
+
                                                     (async (value, option) => {
                                                       const $steps = {};
 
@@ -2694,13 +2703,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.titleTag
                                                     ),
-                                                    onChange:
+                                                    onChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
                                                         ["titleTag", "value"],
                                                         AntdInput_Helpers
-                                                      ),
+                                                      ).apply(null, eventArgs);
+                                                    },
                                                     value:
                                                       generateStateValueProp(
                                                         $state,
@@ -2804,7 +2816,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.descriptionTag
                                                     ),
-                                                    onChange:
+                                                    onChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
@@ -2813,7 +2827,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                           "value"
                                                         ],
                                                         AntdTextArea_Helpers
-                                                      ),
+                                                      ).apply(null, eventArgs);
+                                                    },
                                                     value:
                                                       generateStateValueProp(
                                                         $state,
@@ -2880,13 +2895,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.input3
                                                     ),
-                                                    onChange:
+                                                    onChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
                                                         ["input3", "value"],
                                                         AntdInput_Helpers
-                                                      ),
+                                                      ).apply(null, eventArgs);
+                                                    },
                                                     value:
                                                       generateStateValueProp(
                                                         $state,
@@ -3409,10 +3427,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty._switch
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["_switch", "checked"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        ["_switch", "checked"]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                   />
 
                                                   <AntdButton
@@ -3624,6 +3646,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         ],
                                                         AntdInput_Helpers
                                                       ).apply(null, eventArgs);
+
                                                       (async event => {
                                                         const $steps = {};
                                                       }).apply(null, eventArgs);
@@ -4375,10 +4398,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           modalScopeClassName={
                                             sty["modalEditVariant__modal"]
                                           }
-                                          onOpenChange={generateStateOnChangeProp(
-                                            $state,
-                                            ["modalEditVariant", "open"]
-                                          )}
+                                          onOpenChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "modalEditVariant",
+                                              "open"
+                                            ]).apply(null, eventArgs);
+                                          }}
                                           open={generateStateValueProp($state, [
                                             "modalEditVariant",
                                             "open"
@@ -4534,7 +4561,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 return __composite;
                                               })(),
 
-                                              extendedOnValuesChange:
+                                              extendedOnValuesChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "value",
@@ -4543,7 +4572,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "value"
                                                   ],
                                                   FormWrapper_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               formItems: [],
                                               labelCol: {
                                                 span: 8,
@@ -4684,7 +4714,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   ];
                                                 }
                                               },
-                                              onIsSubmittingChange:
+                                              onIsSubmittingChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "isSubmitting",
@@ -4693,7 +4725,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "isSubmitting"
                                                   ],
                                                   FormWrapper_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               ref: ref => {
                                                 $refs[
                                                   "formEditSinglePrintifyVariant"
@@ -4800,13 +4833,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "modalNewPrintifyPlaceholder__modal"
                                             ]
                                           }
-                                          onOpenChange={generateStateOnChangeProp(
-                                            $state,
-                                            [
+                                          onOpenChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
                                               "modalNewPrintifyPlaceholder",
                                               "open"
-                                            ]
-                                          )}
+                                            ]).apply(null, eventArgs);
+                                          }}
                                           open={generateStateValueProp($state, [
                                             "modalNewPrintifyPlaceholder",
                                             "open"
@@ -4837,7 +4871,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 "__wab_instance",
                                                 sty.formNewPrintifyPlaceholder
                                               ),
-                                              extendedOnValuesChange:
+                                              extendedOnValuesChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "value",
@@ -4846,7 +4882,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "value"
                                                   ],
                                                   FormWrapper_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               formItems: [
                                                 {
                                                   label: "Name",
@@ -4935,7 +4972,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     ];
                                                 }
                                               },
-                                              onIsSubmittingChange:
+                                              onIsSubmittingChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "isSubmitting",
@@ -4944,7 +4983,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "isSubmitting"
                                                   ],
                                                   FormWrapper_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               ref: ref => {
                                                 $refs[
                                                   "formNewPrintifyPlaceholder"
@@ -5006,10 +5046,17 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput7
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput7", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        [
+                                                          "numberInput7",
+                                                          "value"
+                                                        ]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -5047,13 +5094,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         sty.numberInput8
                                                       )}
                                                       min={0}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput8",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput8",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       step={0.05}
                                                       type={"number"}
                                                       value={generateStateValueProp(
@@ -5089,13 +5143,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         sty.numberInput10
                                                       )}
                                                       min={0}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput10",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput10",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       step={0.05}
                                                       type={"number"}
                                                       value={generateStateValueProp(
@@ -5131,13 +5192,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         sty.numberInput11
                                                       )}
                                                       min={0}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput11",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput11",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       step={0.05}
                                                       type={"number"}
                                                       value={generateStateValueProp(
@@ -5187,13 +5255,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       )}
                                                       max={359}
                                                       min={0}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput12",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput12",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       step={1}
                                                       type={"number"}
                                                       value={generateStateValueProp(
@@ -5244,10 +5319,17 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput9
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput9", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        [
+                                                          "numberInput9",
+                                                          "value"
+                                                        ]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -5271,13 +5353,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.input4
                                                       ),
-                                                      onChange:
+                                                      onChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
                                                         generateStateOnChangePropForCodeComponents(
                                                           $state,
                                                           "value",
                                                           ["input4", "value"],
                                                           AntdInput_Helpers
-                                                        ),
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      },
                                                       value:
                                                         generateStateValueProp(
                                                           $state,
@@ -5361,10 +5449,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       plasmic_antd_5_hostless_css.plasmic_tokens,
                                                       plasmic_plasmic_rich_components_css.plasmic_tokens
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["select4", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        ["select4", "value"]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     options={(() => {
                                                       try {
                                                         return $queries.queryGetPrintifyVariantsByBlueprintandPrintProvider.data.response.variants[0].placeholders.map(
@@ -5426,10 +5518,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       plasmic_antd_5_hostless_css.plasmic_tokens,
                                                       plasmic_plasmic_rich_components_css.plasmic_tokens
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["select5", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        ["select5", "value"]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     options={(() => {
                                                       const __composite = [
                                                         {
@@ -5512,10 +5608,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           modalScopeClassName={
                                             sty["modalEditPlaceholder__modal"]
                                           }
-                                          onOpenChange={generateStateOnChangeProp(
-                                            $state,
-                                            ["modalEditPlaceholder", "open"]
-                                          )}
+                                          onOpenChange={async (
+                                            ...eventArgs: any
+                                          ) => {
+                                            generateStateOnChangeProp($state, [
+                                              "modalEditPlaceholder",
+                                              "open"
+                                            ]).apply(null, eventArgs);
+                                          }}
                                           open={generateStateValueProp($state, [
                                             "modalEditPlaceholder",
                                             "open"
@@ -5529,7 +5629,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 "__wab_instance",
                                                 sty.formEditPrintifyPlaceholder
                                               ),
-                                              extendedOnValuesChange:
+                                              extendedOnValuesChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "value",
@@ -5538,7 +5640,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "value"
                                                   ],
                                                   FormWrapper_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               formItems: [
                                                 {
                                                   label: "Name",
@@ -5741,7 +5844,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     ];
                                                 }
                                               },
-                                              onIsSubmittingChange:
+                                              onIsSubmittingChange: async (
+                                                ...eventArgs: any
+                                              ) => {
                                                 generateStateOnChangePropForCodeComponents(
                                                   $state,
                                                   "isSubmitting",
@@ -5750,7 +5855,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "isSubmitting"
                                                   ],
                                                   FormWrapper_Helpers
-                                                ),
+                                                ).apply(null, eventArgs);
+                                              },
                                               ref: ref => {
                                                 $refs[
                                                   "formEditPrintifyPlaceholder"
@@ -5812,10 +5918,17 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput19
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput19", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        [
+                                                          "numberInput19",
+                                                          "value"
+                                                        ]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -5852,13 +5965,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput20
                                                       )}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput20",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput20",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -5905,13 +6025,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput22
                                                       )}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput22",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput22",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -5958,13 +6085,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput23
                                                       )}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput23",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput23",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -6011,13 +6145,20 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.numberInput24
                                                       )}
-                                                      onChange={generateStateOnChangeProp(
-                                                        $state,
-                                                        [
-                                                          "numberInput24",
-                                                          "value"
-                                                        ]
-                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs: any
+                                                      ) => {
+                                                        generateStateOnChangeProp(
+                                                          $state,
+                                                          [
+                                                            "numberInput24",
+                                                            "value"
+                                                          ]
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      }}
                                                       type={"number"}
                                                       value={generateStateValueProp(
                                                         $state,
@@ -6071,10 +6212,17 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.numberInput21
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["numberInput21", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        [
+                                                          "numberInput21",
+                                                          "value"
+                                                        ]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     type={"number"}
                                                     value={generateStateValueProp(
                                                       $state,
@@ -6100,13 +6248,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.input9
                                                       ),
-                                                      onChange:
+                                                      onChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
                                                         generateStateOnChangePropForCodeComponents(
                                                           $state,
                                                           "value",
                                                           ["input9", "value"],
                                                           AntdInput_Helpers
-                                                        ),
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      },
                                                       value:
                                                         generateStateValueProp(
                                                           $state,
@@ -6171,10 +6325,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       plasmic_antd_5_hostless_css.plasmic_tokens,
                                                       plasmic_plasmic_rich_components_css.plasmic_tokens
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["select6", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        ["select6", "value"]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     options={(() => {
                                                       try {
                                                         return $queries.queryGetPrintifyVariantsByBlueprintandPrintProvider.data.response.variants[0].placeholders.map(
@@ -6237,10 +6395,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       plasmic_antd_5_hostless_css.plasmic_tokens,
                                                       plasmic_plasmic_rich_components_css.plasmic_tokens
                                                     )}
-                                                    onChange={generateStateOnChangeProp(
-                                                      $state,
-                                                      ["select7", "value"]
-                                                    )}
+                                                    onChange={async (
+                                                      ...eventArgs: any
+                                                    ) => {
+                                                      generateStateOnChangeProp(
+                                                        $state,
+                                                        ["select7", "value"]
+                                                      ).apply(null, eventArgs);
+                                                    }}
                                                     options={(() => {
                                                       const __composite = [
                                                         {
@@ -6727,10 +6889,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                       </AntdTabItem>
                                     </React.Fragment>
                                   }
-                                  onChange={generateStateOnChangeProp($state, [
-                                    "tabs2",
-                                    "activeKey"
-                                  ])}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "tabs2",
+                                      "activeKey"
+                                    ]).apply(null, eventArgs);
+                                  }}
                                   sticky={false}
                                   tabBarBackground={"#FFF"}
                                   tabsDropdownScopeClassName={
@@ -6762,13 +6926,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                       "__wab_instance",
                                       sty.form2
                                     ),
-                                    extendedOnValuesChange:
+                                    extendedOnValuesChange: async (
+                                      ...eventArgs: any
+                                    ) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "value",
                                         ["form2", "value"],
                                         FormWrapper_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     formItems: [
                                       {
                                         label: "Name",
@@ -6835,13 +7002,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           await $steps["updateVariable5"];
                                       }
                                     },
-                                    onIsSubmittingChange:
+                                    onIsSubmittingChange: async (
+                                      ...eventArgs: any
+                                    ) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "isSubmitting",
                                         ["form2", "isSubmitting"],
                                         FormWrapper_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     ref: ref => {
                                       $refs["form2"] = ref;
                                     },
@@ -6889,13 +7059,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.input12
                                             ),
-                                            onChange:
+                                            onChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
                                                 ["input12", "value"],
                                                 AntdInput_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             value: generateStateValueProp(
                                               $state,
                                               ["input12", "value"]
@@ -6940,13 +7113,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.textArea
                                             ),
-                                            onChange:
+                                            onChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
                                                 ["textArea", "value"],
                                                 AntdTextArea_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             value: generateStateValueProp(
                                               $state,
                                               ["textArea", "value"]
@@ -8421,10 +8597,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                               modalScopeClassName={
                                 sty["modalEditPrintfulProduct__modal"]
                               }
-                              onOpenChange={generateStateOnChangeProp($state, [
-                                "modalEditPrintfulProduct",
-                                "open"
-                              ])}
+                              onOpenChange={async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "modalEditPrintfulProduct",
+                                  "open"
+                                ]).apply(null, eventArgs);
+                              }}
                               open={generateStateValueProp($state, [
                                 "modalEditPrintfulProduct",
                                 "open"
@@ -8493,7 +8671,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                             "__wab_instance",
                                             sty.formEditPrintfulProduct
                                           ),
-                                          extendedOnValuesChange:
+                                          extendedOnValuesChange: async (
+                                            ...eventArgs: any
+                                          ) => {
                                             generateStateOnChangePropForCodeComponents(
                                               $state,
                                               "value",
@@ -8502,7 +8682,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 "value"
                                               ],
                                               FormWrapper_Helpers
-                                            ),
+                                            ).apply(null, eventArgs);
+                                          },
                                           formItems: [
                                             {
                                               label: "Name",
@@ -8652,7 +8833,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 ];
                                             }
                                           },
-                                          onIsSubmittingChange:
+                                          onIsSubmittingChange: async (
+                                            ...eventArgs: any
+                                          ) => {
                                             generateStateOnChangePropForCodeComponents(
                                               $state,
                                               "isSubmitting",
@@ -8661,7 +8844,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 "isSubmitting"
                                               ],
                                               FormWrapper_Helpers
-                                            ),
+                                            ).apply(null, eventArgs);
+                                          },
                                           ref: ref => {
                                             $refs["formEditPrintfulProduct"] =
                                               ref;
@@ -8724,10 +8908,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.numberInput13
                                                 )}
-                                                onChange={generateStateOnChangeProp(
-                                                  $state,
-                                                  ["numberInput13", "value"]
-                                                )}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["numberInput13", "value"]
+                                                  ).apply(null, eventArgs);
+                                                }}
                                                 type={"number"}
                                                 value={generateStateValueProp(
                                                   $state,
@@ -8809,13 +8997,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.titleTagz
                                                     ),
-                                                    onChange:
+                                                    onChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
                                                         ["titleTagz", "value"],
                                                         AntdInput_Helpers
-                                                      ),
+                                                      ).apply(null, eventArgs);
+                                                    },
                                                     value:
                                                       generateStateValueProp(
                                                         $state,
@@ -8871,10 +9062,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.numberInput14
                                                 )}
-                                                onChange={generateStateOnChangeProp(
-                                                  $state,
-                                                  ["numberInput14", "value"]
-                                                )}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["numberInput14", "value"]
+                                                  ).apply(null, eventArgs);
+                                                }}
                                                 type={"number"}
                                                 value={generateStateValueProp(
                                                   $state,
@@ -8950,13 +9145,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "__wab_instance",
                                                     sty.textTagZ
                                                   ),
-                                                  onChange:
+                                                  onChange: async (
+                                                    ...eventArgs: any
+                                                  ) => {
                                                     generateStateOnChangePropForCodeComponents(
                                                       $state,
                                                       "value",
                                                       ["textTagZ", "value"],
                                                       AntdTextArea_Helpers
-                                                    ),
+                                                    ).apply(null, eventArgs);
+                                                  },
                                                   value: generateStateValueProp(
                                                     $state,
                                                     ["textTagZ", "value"]
@@ -9005,13 +9203,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "__wab_instance",
                                                     sty.input6
                                                   ),
-                                                  onChange:
+                                                  onChange: async (
+                                                    ...eventArgs: any
+                                                  ) => {
                                                     generateStateOnChangePropForCodeComponents(
                                                       $state,
                                                       "value",
                                                       ["input6", "value"],
                                                       AntdInput_Helpers
-                                                    ),
+                                                    ).apply(null, eventArgs);
+                                                  },
                                                   value: generateStateValueProp(
                                                     $state,
                                                     ["input6", "value"]
@@ -9063,10 +9264,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.numberInput15
                                                 )}
-                                                onChange={generateStateOnChangeProp(
-                                                  $state,
-                                                  ["numberInput15", "value"]
-                                                )}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["numberInput15", "value"]
+                                                  ).apply(null, eventArgs);
+                                                }}
                                                 type={"number"}
                                                 value={generateStateValueProp(
                                                   $state,
@@ -9095,10 +9300,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.numberInput16
                                                 )}
-                                                onChange={generateStateOnChangeProp(
-                                                  $state,
-                                                  ["numberInput16", "value"]
-                                                )}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["numberInput16", "value"]
+                                                  ).apply(null, eventArgs);
+                                                }}
                                                 type={"number"}
                                                 value={generateStateValueProp(
                                                   $state,
@@ -9138,13 +9347,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "__wab_instance",
                                                     sty.input7
                                                   ),
-                                                  onChange:
+                                                  onChange: async (
+                                                    ...eventArgs: any
+                                                  ) => {
                                                     generateStateOnChangePropForCodeComponents(
                                                       $state,
                                                       "value",
                                                       ["input7", "value"],
                                                       AntdInput_Helpers
-                                                    ),
+                                                    ).apply(null, eventArgs);
+                                                  },
                                                   value: generateStateValueProp(
                                                     $state,
                                                     ["input7", "value"]
@@ -9222,6 +9434,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     $state,
                                                     ["select10", "value"]
                                                   ).apply(null, eventArgs);
+
                                                   (async (value, option) => {
                                                     const $steps = {};
 
@@ -9359,10 +9572,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.numberInput17
                                                 )}
-                                                onChange={generateStateOnChangeProp(
-                                                  $state,
-                                                  ["numberInput17", "value"]
-                                                )}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["numberInput17", "value"]
+                                                  ).apply(null, eventArgs);
+                                                }}
                                                 type={"number"}
                                                 value={generateStateValueProp(
                                                   $state,
@@ -9406,10 +9623,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.numberInput18
                                                 )}
-                                                onChange={generateStateOnChangeProp(
-                                                  $state,
-                                                  ["numberInput18", "value"]
-                                                )}
+                                                onChange={async (
+                                                  ...eventArgs: any
+                                                ) => {
+                                                  generateStateOnChangeProp(
+                                                    $state,
+                                                    ["numberInput18", "value"]
+                                                  ).apply(null, eventArgs);
+                                                }}
                                                 type={"number"}
                                                 value={generateStateValueProp(
                                                   $state,
@@ -9435,13 +9656,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     "__wab_instance",
                                                     sty.input8
                                                   ),
-                                                  onChange:
+                                                  onChange: async (
+                                                    ...eventArgs: any
+                                                  ) => {
                                                     generateStateOnChangePropForCodeComponents(
                                                       $state,
                                                       "value",
                                                       ["input8", "value"],
                                                       AntdInput_Helpers
-                                                    ),
+                                                    ).apply(null, eventArgs);
+                                                  },
                                                   value: generateStateValueProp(
                                                     $state,
                                                     ["input8", "value"]
@@ -9593,6 +9817,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                             null,
                                                             eventArgs
                                                           );
+
                                                           (async (
                                                             value,
                                                             option
@@ -10162,10 +10387,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 "__wab_instance",
                                                 sty.switch2
                                               )}
-                                              onChange={generateStateOnChangeProp(
-                                                $state,
-                                                ["switch2", "checked"]
-                                              )}
+                                              onChange={async (
+                                                ...eventArgs: any
+                                              ) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  ["switch2", "checked"]
+                                                ).apply(null, eventArgs);
+                                              }}
                                             />
 
                                             <AntdButton
@@ -10338,7 +10567,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "__wab_instance",
                                                   sty.inputPriceVariants2
                                                 ),
-                                                onChange:
+                                                onChange: async (
+                                                  ...eventArgs: any
+                                                ) => {
                                                   generateStateOnChangePropForCodeComponents(
                                                     $state,
                                                     "value",
@@ -10347,7 +10578,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "value"
                                                     ],
                                                     AntdInput_Helpers
-                                                  ),
+                                                  ).apply(null, eventArgs);
+                                                },
                                                 placeholder:
                                                   "Enter Price in Cents",
                                                 value: generateStateValueProp(
@@ -10919,10 +11151,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                         modalScopeClassName={
                                           sty["modal__modal"]
                                         }
-                                        onOpenChange={generateStateOnChangeProp(
-                                          $state,
-                                          ["modal", "open"]
-                                        )}
+                                        onOpenChange={async (
+                                          ...eventArgs: any
+                                        ) => {
+                                          generateStateOnChangeProp($state, [
+                                            "modal",
+                                            "open"
+                                          ]).apply(null, eventArgs);
+                                        }}
                                         open={generateStateValueProp($state, [
                                           "modal",
                                           "open"
@@ -10953,7 +11189,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.printfulPlaceholderNew
                                             ),
-                                            extendedOnValuesChange:
+                                            extendedOnValuesChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
@@ -10962,7 +11200,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "value"
                                                 ],
                                                 FormWrapper_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             formItems: [
                                               {
                                                 label: "Name",
@@ -11081,7 +11320,9 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   ];
                                               }
                                             },
-                                            onIsSubmittingChange:
+                                            onIsSubmittingChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "isSubmitting",
@@ -11090,7 +11331,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                   "isSubmitting"
                                                 ],
                                                 FormWrapper_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             ref: ref => {
                                               $refs["printfulPlaceholderNew"] =
                                                 ref;
@@ -11156,13 +11398,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.input
                                                       ),
-                                                      onChange:
+                                                      onChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
                                                         generateStateOnChangePropForCodeComponents(
                                                           $state,
                                                           "value",
                                                           ["input", "value"],
                                                           AntdInput_Helpers
-                                                        ),
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      },
                                                       type: "number",
                                                       value:
                                                         generateStateValueProp(
@@ -11215,13 +11463,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.input2
                                                       ),
-                                                      onChange:
+                                                      onChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
                                                         generateStateOnChangePropForCodeComponents(
                                                           $state,
                                                           "value",
                                                           ["input2", "value"],
                                                           AntdInput_Helpers
-                                                        ),
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      },
                                                       type: "number",
                                                       value:
                                                         generateStateValueProp(
@@ -11274,13 +11528,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.input5
                                                       ),
-                                                      onChange:
+                                                      onChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
                                                         generateStateOnChangePropForCodeComponents(
                                                           $state,
                                                           "value",
                                                           ["input5", "value"],
                                                           AntdInput_Helpers
-                                                        ),
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      },
                                                       type: "number",
                                                       value:
                                                         generateStateValueProp(
@@ -11333,13 +11593,19 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "__wab_instance",
                                                         sty.input10
                                                       ),
-                                                      onChange:
+                                                      onChange: async (
+                                                        ...eventArgs: any
+                                                      ) => {
                                                         generateStateOnChangePropForCodeComponents(
                                                           $state,
                                                           "value",
                                                           ["input10", "value"],
                                                           AntdInput_Helpers
-                                                        ),
+                                                        ).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                      },
                                                       type: "number",
                                                       value:
                                                         generateStateValueProp(
@@ -11404,10 +11670,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     plasmic_antd_5_hostless_css.plasmic_tokens,
                                                     plasmic_plasmic_rich_components_css.plasmic_tokens
                                                   )}
-                                                  onChange={generateStateOnChangeProp(
-                                                    $state,
-                                                    ["select3", "value"]
-                                                  )}
+                                                  onChange={async (
+                                                    ...eventArgs: any
+                                                  ) => {
+                                                    generateStateOnChangeProp(
+                                                      $state,
+                                                      ["select3", "value"]
+                                                    ).apply(null, eventArgs);
+                                                  }}
                                                   options={(() => {
                                                     try {
                                                       return $queries.queryGetPrinfulBlueprint.data.response.result.product.files
@@ -11472,10 +11742,14 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                     plasmic_antd_5_hostless_css.plasmic_tokens,
                                                     plasmic_plasmic_rich_components_css.plasmic_tokens
                                                   )}
-                                                  onChange={generateStateOnChangeProp(
-                                                    $state,
-                                                    ["select8", "value"]
-                                                  )}
+                                                  onChange={async (
+                                                    ...eventArgs: any
+                                                  ) => {
+                                                    generateStateOnChangeProp(
+                                                      $state,
+                                                      ["select8", "value"]
+                                                    ).apply(null, eventArgs);
+                                                  }}
                                                   options={(() => {
                                                     const __composite = [
                                                       {
@@ -11540,13 +11814,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                       "__wab_instance",
                                                       sty.input11
                                                     ),
-                                                    onChange:
+                                                    onChange: async (
+                                                      ...eventArgs: any
+                                                    ) => {
                                                       generateStateOnChangePropForCodeComponents(
                                                         $state,
                                                         "value",
                                                         ["input11", "value"],
                                                         AntdInput_Helpers
-                                                      ),
+                                                      ).apply(null, eventArgs);
+                                                    },
                                                     type: "text",
                                                     value:
                                                       generateStateValueProp(
@@ -11636,7 +11913,8 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               },
                                               {
                                                 key: "created_at",
-                                                fieldId: "created_at"
+                                                fieldId: "created_at",
+                                                isHidden: null
                                               },
                                               {
                                                 key: "rotate",
@@ -11659,6 +11937,7 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 isHidden: null
                                               }
                                             ];
+                                            __composite["3"]["isHidden"] = true;
                                             __composite["7"]["isHidden"] = true;
                                             __composite["9"]["isHidden"] = true;
                                             return __composite;
@@ -11863,10 +12142,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                     </AntdTabItem>
                                   </React.Fragment>
                                 }
-                                onChange={generateStateOnChangeProp($state, [
-                                  "tabsEditPrintfulProduct",
-                                  "activeKey"
-                                ])}
+                                onChange={async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "tabsEditPrintfulProduct",
+                                    "activeKey"
+                                  ]).apply(null, eventArgs);
+                                }}
                                 sticky={false}
                                 tabBarBackground={"#FFF"}
                                 tabsDropdownScopeClassName={
@@ -11916,13 +12197,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                       "__wab_instance",
                                       sty.form3
                                     ),
-                                    extendedOnValuesChange:
+                                    extendedOnValuesChange: async (
+                                      ...eventArgs: any
+                                    ) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "value",
                                         ["form3", "value"],
                                         FormWrapper_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     formItems: [
                                       {
                                         label: "Name",
@@ -11989,13 +12273,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                           await $steps["updateVariable5"];
                                       }
                                     },
-                                    onIsSubmittingChange:
+                                    onIsSubmittingChange: async (
+                                      ...eventArgs: any
+                                    ) => {
                                       generateStateOnChangePropForCodeComponents(
                                         $state,
                                         "isSubmitting",
                                         ["form3", "isSubmitting"],
                                         FormWrapper_Helpers
-                                      ),
+                                      ).apply(null, eventArgs);
+                                    },
                                     ref: ref => {
                                       $refs["form3"] = ref;
                                     },
@@ -12043,13 +12330,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.input13
                                             ),
-                                            onChange:
+                                            onChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
                                                 ["input13", "value"],
                                                 AntdInput_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             value: generateStateValueProp(
                                               $state,
                                               ["input13", "value"]
@@ -12094,13 +12384,16 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.textArea2
                                             ),
-                                            onChange:
+                                            onChange: async (
+                                              ...eventArgs: any
+                                            ) => {
                                               generateStateOnChangePropForCodeComponents(
                                                 $state,
                                                 "value",
                                                 ["textArea2", "value"],
                                                 AntdTextArea_Helpers
-                                              ),
+                                              ).apply(null, eventArgs);
+                                            },
                                             value: generateStateValueProp(
                                               $state,
                                               ["textArea2", "value"]
@@ -13081,10 +13374,12 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                         </AntdTabItem>
                       </React.Fragment>
                     }
-                    onChange={generateStateOnChangeProp($state, [
-                      "tabs",
-                      "activeKey"
-                    ])}
+                    onChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "tabs",
+                        "activeKey"
+                      ]).apply(null, eventArgs);
+                    }}
                     sticky={false}
                     tabBarBackground={"#FFF"}
                     tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}

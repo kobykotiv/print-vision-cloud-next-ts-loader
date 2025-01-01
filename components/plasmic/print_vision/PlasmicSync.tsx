@@ -70,6 +70,8 @@ import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/compo
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import Popover from "../../Popover"; // plasmic-import: K-pKo-0OAxvA/component
+import Button2 from "../../Button2"; // plasmic-import: 5htpOgxRwHbE/component
 import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
@@ -89,6 +91,9 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 2Up8DUmBB1Tx5dhznkvCW5/projectcss
 import sty from "./PlasmicSync.module.css"; // plasmic-import: mSsMjiy4tgBp/css
 
+import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: -lOMU8AnMmP_/icon
+import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: TF0F3UORt2hA/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicSync__VariantMembers = {};
@@ -107,6 +112,8 @@ export type PlasmicSync__OverridesType = {
   pageLayout?: Flex__<typeof PageLayout>;
   table2?: Flex__<typeof RichTable>;
   confirmSyncIndividual?: Flex__<typeof AntdModal>;
+  popover?: Flex__<typeof Popover>;
+  button2?: Flex__<typeof Button2>;
   tabs?: Flex__<typeof AntdTabs>;
   printify?: Flex__<typeof AntdTabItem>;
   table?: Flex__<typeof RichTable>;
@@ -121,6 +128,7 @@ export type PlasmicSync__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   input3?: Flex__<typeof AntdInput>;
   printful?: Flex__<typeof AntdTabItem>;
+  printfulSyncall?: Flex__<typeof AntdButton>;
   table4?: Flex__<"div">;
   tableHead2?: Flex__<"div">;
   tableBody2?: Flex__<"div">;
@@ -392,6 +400,12 @@ function PlasmicSync__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "popover.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -510,7 +524,7 @@ function PlasmicSync__RenderFunc(props: {
         roleId: null
       };
     }),
-    qGetPrintfulPBlueprintFromRecipes: usePlasmicDataOp(() => {
+    qGetPrintfulPFromRecipes: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
         opId: "86ce9ea8-03d8-469f-a200-9ed7eeca22db",
@@ -759,6 +773,7 @@ function PlasmicSync__RenderFunc(props: {
                       plasmic_antd_5_hostless_css.plasmic_tokens,
                       plasmic_plasmic_rich_components_css.plasmic_tokens
                     )}
+                    maskClosable={true}
                     modalScopeClassName={sty["confirmSyncIndividual__modal"]}
                     onCancel={async () => {
                       const $steps = {};
@@ -1088,55 +1103,64 @@ function PlasmicSync__RenderFunc(props: {
                               operation: 0,
                               value: (() => {
                                 const input1 =
-                                  $queries.qGetPrintfulPBlueprintFromRecipes;
-                                const input2 = $queries.queryDesign;
+                                  $queries.qGetPrintfulPFromRecipes || {};
+                                const input2 = $queries.queryDesign || {};
                                 const input3 =
-                                  $queries.qGetSupPrintfulVariantsByProduct;
+                                  $queries.qGetSupPrintfulVariantsByProduct ||
+                                  {};
                                 return {
                                   sync_product: {
-                                    external_id: input1.id,
-                                    name: input1.title,
+                                    external_id: input1.id || null,
+                                    name: input1.title || "Unnamed Product",
                                     thumbnail:
-                                      input2.data.response.result.thumbnail_url,
+                                      input2.data?.response?.result
+                                        ?.thumbnail_url ||
+                                      "default-thumbnail-url",
                                     is_ignored: false,
-                                    options_json: input1.options_json
+                                    options_json: input1.options_json || {}
                                   },
-                                  sync_variants: input3.data.map(variant => ({
-                                    external_id: variant.id,
-                                    variant_id: variant.variant_id,
-                                    retail_price: variant.price,
-                                    is_ignored: false,
-                                    sku: `SKU${variant.id}`,
-                                    files: [
-                                      {
-                                        type: "default",
-                                        url: input2.data.response.result.url,
-                                        options: [
+                                  sync_variants: Array.isArray(input3.data)
+                                    ? input3.data.map(variant => ({
+                                        external_id: variant.id || null,
+                                        variant_id: variant.variant_id || null,
+                                        retail_price: variant.price || "0.00",
+                                        is_ignored: false,
+                                        sku: `SKU${variant.id || "default"}`,
+                                        files: [
                                           {
-                                            id: "template_type",
-                                            value: "native"
+                                            type: "default",
+                                            url:
+                                              input2.data?.response?.result
+                                                ?.url || "default-url",
+                                            options: [
+                                              {
+                                                id: "template_type",
+                                                value: "native"
+                                              }
+                                            ],
+                                            filename:
+                                              input2.data?.response?.result
+                                                ?.filename ||
+                                              "default-filename",
+                                            visible: true
                                           }
                                         ],
-                                        filename:
-                                          input2.data.response.result.filename,
-                                        visible: true
-                                      }
-                                    ],
-                                    options: [
-                                      {
-                                        id: "embroidery_type",
-                                        value: "flat"
-                                      },
-                                      ...Object.entries(
-                                        input1.options_json
-                                      ).map(([key, value]) => ({
-                                        id: key,
-                                        value: value
-                                      }))
-                                    ],
+                                        options: [
+                                          {
+                                            id: "embroidery_type",
+                                            value: "flat"
+                                          },
+                                          ...Object.entries(
+                                            input1.options_json || {}
+                                          ).map(([key, value]) => ({
+                                            id: key,
+                                            value: value
+                                          }))
+                                        ],
 
-                                    availability_status: "active"
-                                  }))
+                                        availability_status: "active"
+                                      }))
+                                    : []
                                 };
                               })()
                             };
@@ -1167,7 +1191,6 @@ function PlasmicSync__RenderFunc(props: {
                       }
 
                       $steps["httpPostPrintify"] =
-                        $state.payload.data.length === 0 &&
                         $state.tabs.activeKey == 1
                           ? (() => {
                               const actionArgs = {
@@ -1276,48 +1299,25 @@ function PlasmicSync__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["httpPostPrintful"] = false
+                      $steps["fsPrintfulInvoke"] = true
                         ? (() => {
                             const actionArgs = {
-                              dataOp: {
-                                sourceId: "w9bT7zJHQBMsxuYyCMQHKC",
-                                opId: "7ff51ecb-9573-40f7-aeac-30cb5ae5f3c7",
-                                userArgs: {
-                                  body: [$state.payload]
-                                },
-                                cacheKey: null,
-                                invalidatedKeys: ["plasmic_refresh_all"],
-                                roleId: null
+                              customFunction: async () => {
+                                return $state.payload;
                               }
                             };
-                            return (async ({ dataOp, continueOnError }) => {
-                              try {
-                                const response = await executePlasmicDataOp(
-                                  dataOp,
-                                  {
-                                    userAuthToken:
-                                      dataSourcesCtx?.userAuthToken,
-                                    user: dataSourcesCtx?.user
-                                  }
-                                );
-                                await plasmicInvalidate(dataOp.invalidatedKeys);
-                                return response;
-                              } catch (e) {
-                                if (!continueOnError) {
-                                  throw e;
-                                }
-                                return e;
-                              }
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["httpPostPrintful"] != null &&
-                        typeof $steps["httpPostPrintful"] === "object" &&
-                        typeof $steps["httpPostPrintful"].then === "function"
+                        $steps["fsPrintfulInvoke"] != null &&
+                        typeof $steps["fsPrintfulInvoke"] === "object" &&
+                        typeof $steps["fsPrintfulInvoke"].then === "function"
                       ) {
-                        $steps["httpPostPrintful"] = await $steps[
-                          "httpPostPrintful"
+                        $steps["fsPrintfulInvoke"] = await $steps[
+                          "fsPrintfulInvoke"
                         ];
                       }
 
@@ -1536,11 +1536,58 @@ function PlasmicSync__RenderFunc(props: {
                           "invokeGlobalAction"
                         ];
                       }
+
+                      $steps["httpPostPrintful"] = false
+                        ? (() => {
+                            const actionArgs = {
+                              dataOp: {
+                                sourceId: "w9bT7zJHQBMsxuYyCMQHKC",
+                                opId: "7ff51ecb-9573-40f7-aeac-30cb5ae5f3c7",
+                                userArgs: {
+                                  body: [$state.payload]
+                                },
+                                cacheKey: null,
+                                invalidatedKeys: ["plasmic_refresh_all"],
+                                roleId: null
+                              }
+                            };
+                            return (async ({ dataOp, continueOnError }) => {
+                              try {
+                                const response = await executePlasmicDataOp(
+                                  dataOp,
+                                  {
+                                    userAuthToken:
+                                      dataSourcesCtx?.userAuthToken,
+                                    user: dataSourcesCtx?.user
+                                  }
+                                );
+                                await plasmicInvalidate(dataOp.invalidatedKeys);
+                                return response;
+                              } catch (e) {
+                                if (!continueOnError) {
+                                  throw e;
+                                }
+                                return e;
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["httpPostPrintful"] != null &&
+                        typeof $steps["httpPostPrintful"] === "object" &&
+                        typeof $steps["httpPostPrintful"].then === "function"
+                      ) {
+                        $steps["httpPostPrintful"] = await $steps[
+                          "httpPostPrintful"
+                        ];
+                      }
                     }}
-                    onOpenChange={generateStateOnChangeProp($state, [
-                      "confirmSyncIndividual",
-                      "open"
-                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "confirmSyncIndividual",
+                        "open"
+                      ]).apply(null, eventArgs);
+                    }}
                     open={generateStateValueProp($state, [
                       "confirmSyncIndividual",
                       "open"
@@ -1662,6 +1709,73 @@ function PlasmicSync__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
+                      <Popover
+                        data-plasmic-name={"popover"}
+                        data-plasmic-override={overrides.popover}
+                        className={classNames("__wab_instance", sty.popover)}
+                        content={
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__guGwZ
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__va0Qc
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return JSON.stringify(
+                                      $state.variable.options_json
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Stack__>
+                        }
+                        onOpenChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "popover",
+                            "isOpen"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        trigger={
+                          <Button2
+                            data-plasmic-name={"button2"}
+                            data-plasmic-override={overrides.button2}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button2
+                            )}
+                            label={"Options?"}
+                          />
+                        }
+                      />
                     </div>
                   </AntdModal>
                   <AntdTabs
@@ -1757,7 +1871,8 @@ function PlasmicSync__RenderFunc(props: {
                                           objRoot: $state,
                                           variablePath: ["variable"]
                                         },
-                                        operation: 0
+                                        operation: 0,
+                                        value: $steps.syncAllIds
                                       };
                                       return (({
                                         variable,
@@ -1785,6 +1900,30 @@ function PlasmicSync__RenderFunc(props: {
                                 ) {
                                   $steps["updateVariable"] = await $steps[
                                     "updateVariable"
+                                  ];
+                                }
+
+                                $steps["updateVariable2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return undefined;
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateVariable2"] != null &&
+                                  typeof $steps["updateVariable2"] ===
+                                    "object" &&
+                                  typeof $steps["updateVariable2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateVariable2"] = await $steps[
+                                    "updateVariable2"
                                   ];
                                 }
                               }}
@@ -3047,13 +3186,16 @@ function PlasmicSync__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.former
                                 ),
-                                extendedOnValuesChange:
+                                extendedOnValuesChange: async (
+                                  ...eventArgs: any
+                                ) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["former", "value"],
                                     FormWrapper_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 formItems: [
                                   {
                                     label: "Name",
@@ -3069,13 +3211,16 @@ function PlasmicSync__RenderFunc(props: {
                                 labelCol: { span: 8, horizontalOnly: true },
                                 layout: "vertical",
                                 mode: "advanced",
-                                onIsSubmittingChange:
+                                onIsSubmittingChange: async (
+                                  ...eventArgs: any
+                                ) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "isSubmitting",
                                     ["former", "isSubmitting"],
                                     FormWrapper_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 ref: ref => {
                                   $refs["former"] = ref;
                                 },
@@ -3135,13 +3280,14 @@ function PlasmicSync__RenderFunc(props: {
                                           "__wab_instance",
                                           sty.input
                                         ),
-                                        onChange:
+                                        onChange: async (...eventArgs: any) => {
                                           generateStateOnChangePropForCodeComponents(
                                             $state,
                                             "value",
                                             ["input", "value"],
                                             AntdInput_Helpers
-                                          ),
+                                          ).apply(null, eventArgs);
+                                        },
                                         value: generateStateValueProp($state, [
                                           "input",
                                           "value"
@@ -3199,13 +3345,14 @@ function PlasmicSync__RenderFunc(props: {
                                           "__wab_instance",
                                           sty.input2
                                         ),
-                                        onChange:
+                                        onChange: async (...eventArgs: any) => {
                                           generateStateOnChangePropForCodeComponents(
                                             $state,
                                             "value",
                                             ["input2", "value"],
                                             AntdInput_Helpers
-                                          ),
+                                          ).apply(null, eventArgs);
+                                        },
                                         value: generateStateValueProp($state, [
                                           "input2",
                                           "value"
@@ -3263,13 +3410,14 @@ function PlasmicSync__RenderFunc(props: {
                                           "__wab_instance",
                                           sty.input3
                                         ),
-                                        onChange:
+                                        onChange: async (...eventArgs: any) => {
                                           generateStateOnChangePropForCodeComponents(
                                             $state,
                                             "value",
                                             ["input3", "value"],
                                             AntdInput_Helpers
-                                          ),
+                                          ).apply(null, eventArgs);
+                                        },
                                         value: generateStateValueProp($state, [
                                           "input3",
                                           "value"
@@ -3346,9 +3494,11 @@ function PlasmicSync__RenderFunc(props: {
                             )}
                           >
                             <AntdButton
+                              data-plasmic-name={"printfulSyncall"}
+                              data-plasmic-override={overrides.printfulSyncall}
                               className={classNames(
                                 "__wab_instance",
-                                sty.button__xsGVk
+                                sty.printfulSyncall
                               )}
                               onClick={async () => {
                                 const $steps = {};
@@ -3362,7 +3512,7 @@ function PlasmicSync__RenderFunc(props: {
                                         },
                                         operation: 0,
                                         value:
-                                          $queries.qGetPrintifyPFromRecipes.data.map(
+                                          $queries.qGetPrintfulPFromRecipes.data.map(
                                             item => ({ id: item.id })
                                           )
                                       };
@@ -3558,8 +3708,7 @@ function PlasmicSync__RenderFunc(props: {
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return $queries
-                                    .qGetPrintfulPBlueprintFromRecipes.data;
+                                  return $queries.qGetPrintfulPFromRecipes.data;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -4345,13 +4494,16 @@ function PlasmicSync__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.former2
                                 ),
-                                extendedOnValuesChange:
+                                extendedOnValuesChange: async (
+                                  ...eventArgs: any
+                                ) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["former2", "value"],
                                     FormWrapper_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 formItems: [
                                   {
                                     label: "Name",
@@ -4367,13 +4519,16 @@ function PlasmicSync__RenderFunc(props: {
                                 labelCol: { span: 8, horizontalOnly: true },
                                 layout: "vertical",
                                 mode: "advanced",
-                                onIsSubmittingChange:
+                                onIsSubmittingChange: async (
+                                  ...eventArgs: any
+                                ) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "isSubmitting",
                                     ["former2", "isSubmitting"],
                                     FormWrapper_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 ref: ref => {
                                   $refs["former2"] = ref;
                                 },
@@ -4433,13 +4588,14 @@ function PlasmicSync__RenderFunc(props: {
                                           "__wab_instance",
                                           sty.input4
                                         ),
-                                        onChange:
+                                        onChange: async (...eventArgs: any) => {
                                           generateStateOnChangePropForCodeComponents(
                                             $state,
                                             "value",
                                             ["input4", "value"],
                                             AntdInput_Helpers
-                                          ),
+                                          ).apply(null, eventArgs);
+                                        },
                                         value: generateStateValueProp($state, [
                                           "input4",
                                           "value"
@@ -4497,13 +4653,14 @@ function PlasmicSync__RenderFunc(props: {
                                           "__wab_instance",
                                           sty.input5
                                         ),
-                                        onChange:
+                                        onChange: async (...eventArgs: any) => {
                                           generateStateOnChangePropForCodeComponents(
                                             $state,
                                             "value",
                                             ["input5", "value"],
                                             AntdInput_Helpers
-                                          ),
+                                          ).apply(null, eventArgs);
+                                        },
                                         value: generateStateValueProp($state, [
                                           "input5",
                                           "value"
@@ -4561,13 +4718,14 @@ function PlasmicSync__RenderFunc(props: {
                                           "__wab_instance",
                                           sty.input6
                                         ),
-                                        onChange:
+                                        onChange: async (...eventArgs: any) => {
                                           generateStateOnChangePropForCodeComponents(
                                             $state,
                                             "value",
                                             ["input6", "value"],
                                             AntdInput_Helpers
-                                          ),
+                                          ).apply(null, eventArgs);
+                                        },
                                         value: generateStateValueProp($state, [
                                           "input6",
                                           "value"
@@ -4622,15 +4780,41 @@ function PlasmicSync__RenderFunc(props: {
                         </AntdTabItem>
                       </React.Fragment>
                     }
-                    onChange={generateStateOnChangeProp($state, [
-                      "tabs",
-                      "activeKey"
-                    ])}
+                    onChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "tabs",
+                        "activeKey"
+                      ]).apply(null, eventArgs);
+                    }}
                     sticky={false}
                     tabBarBackground={"#FFF"}
                     tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
                     tabsScopeClassName={sty["tabs__tabs"]}
                   />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6EdFa
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return undefined;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -4647,6 +4831,8 @@ const PlasmicDescendants = {
     "pageLayout",
     "table2",
     "confirmSyncIndividual",
+    "popover",
+    "button2",
     "tabs",
     "printify",
     "table",
@@ -4661,6 +4847,7 @@ const PlasmicDescendants = {
     "input2",
     "input3",
     "printful",
+    "printfulSyncall",
     "table4",
     "tableHead2",
     "tableBody2",
@@ -4676,6 +4863,8 @@ const PlasmicDescendants = {
     "pageLayout",
     "table2",
     "confirmSyncIndividual",
+    "popover",
+    "button2",
     "tabs",
     "printify",
     "table",
@@ -4690,6 +4879,7 @@ const PlasmicDescendants = {
     "input2",
     "input3",
     "printful",
+    "printfulSyncall",
     "table4",
     "tableHead2",
     "tableBody2",
@@ -4702,7 +4892,9 @@ const PlasmicDescendants = {
     "input6"
   ],
   table2: ["table2"],
-  confirmSyncIndividual: ["confirmSyncIndividual"],
+  confirmSyncIndividual: ["confirmSyncIndividual", "popover", "button2"],
+  popover: ["popover", "button2"],
+  button2: ["button2"],
   tabs: [
     "tabs",
     "printify",
@@ -4718,6 +4910,7 @@ const PlasmicDescendants = {
     "input2",
     "input3",
     "printful",
+    "printfulSyncall",
     "table4",
     "tableHead2",
     "tableBody2",
@@ -4767,6 +4960,7 @@ const PlasmicDescendants = {
   input3: ["input3"],
   printful: [
     "printful",
+    "printfulSyncall",
     "table4",
     "tableHead2",
     "tableBody2",
@@ -4778,6 +4972,7 @@ const PlasmicDescendants = {
     "input5",
     "input6"
   ],
+  printfulSyncall: ["printfulSyncall"],
   table4: [
     "table4",
     "tableHead2",
@@ -4808,6 +5003,8 @@ type NodeDefaultElementType = {
   pageLayout: typeof PageLayout;
   table2: typeof RichTable;
   confirmSyncIndividual: typeof AntdModal;
+  popover: typeof Popover;
+  button2: typeof Button2;
   tabs: typeof AntdTabs;
   printify: typeof AntdTabItem;
   table: typeof RichTable;
@@ -4822,6 +5019,7 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   input3: typeof AntdInput;
   printful: typeof AntdTabItem;
+  printfulSyncall: typeof AntdButton;
   table4: "div";
   tableHead2: "div";
   tableBody2: "div";
@@ -4939,6 +5137,8 @@ export const PlasmicSync = Object.assign(
     pageLayout: makeNodeComponent("pageLayout"),
     table2: makeNodeComponent("table2"),
     confirmSyncIndividual: makeNodeComponent("confirmSyncIndividual"),
+    popover: makeNodeComponent("popover"),
+    button2: makeNodeComponent("button2"),
     tabs: makeNodeComponent("tabs"),
     printify: makeNodeComponent("printify"),
     table: makeNodeComponent("table"),
@@ -4953,6 +5153,7 @@ export const PlasmicSync = Object.assign(
     input2: makeNodeComponent("input2"),
     input3: makeNodeComponent("input3"),
     printful: makeNodeComponent("printful"),
+    printfulSyncall: makeNodeComponent("printfulSyncall"),
     table4: makeNodeComponent("table4"),
     tableHead2: makeNodeComponent("tableHead2"),
     tableBody2: makeNodeComponent("tableBody2"),

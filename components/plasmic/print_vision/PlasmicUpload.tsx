@@ -446,6 +446,7 @@ function PlasmicUpload__RenderFunc(props: {
                         "upload",
                         "files"
                       ]).apply(null, eventArgs);
+
                       (async files => {
                         const $steps = {};
 
@@ -602,13 +603,14 @@ function PlasmicUpload__RenderFunc(props: {
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.form),
-                      extendedOnValuesChange:
+                      extendedOnValuesChange: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
                           $state,
                           "value",
                           ["form", "value"],
                           FormWrapper_Helpers
-                        ),
+                        ).apply(null, eventArgs);
+                      },
                       formItems: [
                         { label: "Name", name: "name", inputType: "Text" },
                         {
@@ -711,13 +713,14 @@ function PlasmicUpload__RenderFunc(props: {
                           ];
                         }
                       },
-                      onIsSubmittingChange:
+                      onIsSubmittingChange: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
                           $state,
                           "isSubmitting",
                           ["form", "isSubmitting"],
                           FormWrapper_Helpers
-                        ),
+                        ).apply(null, eventArgs);
+                      },
                       ref: ref => {
                         $refs["form"] = ref;
                       },
@@ -764,10 +767,12 @@ function PlasmicUpload__RenderFunc(props: {
                               "__wab_instance",
                               sty.numberInput
                             )}
-                            onChange={generateStateOnChangeProp($state, [
-                              "numberInput",
-                              "value"
-                            ])}
+                            onChange={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "numberInput",
+                                "value"
+                              ]).apply(null, eventArgs);
+                            }}
                             type={"number"}
                             value={generateStateValueProp($state, [
                               "numberInput",
@@ -791,13 +796,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input
                               ),
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               value: generateStateValueProp($state, [
                                 "input",
                                 "value"
@@ -859,13 +865,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 sty.input2
                               ),
                               disabled: false,
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input2", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               readOnly: true,
                               type: "text",
                               value: generateStateValueProp($state, [
@@ -978,6 +985,7 @@ function PlasmicUpload__RenderFunc(props: {
                                 ["table", "selectedRowKeys"],
                                 RichTable_Helpers
                               ).apply(null, eventArgs);
+
                               (async (rowKeys, rows) => {
                                 const $steps = {};
 
@@ -1082,13 +1090,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input4
                               ),
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input4", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               value: generateStateValueProp($state, [
                                 "input4",
                                 "value"
@@ -1133,13 +1142,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input3
                               ),
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input3", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               size: "middle",
                               value: generateStateValueProp($state, [
                                 "input3",
@@ -1197,13 +1207,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input5
                               ),
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input5", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               value: generateStateValueProp($state, [
                                 "input5",
                                 "value"
@@ -1276,13 +1287,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 sty.input7
                               ),
                               disabled: false,
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input7", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               readOnly: true,
                               value: generateStateValueProp($state, [
                                 "input7",
@@ -1327,13 +1339,14 @@ function PlasmicUpload__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input8
                               ),
-                              onChange:
+                              onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "value",
                                   ["input8", "value"],
                                   AntdInput_Helpers
-                                ),
+                                ).apply(null, eventArgs);
+                              },
                               value: generateStateValueProp($state, [
                                 "input8",
                                 "value"
@@ -1655,13 +1668,14 @@ function PlasmicUpload__RenderFunc(props: {
                                   sty.input9
                                 ),
                                 disabled: false,
-                                onChange:
+                                onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["input9", "value"],
                                     AntdInput_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 readOnly: true,
                                 value: generateStateValueProp($state, [
                                   "input9",
@@ -1976,13 +1990,14 @@ function PlasmicUpload__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.input6
                                 ),
-                                onChange:
+                                onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["input6", "value"],
                                     AntdInput_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 readOnly: true,
                                 value: generateStateValueProp($state, [
                                   "input6",
@@ -2285,13 +2300,14 @@ function PlasmicUpload__RenderFunc(props: {
                                   sty.input10
                                 ),
                                 disabled: false,
-                                onChange:
+                                onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["input10", "value"],
                                     AntdInput_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                },
                                 value: generateStateValueProp($state, [
                                   "input10",
                                   "value"
