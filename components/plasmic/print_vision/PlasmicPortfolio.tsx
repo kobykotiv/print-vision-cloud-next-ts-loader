@@ -1408,10 +1408,10 @@ function PlasmicPortfolio__RenderFunc(props: {
                                       ];
                                     }
 
-                                    $steps["goToSync"] = true
+                                    $steps["goToSync2"] = true
                                       ? (() => {
                                           const actionArgs = {
-                                            destination: `/sync-design/${(() => {
+                                            destination: `/sync-design-2/${(() => {
                                               try {
                                                 return currentItem.id;
                                               } catch (e) {
@@ -1458,13 +1458,13 @@ function PlasmicPortfolio__RenderFunc(props: {
                                         })()
                                       : undefined;
                                     if (
-                                      $steps["goToSync"] != null &&
-                                      typeof $steps["goToSync"] === "object" &&
-                                      typeof $steps["goToSync"].then ===
+                                      $steps["goToSync2"] != null &&
+                                      typeof $steps["goToSync2"] === "object" &&
+                                      typeof $steps["goToSync2"].then ===
                                         "function"
                                     ) {
-                                      $steps["goToSync"] = await $steps[
-                                        "goToSync"
+                                      $steps["goToSync2"] = await $steps[
+                                        "goToSync2"
                                       ];
                                     }
                                   }}
