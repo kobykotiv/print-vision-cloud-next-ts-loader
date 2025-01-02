@@ -561,6 +561,12 @@ function PlasmicSync2__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "payloadTotalPrintful",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1165,7 +1171,7 @@ function PlasmicSync2__RenderFunc(props: {
                                           printifyProductIds.some(id =>
                                             doneProductIds.includes(id)
                                           );
-                                        return !hasCommonIds;
+                                        return true;
                                       }
                                     })();
                                   } catch (e) {
@@ -1244,29 +1250,32 @@ function PlasmicSync2__RenderFunc(props: {
                                 {(() => {
                                   try {
                                     return (() => {
-                                      const printifyProductIds =
-                                        $queries.syncDesignProduct.data.map(
-                                          data => data.printify_product_id
-                                        );
-                                      const doneProductIds =
-                                        $state.doneProducts.map(
-                                          product => product.id
-                                        );
-                                      const hasCommonIds =
-                                        printifyProductIds.some(id =>
-                                          doneProductIds.includes(id)
-                                        );
-                                      return !hasCommonIds;
-                                    })()
-                                      ? false
-                                      : true;
+                                      (() => {
+                                        const printifyProductIds =
+                                          $queries.syncDesignProduct.data.map(
+                                            data => data.printify_product_id
+                                          );
+                                        const doneProductIds =
+                                          $state.doneProducts.map(
+                                            product => product.id
+                                          );
+                                        const hasCommonIds =
+                                          printifyProductIds.some(id =>
+                                            doneProductIds.includes(id)
+                                          );
+                                        return !hasCommonIds;
+                                      })()
+                                        ? false
+                                        : true;
+                                      return false;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return true;
+                                      return false;
                                     }
                                     throw e;
                                   }
@@ -2917,11 +2926,10 @@ function PlasmicSync2__RenderFunc(props: {
                                         const actionArgs = {
                                           dataOp: {
                                             sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                            opId: "e41f3e63-c000-44bd-91fc-ebab3d2a3e9c",
+                                            opId: "fc9012cc-1491-4887-998b-b5954bbe09c7",
                                             userArgs: {
                                               filters: [
-                                                $state.firstId.id,
-                                                $ctx.params.design
+                                                parseInt($state.firstId.id)
                                               ]
                                             },
                                             cacheKey: null,
@@ -5329,7 +5337,7 @@ function PlasmicSync2__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return true;
+                                    return false;
                                   }
                                   throw e;
                                 }
@@ -5429,7 +5437,7 @@ function PlasmicSync2__RenderFunc(props: {
                                 }
 
                                 $steps["updateLoadingScreen2Open"] = (
-                                  $state.loadingScreen.open ? false : true
+                                  $state.loadingScreen2.open ? false : true
                                 )
                                   ? (() => {
                                       const actionArgs = {
@@ -5660,7 +5668,7 @@ function PlasmicSync2__RenderFunc(props: {
                                       const actionArgs = {
                                         variable: {
                                           objRoot: $state,
-                                          variablePath: ["payload"]
+                                          variablePath: ["payloadTotalPrintful"]
                                         },
                                         operation: 0,
                                         value: (() => {
@@ -5672,14 +5680,14 @@ function PlasmicSync2__RenderFunc(props: {
                                           const input3 =
                                             $queries.qGetSupPrintfulVariantsByProduct2 ||
                                             {};
+                                          const input4 = $state.printfulUrl;
+                                          const randomint = Math.floor(
+                                            Math.random() * 1000000000
+                                          );
                                           return {
                                             sync_product: {
-                                              external_id: 4235234213,
+                                              external_id: randomint,
                                               name: input1.title || "T-shirt",
-                                              thumbnail:
-                                                input2.data?.response?.result
-                                                  ?.thumbnail_url ||
-                                                "http://your-domain.com/path/to/thumbnail.png",
                                               is_ignored: true
                                             },
                                             sync_variants: Array.isArray(
@@ -5698,7 +5706,7 @@ function PlasmicSync2__RenderFunc(props: {
                                                     {
                                                       type: "default",
                                                       url:
-                                                        input2.data?.response
+                                                        input4.data?.response
                                                           ?.result?.url ||
                                                         "https://nhyqyjgkngrzlcxewulk.supabase.co/storage/v1/object/sign/user_designs/rc-upload-1730995382560-2?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ1c2VyX2Rlc2lnbnMvcmMtdXBsb2FkLTE3MzA5OTUzODI1NjAtMiIsImlhdCI6MTczMDk5NTQ3OCwiZXhwIjoxNzMwOTk5MDc4fQ.577qNEYAf81NnKfeHB5T6xIpudvvBt3-8hclv1ltBQ0",
                                                       options: [
@@ -5708,7 +5716,7 @@ function PlasmicSync2__RenderFunc(props: {
                                                         }
                                                       ],
                                                       filename:
-                                                        input2.data?.response
+                                                        input4.data?.response
                                                           ?.result?.filename ||
                                                         "shirt1.png",
                                                       visible: true
@@ -5754,14 +5762,14 @@ function PlasmicSync2__RenderFunc(props: {
                                     await $steps["updatePrintfulPayload"];
                                 }
 
-                                $steps["httpPostPrintful"] = true
+                                $steps["httpPostPrintful"] = false
                                   ? (() => {
                                       const actionArgs = {
                                         dataOp: {
                                           sourceId: "w9bT7zJHQBMsxuYyCMQHKC",
                                           opId: "3fb73470-354e-488e-80de-1a86a006142b",
                                           userArgs: {
-                                            body: [$state.payload]
+                                            body: [$state.payloadTotalPrintful]
                                           },
                                           cacheKey: null,
                                           invalidatedKeys: [],
@@ -5843,7 +5851,7 @@ function PlasmicSync2__RenderFunc(props: {
                                   ];
                                 }
 
-                                $steps["postgresCreate"] = true
+                                $steps["createSdpPrintful"] = true
                                   ? (() => {
                                       const actionArgs = {
                                         dataOp: {
@@ -5888,14 +5896,14 @@ function PlasmicSync2__RenderFunc(props: {
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["postgresCreate"] != null &&
-                                  typeof $steps["postgresCreate"] ===
+                                  $steps["createSdpPrintful"] != null &&
+                                  typeof $steps["createSdpPrintful"] ===
                                     "object" &&
-                                  typeof $steps["postgresCreate"].then ===
+                                  typeof $steps["createSdpPrintful"].then ===
                                     "function"
                                 ) {
-                                  $steps["postgresCreate"] = await $steps[
-                                    "postgresCreate"
+                                  $steps["createSdpPrintful"] = await $steps[
+                                    "createSdpPrintful"
                                   ];
                                 }
 
@@ -5907,7 +5915,7 @@ function PlasmicSync2__RenderFunc(props: {
                                           variablePath: ["doneProducts2"]
                                         },
                                         operation: 0,
-                                        value: $state.doneProducts.slice(1)
+                                        value: $state.doneProducts2.slice(1)
                                       };
                                       return (({
                                         variable,
