@@ -21,7 +21,19 @@
 .root > * {
   grid-column: 4;
 }
-.freeBox {
+.adsContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__dh5RD {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -64,4 +76,35 @@
   min-width: 0;
   border-radius: 8px;
   padding: 16px;
+}
+.freeBox__chUoV {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__jrW4K {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.conditionGuard:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.timer:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }

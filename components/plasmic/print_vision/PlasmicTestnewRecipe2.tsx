@@ -105,14 +105,19 @@ export type PlasmicTestnewRecipe2__OverridesType = {
   tabs?: Flex__<typeof AntdTabs>;
   table?: Flex__<typeof RichTable>;
   table2?: Flex__<typeof RichTable>;
-  freeBox?: Flex__<"div">;
   svg?: Flex__<"svg">;
   form?: Flex__<typeof FormWrapper>;
   input?: Flex__<typeof AntdInput>;
   input2?: Flex__<typeof AntdInput>;
   input3?: Flex__<typeof AntdInput>;
   input4?: Flex__<typeof AntdInput>;
+  recipeChecker?: Flex__<"div">;
+  printfulItemChecker?: Flex__<"div">;
+  printifyItemChecker?: Flex__<"div">;
   button?: Flex__<typeof AntdButton>;
+  printifyError?: Flex__<"div">;
+  printfulError?: Flex__<"div">;
+  maxRecipeError?: Flex__<"div">;
 };
 
 export interface DefaultTestnewRecipe2Props {}
@@ -333,6 +338,26 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    keys: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "17fa43f9-6d23-477e-b455-19a8cd444d69",
+        userArgs: {},
+        cacheKey: `plasmic.$.17fa43f9-6d23-477e-b455-19a8cd444d69.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    userRecipe: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "38ce998b-1e88-4204-9353-9422be47c2f3",
+        userArgs: {},
+        cacheKey: `plasmic.$.38ce998b-1e88-4204-9353-9422be47c2f3.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -536,7 +561,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                                 }).apply(null, eventArgs);
                               },
                               pageSize: 20,
-                              pagination: false,
+                              pagination: true,
                               scopeClassName: sty["table__instance"],
                               selectedRowKey: generateStateValueProp($state, [
                                 "table",
@@ -793,7 +818,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                                 }).apply(null, eventArgs);
                               },
                               pageSize: 20,
-                              pagination: false,
+                              pagination: true,
                               scopeClassName: sty["table2__instance"],
                               selectedRowKey: generateStateValueProp($state, [
                                 "table2",
@@ -896,9 +921,7 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                   />
 
                   <div
-                    data-plasmic-name={"freeBox"}
-                    data-plasmic-override={overrides.freeBox}
-                    className={classNames(projectcss.all, sty.freeBox)}
+                    className={classNames(projectcss.all, sty.freeBox__eekr)}
                   >
                     <UpArrowSvgrepoComSvgIcon
                       data-plasmic-name={"svg"}
@@ -1366,23 +1389,356 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                     );
                   })()}
                 </FormItemWrapper>
-                <AntdButton
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  submitsForm={true}
-                  type={"primary"}
-                >
+                {(() => {
+                  try {
+                    return (() => {
+                      const userRecipeCount = $queries.userRecipe.data.length;
+                      const majorPlan = $queries.keys.data[0].major_plan;
+
+                      if (
+                        (majorPlan === 0 && userRecipeCount > 3) ||
+                        (majorPlan === 1 && userRecipeCount > 10) ||
+                        (majorPlan === 2 && userRecipeCount > 20) ||
+                        (majorPlan === 3 && userRecipeCount > 2000)
+                      ) {
+                        return false;
+                      } else {
+                        return true;
+                      }
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__z5Wjs
-                    )}
+                    data-plasmic-name={"recipeChecker"}
+                    data-plasmic-override={overrides.recipeChecker}
+                    className={classNames(projectcss.all, sty.recipeChecker)}
                   >
-                    {"Submit"}
+                    {(() => {
+                      try {
+                        return (() => {
+                          const selectedRowsCount =
+                            $state.table2.selectedRows.map(b => b.id).length;
+                          const majorPlan = $queries.keys.data[0].major_plan;
+                          if (
+                            (majorPlan === 0 && selectedRowsCount > 3) ||
+                            (majorPlan === 1 && selectedRowsCount > 10) ||
+                            (majorPlan === 2 && selectedRowsCount > 30) ||
+                            (majorPlan === 3 && selectedRowsCount > 200)
+                          ) {
+                            return false;
+                          } else {
+                            return true;
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        data-plasmic-name={"printfulItemChecker"}
+                        data-plasmic-override={overrides.printfulItemChecker}
+                        className={classNames(
+                          projectcss.all,
+                          sty.printfulItemChecker
+                        )}
+                      >
+                        {(() => {
+                          try {
+                            return (() => {
+                              const selectedRowsCount =
+                                $state.table.selectedRows.map(b => b.id).length;
+                              const majorPlan =
+                                $queries.keys.data[0].major_plan;
+                              if (
+                                (majorPlan === 0 && selectedRowsCount > 3) ||
+                                (majorPlan === 1 && selectedRowsCount > 10) ||
+                                (majorPlan === 2 && selectedRowsCount > 30) ||
+                                (majorPlan === 3 && selectedRowsCount > 200)
+                              ) {
+                                return false;
+                              } else {
+                                return true;
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            data-plasmic-name={"printifyItemChecker"}
+                            data-plasmic-override={
+                              overrides.printifyItemChecker
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.printifyItemChecker
+                            )}
+                          >
+                            <AntdButton
+                              data-plasmic-name={"button"}
+                              data-plasmic-override={overrides.button}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button
+                              )}
+                              shape={"round"}
+                              submitsForm={true}
+                              type={"primary"}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__z5Wjs
+                                )}
+                              >
+                                {"Submit"}
+                              </div>
+                            </AntdButton>
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
                   </div>
-                </AntdButton>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.table.selectedRows !== undefined;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"printifyError"}
+                    data-plasmic-override={overrides.printifyError}
+                    className={classNames(projectcss.all, sty.printifyError)}
+                  >
+                    {(() => {
+                      try {
+                        return (() => {
+                          const selectedRowsCount =
+                            $state.table.selectedRows.map(b => b.id).length;
+                          const majorPlan = $queries.keys.data[0].major_plan;
+                          if (
+                            (majorPlan === 0 && selectedRowsCount > 3) ||
+                            (majorPlan === 1 && selectedRowsCount > 10) ||
+                            (majorPlan === 2 && selectedRowsCount > 30) ||
+                            (majorPlan === 3 && selectedRowsCount > 200)
+                          ) {
+                            return true;
+                          } else {
+                            return false;
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___6XOT
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ov5Dv
+                          )}
+                        >
+                          {
+                            "Upgrade to a higher plan to add more Printify items to your recipe."
+                          }
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.table2.selectedRows !== undefined;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"printfulError"}
+                    data-plasmic-override={overrides.printfulError}
+                    className={classNames(projectcss.all, sty.printfulError)}
+                  >
+                    {(() => {
+                      try {
+                        return (() => {
+                          const selectedRowsCount =
+                            $state.table2.selectedRows.map(b => b.id).length;
+                          const majorPlan = $queries.keys.data[0].major_plan;
+                          if (
+                            (majorPlan === 0 && selectedRowsCount > 3) ||
+                            (majorPlan === 1 && selectedRowsCount > 10) ||
+                            (majorPlan === 2 && selectedRowsCount > 30) ||
+                            (majorPlan === 3 && selectedRowsCount > 200)
+                          ) {
+                            return true;
+                          } else {
+                            return false;
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__dgsMf
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__f8ZoE
+                          )}
+                        >
+                          {
+                            "Upgrade to a higher plan to add more Printful items to your recipe."
+                          }
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return !(() => {
+                      const userRecipeCount = $queries.userRecipe.data.length;
+                      const majorPlan = $queries.keys.data[0].major_plan;
+                      if (
+                        (majorPlan === 0 && userRecipeCount > 3) ||
+                        (majorPlan === 1 && userRecipeCount > 10) ||
+                        (majorPlan === 2 && userRecipeCount > 20) ||
+                        (majorPlan === 3 && userRecipeCount > 2000)
+                      ) {
+                        return false;
+                      } else {
+                        return true;
+                      }
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"maxRecipeError"}
+                    data-plasmic-override={overrides.maxRecipeError}
+                    className={classNames(projectcss.all, sty.maxRecipeError)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__bTvGs)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__kf2Zx
+                        )}
+                      >
+                        {"Upgrade to a higher plan to create more recipes."}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__an9Ap
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                const majorPlan =
+                                  $queries.keys.data[0].major_plan;
+                                switch (majorPlan) {
+                                  case 0:
+                                    return "max recipe of 3";
+                                  case 1:
+                                    return "max recipe of 10";
+                                  case 2:
+                                    return "max recipe of 20";
+                                  case 3:
+                                    return "Contact us";
+                                  default:
+                                    return "";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return " ";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  </div>
+                ) : null}
               </FormWrapper>
             );
           })()}
@@ -1399,27 +1755,55 @@ const PlasmicDescendants = {
     "tabs",
     "table",
     "table2",
-    "freeBox",
     "svg",
     "form",
     "input",
     "input2",
     "input3",
     "input4",
-    "button"
+    "recipeChecker",
+    "printfulItemChecker",
+    "printifyItemChecker",
+    "button",
+    "printifyError",
+    "printfulError",
+    "maxRecipeError"
   ],
-  pageLayout: ["pageLayout", "tabs", "table", "table2", "freeBox", "svg"],
+  pageLayout: ["pageLayout", "tabs", "table", "table2", "svg"],
   tabs: ["tabs", "table", "table2"],
   table: ["table"],
   table2: ["table2"],
-  freeBox: ["freeBox", "svg"],
   svg: ["svg"],
-  form: ["form", "input", "input2", "input3", "input4", "button"],
+  form: [
+    "form",
+    "input",
+    "input2",
+    "input3",
+    "input4",
+    "recipeChecker",
+    "printfulItemChecker",
+    "printifyItemChecker",
+    "button",
+    "printifyError",
+    "printfulError",
+    "maxRecipeError"
+  ],
   input: ["input"],
   input2: ["input2"],
   input3: ["input3"],
   input4: ["input4"],
-  button: ["button"]
+  recipeChecker: [
+    "recipeChecker",
+    "printfulItemChecker",
+    "printifyItemChecker",
+    "button"
+  ],
+  printfulItemChecker: ["printfulItemChecker", "printifyItemChecker", "button"],
+  printifyItemChecker: ["printifyItemChecker", "button"],
+  button: ["button"],
+  printifyError: ["printifyError"],
+  printfulError: ["printfulError"],
+  maxRecipeError: ["maxRecipeError"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1430,14 +1814,19 @@ type NodeDefaultElementType = {
   tabs: typeof AntdTabs;
   table: typeof RichTable;
   table2: typeof RichTable;
-  freeBox: "div";
   svg: "svg";
   form: typeof FormWrapper;
   input: typeof AntdInput;
   input2: typeof AntdInput;
   input3: typeof AntdInput;
   input4: typeof AntdInput;
+  recipeChecker: "div";
+  printfulItemChecker: "div";
+  printifyItemChecker: "div";
   button: typeof AntdButton;
+  printifyError: "div";
+  printfulError: "div";
+  maxRecipeError: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1546,14 +1935,19 @@ export const PlasmicTestnewRecipe2 = Object.assign(
     tabs: makeNodeComponent("tabs"),
     table: makeNodeComponent("table"),
     table2: makeNodeComponent("table2"),
-    freeBox: makeNodeComponent("freeBox"),
     svg: makeNodeComponent("svg"),
     form: makeNodeComponent("form"),
     input: makeNodeComponent("input"),
     input2: makeNodeComponent("input2"),
     input3: makeNodeComponent("input3"),
     input4: makeNodeComponent("input4"),
+    recipeChecker: makeNodeComponent("recipeChecker"),
+    printfulItemChecker: makeNodeComponent("printfulItemChecker"),
+    printifyItemChecker: makeNodeComponent("printifyItemChecker"),
     button: makeNodeComponent("button"),
+    printifyError: makeNodeComponent("printifyError"),
+    printfulError: makeNodeComponent("printfulError"),
+    maxRecipeError: makeNodeComponent("maxRecipeError"),
 
     // Metadata about props expected for PlasmicTestnewRecipe2
     internalVariantProps: PlasmicTestnewRecipe2__VariantProps,

@@ -413,7 +413,7 @@
     {
       "name": "Success/Success-Border",
       "type": "color",
-      "value": "#86EFAC",
+      "value": "#86EFAC00",
       "category": "color",
       "meta": {
         "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
@@ -2538,6 +2538,76 @@
       "meta": {
         "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
         "id": "ku_HOM7Qeibu"
+      }
+    },
+    {
+      "name": "black border",
+      "type": "color",
+      "value": "#404040",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "5kqrVnuGRz6_"
+      }
+    },
+    {
+      "name": "blue text",
+      "type": "color",
+      "value": "#246DE3",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "mbzR8mJvAqCi"
+      }
+    },
+    {
+      "name": "card background black",
+      "type": "color",
+      "value": "#ffffff",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "RNfO_UwwvrW1"
+      }
+    },
+    {
+      "name": "dim white",
+      "type": "color",
+      "value": "#A3A3A3",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "Gfv3UGuzz9NW"
+      }
+    },
+    {
+      "name": "primary main default",
+      "type": "color",
+      "value": "#1B6DF3",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "crRX2F3GQKIL"
+      }
+    },
+    {
+      "name": "text main",
+      "type": "color",
+      "value": "#FFFFFF",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "2G59adLrkM09"
+      }
+    },
+    {
+      "name": "top white text",
+      "type": "color",
+      "value": "#FFFFFF",
+      "category": "color",
+      "meta": {
+        "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+        "id": "ncSZjzOayt-d"
       }
     }
   ],

@@ -1020,6 +1020,73 @@
           "cssFilePath": "plasmic/print_vision/PlasmicPopover.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "NzvaU-I_URSd",
+          "name": "PaymentGateway",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicPaymentGateway.tsx",
+          "importSpec": {
+            "modulePath": "../pages/payment-gateway.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicPaymentGateway.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/payment-gateway"
+        },
+        {
+          "id": "RdudtLc_UNDU",
+          "name": "ReviewPayment",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicReviewPayment.tsx",
+          "importSpec": {
+            "modulePath": "../pages/review-payment.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicReviewPayment.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/review-payment"
+        },
+        {
+          "id": "296qaVSDm1cX",
+          "name": "ButtonOutline",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicButtonOutline.tsx",
+          "importSpec": {
+            "modulePath": "ButtonOutline.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicButtonOutline.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "e0uKBFx1iVNq",
+          "name": "Badge",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicBadge.tsx",
+          "importSpec": {
+            "modulePath": "Badge.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicBadge.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "UU2fpoxpMi1Y",
+          "name": "Pricing",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicPricing.tsx",
+          "importSpec": {
+            "modulePath": "Pricing.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicPricing.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1077,6 +1144,26 @@
           "id": "OJirpaMF6XYt",
           "name": "TriangleFilledIcon",
           "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__TriangleFilled.tsx"
+        },
+        {
+          "id": "a9GuvEt2Pn65",
+          "name": "CheckSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__CheckSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "lJir7KSUxXWg",
+          "name": "UpRightSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__UpRightSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "JUZVbki5w54S",
+          "name": "Icon7Icon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__Icon7.tsx"
+        },
+        {
+          "id": "5X99CdIwgZup",
+          "name": "AdSvgIcon",
+          "moduleFilePath": "plasmic/print_vision/icons/PlasmicIcon__AdSvg.tsx"
         }
       ],
       "images": [
@@ -1375,8 +1462,29 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
+    },
+    {
+      "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
+      "projectApiToken": "DIkcfhBwjMCJSjcxfBkMuy4NImyytq5EWylxVcpS9t9EpdhnPQuBgBGxmk00AB1itMFa1KXTxOKnrjN2PN9nlA",
+      "projectName": "react-awesome-reveal",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/react_awesome_reveal/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "R6s1FdhksG",
+          "name": "Reveal",
+          "displayName": "hostless-reveal",
+          "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
+        }
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {
@@ -1393,6 +1501,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.334",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.334/dist/plasmic.schema.json"
+  "cliVersion": "0.1.335",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.335/dist/plasmic.schema.json"
 }

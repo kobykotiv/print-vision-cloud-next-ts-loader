@@ -1,0 +1,96 @@
+.button {
+  display: inline-flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  min-height: 40px;
+  background: #171717;
+  box-shadow: 0px 2px 2px 0px #0a0a0a0d, 0px 2px 2px 0px #00000033,
+    0px 6px 5px 0px rgba(0, 0, 0, 0.2), 0px 12.522px 16px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid var(--token-5kqrVnuGRz6_);
+}
+.button > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(0px - 4px);
+  width: calc(100% + 4px);
+}
+.button > :global(.__wab_flex-container) > *,
+.button > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.button > :global(.__wab_flex-container) > picture > img,
+.button
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 4px;
+}
+.buttonstyles_blue {
+  background: #1b6df3;
+}
+.buttonstyles_disabled {
+  background: #969696;
+  width: auto;
+  justify-self: flex-start;
+  display: inline-flex;
+}
+.buttonstyles_disabled > :global(.__wab_flex-container) {
+  justify-content: center;
+  align-items: center;
+}
+.button:hover {
+  background: #262626;
+}
+.freeBox {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.freeBoxstyles_wide {
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+.freeBoxstyles_blue {
+  width: auto;
+}
+.freeBoxstyles_disabled {
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+.slotTargetChildren {
+  color: var(--token-ncSZjzOayt-d);
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  color: var(--token-ncSZjzOayt-d);
+  flex-shrink: 0;
+}
+.svgstyles_wide {
+  display: none;
+}
+.svgstyles_blue {
+  display: none;
+}
+.svgstyles_disabled {
+  display: none;
+}

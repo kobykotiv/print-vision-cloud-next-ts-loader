@@ -70,6 +70,8 @@ import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/compo
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
+import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -93,11 +95,13 @@ export const PlasmicRecipes__ArgProps = new Array<ArgPropType>();
 export type PlasmicRecipes__OverridesType = {
   root?: Flex__<"div">;
   pageLayout?: Flex__<typeof PageLayout>;
-  freeBox?: Flex__<"div">;
+  adsContainer?: Flex__<"div">;
   h1?: Flex__<"h1">;
   button?: Flex__<typeof AntdButton>;
   text?: Flex__<"div">;
   table?: Flex__<typeof RichTable>;
+  conditionGuard?: Flex__<typeof ConditionGuard>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultRecipesProps {}
@@ -180,6 +184,18 @@ function PlasmicRecipes__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("selectedRowKeys", RichTable_Helpers)
+      },
+      {
+        path: "timerVariable",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "paymentResult",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -202,6 +218,16 @@ function PlasmicRecipes__RenderFunc(props: {
         cacheKey: `plasmic.$.d79ead4a-46aa-48bd-9e75-c375c164e664.$.`,
         invalidatedKeys: null,
         roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    keys: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "17fa43f9-6d23-477e-b455-19a8cd444d69",
+        userArgs: {},
+        cacheKey: `plasmic.$.17fa43f9-6d23-477e-b455-19a8cd444d69.$.`,
+        invalidatedKeys: null,
+        roleId: null
       };
     })
   };
@@ -245,10 +271,27 @@ function PlasmicRecipes__RenderFunc(props: {
             <DataCtxReader__>
               {$ctx => (
                 <React.Fragment>
+                  {(() => {
+                    try {
+                      return $queries.keys.data[0].major_plan === 0;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      data-plasmic-name={"adsContainer"}
+                      data-plasmic-override={overrides.adsContainer}
+                      className={classNames(projectcss.all, sty.adsContainer)}
+                    />
+                  ) : null}
                   <div
-                    data-plasmic-name={"freeBox"}
-                    data-plasmic-override={overrides.freeBox}
-                    className={classNames(projectcss.all, sty.freeBox)}
+                    className={classNames(projectcss.all, sty.freeBox__dh5RD)}
                   >
                     <h1
                       data-plasmic-name={"h1"}
@@ -600,6 +643,271 @@ function PlasmicRecipes__RenderFunc(props: {
                       />
                     );
                   })()}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__chUoV)}
+                  >
+                    {(() => {
+                      try {
+                        return $state.timerVariable >= 30;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__jrW4K
+                        )}
+                      >
+                        <ConditionGuard
+                          data-plasmic-name={"conditionGuard"}
+                          data-plasmic-override={overrides.conditionGuard}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.conditionGuard
+                          )}
+                          condition={(() => {
+                            try {
+                              return !$queries.keys.data[0].payment_status;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          onNotSatisfied={async () => {
+                            const $steps = {};
+
+                            $steps["httpGet"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: $state.table.selectedRowKey,
+                                    operation: 0,
+                                    dataOp: {
+                                      sourceId: "ao83tYnui5QEAuzybxgrVJ",
+                                      opId: "f0fc006b-e4f6-483a-a7e0-e15039a00836",
+                                      userArgs: {
+                                        path: [
+                                          $queries.keys.data[0]
+                                            .major_payment_intent
+                                        ]
+                                      },
+                                      cacheKey: null,
+                                      invalidatedKeys: null,
+                                      roleId: null
+                                    }
+                                  };
+                                  return (async ({
+                                    dataOp,
+                                    continueOnError
+                                  }) => {
+                                    try {
+                                      const response =
+                                        await executePlasmicDataOp(dataOp, {
+                                          userAuthToken:
+                                            dataSourcesCtx?.userAuthToken,
+                                          user: dataSourcesCtx?.user
+                                        });
+                                      await plasmicInvalidate(
+                                        dataOp.invalidatedKeys
+                                      );
+                                      return response;
+                                    } catch (e) {
+                                      if (!continueOnError) {
+                                        throw e;
+                                      }
+                                      return e;
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["httpGet"] != null &&
+                              typeof $steps["httpGet"] === "object" &&
+                              typeof $steps["httpGet"].then === "function"
+                            ) {
+                              $steps["httpGet"] = await $steps["httpGet"];
+                            }
+
+                            $steps["updateVariable"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["paymentResult"]
+                                    },
+                                    operation: 0,
+                                    value: $steps.httpGet
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateVariable"] != null &&
+                              typeof $steps["updateVariable"] === "object" &&
+                              typeof $steps["updateVariable"].then ===
+                                "function"
+                            ) {
+                              $steps["updateVariable"] = await $steps[
+                                "updateVariable"
+                              ];
+                            }
+
+                            $steps["postgresUpdateMany"] =
+                              $state.paymentResult.data.response
+                                .payment_status !== "paid"
+                                ? (() => {
+                                    const actionArgs = {
+                                      dataOp: {
+                                        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                        opId: "ff519638-f5e0-4225-a2f8-ae76d077b654",
+                                        userArgs: {},
+                                        cacheKey: null,
+                                        invalidatedKeys: [
+                                          "plasmic_refresh_all"
+                                        ],
+                                        roleId: null
+                                      }
+                                    };
+                                    return (async ({
+                                      dataOp,
+                                      continueOnError
+                                    }) => {
+                                      try {
+                                        const response =
+                                          await executePlasmicDataOp(dataOp, {
+                                            userAuthToken:
+                                              dataSourcesCtx?.userAuthToken,
+                                            user: dataSourcesCtx?.user
+                                          });
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
+                                        return response;
+                                      } catch (e) {
+                                        if (!continueOnError) {
+                                          throw e;
+                                        }
+                                        return e;
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["postgresUpdateMany"] != null &&
+                              typeof $steps["postgresUpdateMany"] ===
+                                "object" &&
+                              typeof $steps["postgresUpdateMany"].then ===
+                                "function"
+                            ) {
+                              $steps["postgresUpdateMany"] = await $steps[
+                                "postgresUpdateMany"
+                              ];
+                            }
+
+                            $steps["invokeGlobalAction"] =
+                              $state.paymentResult.data.response
+                                .payment_status !== "paid"
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: ["info", "Subscription ended"]
+                                    };
+                                    return $globalActions[
+                                      "plasmic-antd5-config-provider.showNotification"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                    <Timer
+                      data-plasmic-name={"timer"}
+                      data-plasmic-override={overrides.timer}
+                      className={classNames("__wab_instance", sty.timer)}
+                      intervalSeconds={0.1}
+                      isRunning={true}
+                      onTick={async () => {
+                        const $steps = {};
+
+                        $steps["updateVariable"] = (
+                          $state.timerVariable > 100 ? false : true
+                        )
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["timerVariable"]
+                                },
+                                operation: 2
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, oldValue + 1);
+                                return oldValue + 1;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateVariable"] != null &&
+                          typeof $steps["updateVariable"] === "object" &&
+                          typeof $steps["updateVariable"].then === "function"
+                        ) {
+                          $steps["updateVariable"] = await $steps[
+                            "updateVariable"
+                          ];
+                        }
+                      }}
+                      runWhileEditing={true}
+                    />
+                  </div>
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -611,13 +919,34 @@ function PlasmicRecipes__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "freeBox", "h1", "button", "text", "table"],
-  pageLayout: ["pageLayout", "freeBox", "h1", "button", "text", "table"],
-  freeBox: ["freeBox", "h1", "button", "text"],
+  root: [
+    "root",
+    "pageLayout",
+    "adsContainer",
+    "h1",
+    "button",
+    "text",
+    "table",
+    "conditionGuard",
+    "timer"
+  ],
+  pageLayout: [
+    "pageLayout",
+    "adsContainer",
+    "h1",
+    "button",
+    "text",
+    "table",
+    "conditionGuard",
+    "timer"
+  ],
+  adsContainer: ["adsContainer"],
   h1: ["h1"],
   button: ["button", "text"],
   text: ["text"],
-  table: ["table"]
+  table: ["table"],
+  conditionGuard: ["conditionGuard"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -625,11 +954,13 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
-  freeBox: "div";
+  adsContainer: "div";
   h1: "h1";
   button: typeof AntdButton;
   text: "div";
   table: typeof RichTable;
+  conditionGuard: typeof ConditionGuard;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -735,11 +1066,13 @@ export const PlasmicRecipes = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
-    freeBox: makeNodeComponent("freeBox"),
+    adsContainer: makeNodeComponent("adsContainer"),
     h1: makeNodeComponent("h1"),
     button: makeNodeComponent("button"),
     text: makeNodeComponent("text"),
     table: makeNodeComponent("table"),
+    conditionGuard: makeNodeComponent("conditionGuard"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicRecipes
     internalVariantProps: PlasmicRecipes__VariantProps,

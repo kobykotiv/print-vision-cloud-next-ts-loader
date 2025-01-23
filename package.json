@@ -11,7 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
     "@ant-design/pro-components": "^2.6.4",
-    "@plasmicapp/cli": "^0.1.334",
+    "@plasmicapp/cli": "^0.1.335",
     "@plasmicapp/loader-nextjs": "^1.0.404",
     "@plasmicapp/react-web": "^0.2.350",
     "@plasmicpkgs/antd5": "^0.0.249",
@@ -21,6 +21,7 @@
     "@plasmicpkgs/plasmic-tabs": "^0.0.47",
     "@plasmicpkgs/radix-ui": "^0.0.62",
     "@plasmicpkgs/react-aria": "^0.0.98",
+    "@plasmicpkgs/react-awesome-reveal": "^3.8.210",
     "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18"
