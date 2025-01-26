@@ -68,10 +68,10 @@ import {
 
 import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
-import Pricing from "../../Pricing"; // plasmic-import: UU2fpoxpMi1Y/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-import ButtonOutline from "../../ButtonOutline"; // plasmic-import: 296qaVSDm1cX/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
+import { useScreenVariants as useScreenVariantsgFgHdl6TgBHl } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: GFgHdl6tgBHl/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -79,6 +79,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 2Up8DUmBB1Tx5dhznkvCW5/projectcss
 import sty from "./PlasmicPaymentGateway.module.css"; // plasmic-import: NzvaU-I_URSd/css
+
+import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: JUZVbki5w54S/icon
+import AdSvgIcon from "./icons/PlasmicIcon__AdSvg"; // plasmic-import: 5X99CdIwgZup/icon
 
 createPlasmicElementProxy;
 
@@ -95,16 +98,10 @@ export type PlasmicPaymentGateway__OverridesType = {
   root?: Flex__<"div">;
   pageLayout?: Flex__<typeof PageLayout>;
   section?: Flex__<"section">;
-  freeBox?: Flex__<"div">;
   reveal?: Flex__<typeof Reveal>;
-  pricing?: Flex__<typeof Pricing>;
-  checker2?: Flex__<"div">;
-  checker6?: Flex__<"div">;
-  checker?: Flex__<"div">;
-  checker4?: Flex__<"div">;
-  checker3?: Flex__<"div">;
-  checker5?: Flex__<"div">;
-  text?: Flex__<"div">;
+  columns?: Flex__<"div">;
+  subscribe?: Flex__<"div">;
+  current?: Flex__<"div">;
 };
 
 export interface DefaultPaymentGatewayProps {}
@@ -196,6 +193,10 @@ function PlasmicPaymentGateway__RenderFunc(props: {
     $queries = new$Queries;
   }
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsgFgHdl6TgBHl()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -235,1452 +236,18 @@ function PlasmicPaymentGateway__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.section)}
                 >
                   <div
-                    data-plasmic-name={"freeBox"}
-                    data-plasmic-override={overrides.freeBox}
-                    className={classNames(projectcss.all, sty.freeBox)}
+                    className={classNames(projectcss.all, sty.freeBox__rl5Pf)}
                   >
                     <Reveal
                       data-plasmic-name={"reveal"}
                       data-plasmic-override={overrides.reveal}
+                      children={null}
                       className={classNames("__wab_instance", sty.reveal)}
                       delay={300}
                       direction={"left"}
                       triggerOnce={true}
-                    >
-                      <Pricing
-                        data-plasmic-name={"pricing"}
-                        data-plasmic-override={overrides.pricing}
-                        className={classNames("__wab_instance", sty.pricing)}
-                        slot={
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $queries.keys.data[0].major_plan !== 1;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                data-plasmic-name={"checker"}
-                                data-plasmic-override={overrides.checker}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.checker
-                                )}
-                              >
-                                <AntdButton
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.button__jDjc3
-                                  )}
-                                  onClick={async () => {
-                                    const $steps = {};
+                    />
 
-                                    $steps["getCustomerId"] =
-                                      $queries.keys.data[0]
-                                        .stripe_customer_id === null
-                                        ? (() => {
-                                            const actionArgs = {
-                                              dataOp: {
-                                                sourceId:
-                                                  "ao83tYnui5QEAuzybxgrVJ",
-                                                opId: "c683e00f-bd43-49df-bda2-a239be173777",
-                                                userArgs: {
-                                                  params: [
-                                                    $queries.keys.data[0].owner,
-                                                    $queries.keys.data[0].owner
-                                                  ]
-                                                },
-                                                cacheKey: null,
-                                                invalidatedKeys: [],
-                                                roleId: null
-                                              }
-                                            };
-                                            return (async ({
-                                              dataOp,
-                                              continueOnError
-                                            }) => {
-                                              try {
-                                                const response =
-                                                  await executePlasmicDataOp(
-                                                    dataOp,
-                                                    {
-                                                      userAuthToken:
-                                                        dataSourcesCtx?.userAuthToken,
-                                                      user: dataSourcesCtx?.user
-                                                    }
-                                                  );
-                                                await plasmicInvalidate(
-                                                  dataOp.invalidatedKeys
-                                                );
-                                                return response;
-                                              } catch (e) {
-                                                if (!continueOnError) {
-                                                  throw e;
-                                                }
-                                                return e;
-                                              }
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["getCustomerId"] != null &&
-                                      typeof $steps["getCustomerId"] ===
-                                        "object" &&
-                                      typeof $steps["getCustomerId"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["getCustomerId"] = await $steps[
-                                        "getCustomerId"
-                                      ];
-                                    }
-
-                                    $steps["updateCustomerId"] =
-                                      $queries.keys.data[0]
-                                        .stripe_customer_id === null
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: ["getCustomerId"]
-                                              },
-                                              operation: 0,
-                                              value: $steps.getCustomerId
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["updateCustomerId"] != null &&
-                                      typeof $steps["updateCustomerId"] ===
-                                        "object" &&
-                                      typeof $steps["updateCustomerId"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateCustomerId"] = await $steps[
-                                        "updateCustomerId"
-                                      ];
-                                    }
-
-                                    $steps["postgresUpdateMany"] =
-                                      $queries.keys.data[0]
-                                        .stripe_customer_id === null
-                                        ? (() => {
-                                            const actionArgs = {
-                                              dataOp: {
-                                                sourceId:
-                                                  "83X9ZdYzYUYJtgqe5fwXeX",
-                                                opId: "db5c2a00-d97e-45cc-8a20-0bbb320aa191",
-                                                userArgs: {
-                                                  variables: [
-                                                    $state.getCustomerId.data
-                                                      .response.id
-                                                  ]
-                                                },
-                                                cacheKey: null,
-                                                invalidatedKeys: [],
-                                                roleId: null
-                                              }
-                                            };
-                                            return (async ({
-                                              dataOp,
-                                              continueOnError
-                                            }) => {
-                                              try {
-                                                const response =
-                                                  await executePlasmicDataOp(
-                                                    dataOp,
-                                                    {
-                                                      userAuthToken:
-                                                        dataSourcesCtx?.userAuthToken,
-                                                      user: dataSourcesCtx?.user
-                                                    }
-                                                  );
-                                                await plasmicInvalidate(
-                                                  dataOp.invalidatedKeys
-                                                );
-                                                return response;
-                                              } catch (e) {
-                                                if (!continueOnError) {
-                                                  throw e;
-                                                }
-                                                return e;
-                                              }
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["postgresUpdateMany"] != null &&
-                                      typeof $steps["postgresUpdateMany"] ===
-                                        "object" &&
-                                      typeof $steps["postgresUpdateMany"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["postgresUpdateMany"] =
-                                        await $steps["postgresUpdateMany"];
-                                    }
-
-                                    $steps["refreshData"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            queryInvalidation: [
-                                              "plasmic_refresh_all"
-                                            ]
-                                          };
-                                          return (async ({
-                                            queryInvalidation
-                                          }) => {
-                                            if (!queryInvalidation) {
-                                              return;
-                                            }
-                                            await plasmicInvalidate(
-                                              queryInvalidation
-                                            );
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["refreshData"] != null &&
-                                      typeof $steps["refreshData"] ===
-                                        "object" &&
-                                      typeof $steps["refreshData"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["refreshData"] = await $steps[
-                                        "refreshData"
-                                      ];
-                                    }
-
-                                    $steps["stripeCheckout"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            dataOp: {
-                                              sourceId:
-                                                "ao83tYnui5QEAuzybxgrVJ",
-                                              opId: "a223d51c-0b67-4c52-8342-bcbae4945948",
-                                              userArgs: {},
-                                              cacheKey: null,
-                                              invalidatedKeys: [
-                                                "plasmic_refresh_all"
-                                              ],
-                                              roleId: null
-                                            }
-                                          };
-                                          return (async ({
-                                            dataOp,
-                                            continueOnError
-                                          }) => {
-                                            try {
-                                              const response =
-                                                await executePlasmicDataOp(
-                                                  dataOp,
-                                                  {
-                                                    userAuthToken:
-                                                      dataSourcesCtx?.userAuthToken,
-                                                    user: dataSourcesCtx?.user
-                                                  }
-                                                );
-                                              await plasmicInvalidate(
-                                                dataOp.invalidatedKeys
-                                              );
-                                              return response;
-                                            } catch (e) {
-                                              if (!continueOnError) {
-                                                throw e;
-                                              }
-                                              return e;
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["stripeCheckout"] != null &&
-                                      typeof $steps["stripeCheckout"] ===
-                                        "object" &&
-                                      typeof $steps["stripeCheckout"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["stripeCheckout"] = await $steps[
-                                        "stripeCheckout"
-                                      ];
-                                    }
-
-                                    $steps["updateStripeUrl"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["checkoutSession"]
-                                            },
-                                            operation: 0,
-                                            value: $steps.stripeCheckout
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["updateStripeUrl"] != null &&
-                                      typeof $steps["updateStripeUrl"] ===
-                                        "object" &&
-                                      typeof $steps["updateStripeUrl"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateStripeUrl"] = await $steps[
-                                        "updateStripeUrl"
-                                      ];
-                                    }
-
-                                    $steps["postgresUpdateMany2"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            dataOp: {
-                                              sourceId:
-                                                "83X9ZdYzYUYJtgqe5fwXeX",
-                                              opId: "9afe8fd3-46d3-49ae-9ce8-51e251baf52c",
-                                              userArgs: {
-                                                variables: [
-                                                  $state.checkoutSession.data
-                                                    .response.id
-                                                ]
-                                              },
-                                              cacheKey: null,
-                                              invalidatedKeys: [
-                                                "plasmic_refresh_all"
-                                              ],
-                                              roleId: null
-                                            }
-                                          };
-                                          return (async ({
-                                            dataOp,
-                                            continueOnError
-                                          }) => {
-                                            try {
-                                              const response =
-                                                await executePlasmicDataOp(
-                                                  dataOp,
-                                                  {
-                                                    userAuthToken:
-                                                      dataSourcesCtx?.userAuthToken,
-                                                    user: dataSourcesCtx?.user
-                                                  }
-                                                );
-                                              await plasmicInvalidate(
-                                                dataOp.invalidatedKeys
-                                              );
-                                              return response;
-                                            } catch (e) {
-                                              if (!continueOnError) {
-                                                throw e;
-                                              }
-                                              return e;
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["postgresUpdateMany2"] != null &&
-                                      typeof $steps["postgresUpdateMany2"] ===
-                                        "object" &&
-                                      typeof $steps["postgresUpdateMany2"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["postgresUpdateMany2"] =
-                                        await $steps["postgresUpdateMany2"];
-                                    }
-
-                                    $steps["goToPage"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            destination: (() => {
-                                              try {
-                                                return $state.checkoutSession
-                                                  .data.response.url;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          };
-                                          return (({ destination }) => {
-                                            if (
-                                              typeof destination === "string" &&
-                                              destination.startsWith("#")
-                                            ) {
-                                              document
-                                                .getElementById(
-                                                  destination.substr(1)
-                                                )
-                                                .scrollIntoView({
-                                                  behavior: "smooth"
-                                                });
-                                            } else {
-                                              __nextRouter?.push(destination);
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["goToPage"] != null &&
-                                      typeof $steps["goToPage"] === "object" &&
-                                      typeof $steps["goToPage"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["goToPage"] = await $steps[
-                                        "goToPage"
-                                      ];
-                                    }
-                                  }}
-                                >
-                                  <ButtonOutline
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.buttonOutline__bS51H
-                                    )}
-                                    styles={"wide"}
-                                  >
-                                    {"Get Started"}
-                                  </ButtonOutline>
-                                </AntdButton>
-                              </div>
-                            ) : null}
-                            {(() => {
-                              try {
-                                return $queries.keys.data[0].major_plan == 1;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                data-plasmic-name={"checker4"}
-                                data-plasmic-override={overrides.checker4}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.checker4
-                                )}
-                              >
-                                <AntdButton
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.button__yk0P
-                                  )}
-                                  disabled={true}
-                                >
-                                  <ButtonOutline
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.buttonOutline__tfw7I
-                                    )}
-                                    styles={"disabled"}
-                                  >
-                                    {"Current Plan"}
-                                  </ButtonOutline>
-                                </AntdButton>
-                              </div>
-                            ) : null}
-                          </React.Fragment>
-                        }
-                        slot2={
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $queries.keys.data[0].major_plan !== 3;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                data-plasmic-name={"checker3"}
-                                data-plasmic-override={overrides.checker3}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.checker3
-                                )}
-                              >
-                                <AntdButton
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.button__stWkL
-                                  )}
-                                  onClick={async () => {
-                                    const $steps = {};
-
-                                    $steps["getCustomerId"] =
-                                      $queries.keys.data[0]
-                                        .stripe_customer_id === null
-                                        ? (() => {
-                                            const actionArgs = {
-                                              dataOp: {
-                                                sourceId:
-                                                  "ao83tYnui5QEAuzybxgrVJ",
-                                                opId: "c683e00f-bd43-49df-bda2-a239be173777",
-                                                userArgs: {
-                                                  params: [
-                                                    $queries.keys.data[0].owner,
-                                                    $queries.keys.data[0].owner
-                                                  ]
-                                                },
-                                                cacheKey: null,
-                                                invalidatedKeys: [],
-                                                roleId: null
-                                              }
-                                            };
-                                            return (async ({
-                                              dataOp,
-                                              continueOnError
-                                            }) => {
-                                              try {
-                                                const response =
-                                                  await executePlasmicDataOp(
-                                                    dataOp,
-                                                    {
-                                                      userAuthToken:
-                                                        dataSourcesCtx?.userAuthToken,
-                                                      user: dataSourcesCtx?.user
-                                                    }
-                                                  );
-                                                await plasmicInvalidate(
-                                                  dataOp.invalidatedKeys
-                                                );
-                                                return response;
-                                              } catch (e) {
-                                                if (!continueOnError) {
-                                                  throw e;
-                                                }
-                                                return e;
-                                              }
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["getCustomerId"] != null &&
-                                      typeof $steps["getCustomerId"] ===
-                                        "object" &&
-                                      typeof $steps["getCustomerId"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["getCustomerId"] = await $steps[
-                                        "getCustomerId"
-                                      ];
-                                    }
-
-                                    $steps["updateCustomerId"] =
-                                      $queries.keys.data[0]
-                                        .stripe_customer_id === null
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: ["getCustomerId"]
-                                              },
-                                              operation: 0,
-                                              value: $steps.getCustomerId
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["updateCustomerId"] != null &&
-                                      typeof $steps["updateCustomerId"] ===
-                                        "object" &&
-                                      typeof $steps["updateCustomerId"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateCustomerId"] = await $steps[
-                                        "updateCustomerId"
-                                      ];
-                                    }
-
-                                    $steps["postgresUpdateMany"] =
-                                      $queries.keys.data[0]
-                                        .stripe_customer_id === null
-                                        ? (() => {
-                                            const actionArgs = {
-                                              dataOp: {
-                                                sourceId:
-                                                  "83X9ZdYzYUYJtgqe5fwXeX",
-                                                opId: "db5c2a00-d97e-45cc-8a20-0bbb320aa191",
-                                                userArgs: {
-                                                  variables: [
-                                                    $state.getCustomerId.data
-                                                      .response.id
-                                                  ]
-                                                },
-                                                cacheKey: null,
-                                                invalidatedKeys: [],
-                                                roleId: null
-                                              }
-                                            };
-                                            return (async ({
-                                              dataOp,
-                                              continueOnError
-                                            }) => {
-                                              try {
-                                                const response =
-                                                  await executePlasmicDataOp(
-                                                    dataOp,
-                                                    {
-                                                      userAuthToken:
-                                                        dataSourcesCtx?.userAuthToken,
-                                                      user: dataSourcesCtx?.user
-                                                    }
-                                                  );
-                                                await plasmicInvalidate(
-                                                  dataOp.invalidatedKeys
-                                                );
-                                                return response;
-                                              } catch (e) {
-                                                if (!continueOnError) {
-                                                  throw e;
-                                                }
-                                                return e;
-                                              }
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["postgresUpdateMany"] != null &&
-                                      typeof $steps["postgresUpdateMany"] ===
-                                        "object" &&
-                                      typeof $steps["postgresUpdateMany"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["postgresUpdateMany"] =
-                                        await $steps["postgresUpdateMany"];
-                                    }
-
-                                    $steps["refreshData"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            queryInvalidation: [
-                                              "plasmic_refresh_all"
-                                            ]
-                                          };
-                                          return (async ({
-                                            queryInvalidation
-                                          }) => {
-                                            if (!queryInvalidation) {
-                                              return;
-                                            }
-                                            await plasmicInvalidate(
-                                              queryInvalidation
-                                            );
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["refreshData"] != null &&
-                                      typeof $steps["refreshData"] ===
-                                        "object" &&
-                                      typeof $steps["refreshData"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["refreshData"] = await $steps[
-                                        "refreshData"
-                                      ];
-                                    }
-
-                                    $steps["stripeCheckout"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            dataOp: {
-                                              sourceId:
-                                                "ao83tYnui5QEAuzybxgrVJ",
-                                              opId: "051f975c-168b-4f88-8ee8-78a9b8500e61",
-                                              userArgs: {
-                                                params: [
-                                                  $queries.keys.data[0]
-                                                    .stripe_customer_id
-                                                ]
-                                              },
-                                              cacheKey: null,
-                                              invalidatedKeys: [
-                                                "plasmic_refresh_all"
-                                              ],
-                                              roleId: null
-                                            }
-                                          };
-                                          return (async ({
-                                            dataOp,
-                                            continueOnError
-                                          }) => {
-                                            try {
-                                              const response =
-                                                await executePlasmicDataOp(
-                                                  dataOp,
-                                                  {
-                                                    userAuthToken:
-                                                      dataSourcesCtx?.userAuthToken,
-                                                    user: dataSourcesCtx?.user
-                                                  }
-                                                );
-                                              await plasmicInvalidate(
-                                                dataOp.invalidatedKeys
-                                              );
-                                              return response;
-                                            } catch (e) {
-                                              if (!continueOnError) {
-                                                throw e;
-                                              }
-                                              return e;
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["stripeCheckout"] != null &&
-                                      typeof $steps["stripeCheckout"] ===
-                                        "object" &&
-                                      typeof $steps["stripeCheckout"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["stripeCheckout"] = await $steps[
-                                        "stripeCheckout"
-                                      ];
-                                    }
-
-                                    $steps["updateStripeUrl"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["checkoutSession"]
-                                            },
-                                            operation: 0,
-                                            value: $steps.stripeCheckout
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["updateStripeUrl"] != null &&
-                                      typeof $steps["updateStripeUrl"] ===
-                                        "object" &&
-                                      typeof $steps["updateStripeUrl"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateStripeUrl"] = await $steps[
-                                        "updateStripeUrl"
-                                      ];
-                                    }
-
-                                    $steps["postgresUpdateMany2"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            dataOp: {
-                                              sourceId:
-                                                "83X9ZdYzYUYJtgqe5fwXeX",
-                                              opId: "b5786ab6-f19f-413d-912f-22a5f693635a",
-                                              userArgs: {
-                                                variables: [
-                                                  $state.checkoutSession.data
-                                                    .response.id
-                                                ]
-                                              },
-                                              cacheKey: null,
-                                              invalidatedKeys: [
-                                                "plasmic_refresh_all"
-                                              ],
-                                              roleId: null
-                                            }
-                                          };
-                                          return (async ({
-                                            dataOp,
-                                            continueOnError
-                                          }) => {
-                                            try {
-                                              const response =
-                                                await executePlasmicDataOp(
-                                                  dataOp,
-                                                  {
-                                                    userAuthToken:
-                                                      dataSourcesCtx?.userAuthToken,
-                                                    user: dataSourcesCtx?.user
-                                                  }
-                                                );
-                                              await plasmicInvalidate(
-                                                dataOp.invalidatedKeys
-                                              );
-                                              return response;
-                                            } catch (e) {
-                                              if (!continueOnError) {
-                                                throw e;
-                                              }
-                                              return e;
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["postgresUpdateMany2"] != null &&
-                                      typeof $steps["postgresUpdateMany2"] ===
-                                        "object" &&
-                                      typeof $steps["postgresUpdateMany2"]
-                                        .then === "function"
-                                    ) {
-                                      $steps["postgresUpdateMany2"] =
-                                        await $steps["postgresUpdateMany2"];
-                                    }
-
-                                    $steps["goToPage"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            destination: (() => {
-                                              try {
-                                                return $state.checkoutSession
-                                                  .data.response.url;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          };
-                                          return (({ destination }) => {
-                                            if (
-                                              typeof destination === "string" &&
-                                              destination.startsWith("#")
-                                            ) {
-                                              document
-                                                .getElementById(
-                                                  destination.substr(1)
-                                                )
-                                                .scrollIntoView({
-                                                  behavior: "smooth"
-                                                });
-                                            } else {
-                                              __nextRouter?.push(destination);
-                                            }
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["goToPage"] != null &&
-                                      typeof $steps["goToPage"] === "object" &&
-                                      typeof $steps["goToPage"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["goToPage"] = await $steps[
-                                        "goToPage"
-                                      ];
-                                    }
-                                  }}
-                                >
-                                  <ButtonOutline
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.buttonOutline___7UgWo
-                                    )}
-                                    styles={"wide"}
-                                  >
-                                    {"Get Started"}
-                                  </ButtonOutline>
-                                </AntdButton>
-                              </div>
-                            ) : null}
-                            {(() => {
-                              try {
-                                return $queries.keys.data[0].major_plan == 3;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                data-plasmic-name={"checker5"}
-                                data-plasmic-override={overrides.checker5}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.checker5
-                                )}
-                              >
-                                <AntdButton
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.button__ggFtA
-                                  )}
-                                  disabled={true}
-                                >
-                                  <ButtonOutline
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.buttonOutline__uxAbw
-                                    )}
-                                    styles={"disabled"}
-                                  >
-                                    {"Current Plan"}
-                                  </ButtonOutline>
-                                </AntdButton>
-                              </div>
-                            ) : null}
-                          </React.Fragment>
-                        }
-                      >
-                        {(() => {
-                          try {
-                            return $queries.keys.data[0].major_plan !== 2;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <div
-                            data-plasmic-name={"checker2"}
-                            data-plasmic-override={overrides.checker2}
-                            className={classNames(projectcss.all, sty.checker2)}
-                          >
-                            <AntdButton
-                              className={classNames(
-                                "__wab_instance",
-                                sty.button__qqODt
-                              )}
-                              onClick={async () => {
-                                const $steps = {};
-
-                                $steps["getCustomerId"] =
-                                  $queries.keys.data[0].stripe_customer_id ===
-                                  null
-                                    ? (() => {
-                                        const actionArgs = {
-                                          dataOp: {
-                                            sourceId: "ao83tYnui5QEAuzybxgrVJ",
-                                            opId: "c683e00f-bd43-49df-bda2-a239be173777",
-                                            userArgs: {
-                                              params: [
-                                                $queries.keys.data[0].owner,
-                                                $queries.keys.data[0].owner
-                                              ]
-                                            },
-                                            cacheKey: null,
-                                            invalidatedKeys: [],
-                                            roleId: null
-                                          }
-                                        };
-                                        return (async ({
-                                          dataOp,
-                                          continueOnError
-                                        }) => {
-                                          try {
-                                            const response =
-                                              await executePlasmicDataOp(
-                                                dataOp,
-                                                {
-                                                  userAuthToken:
-                                                    dataSourcesCtx?.userAuthToken,
-                                                  user: dataSourcesCtx?.user
-                                                }
-                                              );
-                                            await plasmicInvalidate(
-                                              dataOp.invalidatedKeys
-                                            );
-                                            return response;
-                                          } catch (e) {
-                                            if (!continueOnError) {
-                                              throw e;
-                                            }
-                                            return e;
-                                          }
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["getCustomerId"] != null &&
-                                  typeof $steps["getCustomerId"] === "object" &&
-                                  typeof $steps["getCustomerId"].then ===
-                                    "function"
-                                ) {
-                                  $steps["getCustomerId"] = await $steps[
-                                    "getCustomerId"
-                                  ];
-                                }
-
-                                $steps["updateCustomerId"] =
-                                  $queries.keys.data[0].stripe_customer_id ===
-                                  null
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["getCustomerId"]
-                                          },
-                                          operation: 0,
-                                          value: $steps.getCustomerId
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["updateCustomerId"] != null &&
-                                  typeof $steps["updateCustomerId"] ===
-                                    "object" &&
-                                  typeof $steps["updateCustomerId"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateCustomerId"] = await $steps[
-                                    "updateCustomerId"
-                                  ];
-                                }
-
-                                $steps["postgresUpdateMany"] =
-                                  $queries.keys.data[0].stripe_customer_id ===
-                                  null
-                                    ? (() => {
-                                        const actionArgs = {
-                                          dataOp: {
-                                            sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                            opId: "db5c2a00-d97e-45cc-8a20-0bbb320aa191",
-                                            userArgs: {
-                                              variables: [
-                                                $state.getCustomerId.data
-                                                  .response.id
-                                              ]
-                                            },
-                                            cacheKey: null,
-                                            invalidatedKeys: [],
-                                            roleId: null
-                                          }
-                                        };
-                                        return (async ({
-                                          dataOp,
-                                          continueOnError
-                                        }) => {
-                                          try {
-                                            const response =
-                                              await executePlasmicDataOp(
-                                                dataOp,
-                                                {
-                                                  userAuthToken:
-                                                    dataSourcesCtx?.userAuthToken,
-                                                  user: dataSourcesCtx?.user
-                                                }
-                                              );
-                                            await plasmicInvalidate(
-                                              dataOp.invalidatedKeys
-                                            );
-                                            return response;
-                                          } catch (e) {
-                                            if (!continueOnError) {
-                                              throw e;
-                                            }
-                                            return e;
-                                          }
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["postgresUpdateMany"] != null &&
-                                  typeof $steps["postgresUpdateMany"] ===
-                                    "object" &&
-                                  typeof $steps["postgresUpdateMany"].then ===
-                                    "function"
-                                ) {
-                                  $steps["postgresUpdateMany"] = await $steps[
-                                    "postgresUpdateMany"
-                                  ];
-                                }
-
-                                $steps["refreshData"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        queryInvalidation: [
-                                          "plasmic_refresh_all"
-                                        ]
-                                      };
-                                      return (async ({ queryInvalidation }) => {
-                                        if (!queryInvalidation) {
-                                          return;
-                                        }
-                                        await plasmicInvalidate(
-                                          queryInvalidation
-                                        );
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["refreshData"] != null &&
-                                  typeof $steps["refreshData"] === "object" &&
-                                  typeof $steps["refreshData"].then ===
-                                    "function"
-                                ) {
-                                  $steps["refreshData"] = await $steps[
-                                    "refreshData"
-                                  ];
-                                }
-
-                                $steps["stripeCheckout"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        dataOp: {
-                                          sourceId: "ao83tYnui5QEAuzybxgrVJ",
-                                          opId: "88848f67-5701-4574-80d0-39832104c9a6",
-                                          userArgs: {
-                                            params: [
-                                              $queries.keys.data[0]
-                                                .stripe_customer_id
-                                            ]
-                                          },
-                                          cacheKey: null,
-                                          invalidatedKeys: [
-                                            "plasmic_refresh_all"
-                                          ],
-                                          roleId: null
-                                        }
-                                      };
-                                      return (async ({
-                                        dataOp,
-                                        continueOnError
-                                      }) => {
-                                        try {
-                                          const response =
-                                            await executePlasmicDataOp(dataOp, {
-                                              userAuthToken:
-                                                dataSourcesCtx?.userAuthToken,
-                                              user: dataSourcesCtx?.user
-                                            });
-                                          await plasmicInvalidate(
-                                            dataOp.invalidatedKeys
-                                          );
-                                          return response;
-                                        } catch (e) {
-                                          if (!continueOnError) {
-                                            throw e;
-                                          }
-                                          return e;
-                                        }
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["stripeCheckout"] != null &&
-                                  typeof $steps["stripeCheckout"] ===
-                                    "object" &&
-                                  typeof $steps["stripeCheckout"].then ===
-                                    "function"
-                                ) {
-                                  $steps["stripeCheckout"] = await $steps[
-                                    "stripeCheckout"
-                                  ];
-                                }
-
-                                $steps["updateStripeUrl"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["checkoutSession"]
-                                        },
-                                        operation: 0,
-                                        value: $steps.stripeCheckout
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateStripeUrl"] != null &&
-                                  typeof $steps["updateStripeUrl"] ===
-                                    "object" &&
-                                  typeof $steps["updateStripeUrl"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateStripeUrl"] = await $steps[
-                                    "updateStripeUrl"
-                                  ];
-                                }
-
-                                $steps["postgresUpdateMany2"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        dataOp: {
-                                          sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                          opId: "000ad3b6-8c00-4189-a0cd-4bcd0e842b1f",
-                                          userArgs: {
-                                            variables: [
-                                              $state.checkoutSession.data
-                                                .response.id
-                                            ]
-                                          },
-                                          cacheKey: null,
-                                          invalidatedKeys: [
-                                            "plasmic_refresh_all"
-                                          ],
-                                          roleId: null
-                                        }
-                                      };
-                                      return (async ({
-                                        dataOp,
-                                        continueOnError
-                                      }) => {
-                                        try {
-                                          const response =
-                                            await executePlasmicDataOp(dataOp, {
-                                              userAuthToken:
-                                                dataSourcesCtx?.userAuthToken,
-                                              user: dataSourcesCtx?.user
-                                            });
-                                          await plasmicInvalidate(
-                                            dataOp.invalidatedKeys
-                                          );
-                                          return response;
-                                        } catch (e) {
-                                          if (!continueOnError) {
-                                            throw e;
-                                          }
-                                          return e;
-                                        }
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["postgresUpdateMany2"] != null &&
-                                  typeof $steps["postgresUpdateMany2"] ===
-                                    "object" &&
-                                  typeof $steps["postgresUpdateMany2"].then ===
-                                    "function"
-                                ) {
-                                  $steps["postgresUpdateMany2"] = await $steps[
-                                    "postgresUpdateMany2"
-                                  ];
-                                }
-
-                                $steps["goToPage"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        destination: (() => {
-                                          try {
-                                            return $state.checkoutSession.data
-                                              .response.url;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      };
-                                      return (({ destination }) => {
-                                        if (
-                                          typeof destination === "string" &&
-                                          destination.startsWith("#")
-                                        ) {
-                                          document
-                                            .getElementById(
-                                              destination.substr(1)
-                                            )
-                                            .scrollIntoView({
-                                              behavior: "smooth"
-                                            });
-                                        } else {
-                                          __nextRouter?.push(destination);
-                                        }
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["goToPage"] != null &&
-                                  typeof $steps["goToPage"] === "object" &&
-                                  typeof $steps["goToPage"].then === "function"
-                                ) {
-                                  $steps["goToPage"] = await $steps["goToPage"];
-                                }
-                              }}
-                            >
-                              <ButtonOutline
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.buttonOutline___2HOon
-                                )}
-                                styles={"blue"}
-                              >
-                                {"Get Started"}
-                              </ButtonOutline>
-                            </AntdButton>
-                          </div>
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $queries.keys.data[0].major_plan == 2;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <div
-                            data-plasmic-name={"checker6"}
-                            data-plasmic-override={overrides.checker6}
-                            className={classNames(projectcss.all, sty.checker6)}
-                          >
-                            <AntdButton
-                              className={classNames(
-                                "__wab_instance",
-                                sty.button__q3E60
-                              )}
-                              disabled={true}
-                            >
-                              <ButtonOutline
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.buttonOutline___8IU7U
-                                )}
-                                styles={"disabled"}
-                              >
-                                {"Current Plan"}
-                              </ButtonOutline>
-                            </AntdButton>
-                          </div>
-                        ) : null}
-                      </Pricing>
-                    </Reveal>
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
@@ -1737,17 +304,2910 @@ function PlasmicPaymentGateway__RenderFunc(props: {
                       }}
                     >
                       <div
-                        data-plasmic-name={"text"}
-                        data-plasmic-override={overrides.text}
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text
+                          sty.text__zanu
                         )}
                       >
                         {"Button"}
                       </div>
                     </AntdButton>
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"columns"}
+                      data-plasmic-override={overrides.columns}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.columns)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__qe5Y8
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__oEfJd
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__nAtal
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xwnEh
+                              )}
+                            >
+                              {"Free"}
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__lu093
+                            )}
+                          />
+
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__l7OT
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__z9Imx
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__slx
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__qDzJc
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___9KCnM
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__pNe
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__yNdy4
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__uGtue
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__s4T9E
+                                  )}
+                                >
+                                  {"Up to 5 Items/ Supplier/ Template"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__u56Gc
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__jbLad
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__z5HaX
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__qx3G3
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__oma5B
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__unp1
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___2LbM
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__iqpua
+                                  )}
+                                >
+                                  {"Up to 3 Templates"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__xPvzf
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__gb7Ax
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__igef
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__sddta
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__cKkn7
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__k5Vap
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___7Is5
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__fFmIm
+                                  )}
+                                >
+                                  {"Upload up to 10 Designs/ day"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ehok1
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ejUd8
+                                )}
+                              >
+                                <AdSvgIcon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg___7HWk2
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__z5Zpp
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__fW5YL
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__n8GEs
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__esLt
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__q6XX
+                                  )}
+                                >
+                                  {"Ad Supported"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ygb8
+                              )}
+                            />
+                          </Stack__>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__hauny
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___1W0Zg
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__kp3Eg
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__thjt9
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__ybmNm
+                                )}
+                              >
+                                {"Creator"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bslKs
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__tmUwn
+                                  )}
+                                >
+                                  {"$19"}
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___4NNZo
+                                  )}
+                                >
+                                  {"/mo"}
+                                </div>
+                              </div>
+                            </div>
+                          </Stack__>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__va4YL
+                            )}
+                          />
+
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__jLuhK
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__pxS6W
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bVFtR
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__oJz4Q
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__qvwl
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__hTffh
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__cceiv
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__gTLmE
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__eeFq2
+                                  )}
+                                >
+                                  {"Up to 10 items/ Supplier/ Template"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__orZgv
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___93X40
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__ak8Gn
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__nGkTn
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__dxuxO
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__pxga
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__kqDod
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___6Y3Ww
+                                  )}
+                                >
+                                  {"Up to 10 Templates"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ac7AF
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ymVob
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__bIraZ
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__n2PM
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__bGM
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__h3IF4
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__uQspD
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ooktw
+                                  )}
+                                >
+                                  {"Unlimited Uploading"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__pBr8C
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__gIxF
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg___6Ipdf
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__wYn9H
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__wxifB
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__sCo7H
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__qZvM
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__eYnYi
+                                  )}
+                                >
+                                  {"No Ads"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__qHrps
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return !$queries.keys.data[0].major_plan ===
+                                    1 && $queries.keys.data[0].payment_status
+                                    ? true
+                                    : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  data-plasmic-name={"subscribe"}
+                                  data-plasmic-override={overrides.subscribe}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.subscribe
+                                  )}
+                                >
+                                  <AntdButton
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button__uzaag
+                                    )}
+                                    onClick={async () => {
+                                      const $steps = {};
+
+                                      $steps["createCustomer"] = (
+                                        $queries.keys.data[0].stripe_customer_id
+                                          .length > 5
+                                          ? false
+                                          : true
+                                      )
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "ao83tYnui5QEAuzybxgrVJ",
+                                                opId: "b7cdb9c5-00cb-4dbc-b12d-f8a84735d4cc",
+                                                userArgs: {
+                                                  params: [
+                                                    $queries.keys.data[0].owner
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [
+                                                  "plasmic_refresh_all"
+                                                ],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["createCustomer"] != null &&
+                                        typeof $steps["createCustomer"] ===
+                                          "object" &&
+                                        typeof $steps["createCustomer"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["createCustomer"] = await $steps[
+                                          "createCustomer"
+                                        ];
+                                      }
+
+                                      $steps["getCustomerId"] = (
+                                        $queries.keys.data[0].stripe_customer_id
+                                          .length > 5
+                                          ? false
+                                          : true
+                                      )
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["getCustomerId"]
+                                              },
+                                              operation: 0,
+                                              value: $steps.createCustomer
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["getCustomerId"] != null &&
+                                        typeof $steps["getCustomerId"] ===
+                                          "object" &&
+                                        typeof $steps["getCustomerId"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["getCustomerId"] = await $steps[
+                                          "getCustomerId"
+                                        ];
+                                      }
+
+                                      $steps["updateCustomerId"] = (
+                                        $queries.keys.data[0].stripe_customer_id
+                                          .length > 5
+                                          ? false
+                                          : true
+                                      )
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "83X9ZdYzYUYJtgqe5fwXeX",
+                                                opId: "166bb9cd-047b-44be-aafe-6242fb15cad8",
+                                                userArgs: {
+                                                  variables: [
+                                                    $state.getCustomerId.data
+                                                      .response.id
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [
+                                                  "plasmic_refresh_all"
+                                                ],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateCustomerId"] != null &&
+                                        typeof $steps["updateCustomerId"] ===
+                                          "object" &&
+                                        typeof $steps["updateCustomerId"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateCustomerId"] =
+                                          await $steps["updateCustomerId"];
+                                      }
+
+                                      $steps["stripeCheckout"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "ao83tYnui5QEAuzybxgrVJ",
+                                                opId: "a1b534e8-3ddb-4aaf-877e-5f341318ed00",
+                                                userArgs: {
+                                                  params: [
+                                                    $queries.keys.data[0]
+                                                      .stripe_customer_id
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["stripeCheckout"] != null &&
+                                        typeof $steps["stripeCheckout"] ===
+                                          "object" &&
+                                        typeof $steps["stripeCheckout"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["stripeCheckout"] = await $steps[
+                                          "stripeCheckout"
+                                        ];
+                                      }
+
+                                      $steps["getCheckoutSession"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "checkoutSession"
+                                                ]
+                                              },
+                                              operation: 0,
+                                              value: $steps.stripeCheckout
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["getCheckoutSession"] != null &&
+                                        typeof $steps["getCheckoutSession"] ===
+                                          "object" &&
+                                        typeof $steps["getCheckoutSession"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["getCheckoutSession"] =
+                                          await $steps["getCheckoutSession"];
+                                      }
+
+                                      $steps["updateCheckout"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "83X9ZdYzYUYJtgqe5fwXeX",
+                                                opId: "89efbf89-6b71-4d2e-b794-b9cde509bfe0",
+                                                userArgs: {
+                                                  variables: [
+                                                    $state.checkoutSession.data
+                                                      .response.id
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateCheckout"] != null &&
+                                        typeof $steps["updateCheckout"] ===
+                                          "object" &&
+                                        typeof $steps["updateCheckout"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["updateCheckout"] = await $steps[
+                                          "updateCheckout"
+                                        ];
+                                      }
+
+                                      $steps["goToPage"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              destination: (() => {
+                                                try {
+                                                  return $state.checkoutSession
+                                                    .data.response.url;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            };
+                                            return (({ destination }) => {
+                                              if (
+                                                typeof destination ===
+                                                  "string" &&
+                                                destination.startsWith("#")
+                                              ) {
+                                                document
+                                                  .getElementById(
+                                                    destination.substr(1)
+                                                  )
+                                                  .scrollIntoView({
+                                                    behavior: "smooth"
+                                                  });
+                                              } else {
+                                                __nextRouter?.push(destination);
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["goToPage"] != null &&
+                                        typeof $steps["goToPage"] ===
+                                          "object" &&
+                                        typeof $steps["goToPage"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["goToPage"] = await $steps[
+                                          "goToPage"
+                                        ];
+                                      }
+                                    }}
+                                    shape={"round"}
+                                    size={"large"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__bwoI7
+                                      )}
+                                    >
+                                      {"Subscribe"}
+                                    </div>
+                                  </AntdButton>
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $queries.keys.data[0].major_plan ===
+                                    1 && $queries.keys.data[0].payment_status
+                                    ? true
+                                    : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  data-plasmic-name={"current"}
+                                  data-plasmic-override={overrides.current}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.current
+                                  )}
+                                >
+                                  <AntdButton
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button__nBq7
+                                    )}
+                                    disabled={true}
+                                    shape={"round"}
+                                    size={"large"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__ilBgc
+                                      )}
+                                    >
+                                      {"Current Plan"}
+                                    </div>
+                                  </AntdButton>
+                                </div>
+                              ) : null}
+                            </div>
+                          </Stack__>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__dSw8H
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__bRcKa
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__u7RHf
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__zeVlb
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__zAhOv
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__zTqG
+                                  )}
+                                >
+                                  {"Pro"}
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__aWm3V
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__uSpuO
+                                    )}
+                                  >
+                                    {"$29"}
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__zays3
+                                    )}
+                                  >
+                                    {"/mo"}
+                                  </div>
+                                </div>
+                              </div>
+                            </Stack__>
+                          </Stack__>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__n6Sq
+                            )}
+                          />
+
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__g8Oo
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__igSh
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__g0Mv
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__x5KiC
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__w7Pyi
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__aEdvY
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__lqtky
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__b3BVb
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___2Eblh
+                                  )}
+                                >
+                                  {"Up to 30 items/ Supplier/ Template"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__sAlfm
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__yr1st
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__bhTwx
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__zTXkg
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___5X1Z
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__eWjFf
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__hyahK
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__j1Fp
+                                  )}
+                                >
+                                  {"Up to 20 Templates"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__hskVb
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___0Pvjp
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__ajbho
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__sk6P
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__jU7En
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__qi14J
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__swKHo
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__avTvh
+                                  )}
+                                >
+                                  {"Unlimited Uploading"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__fbFd
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__aJrep
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__oDgjo
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__gFHo8
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___5XGqT
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__mMkWi
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__hp49
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ueqhh
+                                  )}
+                                >
+                                  {"No Ads"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__r6IbD
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return !(
+                                    $queries.keys.data[0].major_plan === 2 &&
+                                    $queries.keys.data[0].payment_status
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___6FgLd
+                                  )}
+                                >
+                                  {(() => {
+                                    try {
+                                      return !($queries.keys.data[0]
+                                        .major_plan === 2 &&
+                                      $queries.keys.data[0].payment_status
+                                        ? true
+                                        : false);
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__hfESn
+                                      )}
+                                    >
+                                      <AntdButton
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.button___8T13I
+                                        )}
+                                        onClick={async () => {
+                                          const $steps = {};
+
+                                          $steps["createCustomer"] = (
+                                            $queries.keys.data[0]
+                                              .stripe_customer_id.length > 5
+                                              ? false
+                                              : true
+                                          )
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "ao83tYnui5QEAuzybxgrVJ",
+                                                    opId: "b7cdb9c5-00cb-4dbc-b12d-f8a84735d4cc",
+                                                    userArgs: {
+                                                      params: [
+                                                        $queries.keys.data[0]
+                                                          .owner
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: [
+                                                      "plasmic_refresh_all"
+                                                    ],
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["createCustomer"] != null &&
+                                            typeof $steps["createCustomer"] ===
+                                              "object" &&
+                                            typeof $steps["createCustomer"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["createCustomer"] =
+                                              await $steps["createCustomer"];
+                                          }
+
+                                          $steps["getCustomerId"] = (
+                                            $queries.keys.data[0]
+                                              .stripe_customer_id.length > 5
+                                              ? false
+                                              : true
+                                          )
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  variable: {
+                                                    objRoot: $state,
+                                                    variablePath: [
+                                                      "getCustomerId"
+                                                    ]
+                                                  },
+                                                  operation: 0,
+                                                  value: $steps.createCustomer
+                                                };
+                                                return (({
+                                                  variable,
+                                                  value,
+                                                  startIndex,
+                                                  deleteCount
+                                                }) => {
+                                                  if (!variable) {
+                                                    return;
+                                                  }
+                                                  const {
+                                                    objRoot,
+                                                    variablePath
+                                                  } = variable;
+
+                                                  $stateSet(
+                                                    objRoot,
+                                                    variablePath,
+                                                    value
+                                                  );
+                                                  return value;
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["getCustomerId"] != null &&
+                                            typeof $steps["getCustomerId"] ===
+                                              "object" &&
+                                            typeof $steps["getCustomerId"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["getCustomerId"] =
+                                              await $steps["getCustomerId"];
+                                          }
+
+                                          $steps["updateCustomerId"] = (
+                                            $queries.keys.data[0]
+                                              .stripe_customer_id.length > 5
+                                              ? false
+                                              : true
+                                          )
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "83X9ZdYzYUYJtgqe5fwXeX",
+                                                    opId: "166bb9cd-047b-44be-aafe-6242fb15cad8",
+                                                    userArgs: {
+                                                      variables: [
+                                                        $state.getCustomerId
+                                                          .data.response.id
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: [
+                                                      "plasmic_refresh_all"
+                                                    ],
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["updateCustomerId"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "updateCustomerId"
+                                            ] === "object" &&
+                                            typeof $steps["updateCustomerId"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["updateCustomerId"] =
+                                              await $steps["updateCustomerId"];
+                                          }
+
+                                          $steps["stripeCheckout"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "ao83tYnui5QEAuzybxgrVJ",
+                                                    opId: "985ad09d-3953-4090-a07d-027c052816e9",
+                                                    userArgs: {
+                                                      params: [
+                                                        $queries.keys.data[0]
+                                                          .stripe_customer_id
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: [],
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["stripeCheckout"] != null &&
+                                            typeof $steps["stripeCheckout"] ===
+                                              "object" &&
+                                            typeof $steps["stripeCheckout"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["stripeCheckout"] =
+                                              await $steps["stripeCheckout"];
+                                          }
+
+                                          $steps["getCheckoutSession"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  variable: {
+                                                    objRoot: $state,
+                                                    variablePath: [
+                                                      "checkoutSession"
+                                                    ]
+                                                  },
+                                                  operation: 0,
+                                                  value: $steps.stripeCheckout
+                                                };
+                                                return (({
+                                                  variable,
+                                                  value,
+                                                  startIndex,
+                                                  deleteCount
+                                                }) => {
+                                                  if (!variable) {
+                                                    return;
+                                                  }
+                                                  const {
+                                                    objRoot,
+                                                    variablePath
+                                                  } = variable;
+
+                                                  $stateSet(
+                                                    objRoot,
+                                                    variablePath,
+                                                    value
+                                                  );
+                                                  return value;
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["getCheckoutSession"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "getCheckoutSession"
+                                            ] === "object" &&
+                                            typeof $steps["getCheckoutSession"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["getCheckoutSession"] =
+                                              await $steps[
+                                                "getCheckoutSession"
+                                              ];
+                                          }
+
+                                          $steps["updateCheckout"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "83X9ZdYzYUYJtgqe5fwXeX",
+                                                    opId: "7538b440-484b-416a-8cb7-c4dbe3efee02",
+                                                    userArgs: {
+                                                      variables: [
+                                                        $state.checkoutSession
+                                                          .data.response.id
+                                                      ]
+                                                    },
+                                                    cacheKey: null,
+                                                    invalidatedKeys: [],
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["updateCheckout"] != null &&
+                                            typeof $steps["updateCheckout"] ===
+                                              "object" &&
+                                            typeof $steps["updateCheckout"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["updateCheckout"] =
+                                              await $steps["updateCheckout"];
+                                          }
+
+                                          $steps["goToPage"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  destination: (() => {
+                                                    try {
+                                                      return $state
+                                                        .checkoutSession.data
+                                                        .response.url;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()
+                                                };
+                                                return (({ destination }) => {
+                                                  if (
+                                                    typeof destination ===
+                                                      "string" &&
+                                                    destination.startsWith("#")
+                                                  ) {
+                                                    document
+                                                      .getElementById(
+                                                        destination.substr(1)
+                                                      )
+                                                      .scrollIntoView({
+                                                        behavior: "smooth"
+                                                      });
+                                                  } else {
+                                                    __nextRouter?.push(
+                                                      destination
+                                                    );
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["goToPage"] != null &&
+                                            typeof $steps["goToPage"] ===
+                                              "object" &&
+                                            typeof $steps["goToPage"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["goToPage"] = await $steps[
+                                              "goToPage"
+                                            ];
+                                          }
+                                        }}
+                                        shape={"round"}
+                                        size={"large"}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text___3XdP
+                                          )}
+                                        >
+                                          {"Subscribe"}
+                                        </div>
+                                      </AntdButton>
+                                    </div>
+                                  ) : null}
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $queries.keys.data[0].major_plan ===
+                                    2 && $queries.keys.data[0].payment_status
+                                    ? true
+                                    : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__vdDHl
+                                  )}
+                                >
+                                  <AntdButton
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button__pxh57
+                                    )}
+                                    disabled={true}
+                                    shape={"round"}
+                                    size={"large"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___7Uq7W
+                                      )}
+                                    >
+                                      {"Current Plan"}
+                                    </div>
+                                  </AntdButton>
+                                </div>
+                              ) : null}
+                            </div>
+                          </Stack__>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.column__rnucR
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__zz1L8
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__tqyyq
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__tW8S
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__pbGnj
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__gcQel
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ color: "#1677ff" }}
+                                    >
+                                      {"Enterprise"}
+                                    </span>
+                                  </React.Fragment>
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__y5Mtg
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__s4Lr1
+                                    )}
+                                  >
+                                    {"$99"}
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__ypXq4
+                                    )}
+                                  >
+                                    {"/mo"}
+                                  </div>
+                                </div>
+                              </div>
+                            </Stack__>
+                          </Stack__>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__zPYky
+                            )}
+                          />
+
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___1NmE7
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___06IJi
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___48Tt1
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__iCXbl
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__oaHho
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__q1HaM
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__tukA5
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text___95RhN
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__kfjMl
+                                  )}
+                                >
+                                  {"Unlimited Items/ Template"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__gQfqp
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__n36K
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg___5Oua3
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__yiMxg
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__ea6It
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__dDy1L
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__lZq8P
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___9Z0Jl
+                                  )}
+                                >
+                                  {"Unlimited Templates"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__knB91
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__zSnh
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__oltlp
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__sm9Jm
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___9XfOq
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__ja7Gz
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__z0Ozx
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__dnivt
+                                  )}
+                                >
+                                  {"Unlimited Uploading"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__y5Fs
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__srKt9
+                                )}
+                              >
+                                <Icon7Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg___9USlI
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
+                              {false ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__yp7La
+                                  )}
+                                >
+                                  <Icon7Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__rhgZz
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___4Gpf2
+                                )}
+                              >
+                                {false ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__tykNp
+                                    )}
+                                  >
+                                    {"Label"}
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ziGoY
+                                  )}
+                                >
+                                  {"No Ads"}
+                                </div>
+                              </Stack__>
+                            </Stack__>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__eVtyt
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return !($queries.keys.data[0].major_plan ===
+                                    2 && $queries.keys.data[0].payment_status
+                                    ? true
+                                    : false);
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__lGpjH
+                                  )}
+                                >
+                                  <AntdButton
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button__bw9HQ
+                                    )}
+                                    onClick={async () => {
+                                      const $steps = {};
+
+                                      $steps["createCustomer"] = (
+                                        $queries.keys.data[0].stripe_customer_id
+                                          .length > 5
+                                          ? false
+                                          : true
+                                      )
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "ao83tYnui5QEAuzybxgrVJ",
+                                                opId: "b7cdb9c5-00cb-4dbc-b12d-f8a84735d4cc",
+                                                userArgs: {
+                                                  params: [
+                                                    $queries.keys.data[0].owner
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [
+                                                  "plasmic_refresh_all"
+                                                ],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["createCustomer"] != null &&
+                                        typeof $steps["createCustomer"] ===
+                                          "object" &&
+                                        typeof $steps["createCustomer"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["createCustomer"] = await $steps[
+                                          "createCustomer"
+                                        ];
+                                      }
+
+                                      $steps["getCustomerId"] = (
+                                        $queries.keys.data[0].stripe_customer_id
+                                          .length > 5
+                                          ? false
+                                          : true
+                                      )
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["getCustomerId"]
+                                              },
+                                              operation: 0,
+                                              value: $steps.createCustomer
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["getCustomerId"] != null &&
+                                        typeof $steps["getCustomerId"] ===
+                                          "object" &&
+                                        typeof $steps["getCustomerId"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["getCustomerId"] = await $steps[
+                                          "getCustomerId"
+                                        ];
+                                      }
+
+                                      $steps["updateCustomerId"] = (
+                                        $queries.keys.data[0].stripe_customer_id
+                                          .length > 5
+                                          ? false
+                                          : true
+                                      )
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "83X9ZdYzYUYJtgqe5fwXeX",
+                                                opId: "166bb9cd-047b-44be-aafe-6242fb15cad8",
+                                                userArgs: {
+                                                  variables: [
+                                                    $state.getCustomerId.data
+                                                      .response.id
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [
+                                                  "plasmic_refresh_all"
+                                                ],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateCustomerId"] != null &&
+                                        typeof $steps["updateCustomerId"] ===
+                                          "object" &&
+                                        typeof $steps["updateCustomerId"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateCustomerId"] =
+                                          await $steps["updateCustomerId"];
+                                      }
+
+                                      $steps["stripeCheckout"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "ao83tYnui5QEAuzybxgrVJ",
+                                                opId: "8ac1f298-aa64-4441-95b6-3d4950cbfc83",
+                                                userArgs: {
+                                                  params: [
+                                                    $queries.keys.data[0]
+                                                      .stripe_customer_id
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["stripeCheckout"] != null &&
+                                        typeof $steps["stripeCheckout"] ===
+                                          "object" &&
+                                        typeof $steps["stripeCheckout"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["stripeCheckout"] = await $steps[
+                                          "stripeCheckout"
+                                        ];
+                                      }
+
+                                      $steps["getCheckoutSession"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "checkoutSession"
+                                                ]
+                                              },
+                                              operation: 0,
+                                              value: $steps.stripeCheckout
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["getCheckoutSession"] != null &&
+                                        typeof $steps["getCheckoutSession"] ===
+                                          "object" &&
+                                        typeof $steps["getCheckoutSession"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["getCheckoutSession"] =
+                                          await $steps["getCheckoutSession"];
+                                      }
+
+                                      $steps["updateCheckout"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              dataOp: {
+                                                sourceId:
+                                                  "83X9ZdYzYUYJtgqe5fwXeX",
+                                                opId: "9837f693-8b41-458a-9a82-409fd81a9171",
+                                                userArgs: {
+                                                  variables: [
+                                                    $state.checkoutSession.data
+                                                      .response.id
+                                                  ]
+                                                },
+                                                cacheKey: null,
+                                                invalidatedKeys: [],
+                                                roleId: null
+                                              }
+                                            };
+                                            return (async ({
+                                              dataOp,
+                                              continueOnError
+                                            }) => {
+                                              try {
+                                                const response =
+                                                  await executePlasmicDataOp(
+                                                    dataOp,
+                                                    {
+                                                      userAuthToken:
+                                                        dataSourcesCtx?.userAuthToken,
+                                                      user: dataSourcesCtx?.user
+                                                    }
+                                                  );
+                                                await plasmicInvalidate(
+                                                  dataOp.invalidatedKeys
+                                                );
+                                                return response;
+                                              } catch (e) {
+                                                if (!continueOnError) {
+                                                  throw e;
+                                                }
+                                                return e;
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateCheckout"] != null &&
+                                        typeof $steps["updateCheckout"] ===
+                                          "object" &&
+                                        typeof $steps["updateCheckout"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["updateCheckout"] = await $steps[
+                                          "updateCheckout"
+                                        ];
+                                      }
+
+                                      $steps["goToPage"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              destination: (() => {
+                                                try {
+                                                  return $state.checkoutSession
+                                                    .data.response.url;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()
+                                            };
+                                            return (({ destination }) => {
+                                              if (
+                                                typeof destination ===
+                                                  "string" &&
+                                                destination.startsWith("#")
+                                              ) {
+                                                document
+                                                  .getElementById(
+                                                    destination.substr(1)
+                                                  )
+                                                  .scrollIntoView({
+                                                    behavior: "smooth"
+                                                  });
+                                              } else {
+                                                __nextRouter?.push(destination);
+                                              }
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["goToPage"] != null &&
+                                        typeof $steps["goToPage"] ===
+                                          "object" &&
+                                        typeof $steps["goToPage"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["goToPage"] = await $steps[
+                                          "goToPage"
+                                        ];
+                                      }
+                                    }}
+                                    shape={"round"}
+                                    size={"large"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___55E8Q
+                                      )}
+                                    >
+                                      {"Subscribe"}
+                                    </div>
+                                  </AntdButton>
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $queries.keys.data[0].major_plan ===
+                                    3 && $queries.keys.data[0].payment_status
+                                    ? true
+                                    : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__djToh
+                                  )}
+                                >
+                                  <AntdButton
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button__aAhwp
+                                    )}
+                                    disabled={true}
+                                    shape={"round"}
+                                    size={"large"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__k9IO3
+                                      )}
+                                    >
+                                      {"Current Plan"}
+                                    </div>
+                                  </AntdButton>
+                                </div>
+                              ) : null}
+                            </div>
+                          </Stack__>
+                        </div>
+                      </div>
+                    </Stack__>
                   </div>
                 </section>
               )}
@@ -1764,82 +3224,24 @@ const PlasmicDescendants = {
     "root",
     "pageLayout",
     "section",
-    "freeBox",
     "reveal",
-    "pricing",
-    "checker2",
-    "checker6",
-    "checker",
-    "checker4",
-    "checker3",
-    "checker5",
-    "text"
+    "columns",
+    "subscribe",
+    "current"
   ],
   pageLayout: [
     "pageLayout",
     "section",
-    "freeBox",
     "reveal",
-    "pricing",
-    "checker2",
-    "checker6",
-    "checker",
-    "checker4",
-    "checker3",
-    "checker5",
-    "text"
+    "columns",
+    "subscribe",
+    "current"
   ],
-  section: [
-    "section",
-    "freeBox",
-    "reveal",
-    "pricing",
-    "checker2",
-    "checker6",
-    "checker",
-    "checker4",
-    "checker3",
-    "checker5",
-    "text"
-  ],
-  freeBox: [
-    "freeBox",
-    "reveal",
-    "pricing",
-    "checker2",
-    "checker6",
-    "checker",
-    "checker4",
-    "checker3",
-    "checker5",
-    "text"
-  ],
-  reveal: [
-    "reveal",
-    "pricing",
-    "checker2",
-    "checker6",
-    "checker",
-    "checker4",
-    "checker3",
-    "checker5"
-  ],
-  pricing: [
-    "pricing",
-    "checker2",
-    "checker6",
-    "checker",
-    "checker4",
-    "checker3",
-    "checker5"
-  ],
-  checker2: ["checker2"],
-  checker6: ["checker6"],
-  checker: ["checker"],
-  checker4: ["checker4"],
-  checker3: ["checker3"],
-  checker5: ["checker5"],
-  text: ["text"]
+  section: ["section", "reveal", "columns", "subscribe", "current"],
+  reveal: ["reveal"],
+  columns: ["columns", "subscribe", "current"],
+  subscribe: ["subscribe"],
+  current: ["current"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1848,16 +3250,10 @@ type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
   section: "section";
-  freeBox: "div";
   reveal: typeof Reveal;
-  pricing: typeof Pricing;
-  checker2: "div";
-  checker6: "div";
-  checker: "div";
-  checker4: "div";
-  checker3: "div";
-  checker5: "div";
-  text: "div";
+  columns: "div";
+  subscribe: "div";
+  current: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1964,16 +3360,10 @@ export const PlasmicPaymentGateway = Object.assign(
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
     section: makeNodeComponent("section"),
-    freeBox: makeNodeComponent("freeBox"),
     reveal: makeNodeComponent("reveal"),
-    pricing: makeNodeComponent("pricing"),
-    checker2: makeNodeComponent("checker2"),
-    checker6: makeNodeComponent("checker6"),
-    checker: makeNodeComponent("checker"),
-    checker4: makeNodeComponent("checker4"),
-    checker3: makeNodeComponent("checker3"),
-    checker5: makeNodeComponent("checker5"),
-    text: makeNodeComponent("text"),
+    columns: makeNodeComponent("columns"),
+    subscribe: makeNodeComponent("subscribe"),
+    current: makeNodeComponent("current"),
 
     // Metadata about props expected for PlasmicPaymentGateway
     internalVariantProps: PlasmicPaymentGateway__VariantProps,

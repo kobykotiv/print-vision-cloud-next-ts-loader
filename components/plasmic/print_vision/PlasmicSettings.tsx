@@ -1902,6 +1902,53 @@ function PlasmicSettings__RenderFunc(props: {
                       {"Go to Billing"}
                     </div>
                   </AntdButton>
+                  <AntdButton
+                    className={classNames("__wab_instance", sty.button__dE1Cx)}
+                    onClick={async () => {
+                      const $steps = {};
+
+                      $steps["logOut"] = true
+                        ? (() => {
+                            const actionArgs = {};
+                            return (async ({ continueTo }) => {
+                              try {
+                                localStorage.removeItem("plasmic_user");
+                                localStorage.removeItem(
+                                  "$user.2Up8DUmBB1Tx5dhznkvCW5"
+                                );
+                              } catch (e) {}
+
+                              if (window.__PLASMIC_AUTH_OVERRIDE) {
+                                window.__PLASMIC_AUTH_OVERRIDE();
+                              } else {
+                                window.location.assign(
+                                  continueTo || window.location.href
+                                );
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["logOut"] != null &&
+                        typeof $steps["logOut"] === "object" &&
+                        typeof $steps["logOut"].then === "function"
+                      ) {
+                        $steps["logOut"] = await $steps["logOut"];
+                      }
+                    }}
+                    shape={"round"}
+                    target={true}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___1KdFy
+                      )}
+                    >
+                      {"Logout"}
+                    </div>
+                  </AntdButton>
                 </React.Fragment>
               )}
             </DataCtxReader__>

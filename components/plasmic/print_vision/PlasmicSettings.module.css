@@ -271,3 +271,16 @@
   padding-bottom: 0px;
   min-width: 0;
 }
+.button__dE1Cx:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text___1KdFy {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  min-width: 0;
+}

@@ -181,11 +181,11 @@ function PlasmicReviewPayment__RenderFunc(props: {
     keys: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "b08db1bb-6f74-4322-b810-76ed2419fe65",
+        opId: "6e5c3367-c94f-47b5-a963-d508e9e9df08",
         userArgs: {},
-        cacheKey: `plasmic.$.b08db1bb-6f74-4322-b810-76ed2419fe65.$.`,
+        cacheKey: `plasmic.$.6e5c3367-c94f-47b5-a963-d508e9e9df08.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     })
   };
@@ -328,7 +328,7 @@ function PlasmicReviewPayment__RenderFunc(props: {
                             const actionArgs = {
                               dataOp: {
                                 sourceId: "ao83tYnui5QEAuzybxgrVJ",
-                                opId: "2eec51dd-e3a3-4d3a-873d-82eea64e08d6",
+                                opId: "2cf0b372-8ed1-43fc-8a4f-0c8a08b1c4b7",
                                 userArgs: {
                                   path: [
                                     $queries.keys.data[0]
@@ -337,7 +337,7 @@ function PlasmicReviewPayment__RenderFunc(props: {
                                 },
                                 cacheKey: null,
                                 invalidatedKeys: null,
-                                roleId: null
+                                roleId: "d035f350-edf5-4268-af03-4480b52522b0"
                               }
                             };
                             return (async ({ dataOp, continueOnError }) => {
@@ -476,7 +476,7 @@ function PlasmicReviewPayment__RenderFunc(props: {
                             const actionArgs = {
                               dataOp: {
                                 sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                opId: "1133655c-170f-45de-a656-ba387124a43d",
+                                opId: "f37f449c-3773-4ca5-8342-faf5ebde1d37",
                                 userArgs: {
                                   variables: [
                                     $state.stripeResult.data.response.id,
@@ -485,7 +485,7 @@ function PlasmicReviewPayment__RenderFunc(props: {
                                 },
                                 cacheKey: null,
                                 invalidatedKeys: ["plasmic_refresh_all"],
-                                roleId: null
+                                roleId: "d035f350-edf5-4268-af03-4480b52522b0"
                               }
                             };
                             return (async ({ dataOp, continueOnError }) => {
@@ -740,6 +740,23 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
+function withPlasmicPageGuard<P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) {
+  const PageGuard: React.FC<P> = props => (
+    <PlasmicPageGuard__
+      minRole={"d035f350-edf5-4268-af03-4480b52522b0"}
+      appId={"2Up8DUmBB1Tx5dhznkvCW5"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={true}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 function withUsePlasmicAuth<P extends object>(
   WrappedComponent: React.ComponentType<P>
 ) {
@@ -767,7 +784,7 @@ function withUsePlasmicAuth<P extends object>(
 
 export const PlasmicReviewPayment = Object.assign(
   // Top-level PlasmicReviewPayment renders the root element
-  withUsePlasmicAuth(makeNodeComponent("root")),
+  withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("root"))),
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),

@@ -163,7 +163,8 @@ function PlasmicPageLayout__RenderFunc(props: {
           { path: null, name: null },
           { path: null, name: null },
           { path: null, name: null },
-          { path: null, name: null }
+          { path: null, name: null },
+          { path: null }
         ];
         __composite["0"]["path"] = `/recipes`;
         __composite["0"]["name"] = "Templates";
@@ -173,6 +174,7 @@ function PlasmicPageLayout__RenderFunc(props: {
         __composite["2"]["name"] = "Upload";
         __composite["3"]["path"] = `/settings`;
         __composite["3"]["name"] = "Settings";
+        __composite["4"]["path"] = "";
         return __composite;
       })()}
       simpleNavTheme={(() => {
