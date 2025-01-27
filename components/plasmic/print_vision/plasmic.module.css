@@ -117,6 +117,10 @@
   --plasmic-token-dim-white: var(--token-Gfv3UGuzz9NW);
   --token-ncSZjzOayt-d: #ffffff;
   --plasmic-token-top-white-text: var(--token-ncSZjzOayt-d);
+  --token-8blM4gC1_nsa: #0a0a0a80;
+  --plasmic-token-basic-overlay-background: var(--token-8blM4gC1_nsa);
+  --token-5V0di9H3y1Yj: 1.5rem;
+  --plasmic-token-size-24: var(--token-5V0di9H3y1Yj);
 }
 
 .plasmic_tokens {

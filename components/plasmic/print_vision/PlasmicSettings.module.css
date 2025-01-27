@@ -29,6 +29,110 @@
   min-width: 0;
   padding: 16px;
 }
+.modal2:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__kr57G {
+  position: relative;
+  height: 1em;
+}
+.svg__lWyE {
+  position: relative;
+  height: 1em;
+}
+.h3__wtw2N {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: var(--token-dIj6x_B_2TOx);
+  min-width: 0;
+  padding: var(--token-5V0di9H3y1Yj);
+}
+.freeBox__gYAjW {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.freeBox__gYAjW > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: calc(0px - var(--token-j1zXVe128qAC));
+  height: calc(100% + var(--token-j1zXVe128qAC));
+}
+.freeBox__gYAjW > :global(.__wab_flex-container) > *,
+.freeBox__gYAjW > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__gYAjW > :global(.__wab_flex-container) > picture > img,
+.freeBox__gYAjW
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: var(--token-j1zXVe128qAC);
+}
+.form2:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__vFeQ:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input__m2Giw:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__cCehq:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.input__afv4F:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.button__hUf3O:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__a1HEk {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__dAEgc {
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-width: 0;
+  display: none;
+}
+.svg__evIcm {
+  position: relative;
+  height: 1em;
+}
+.text__xc7L3 {
+  padding-left: 0px;
+}
+.svg__eobA6 {
+  position: relative;
+  height: 1em;
+}
 .modal:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

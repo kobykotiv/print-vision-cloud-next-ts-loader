@@ -69,16 +69,18 @@ import {
 import PageLayout from "../../PageLayout"; // plasmic-import: nHDfdLqBbJ3Q/component
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import Modal from "../../Modal"; // plasmic-import: QsGKyhsi7rjB/component
+import Button2 from "../../Button2"; // plasmic-import: 5htpOgxRwHbE/component
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
-import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { UploadWrapper } from "@plasmicpkgs/antd5/skinny/registerUpload";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -87,6 +89,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 2Up8DUmBB1Tx5dhznkvCW5/projectcss
 import sty from "./PlasmicSettings.module.css"; // plasmic-import: x_9KNQmw4n3T/css
+
+import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: -lOMU8AnMmP_/icon
+import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: TF0F3UORt2hA/icon
 
 createPlasmicElementProxy;
 
@@ -103,6 +108,8 @@ export type PlasmicSettings__OverridesType = {
   root?: Flex__<"div">;
   pageLayout?: Flex__<typeof PageLayout>;
   table?: Flex__<typeof RichTable>;
+  modal2?: Flex__<typeof Modal>;
+  form2?: Flex__<typeof FormWrapper>;
   modal?: Flex__<typeof AntdModal>;
   form?: Flex__<typeof FormWrapper>;
   numberInput?: Flex__<typeof AntdInputNumber>;
@@ -322,6 +329,30 @@ function PlasmicSettings__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal2.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "form2.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form2.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -408,240 +439,580 @@ function PlasmicSettings__RenderFunc(props: {
               {$ctx => (
                 <React.Fragment>
                   {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.table),
-                      data: (() => {
+                    try {
+                      return $queries.query.data.length > 0;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                    ? (() => {
+                        const child$Props = {
+                          className: classNames("__wab_instance", sty.table),
+                          data: (() => {
+                            try {
+                              return $queries.query;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          fields: (() => {
+                            const __composite = [
+                              { key: "id", fieldId: "id" },
+                              {
+                                key: "printful_key",
+                                fieldId: "printful_key",
+                                isHidden: null
+                              },
+                              {
+                                key: "printify_shop_id",
+                                fieldId: "printify_shop_id",
+                                isHidden: null
+                              },
+                              { key: "owner", fieldId: "owner" },
+                              {
+                                key: "printify_key",
+                                fieldId: "printify_key",
+                                isHidden: null
+                              },
+                              {
+                                key: "prodigi_key",
+                                fieldId: "prodigi_key",
+                                isHidden: null
+                              },
+                              {
+                                key: "printful_shop_id",
+                                fieldId: "printful_shop_id",
+                                isHidden: null
+                              },
+                              {
+                                key: "printful_logo_id",
+                                fieldId: "printful_logo_id",
+                                isHidden: null
+                              },
+                              {
+                                key: "printify_logo_id",
+                                fieldId: "printify_logo_id",
+                                isHidden: null
+                              }
+                            ];
+                            __composite["1"]["isHidden"] = true;
+                            __composite["2"]["isHidden"] = true;
+                            __composite["4"]["isHidden"] = true;
+                            __composite["5"]["isHidden"] = true;
+                            __composite["6"]["isHidden"] = true;
+                            __composite["7"]["isHidden"] = true;
+                            __composite["8"]["isHidden"] = true;
+                            return __composite;
+                          })(),
+
+                          hideColumnPicker: true,
+                          hideExports: true,
+                          hideSearch: true,
+                          onRowSelectionChanged: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRowKey",
+                              ["table", "selectedRowKey"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRow",
+                              ["table", "selectedRow"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRows",
+                              ["table", "selectedRows"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "selectedRowKeys",
+                              ["table", "selectedRowKeys"],
+                              RichTable_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          pagination: false,
+                          rowActions: (() => {
+                            const __composite = [
+                              { type: "item", label: null, onClick: null }
+                            ];
+                            __composite["0"]["label"] = "edit";
+                            __composite["0"]["onClick"] = async (
+                              rowKey,
+                              row
+                            ) => {
+                              const $steps = {};
+
+                              $steps["updateSelectedKeys"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["selectedKeys"]
+                                      },
+                                      operation: 0,
+                                      value: row
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateSelectedKeys"] != null &&
+                                typeof $steps["updateSelectedKeys"] ===
+                                  "object" &&
+                                typeof $steps["updateSelectedKeys"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateSelectedKeys"] = await $steps[
+                                  "updateSelectedKeys"
+                                ];
+                              }
+
+                              $steps["updateModalOpen"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["modal", "open"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateModalOpen"] != null &&
+                                typeof $steps["updateModalOpen"] === "object" &&
+                                typeof $steps["updateModalOpen"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateModalOpen"] = await $steps[
+                                  "updateModalOpen"
+                                ];
+                              }
+                            };
+                            return __composite;
+                          })(),
+
+                          scopeClassName: sty["table__instance"],
+                          selectedRowKey: generateStateValueProp($state, [
+                            "table",
+                            "selectedRowKey"
+                          ]),
+                          selectedRowKeys: generateStateValueProp($state, [
+                            "table",
+                            "selectedRowKeys"
+                          ]),
+                          themeResetClassName: classNames(
+                            projectcss.root_reset,
+                            projectcss.root_reset_tags,
+                            projectcss.plasmic_default_styles,
+                            projectcss.plasmic_mixins,
+                            projectcss.plasmic_tokens,
+                            plasmic_antd_5_hostless_css.plasmic_tokens,
+                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                          )
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "selectedRowKey",
+                              plasmicStateName: "table.selectedRowKey"
+                            },
+                            {
+                              name: "selectedRow",
+                              plasmicStateName: "table.selectedRow"
+                            },
+                            {
+                              name: "selectedRows",
+                              plasmicStateName: "table.selectedRows"
+                            },
+                            {
+                              name: "selectedRowKeys",
+                              plasmicStateName: "table.selectedRowKeys"
+                            }
+                          ],
+                          [],
+                          RichTable_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <RichTable
+                            data-plasmic-name={"table"}
+                            data-plasmic-override={overrides.table}
+                            {...child$Props}
+                          />
+                        );
+                      })()
+                    : null}
+                  <Modal
+                    data-plasmic-name={"modal2"}
+                    data-plasmic-override={overrides.modal2}
+                    className={classNames("__wab_instance", sty.modal2)}
+                    content={
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gYAjW
+                        )}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            className: classNames("__wab_instance", sty.form2),
+                            extendedOnValuesChange: async (
+                              ...eventArgs: any
+                            ) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "value",
+                                ["form2", "value"],
+                                FormWrapper_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            formItems: undefined,
+                            labelCol: { span: 8, horizontalOnly: true },
+                            layout: "vertical",
+                            mode: undefined,
+                            onFinish: async values => {
+                              const $steps = {};
+
+                              $steps["defaultSubmit"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      dataOp: {
+                                        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                        opId: "2814e0d1-a4b5-4d1e-9bf8-bf0d0d313a0f",
+                                        userArgs: {
+                                          variables: [$state.form2.value]
+                                        },
+                                        cacheKey: null,
+                                        invalidatedKeys: [
+                                          "plasmic_refresh_all"
+                                        ],
+                                        roleId: null
+                                      }
+                                    };
+                                    return (async ({
+                                      dataOp,
+                                      continueOnError
+                                    }) => {
+                                      try {
+                                        const response =
+                                          await executePlasmicDataOp(dataOp, {
+                                            userAuthToken:
+                                              dataSourcesCtx?.userAuthToken,
+                                            user: dataSourcesCtx?.user
+                                          });
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
+                                        return response;
+                                      } catch (e) {
+                                        if (!continueOnError) {
+                                          throw e;
+                                        }
+                                        return e;
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["defaultSubmit"] != null &&
+                                typeof $steps["defaultSubmit"] === "object" &&
+                                typeof $steps["defaultSubmit"].then ===
+                                  "function"
+                              ) {
+                                $steps["defaultSubmit"] = await $steps[
+                                  "defaultSubmit"
+                                ];
+                              }
+
+                              $steps["goToHomepage"] = true
+                                ? (() => {
+                                    const actionArgs = { destination: `/` };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToHomepage"] != null &&
+                                typeof $steps["goToHomepage"] === "object" &&
+                                typeof $steps["goToHomepage"].then ===
+                                  "function"
+                              ) {
+                                $steps["goToHomepage"] = await $steps[
+                                  "goToHomepage"
+                                ];
+                              }
+                            },
+                            onIsSubmittingChange: async (...eventArgs: any) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "isSubmitting",
+                                ["form2", "isSubmitting"],
+                                FormWrapper_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            ref: ref => {
+                              $refs["form2"] = ref;
+                            },
+                            wrapperCol: { span: 16, horizontalOnly: true }
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "value",
+                                plasmicStateName: "form2.value"
+                              },
+                              {
+                                name: "isSubmitting",
+                                plasmicStateName: "form2.isSubmitting"
+                              }
+                            ],
+                            [],
+                            FormWrapper_Helpers ?? {},
+                            child$Props
+                          );
+
+                          return (
+                            <FormWrapper
+                              data-plasmic-name={"form2"}
+                              data-plasmic-override={overrides.form2}
+                              {...child$Props}
+                            >
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__vFeQ
+                                )}
+                                initialValue={undefined}
+                                label={"owner"}
+                                name={"owner"}
+                              >
+                                <AntdInput
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.input__m2Giw
+                                  )}
+                                />
+                              </FormItemWrapper>
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__cCehq
+                                )}
+                                initialValue={undefined}
+                                label={"owner_name"}
+                                name={"owner_name"}
+                              >
+                                <AntdInput
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.input__afv4F
+                                  )}
+                                />
+                              </FormItemWrapper>
+                              <AntdButton
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.button__hUf3O
+                                )}
+                                submitsForm={true}
+                                type={"primary"}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__a1HEk
+                                  )}
+                                >
+                                  {"Submit"}
+                                </div>
+                              </AntdButton>
+                            </FormWrapper>
+                          );
+                        })()}
+                      </Stack__>
+                    }
+                    footer={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__dAEgc
+                        )}
+                      >
+                        <Button2
+                          color={"muted"}
+                          label={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xc7L3
+                              )}
+                            >
+                              {"Close"}
+                            </div>
+                          }
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateAriaDialogTriggerIsOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: [
+                                        "ariaDialogTrigger",
+                                        "isOpen"
+                                      ]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateAriaDialogTriggerIsOpen"] != null &&
+                              typeof $steps["updateAriaDialogTriggerIsOpen"] ===
+                                "object" &&
+                              typeof $steps["updateAriaDialogTriggerIsOpen"]
+                                .then === "function"
+                            ) {
+                              $steps["updateAriaDialogTriggerIsOpen"] =
+                                await $steps["updateAriaDialogTriggerIsOpen"];
+                            }
+                          }}
+                          type={"soft"}
+                        />
+                      </div>
+                    }
+                    isOpen={generateStateValueProp($state, [
+                      "modal2",
+                      "isOpen"
+                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal2",
+                        "isOpen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    trigger={
+                      (() => {
                         try {
-                          return $queries.query;
+                          return $queries.query.data[0] == 0;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return undefined;
+                            return true;
                           }
                           throw e;
                         }
-                      })(),
-                      fields: (() => {
-                        const __composite = [
-                          { key: "id", fieldId: "id" },
-                          {
-                            key: "printful_key",
-                            fieldId: "printful_key",
-                            isHidden: null
-                          },
-                          {
-                            key: "printify_shop_id",
-                            fieldId: "printify_shop_id",
-                            isHidden: null
-                          },
-                          { key: "owner", fieldId: "owner" },
-                          {
-                            key: "printify_key",
-                            fieldId: "printify_key",
-                            isHidden: null
-                          },
-                          {
-                            key: "prodigi_key",
-                            fieldId: "prodigi_key",
-                            isHidden: null
-                          },
-                          {
-                            key: "printful_shop_id",
-                            fieldId: "printful_shop_id",
-                            isHidden: null
-                          },
-                          {
-                            key: "printful_logo_id",
-                            fieldId: "printful_logo_id",
-                            isHidden: null
-                          },
-                          {
-                            key: "printify_logo_id",
-                            fieldId: "printify_logo_id",
-                            isHidden: null
-                          }
-                        ];
-                        __composite["1"]["isHidden"] = true;
-                        __composite["2"]["isHidden"] = true;
-                        __composite["4"]["isHidden"] = true;
-                        __composite["5"]["isHidden"] = true;
-                        __composite["6"]["isHidden"] = true;
-                        __composite["7"]["isHidden"] = true;
-                        __composite["8"]["isHidden"] = true;
-                        return __composite;
-                      })(),
+                      })() ? (
+                        <Button2
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button2___6N4Fa
+                          )}
+                          label={"Complete Registration"}
+                        />
+                      ) : null
+                    }
+                  />
 
-                      hideColumnPicker: true,
-                      hideExports: true,
-                      hideSearch: true,
-                      onRowSelectionChanged: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRowKey",
-                          ["table", "selectedRowKey"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRow",
-                          ["table", "selectedRow"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRows",
-                          ["table", "selectedRows"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRowKeys",
-                          ["table", "selectedRowKeys"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      pagination: false,
-                      rowActions: (() => {
-                        const __composite = [
-                          { type: "item", label: null, onClick: null }
-                        ];
-                        __composite["0"]["label"] = "edit";
-                        __composite["0"]["onClick"] = async (rowKey, row) => {
-                          const $steps = {};
-
-                          $steps["updateSelectedKeys"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["selectedKeys"]
-                                  },
-                                  operation: 0,
-                                  value: row
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateSelectedKeys"] != null &&
-                            typeof $steps["updateSelectedKeys"] === "object" &&
-                            typeof $steps["updateSelectedKeys"].then ===
-                              "function"
-                          ) {
-                            $steps["updateSelectedKeys"] = await $steps[
-                              "updateSelectedKeys"
-                            ];
-                          }
-
-                          $steps["updateModalOpen"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["modal", "open"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateModalOpen"] != null &&
-                            typeof $steps["updateModalOpen"] === "object" &&
-                            typeof $steps["updateModalOpen"].then === "function"
-                          ) {
-                            $steps["updateModalOpen"] = await $steps[
-                              "updateModalOpen"
-                            ];
-                          }
-                        };
-                        return __composite;
-                      })(),
-
-                      scopeClassName: sty["table__instance"],
-                      selectedRowKey: generateStateValueProp($state, [
-                        "table",
-                        "selectedRowKey"
-                      ]),
-                      selectedRowKeys: generateStateValueProp($state, [
-                        "table",
-                        "selectedRowKeys"
-                      ]),
-                      themeResetClassName: classNames(
-                        projectcss.root_reset,
-                        projectcss.root_reset_tags,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
-                        projectcss.plasmic_tokens,
-                        plasmic_antd_5_hostless_css.plasmic_tokens,
-                        plasmic_plasmic_rich_components_css.plasmic_tokens
-                      )
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "selectedRowKey",
-                          plasmicStateName: "table.selectedRowKey"
-                        },
-                        {
-                          name: "selectedRow",
-                          plasmicStateName: "table.selectedRow"
-                        },
-                        {
-                          name: "selectedRows",
-                          plasmicStateName: "table.selectedRows"
-                        },
-                        {
-                          name: "selectedRowKeys",
-                          plasmicStateName: "table.selectedRowKeys"
-                        }
-                      ],
-                      [],
-                      RichTable_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <RichTable
-                        data-plasmic-name={"table"}
-                        data-plasmic-override={overrides.table}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
                   <AntdModal
                     data-plasmic-name={"modal"}
                     data-plasmic-override={overrides.modal}
@@ -1964,6 +2335,8 @@ const PlasmicDescendants = {
     "root",
     "pageLayout",
     "table",
+    "modal2",
+    "form2",
     "modal",
     "form",
     "numberInput",
@@ -1981,6 +2354,8 @@ const PlasmicDescendants = {
   pageLayout: [
     "pageLayout",
     "table",
+    "modal2",
+    "form2",
     "modal",
     "form",
     "numberInput",
@@ -1996,6 +2371,8 @@ const PlasmicDescendants = {
     "input5"
   ],
   table: ["table"],
+  modal2: ["modal2", "form2"],
+  form2: ["form2"],
   modal: [
     "modal",
     "form",
@@ -2044,6 +2421,8 @@ type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
   table: typeof RichTable;
+  modal2: typeof Modal;
+  form2: typeof FormWrapper;
   modal: typeof AntdModal;
   form: typeof FormWrapper;
   numberInput: typeof AntdInputNumber;
@@ -2163,6 +2542,8 @@ export const PlasmicSettings = Object.assign(
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
     table: makeNodeComponent("table"),
+    modal2: makeNodeComponent("modal2"),
+    form2: makeNodeComponent("form2"),
     modal: makeNodeComponent("modal"),
     form: makeNodeComponent("form"),
     numberInput: makeNodeComponent("numberInput"),
