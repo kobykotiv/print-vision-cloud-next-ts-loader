@@ -373,6 +373,12 @@ function PlasmicTestUpload2__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "signedUploadUrl2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1322,7 +1328,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                             )}
                             initialValue={(() => {
                               try {
-                                return $state.printifyId.data.response.id.toString();
+                                return $state.printifyId;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -1451,7 +1457,6 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                               operation: 0,
                                               value:
                                                 $steps.supabaseGetSignedFileUrl
-                                                  .signedUrl
                                             };
                                             return (({
                                               variable,
@@ -1487,13 +1492,37 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                           await $steps["updateSignedUploadUrl"];
                                       }
 
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return setTimeout(() => {},
+                                                10000);
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
+                                        ];
+                                      }
+
                                       $steps["httpPost"] = true
                                         ? (() => {
                                             const actionArgs = {
                                               dataOp: {
                                                 sourceId:
                                                   "fumskhn7h2QULzwkXAtFMC",
-                                                opId: "2f49d2c0-5578-48c6-ac37-9ed5dbdaddc0",
+                                                opId: "fec6a1b4-0921-4dce-9271-2a2825d7c681",
                                                 userArgs: {
                                                   body: [$state.signedUploadUrl]
                                                 },
@@ -1501,8 +1530,10 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                                 invalidatedKeys: [
                                                   "plasmic_refresh_all"
                                                 ],
-                                                roleId: null
-                                              }
+                                                roleId:
+                                                  "d035f350-edf5-4268-af03-4480b52522b0"
+                                              },
+                                              continueOnError: false
                                             };
                                             return (async ({
                                               dataOp,
@@ -1601,7 +1632,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.input9
                                 ),
-                                disabled: false,
+                                disabled: true,
                                 onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
@@ -1612,7 +1643,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                 },
                                 placeholder: (() => {
                                   try {
-                                    return $state.printifyId.data.response.id;
+                                    return $state.printifyId;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1624,7 +1655,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                     throw e;
                                   }
                                 })(),
-                                readOnly: true,
+                                readOnly: false,
                                 value: generateStateValueProp($state, [
                                   "input9",
                                   "value"
@@ -1659,7 +1690,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                             )}
                             initialValue={(() => {
                               try {
-                                return $state.printfulId.data.response.result.id.toString();
+                                return $state.printfulId;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -1937,6 +1968,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.input6
                                 ),
+                                disabled: true,
                                 onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
@@ -1960,7 +1992,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                     throw e;
                                   }
                                 })(),
-                                readOnly: true,
+                                readOnly: false,
                                 value: generateStateValueProp($state, [
                                   "input6",
                                   "value"
