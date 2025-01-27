@@ -1689,15 +1689,29 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__bTvGs)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__kf2Zx
-                        )}
-                      >
-                        {"Upgrade to a higher plan to create more recipes."}
-                      </div>
+                      {(() => {
+                        try {
+                          return true;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kf2Zx
+                          )}
+                        >
+                          {"Upgrade to a higher plan to create more recipes."}
+                        </div>
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,

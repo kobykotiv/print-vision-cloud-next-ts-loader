@@ -851,7 +851,7 @@ function PlasmicSettings__RenderFunc(props: {
                               <FormItemWrapper
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.formField__i2V3Z
+                                  sty.formField__nATT
                                 )}
                                 initialValue={undefined}
                                 label={"owner"}
@@ -860,14 +860,14 @@ function PlasmicSettings__RenderFunc(props: {
                                 <AntdInput
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.input___5K55
+                                    sty.input__kOaWk
                                   )}
                                 />
                               </FormItemWrapper>
                               <FormItemWrapper
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.formField__p391I
+                                  sty.formField__ty5Nn
                                 )}
                                 initialValue={undefined}
                                 label={"owner_name"}
@@ -876,14 +876,30 @@ function PlasmicSettings__RenderFunc(props: {
                                 <AntdInput
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.input___1ZIxJ
+                                    sty.input__mw2Mv
+                                  )}
+                                />
+                              </FormItemWrapper>
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__ueen3
+                                )}
+                                initialValue={"0"}
+                                label={"major_plan"}
+                                name={"major_plan"}
+                              >
+                                <AntdInput
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.input__n8MOa
                                   )}
                                 />
                               </FormItemWrapper>
                               <AntdButton
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.button__xtjqn
+                                  sty.button__yKvaS
                                 )}
                                 submitsForm={true}
                                 type={"primary"}
@@ -892,7 +908,7 @@ function PlasmicSettings__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__kSZ
+                                    sty.text__tOyuh
                                   )}
                                 >
                                   {"Submit"}
