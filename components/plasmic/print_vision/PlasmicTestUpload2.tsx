@@ -1979,8 +1979,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                 },
                                 placeholder: (() => {
                                   try {
-                                    return $state.printfulId.data.response
-                                      .result.id;
+                                    return $state.printfulId;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
