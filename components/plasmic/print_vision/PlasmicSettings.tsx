@@ -1364,9 +1364,20 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.formField__gtQeY
                                 )}
-                                initialValue={
-                                  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjdiMzkwYWI1YWI1NDYzZDUzYzQ2ZmVmMjBjNmRkYWRkZDZhMzNiOTM0MmM4ZDY5Yzk5MjAzZjY2OWJlOWUwNjY3MjlmNGVkMTRjOWI2ZWE3IiwiaWF0IjoxNzIwMDIwNjI2LjI3MDIzNCwibmJmIjoxNzIwMDIwNjI2LjI3MDIzNiwiZXhwIjoxNzUxNTU2NjI2LjIzMjAwOSwic3ViIjoiNjQwNzc4MSIsInNjb3BlcyI6WyJzaG9wcy5tYW5hZ2UiLCJzaG9wcy5yZWFkIiwiY2F0YWxvZy5yZWFkIiwib3JkZXJzLnJlYWQiLCJvcmRlcnMud3JpdGUiLCJwcm9kdWN0cy5yZWFkIiwicHJvZHVjdHMud3JpdGUiLCJ3ZWJob29rcy5yZWFkIiwid2ViaG9va3Mud3JpdGUiLCJ1cGxvYWRzLnJlYWQiLCJ1cGxvYWRzLndyaXRlIiwicHJpbnRfcHJvdmlkZXJzLnJlYWQiXX0.AFyPnNWKNsvgiKpYruqTiwhAkETlrssWwj8YPHI9TAYUEP1KGDw2GA23OhwQ4SEf6vAhb2wUHQGtLkSKgqU"
-                                }
+                                initialValue={(() => {
+                                  try {
+                                    return $queries.query.data[0].printify_key;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                                 label={"printify_key"}
                                 name={"printify_key"}
                               >
@@ -1416,9 +1427,20 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.formField__rwnti
                                 )}
-                                initialValue={
-                                  "R4R8UYOG4EybbEq7mA6btZw2DDcXgVHPc8lFQmsv"
-                                }
+                                initialValue={(() => {
+                                  try {
+                                    return $queries.query.data[0].printful_key;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return ``;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                                 label={"printful_key"}
                                 name={"printful_key"}
                               >
