@@ -506,6 +506,38 @@ function PlasmicSettings__RenderFunc(props: {
                                 key: "printify_logo_id",
                                 fieldId: "printify_logo_id",
                                 isHidden: null
+                              },
+                              {
+                                key: "changing_payment_intent",
+                                fieldId: "changing_payment_intent",
+                                isHidden: null
+                              },
+                              {
+                                key: "major_plan",
+                                fieldId: "major_plan",
+                                isHidden: null
+                              },
+                              {
+                                key: "payment_status",
+                                fieldId: "payment_status",
+                                isHidden: null
+                              },
+                              {
+                                key: "stripe_customer_id",
+                                fieldId: "stripe_customer_id",
+                                isHidden: null
+                              },
+                              {
+                                key: "major_payment_intent",
+                                fieldId: "major_payment_intent",
+                                disableSorting: null,
+                                isHidden: null
+                              },
+                              { key: "owner_name", fieldId: "owner_name" },
+                              {
+                                key: "changing_plan",
+                                fieldId: "changing_plan",
+                                isHidden: null
                               }
                             ];
                             __composite["1"]["isHidden"] = true;
@@ -515,6 +547,13 @@ function PlasmicSettings__RenderFunc(props: {
                             __composite["6"]["isHidden"] = true;
                             __composite["7"]["isHidden"] = true;
                             __composite["8"]["isHidden"] = true;
+                            __composite["9"]["isHidden"] = true;
+                            __composite["10"]["isHidden"] = true;
+                            __composite["11"]["isHidden"] = true;
+                            __composite["12"]["isHidden"] = true;
+                            __composite["13"]["disableSorting"] = false;
+                            __composite["13"]["isHidden"] = true;
+                            __composite["15"]["isHidden"] = true;
                             return __composite;
                           })(),
 
