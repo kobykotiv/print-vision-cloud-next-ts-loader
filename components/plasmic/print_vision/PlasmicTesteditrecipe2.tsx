@@ -3885,6 +3885,47 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                         "invokeGlobalAction"
                                                       ];
                                                     }
+
+                                                    $steps["refreshData2"] =
+                                                      true
+                                                        ? (() => {
+                                                            const actionArgs = {
+                                                              queryInvalidation:
+                                                                [
+                                                                  "plasmic_refresh_all"
+                                                                ]
+                                                            };
+                                                            return (async ({
+                                                              queryInvalidation
+                                                            }) => {
+                                                              if (
+                                                                !queryInvalidation
+                                                              ) {
+                                                                return;
+                                                              }
+                                                              await plasmicInvalidate(
+                                                                queryInvalidation
+                                                              );
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                    if (
+                                                      $steps["refreshData2"] !=
+                                                        null &&
+                                                      typeof $steps[
+                                                        "refreshData2"
+                                                      ] === "object" &&
+                                                      typeof $steps[
+                                                        "refreshData2"
+                                                      ].then === "function"
+                                                    ) {
+                                                      $steps["refreshData2"] =
+                                                        await $steps[
+                                                          "refreshData2"
+                                                        ];
+                                                    }
                                                   }}
                                                 >
                                                   <div
@@ -7710,36 +7751,6 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                                 ];
                                             }
 
-                                            $steps["refreshData"] = true
-                                              ? (() => {
-                                                  const actionArgs = {
-                                                    queryInvalidation: [
-                                                      "221445e4-deb2-4d71-9956-3d6e7314b8da"
-                                                    ]
-                                                  };
-                                                  return (async ({
-                                                    queryInvalidation
-                                                  }) => {
-                                                    if (!queryInvalidation) {
-                                                      return;
-                                                    }
-                                                    await plasmicInvalidate(
-                                                      queryInvalidation
-                                                    );
-                                                  })?.apply(null, [actionArgs]);
-                                                })()
-                                              : undefined;
-                                            if (
-                                              $steps["refreshData"] != null &&
-                                              typeof $steps["refreshData"] ===
-                                                "object" &&
-                                              typeof $steps["refreshData"]
-                                                .then === "function"
-                                            ) {
-                                              $steps["refreshData"] =
-                                                await $steps["refreshData"];
-                                            }
-
                                             $steps[
                                               "runActionOnFormEditPrintifyProduct"
                                             ] = true
@@ -7887,6 +7898,36 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                               ] = await $steps[
                                                 "updateModalEditPrintifyProductOpen"
                                               ];
+                                            }
+
+                                            $steps["refreshData"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    queryInvalidation: [
+                                                      "221445e4-deb2-4d71-9956-3d6e7314b8da"
+                                                    ]
+                                                  };
+                                                  return (async ({
+                                                    queryInvalidation
+                                                  }) => {
+                                                    if (!queryInvalidation) {
+                                                      return;
+                                                    }
+                                                    await plasmicInvalidate(
+                                                      queryInvalidation
+                                                    );
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["refreshData"] != null &&
+                                              typeof $steps["refreshData"] ===
+                                                "object" &&
+                                              typeof $steps["refreshData"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["refreshData"] =
+                                                await $steps["refreshData"];
                                             }
                                           }}
                                         >
