@@ -1672,6 +1672,37 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                       $steps["postgresCreateMany"] =
                                         await $steps["postgresCreateMany"];
                                     }
+
+                                    $steps["refreshData"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            queryInvalidation: [
+                                              "plasmic_refresh_all"
+                                            ]
+                                          };
+                                          return (async ({
+                                            queryInvalidation
+                                          }) => {
+                                            if (!queryInvalidation) {
+                                              return;
+                                            }
+                                            await plasmicInvalidate(
+                                              queryInvalidation
+                                            );
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["refreshData"] != null &&
+                                      typeof $steps["refreshData"] ===
+                                        "object" &&
+                                      typeof $steps["refreshData"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["refreshData"] = await $steps[
+                                        "refreshData"
+                                      ];
+                                    }
                                   }}
                                 >
                                   <div

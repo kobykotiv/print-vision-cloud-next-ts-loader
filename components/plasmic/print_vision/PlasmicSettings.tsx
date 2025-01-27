@@ -381,9 +381,11 @@ function PlasmicSettings__RenderFunc(props: {
     printifyGetShops: usePlasmicDataOp(() => {
       return {
         sourceId: "fumskhn7h2QULzwkXAtFMC",
-        opId: "2d775cb7-1386-4ea5-b602-aebc388de068",
-        userArgs: {},
-        cacheKey: `plasmic.$.2d775cb7-1386-4ea5-b602-aebc388de068.$.`,
+        opId: "8698f2f3-8bdf-4d19-99d2-c942b42bb32b",
+        userArgs: {
+          headers: [$queries.query.data[0].printify_key]
+        },
+        cacheKey: `plasmic.$.8698f2f3-8bdf-4d19-99d2-c942b42bb32b.$.`,
         invalidatedKeys: null,
         roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
@@ -1237,9 +1239,10 @@ function PlasmicSettings__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                    opId: "88f9ec69-ca84-4421-a2df-6cccbc86f51d",
+                                    opId: "c6db0a57-4315-4722-b601-e6a131a84ae6",
                                     userArgs: {
-                                      variables: [$state.form.value]
+                                      keys: [$queries.query.data[0].id],
+                                      variables: [values]
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],

@@ -1100,6 +1100,20 @@
           "cssFilePath": "plasmic/print_vision/PlasmicModal.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "K6_vXcqOZUX_",
+          "name": "Backend2",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicBackend2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/backend-2.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicBackend2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/backend-2"
         }
       ],
       "icons": [
