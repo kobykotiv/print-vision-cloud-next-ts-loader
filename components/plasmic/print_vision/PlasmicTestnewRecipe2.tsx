@@ -77,6 +77,7 @@ import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -118,6 +119,7 @@ export type PlasmicTestnewRecipe2__OverridesType = {
   printifyError?: Flex__<"div">;
   printfulError?: Flex__<"div">;
   maxRecipeError?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultTestnewRecipe2Props {}
@@ -1396,9 +1398,9 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                       const majorPlan = $queries.keys.data[0].major_plan;
 
                       if (
-                        (majorPlan === 0 && userRecipeCount > 3) ||
-                        (majorPlan === 1 && userRecipeCount > 10) ||
-                        (majorPlan === 2 && userRecipeCount > 20) ||
+                        (majorPlan === 0 && userRecipeCount > 2) ||
+                        (majorPlan === 1 && userRecipeCount > 9) ||
+                        (majorPlan === 2 && userRecipeCount > 19) ||
                         (majorPlan === 3 && userRecipeCount > 2000)
                       ) {
                         return false;
@@ -1659,9 +1661,9 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
                       const userRecipeCount = $queries.userRecipe.data.length;
                       const majorPlan = $queries.keys.data[0].major_plan;
                       if (
-                        (majorPlan === 0 && userRecipeCount > 3) ||
-                        (majorPlan === 1 && userRecipeCount > 10) ||
-                        (majorPlan === 2 && userRecipeCount > 20) ||
+                        (majorPlan === 0 && userRecipeCount > 2) ||
+                        (majorPlan === 1 && userRecipeCount > 9) ||
+                        (majorPlan === 2 && userRecipeCount > 19) ||
                         (majorPlan === 3 && userRecipeCount > 2000)
                       ) {
                         return false;
@@ -1756,6 +1758,35 @@ function PlasmicTestnewRecipe2__RenderFunc(props: {
               </FormWrapper>
             );
           })()}
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["refreshData"] = true
+                ? (() => {
+                    const actionArgs = {
+                      queryInvalidation: ["plasmic_refresh_all"]
+                    };
+                    return (async ({ queryInvalidation }) => {
+                      if (!queryInvalidation) {
+                        return;
+                      }
+                      await plasmicInvalidate(queryInvalidation);
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["refreshData"] != null &&
+                typeof $steps["refreshData"] === "object" &&
+                typeof $steps["refreshData"].then === "function"
+              ) {
+                $steps["refreshData"] = await $steps["refreshData"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1781,7 +1812,8 @@ const PlasmicDescendants = {
     "button",
     "printifyError",
     "printfulError",
-    "maxRecipeError"
+    "maxRecipeError",
+    "sideEffect"
   ],
   pageLayout: ["pageLayout", "tabs", "table", "table2", "svg"],
   tabs: ["tabs", "table", "table2"],
@@ -1817,7 +1849,8 @@ const PlasmicDescendants = {
   button: ["button"],
   printifyError: ["printifyError"],
   printfulError: ["printfulError"],
-  maxRecipeError: ["maxRecipeError"]
+  maxRecipeError: ["maxRecipeError"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1841,6 +1874,7 @@ type NodeDefaultElementType = {
   printifyError: "div";
   printfulError: "div";
   maxRecipeError: "div";
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1962,6 +1996,7 @@ export const PlasmicTestnewRecipe2 = Object.assign(
     printifyError: makeNodeComponent("printifyError"),
     printfulError: makeNodeComponent("printfulError"),
     maxRecipeError: makeNodeComponent("maxRecipeError"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicTestnewRecipe2
     internalVariantProps: PlasmicTestnewRecipe2__VariantProps,

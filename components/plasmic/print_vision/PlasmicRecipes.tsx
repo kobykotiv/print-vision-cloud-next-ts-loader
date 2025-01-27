@@ -72,6 +72,7 @@ import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-tabl
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { ConditionGuard } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -102,6 +103,7 @@ export type PlasmicRecipes__OverridesType = {
   table?: Flex__<typeof RichTable>;
   conditionGuard?: Flex__<typeof ConditionGuard>;
   timer?: Flex__<typeof Timer>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultRecipesProps {}
@@ -908,6 +910,35 @@ function PlasmicRecipes__RenderFunc(props: {
                       runWhileEditing={true}
                     />
                   </div>
+                  <SideEffect
+                    data-plasmic-name={"sideEffect"}
+                    data-plasmic-override={overrides.sideEffect}
+                    className={classNames("__wab_instance", sty.sideEffect)}
+                    onMount={async () => {
+                      const $steps = {};
+
+                      $steps["refreshData"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              queryInvalidation: ["plasmic_refresh_all"]
+                            };
+                            return (async ({ queryInvalidation }) => {
+                              if (!queryInvalidation) {
+                                return;
+                              }
+                              await plasmicInvalidate(queryInvalidation);
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["refreshData"] != null &&
+                        typeof $steps["refreshData"] === "object" &&
+                        typeof $steps["refreshData"].then === "function"
+                      ) {
+                        $steps["refreshData"] = await $steps["refreshData"];
+                      }
+                    }}
+                  />
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -928,7 +959,8 @@ const PlasmicDescendants = {
     "text",
     "table",
     "conditionGuard",
-    "timer"
+    "timer",
+    "sideEffect"
   ],
   pageLayout: [
     "pageLayout",
@@ -938,7 +970,8 @@ const PlasmicDescendants = {
     "text",
     "table",
     "conditionGuard",
-    "timer"
+    "timer",
+    "sideEffect"
   ],
   adsContainer: ["adsContainer"],
   h1: ["h1"],
@@ -946,7 +979,8 @@ const PlasmicDescendants = {
   text: ["text"],
   table: ["table"],
   conditionGuard: ["conditionGuard"],
-  timer: ["timer"]
+  timer: ["timer"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -961,6 +995,7 @@ type NodeDefaultElementType = {
   table: typeof RichTable;
   conditionGuard: typeof ConditionGuard;
   timer: typeof Timer;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1073,6 +1108,7 @@ export const PlasmicRecipes = Object.assign(
     table: makeNodeComponent("table"),
     conditionGuard: makeNodeComponent("conditionGuard"),
     timer: makeNodeComponent("timer"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicRecipes
     internalVariantProps: PlasmicRecipes__VariantProps,

@@ -1199,7 +1199,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                           label={"image_id"}
                           name={"image_id"}
                           preserve={false}
-                          rules={[{ ruleType: "required" }]}
+                          rules={[{ ruleType: "min", length: 1 }]}
                         >
                           {(() => {
                             const child$Props = {
@@ -1207,7 +1207,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.input7
                               ),
-                              disabled: true,
+                              disabled: false,
                               onChange: async (...eventArgs: any) => {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
@@ -1230,7 +1230,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                   throw e;
                                 }
                               })(),
-                              readOnly: false,
+                              readOnly: true,
                               value: generateStateValueProp($state, [
                                 "input7",
                                 "value"
@@ -1384,7 +1384,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                               dataOp: {
                                                 sourceId:
                                                   "fq3u296VTpoRcVc8quSCN3",
-                                                opId: "070fd442-7e10-4f01-bcf6-3f871be38bec",
+                                                opId: "912339f4-57cc-4319-8cd2-ee816493584b",
                                                 userArgs: {
                                                   path: [
                                                     $state.upload.files[0].uid
@@ -1392,7 +1392,8 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                                 },
                                                 cacheKey: null,
                                                 invalidatedKeys: null,
-                                                roleId: null
+                                                roleId:
+                                                  "d035f350-edf5-4268-af03-4480b52522b0"
                                               }
                                             };
                                             return (async ({
@@ -2359,24 +2360,23 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                   const actionArgs = {
                                     dataOp: {
                                       sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                      opId: "6356dc06-264c-43ab-9933-9245e4fe375c",
+                                      opId: "11629cc5-8d8e-4028-a2bc-8a25e4d16070",
                                       userArgs: {
                                         variables: [
                                           {
                                             ...$state.form.value,
                                             printify_id:
                                               $state.printifyId.data.response
-                                                .id,
-                                            printful_id:
-                                              $state.printfulId.data.response
-                                                .result.id,
+                                                ?.id,
+                                            printful_id: $state.printfulId,
                                             image_id: $state.file
                                           }
                                         ]
                                       },
                                       cacheKey: null,
                                       invalidatedKeys: ["plasmic_refresh_all"],
-                                      roleId: null
+                                      roleId:
+                                        "d035f350-edf5-4268-af03-4480b52522b0"
                                     }
                                   };
                                   return (async ({
