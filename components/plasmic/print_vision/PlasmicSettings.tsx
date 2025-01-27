@@ -71,14 +71,14 @@ import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-tabl
 import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import Modal from "../../Modal"; // plasmic-import: QsGKyhsi7rjB/component
 import Button2 from "../../Button2"; // plasmic-import: 5htpOgxRwHbE/component
-import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/SchemaForm";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
-import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
-import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { UploadWrapper } from "@plasmicpkgs/antd5/skinny/registerUpload";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -109,6 +109,7 @@ export type PlasmicSettings__OverridesType = {
   pageLayout?: Flex__<typeof PageLayout>;
   table?: Flex__<typeof RichTable>;
   modal2?: Flex__<typeof Modal>;
+  h3?: Flex__<"h3">;
   form2?: Flex__<typeof FormWrapper>;
   modal?: Flex__<typeof AntdModal>;
   form?: Flex__<typeof FormWrapper>;
@@ -713,7 +714,183 @@ function PlasmicSettings__RenderFunc(props: {
                       >
                         {(() => {
                           const child$Props = {
+                            children: null,
                             className: classNames("__wab_instance", sty.form2),
+                            data: {
+                              sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                              opId: "48a2fc8a-5eb5-45fa-861b-a30f118d95b3",
+                              userArgs: {},
+                              cacheKey: `plasmic.$.${(() => {
+                                try {
+                                  return "getSchema";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}.$.48a2fc8a-5eb5-45fa-861b-a30f118d95b3.$.`,
+                              invalidatedKeys: null,
+                              roleId: null
+                            },
+                            dataFormItems: (() => {
+                              const __composite = [
+                                {
+                                  key: "id",
+                                  inputType: "Number",
+                                  fieldId: "id",
+                                  label: "id",
+                                  name: "id",
+                                  hidden: null
+                                },
+                                {
+                                  key: "owner_name",
+                                  inputType: "Text",
+                                  fieldId: "owner_name",
+                                  label: null,
+                                  name: "owner_name"
+                                },
+                                {
+                                  key: "owner",
+                                  inputType: "Text",
+                                  fieldId: "owner",
+                                  label: "owner",
+                                  name: "owner",
+                                  initialValue: null,
+                                  hidden: null
+                                },
+                                {
+                                  key: "changing_payment_intent",
+                                  inputType: "Text",
+                                  fieldId: "changing_payment_intent",
+                                  label: "changing_payment_intent",
+                                  name: "changing_payment_intent",
+                                  hidden: null
+                                },
+                                {
+                                  key: "printify_key",
+                                  inputType: "Text",
+                                  fieldId: "printify_key",
+                                  label: "printify_key",
+                                  name: "printify_key",
+                                  hidden: null
+                                },
+                                {
+                                  key: "major_plan",
+                                  inputType: "Number",
+                                  fieldId: "major_plan",
+                                  label: "major_plan",
+                                  name: "major_plan",
+                                  initialValue: null,
+                                  hidden: null
+                                },
+                                {
+                                  key: "payment_status",
+                                  inputType: "Checkbox",
+                                  fieldId: "payment_status",
+                                  label: "payment_status",
+                                  name: "payment_status",
+                                  hidden: null
+                                },
+                                {
+                                  key: "printful_key",
+                                  inputType: "Text",
+                                  fieldId: "printful_key",
+                                  label: "printful_key",
+                                  name: "printful_key",
+                                  hidden: null
+                                },
+                                {
+                                  key: "stripe_customer_id",
+                                  inputType: "Text",
+                                  fieldId: "stripe_customer_id",
+                                  label: "stripe_customer_id",
+                                  name: "stripe_customer_id",
+                                  hidden: null
+                                },
+                                {
+                                  key: "printify_logo_id",
+                                  inputType: "Text",
+                                  fieldId: "printify_logo_id",
+                                  label: "printify_logo_id",
+                                  name: "printify_logo_id",
+                                  hidden: null
+                                },
+                                {
+                                  key: "prodigi_key",
+                                  inputType: "Text",
+                                  fieldId: "prodigi_key",
+                                  label: "prodigi_key",
+                                  name: "prodigi_key",
+                                  hidden: null
+                                },
+                                {
+                                  key: "major_payment_intent",
+                                  inputType: "Text",
+                                  fieldId: "major_payment_intent",
+                                  label: "major_payment_intent",
+                                  name: "major_payment_intent",
+                                  hidden: null
+                                },
+                                {
+                                  key: "printify_shop_id",
+                                  inputType: "Text",
+                                  fieldId: "printify_shop_id",
+                                  label: "printify_shop_id",
+                                  name: "printify_shop_id",
+                                  hidden: null
+                                },
+                                {
+                                  key: "printful_logo_id",
+                                  inputType: "Text",
+                                  fieldId: "printful_logo_id",
+                                  label: "printful_logo_id",
+                                  name: "printful_logo_id",
+                                  hidden: null
+                                },
+                                {
+                                  key: "changing_plan",
+                                  inputType: "Number",
+                                  fieldId: "changing_plan",
+                                  label: "changing_plan",
+                                  name: "changing_plan",
+                                  hidden: null
+                                },
+                                {
+                                  key: "printful_shop_id",
+                                  inputType: "Text",
+                                  fieldId: "printful_shop_id",
+                                  label: "printful_shop_id",
+                                  name: "printful_shop_id",
+                                  hidden: null
+                                }
+                              ];
+                              __composite["0"]["hidden"] = true;
+                              __composite["1"]["label"] = "Your Full Name";
+                              __composite["2"]["initialValue"] =
+                                currentUser.email;
+                              __composite["2"]["hidden"] = true;
+                              __composite["3"]["hidden"] = true;
+                              __composite["4"]["hidden"] = true;
+                              __composite["5"]["initialValue"] = 0;
+                              __composite["5"]["hidden"] = true;
+                              __composite["6"]["hidden"] = true;
+                              __composite["7"]["hidden"] = true;
+                              __composite["8"]["hidden"] = true;
+                              __composite["9"]["hidden"] = true;
+                              __composite["10"]["hidden"] = true;
+                              __composite["11"]["hidden"] = true;
+                              __composite["12"]["hidden"] = true;
+                              __composite["13"]["hidden"] = true;
+                              __composite["14"]["hidden"] = true;
+                              __composite["15"]["hidden"] = true;
+                              return __composite;
+                            })(),
+
                             extendedOnValuesChange: async (
                               ...eventArgs: any
                             ) => {
@@ -724,10 +901,10 @@ function PlasmicSettings__RenderFunc(props: {
                                 FormWrapper_Helpers
                               ).apply(null, eventArgs);
                             },
-                            formItems: undefined,
+                            formItems: [],
                             labelCol: { span: 8, horizontalOnly: true },
                             layout: "vertical",
-                            mode: undefined,
+                            mode: "simplified",
                             onFinish: async values => {
                               const $steps = {};
 
@@ -781,36 +958,6 @@ function PlasmicSettings__RenderFunc(props: {
                                   "defaultSubmit"
                                 ];
                               }
-
-                              $steps["goToHomepage"] = true
-                                ? (() => {
-                                    const actionArgs = { destination: `/` };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
-                                      }
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["goToHomepage"] != null &&
-                                typeof $steps["goToHomepage"] === "object" &&
-                                typeof $steps["goToHomepage"].then ===
-                                  "function"
-                              ) {
-                                $steps["goToHomepage"] = await $steps[
-                                  "goToHomepage"
-                                ];
-                              }
                             },
                             onIsSubmittingChange: async (...eventArgs: any) => {
                               generateStateOnChangePropForCodeComponents(
@@ -823,6 +970,26 @@ function PlasmicSettings__RenderFunc(props: {
                             ref: ref => {
                               $refs["form2"] = ref;
                             },
+                            submitSlot: (
+                              <AntdButton
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.button__g1Qw5
+                                )}
+                                submitsForm={true}
+                                type={"primary"}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__v2A2F
+                                  )}
+                                >
+                                  {"Submit"}
+                                </div>
+                              </AntdButton>
+                            ),
                             wrapperCol: { span: 16, horizontalOnly: true }
                           };
                           initializeCodeComponentStates(
@@ -847,74 +1014,7 @@ function PlasmicSettings__RenderFunc(props: {
                               data-plasmic-name={"form2"}
                               data-plasmic-override={overrides.form2}
                               {...child$Props}
-                            >
-                              <FormItemWrapper
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.formField__nATT
-                                )}
-                                initialValue={undefined}
-                                label={"owner"}
-                                name={"owner"}
-                              >
-                                <AntdInput
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.input__kOaWk
-                                  )}
-                                />
-                              </FormItemWrapper>
-                              <FormItemWrapper
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.formField__ty5Nn
-                                )}
-                                initialValue={undefined}
-                                label={"owner_name"}
-                                name={"owner_name"}
-                              >
-                                <AntdInput
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.input__mw2Mv
-                                  )}
-                                />
-                              </FormItemWrapper>
-                              <FormItemWrapper
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.formField__ueen3
-                                )}
-                                initialValue={"0"}
-                                label={"major_plan"}
-                                name={"major_plan"}
-                              >
-                                <AntdInput
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.input__n8MOa
-                                  )}
-                                />
-                              </FormItemWrapper>
-                              <AntdButton
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.button__yKvaS
-                                )}
-                                submitsForm={true}
-                                type={"primary"}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__tOyuh
-                                  )}
-                                >
-                                  {"Submit"}
-                                </div>
-                              </AntdButton>
-                            </FormWrapper>
+                            />
                           );
                         })()}
                       </Stack__>
@@ -985,6 +1085,20 @@ function PlasmicSettings__RenderFunc(props: {
                           type={"soft"}
                         />
                       </div>
+                    }
+                    heading={
+                      <h3
+                        data-plasmic-name={"h3"}
+                        data-plasmic-override={overrides.h3}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h3,
+                          projectcss.__wab_text,
+                          sty.h3
+                        )}
+                      >
+                        {"Just Confirming..."}
+                      </h3>
                     }
                     isOpen={generateStateValueProp($state, [
                       "modal2",
@@ -2352,6 +2466,7 @@ const PlasmicDescendants = {
     "pageLayout",
     "table",
     "modal2",
+    "h3",
     "form2",
     "modal",
     "form",
@@ -2371,6 +2486,7 @@ const PlasmicDescendants = {
     "pageLayout",
     "table",
     "modal2",
+    "h3",
     "form2",
     "modal",
     "form",
@@ -2387,7 +2503,8 @@ const PlasmicDescendants = {
     "input5"
   ],
   table: ["table"],
-  modal2: ["modal2", "form2"],
+  modal2: ["modal2", "h3", "form2"],
+  h3: ["h3"],
   form2: ["form2"],
   modal: [
     "modal",
@@ -2438,6 +2555,7 @@ type NodeDefaultElementType = {
   pageLayout: typeof PageLayout;
   table: typeof RichTable;
   modal2: typeof Modal;
+  h3: "h3";
   form2: typeof FormWrapper;
   modal: typeof AntdModal;
   form: typeof FormWrapper;
@@ -2559,6 +2677,7 @@ export const PlasmicSettings = Object.assign(
     pageLayout: makeNodeComponent("pageLayout"),
     table: makeNodeComponent("table"),
     modal2: makeNodeComponent("modal2"),
+    h3: makeNodeComponent("h3"),
     form2: makeNodeComponent("form2"),
     modal: makeNodeComponent("modal"),
     form: makeNodeComponent("form"),
