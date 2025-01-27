@@ -851,7 +851,7 @@ function PlasmicSettings__RenderFunc(props: {
                               <FormItemWrapper
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.formField__vFeQ
+                                  sty.formField__i2V3Z
                                 )}
                                 initialValue={undefined}
                                 label={"owner"}
@@ -860,14 +860,14 @@ function PlasmicSettings__RenderFunc(props: {
                                 <AntdInput
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.input__m2Giw
+                                    sty.input___5K55
                                   )}
                                 />
                               </FormItemWrapper>
                               <FormItemWrapper
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.formField__cCehq
+                                  sty.formField__p391I
                                 )}
                                 initialValue={undefined}
                                 label={"owner_name"}
@@ -876,14 +876,14 @@ function PlasmicSettings__RenderFunc(props: {
                                 <AntdInput
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.input__afv4F
+                                    sty.input___1ZIxJ
                                   )}
                                 />
                               </FormItemWrapper>
                               <AntdButton
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.button__hUf3O
+                                  sty.button__xtjqn
                                 )}
                                 submitsForm={true}
                                 type={"primary"}
@@ -892,7 +892,7 @@ function PlasmicSettings__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__a1HEk
+                                    sty.text__kSZ
                                   )}
                                 >
                                   {"Submit"}
@@ -991,7 +991,7 @@ function PlasmicSettings__RenderFunc(props: {
                     trigger={
                       (() => {
                         try {
-                          return $queries.query.data[0] == 0;
+                          return $queries.query.data.length == 0;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
