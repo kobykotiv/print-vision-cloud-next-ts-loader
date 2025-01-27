@@ -375,10 +375,10 @@ function PlasmicTestUpload2__RenderFunc(props: {
           })()
       },
       {
-        path: "signedUploadUrl2",
+        path: "payloadPrintify",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1577,6 +1577,50 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                         ];
                                       }
 
+                                      $steps["updatePrintifyId2"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "payloadPrintify"
+                                                ]
+                                              },
+                                              operation: 0,
+                                              value: $steps.httpPost
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updatePrintifyId2"] != null &&
+                                        typeof $steps["updatePrintifyId2"] ===
+                                          "object" &&
+                                        typeof $steps["updatePrintifyId2"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updatePrintifyId2"] =
+                                          await $steps["updatePrintifyId2"];
+                                      }
+
                                       $steps["updatePrintifyId"] = true
                                         ? (() => {
                                             const actionArgs = {
@@ -1585,7 +1629,9 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                                 variablePath: ["printifyId"]
                                               },
                                               operation: 0,
-                                              value: $steps.httpPost
+                                              value:
+                                                $state.payloadPrintify.data
+                                                  .response.id
                                             };
                                             return (({
                                               variable,
@@ -2399,9 +2445,7 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                         variables: [
                                           {
                                             ...$state.form.value,
-                                            printify_id:
-                                              $state.printifyId.data.response
-                                                ?.id,
+                                            printify_id: $state.printifyId,
                                             printful_id: $state.printfulId,
                                             image_id: $state.file
                                           }
