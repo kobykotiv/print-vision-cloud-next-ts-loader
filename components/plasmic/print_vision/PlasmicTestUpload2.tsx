@@ -1524,7 +1524,10 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                                   "fumskhn7h2QULzwkXAtFMC",
                                                 opId: "fec6a1b4-0921-4dce-9271-2a2825d7c681",
                                                 userArgs: {
-                                                  body: [$state.signedUploadUrl]
+                                                  body: [
+                                                    $state.signedUploadUrl
+                                                      .signedUrl
+                                                  ]
                                                 },
                                                 cacheKey: null,
                                                 invalidatedKeys: [
