@@ -1500,9 +1500,10 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.formField__pewXk
                                 )}
-                                initialValue={{}}
+                                initialValue={``}
                                 label={"printify_shop_id"}
                                 name={"printify_shop_id"}
+                                shouldUpdate={true}
                               >
                                 <AntdSelect
                                   data-plasmic-name={"select"}
