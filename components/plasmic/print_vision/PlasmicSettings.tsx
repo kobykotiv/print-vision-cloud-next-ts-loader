@@ -124,6 +124,7 @@ export type PlasmicSettings__OverridesType = {
   upload?: Flex__<typeof UploadWrapper>;
   input7?: Flex__<typeof AntdInput>;
   input5?: Flex__<typeof AntdInput>;
+  input6?: Flex__<typeof AntdInput>;
 };
 
 export interface DefaultSettingsProps {}
@@ -354,6 +355,14 @@ function PlasmicSettings__RenderFunc(props: {
 
         refName: "form2",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "input6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -1239,10 +1248,12 @@ function PlasmicSettings__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                    opId: "c6db0a57-4315-4722-b601-e6a131a84ae6",
+                                    opId: "4e31aef7-33af-4773-a264-55dd28770619",
                                     userArgs: {
-                                      keys: [$queries.query.data[0].id],
-                                      variables: [values]
+                                      keys: [
+                                        parseInt($queries.query.data[0].id)
+                                      ],
+                                      variables: [undefined]
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
@@ -2428,6 +2439,65 @@ function PlasmicSettings__RenderFunc(props: {
                               })()}
                             </FormItemWrapper>
                           </div>
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField__xKqK9
+                            )}
+                            label={
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__rpJaG
+                                )}
+                              >
+                                {"Your Name"}
+                              </div>
+                            }
+                            name={"owner_name"}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.input6
+                                ),
+                                onChange: async (...eventArgs: any) => {
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["input6", "value"],
+                                    AntdInput_Helpers
+                                  ).apply(null, eventArgs);
+                                },
+                                value: generateStateValueProp($state, [
+                                  "input6",
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "input6.value"
+                                  }
+                                ],
+                                [],
+                                AntdInput_Helpers ?? {},
+                                child$Props
+                              );
+
+                              return (
+                                <AntdInput
+                                  data-plasmic-name={"input6"}
+                                  data-plasmic-override={overrides.input6}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </FormItemWrapper>
                           <AntdButton
                             className={classNames(
                               "__wab_instance",
@@ -2545,7 +2615,8 @@ const PlasmicDescendants = {
     "h5",
     "upload",
     "input7",
-    "input5"
+    "input5",
+    "input6"
   ],
   pageLayout: [
     "pageLayout",
@@ -2565,7 +2636,8 @@ const PlasmicDescendants = {
     "h5",
     "upload",
     "input7",
-    "input5"
+    "input5",
+    "input6"
   ],
   table: ["table"],
   modal2: ["modal2", "h3", "form2"],
@@ -2584,7 +2656,8 @@ const PlasmicDescendants = {
     "h5",
     "upload",
     "input7",
-    "input5"
+    "input5",
+    "input6"
   ],
   form: [
     "form",
@@ -2598,7 +2671,8 @@ const PlasmicDescendants = {
     "h5",
     "upload",
     "input7",
-    "input5"
+    "input5",
+    "input6"
   ],
   numberInput: ["numberInput"],
   input3: ["input3"],
@@ -2610,7 +2684,8 @@ const PlasmicDescendants = {
   h5: ["h5"],
   upload: ["upload"],
   input7: ["input7"],
-  input5: ["input5"]
+  input5: ["input5"],
+  input6: ["input6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2635,6 +2710,7 @@ type NodeDefaultElementType = {
   upload: typeof UploadWrapper;
   input7: typeof AntdInput;
   input5: typeof AntdInput;
+  input6: typeof AntdInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2757,6 +2833,7 @@ export const PlasmicSettings = Object.assign(
     upload: makeNodeComponent("upload"),
     input7: makeNodeComponent("input7"),
     input5: makeNodeComponent("input5"),
+    input6: makeNodeComponent("input6"),
 
     // Metadata about props expected for PlasmicSettings
     internalVariantProps: PlasmicSettings__VariantProps,

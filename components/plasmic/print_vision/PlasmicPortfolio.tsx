@@ -416,6 +416,36 @@ function PlasmicPortfolio__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    getSupPrintifyVariants22: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "edde1f81-0583-4460-a689-9da7137e30ff",
+        userArgs: {},
+        cacheKey: `plasmic.$.edde1f81-0583-4460-a689-9da7137e30ff.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    totalPrintifyPlaceholder: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "61dfc4cc-4b30-4990-830f-0d1040c0c5c8",
+        userArgs: {},
+        cacheKey: `plasmic.$.61dfc4cc-4b30-4990-830f-0d1040c0c5c8.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    totalPrintifyProductVariant: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "fb5cd9ab-b646-438c-b538-b7176c899a58",
+        userArgs: {},
+        cacheKey: `plasmic.$.fb5cd9ab-b646-438c-b538-b7176c899a58.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -988,392 +1018,306 @@ function PlasmicPortfolio__RenderFunc(props: {
                             )}
                             key={currentIndex}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__pLnM2
+                                sty.freeBox__mR85P
                               )}
                             >
-                              {(() => {
-                                try {
-                                  return currentItem.recipe_ids
-                                    ? undefined
-                                    : true;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__pLnM2
+                                )}
+                              >
+                                {(() => {
+                                  try {
+                                    return !currentItem.recipe_ids.every(id =>
+                                      $queries.getSupPrintifyVariants22.data.some(
+                                        row => row.recipe_id === id
+                                      )
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })() ? (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___2Da9H
-                                  )}
-                                >
+                                })() ? (
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__jf73U
+                                      sty.freeBox___2Da9H
                                     )}
                                   >
-                                    {"No recipe_id"}
-                                  </div>
-                                </div>
-                              ) : null}
-                              {(() => {
-                                try {
-                                  return currentItem.recipe_ids
-                                    ? true
-                                    : undefined;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__xvqxy
-                                  )}
-                                >
-                                  {(() => {
-                                    try {
-                                      return !currentItem.recipe_ids.some(id =>
-                                        $queries.test.data
-                                          .map(item => item.recipe_id)
-                                          .includes(id)
-                                      )
-                                        ? true
-                                        : undefined;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return true;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox___3JgDr
+                                        projectcss.__wab_text,
+                                        sty.text__jf73U
                                       )}
                                     >
+                                      {"A Recipe here is empty"}
+                                    </div>
+                                  </div>
+                                ) : null}
+                                {(() => {
+                                  try {
+                                    return currentItem.recipe_ids
+                                      ? undefined
+                                      : true;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__l1LP
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__fqUd3
+                                      )}
+                                    >
+                                      {"No recipe_id"}
+                                    </div>
+                                  </div>
+                                ) : null}
+                                {(() => {
+                                  try {
+                                    return currentItem.recipe_ids
+                                      ? true
+                                      : undefined;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__xvqxy
+                                    )}
+                                  >
+                                    {(() => {
+                                      try {
+                                        return !currentItem.recipe_ids.some(
+                                          id =>
+                                            $queries.test.data
+                                              .map(item => item.recipe_id)
+                                              .includes(id)
+                                        )
+                                          ? true
+                                          : undefined;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })() ? (
                                       <div
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__uHOoX
+                                          sty.freeBox___3JgDr
                                         )}
                                       >
-                                        {"recipe_id's invalid"}
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__uHOoX
+                                          )}
+                                        >
+                                          {"recipe_id's invalid"}
+                                        </div>
                                       </div>
-                                    </div>
-                                  ) : null}
-                                </div>
-                              ) : null}
-                            </Stack__>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__jrdWo
-                              )}
-                            >
+                                    ) : null}
+                                  </div>
+                                ) : null}
+                              </Stack__>
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__lBcBi
+                                  sty.freeBox__jrdWo
                                 )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.id;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "id";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__dWjTc
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__t8X7S
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.created_at.split(
-                                        "T"
-                                      )[0];
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "Created_at";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__kAvS
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___1QOTq
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.title;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return " ";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__wufNt
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__ehErp
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.recipe_ids.join(", ");
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return " ";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__eDmvo
-                              )}
-                            >
-                              <AntdButton
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.button__cq12J
-                                )}
-                                onClick={async () => {
-                                  const $steps = {};
-
-                                  $steps["updateModalEditDeisgnOpen"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "modalEditDeisgn",
-                                              "open"
-                                            ]
-                                          },
-                                          operation: 4
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          const oldValue = $stateGet(
-                                            objRoot,
-                                            variablePath
-                                          );
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            !oldValue
-                                          );
-                                          return !oldValue;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateModalEditDeisgnOpen"] !=
-                                      null &&
-                                    typeof $steps[
-                                      "updateModalEditDeisgnOpen"
-                                    ] === "object" &&
-                                    typeof $steps["updateModalEditDeisgnOpen"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateModalEditDeisgnOpen"] =
-                                      await $steps["updateModalEditDeisgnOpen"];
-                                  }
-
-                                  $steps["runActionOnForm"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          tplRef: "form",
-                                          action: "setFieldsValue",
-                                          args: [currentItem]
-                                        };
-                                        return (({ tplRef, action, args }) => {
-                                          return $refs?.[tplRef]?.[action]?.(
-                                            ...(args ?? [])
-                                          );
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runActionOnForm"] != null &&
-                                    typeof $steps["runActionOnForm"] ===
-                                      "object" &&
-                                    typeof $steps["runActionOnForm"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["runActionOnForm"] = await $steps[
-                                      "runActionOnForm"
-                                    ];
-                                  }
-                                }}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text___8JmFr
+                                    sty.text__lBcBi
                                   )}
                                 >
-                                  {"Edit"}
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.id;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "id";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
                                 </div>
-                              </AntdButton>
-                              {(() => {
-                                try {
-                                  return currentItem.recipe_ids
-                                    ? true
-                                    : undefined;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__dWjTc
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__t8X7S
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.created_at.split(
+                                          "T"
+                                        )[0];
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Created_at";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__kAvS
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___1QOTq
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.title;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return " ";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__wufNt
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ehErp
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.recipe_ids.join(
+                                          ", "
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return " ";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </div>
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__eDmvo
+                                )}
+                              >
                                 <AntdButton
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button__u2Nyz
+                                    sty.button__cq12J
                                   )}
-                                  disabled={(() => {
-                                    try {
-                                      return !currentItem.recipe_ids.some(id =>
-                                        $queries.test.data
-                                          .map(item => item.recipe_id)
-                                          .includes(id)
-                                      )
-                                        ? true
-                                        : undefined;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
                                   onClick={async () => {
                                     const $steps = {};
 
-                                    $steps["updateVariable"] = true
+                                    $steps["updateModalEditDeisgnOpen"] = true
                                       ? (() => {
                                           const actionArgs = {
                                             variable: {
                                               objRoot: $state,
-                                              variablePath: ["link"]
+                                              variablePath: [
+                                                "modalEditDeisgn",
+                                                "open"
+                                              ]
                                             },
-                                            operation: 0,
-                                            value:
-                                              currentItem.recipe_ids.join(", ")
+                                            operation: 4
                                           };
                                           return (({
                                             variable,
@@ -1387,84 +1331,61 @@ function PlasmicPortfolio__RenderFunc(props: {
                                             const { objRoot, variablePath } =
                                               variable;
 
+                                            const oldValue = $stateGet(
+                                              objRoot,
+                                              variablePath
+                                            );
                                             $stateSet(
                                               objRoot,
                                               variablePath,
-                                              value
+                                              !oldValue
                                             );
-                                            return value;
+                                            return !oldValue;
                                           })?.apply(null, [actionArgs]);
                                         })()
                                       : undefined;
                                     if (
-                                      $steps["updateVariable"] != null &&
-                                      typeof $steps["updateVariable"] ===
-                                        "object" &&
-                                      typeof $steps["updateVariable"].then ===
-                                        "function"
+                                      $steps["updateModalEditDeisgnOpen"] !=
+                                        null &&
+                                      typeof $steps[
+                                        "updateModalEditDeisgnOpen"
+                                      ] === "object" &&
+                                      typeof $steps["updateModalEditDeisgnOpen"]
+                                        .then === "function"
                                     ) {
-                                      $steps["updateVariable"] = await $steps[
-                                        "updateVariable"
-                                      ];
+                                      $steps["updateModalEditDeisgnOpen"] =
+                                        await $steps[
+                                          "updateModalEditDeisgnOpen"
+                                        ];
                                     }
 
-                                    $steps["goToSync2"] = true
+                                    $steps["runActionOnForm"] = true
                                       ? (() => {
                                           const actionArgs = {
-                                            destination: `/sync-design-2/${(() => {
-                                              try {
-                                                return currentItem.id;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()}/${(() => {
-                                              try {
-                                                return currentItem.recipe_ids;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()}`
+                                            tplRef: "form",
+                                            action: "setFieldsValue",
+                                            args: [currentItem]
                                           };
-                                          return (({ destination }) => {
-                                            if (
-                                              typeof destination === "string" &&
-                                              destination.startsWith("#")
-                                            ) {
-                                              document
-                                                .getElementById(
-                                                  destination.substr(1)
-                                                )
-                                                .scrollIntoView({
-                                                  behavior: "smooth"
-                                                });
-                                            } else {
-                                              __nextRouter?.push(destination);
-                                            }
+                                          return (({
+                                            tplRef,
+                                            action,
+                                            args
+                                          }) => {
+                                            return $refs?.[tplRef]?.[action]?.(
+                                              ...(args ?? [])
+                                            );
                                           })?.apply(null, [actionArgs]);
                                         })()
                                       : undefined;
                                     if (
-                                      $steps["goToSync2"] != null &&
-                                      typeof $steps["goToSync2"] === "object" &&
-                                      typeof $steps["goToSync2"].then ===
+                                      $steps["runActionOnForm"] != null &&
+                                      typeof $steps["runActionOnForm"] ===
+                                        "object" &&
+                                      typeof $steps["runActionOnForm"].then ===
                                         "function"
                                     ) {
-                                      $steps["goToSync2"] = await $steps[
-                                        "goToSync2"
+                                      $steps["runActionOnForm"] = await $steps[
+                                        "runActionOnForm"
                                       ];
                                     }
                                   }}
@@ -1473,85 +1394,284 @@ function PlasmicPortfolio__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text___4JOz
+                                      sty.text___8JmFr
                                     )}
                                   >
-                                    {"Sync"}
+                                    {"Edit"}
                                   </div>
                                 </AntdButton>
-                              ) : null}
-                              <AntdButton
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.button__q2LmQ
-                                )}
-                                onClick={async () => {
-                                  const $steps = {};
-
-                                  $steps["updateModalDeleteDesignOpen"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "modalDeleteDesign",
-                                              "open"
-                                            ]
-                                          },
-                                          operation: 4
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          const oldValue = $stateGet(
-                                            objRoot,
-                                            variablePath
-                                          );
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            !oldValue
-                                          );
-                                          return !oldValue;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateModalDeleteDesignOpen"] !=
-                                      null &&
-                                    typeof $steps[
-                                      "updateModalDeleteDesignOpen"
-                                    ] === "object" &&
-                                    typeof $steps["updateModalDeleteDesignOpen"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateModalDeleteDesignOpen"] =
-                                      await $steps[
-                                        "updateModalDeleteDesignOpen"
-                                      ];
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      return currentItem.recipe_ids.every(id =>
+                                        $queries.getSupPrintifyVariants22.data.some(
+                                          row => row.recipe_id === id
+                                        )
+                                      );
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
                                   }
-                                }}
-                              >
-                                <div
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__pfsJc
+                                    )}
+                                  >
+                                    {(() => {
+                                      try {
+                                        return currentItem.recipe_ids
+                                          ? true
+                                          : undefined;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })() ? (
+                                      <AntdButton
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.button__u2Nyz
+                                        )}
+                                        disabled={(() => {
+                                          try {
+                                            return !currentItem.recipe_ids.some(
+                                              id =>
+                                                $queries.test.data
+                                                  .map(item => item.recipe_id)
+                                                  .includes(id)
+                                            )
+                                              ? true
+                                              : undefined;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                        onClick={async () => {
+                                          const $steps = {};
+
+                                          $steps["updateVariable"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  variable: {
+                                                    objRoot: $state,
+                                                    variablePath: ["link"]
+                                                  },
+                                                  operation: 0,
+                                                  value:
+                                                    currentItem.recipe_ids.join(
+                                                      ", "
+                                                    )
+                                                };
+                                                return (({
+                                                  variable,
+                                                  value,
+                                                  startIndex,
+                                                  deleteCount
+                                                }) => {
+                                                  if (!variable) {
+                                                    return;
+                                                  }
+                                                  const {
+                                                    objRoot,
+                                                    variablePath
+                                                  } = variable;
+
+                                                  $stateSet(
+                                                    objRoot,
+                                                    variablePath,
+                                                    value
+                                                  );
+                                                  return value;
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["updateVariable"] != null &&
+                                            typeof $steps["updateVariable"] ===
+                                              "object" &&
+                                            typeof $steps["updateVariable"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["updateVariable"] =
+                                              await $steps["updateVariable"];
+                                          }
+
+                                          $steps["goToSync2"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  destination: `/sync-design-2/${(() => {
+                                                    try {
+                                                      return currentItem.id;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}/${(() => {
+                                                    try {
+                                                      return currentItem.recipe_ids;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}`
+                                                };
+                                                return (({ destination }) => {
+                                                  if (
+                                                    typeof destination ===
+                                                      "string" &&
+                                                    destination.startsWith("#")
+                                                  ) {
+                                                    document
+                                                      .getElementById(
+                                                        destination.substr(1)
+                                                      )
+                                                      .scrollIntoView({
+                                                        behavior: "smooth"
+                                                      });
+                                                  } else {
+                                                    __nextRouter?.push(
+                                                      destination
+                                                    );
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["goToSync2"] != null &&
+                                            typeof $steps["goToSync2"] ===
+                                              "object" &&
+                                            typeof $steps["goToSync2"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["goToSync2"] = await $steps[
+                                              "goToSync2"
+                                            ];
+                                          }
+                                        }}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text___4JOz
+                                          )}
+                                        >
+                                          {"Sync"}
+                                        </div>
+                                      </AntdButton>
+                                    ) : null}
+                                  </div>
+                                ) : null}
+                                <AntdButton
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__hPkLy
+                                    "__wab_instance",
+                                    sty.button__q2LmQ
                                   )}
+                                  onClick={async () => {
+                                    const $steps = {};
+
+                                    $steps["updateModalDeleteDesignOpen"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "modalDeleteDesign",
+                                                "open"
+                                              ]
+                                            },
+                                            operation: 4
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            const oldValue = $stateGet(
+                                              objRoot,
+                                              variablePath
+                                            );
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              !oldValue
+                                            );
+                                            return !oldValue;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateModalDeleteDesignOpen"] !=
+                                        null &&
+                                      typeof $steps[
+                                        "updateModalDeleteDesignOpen"
+                                      ] === "object" &&
+                                      typeof $steps[
+                                        "updateModalDeleteDesignOpen"
+                                      ].then === "function"
+                                    ) {
+                                      $steps["updateModalDeleteDesignOpen"] =
+                                        await $steps[
+                                          "updateModalDeleteDesignOpen"
+                                        ];
+                                    }
+                                  }}
                                 >
-                                  {"Delete"}
-                                </div>
-                              </AntdButton>
-                            </Stack__>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__hPkLy
+                                    )}
+                                  >
+                                    {"Delete"}
+                                  </div>
+                                </AntdButton>
+                              </Stack__>
+                            </div>
                           </div>
                         );
                       })}
