@@ -94,7 +94,6 @@ export type PlasmicOverlayArrow__OverridesType = {
 
 export interface DefaultOverlayArrowProps {
   dark?: SingleBooleanChoiceArg<"dark">;
-  className?: string;
 }
 
 const $$ = {};
@@ -180,17 +179,6 @@ function PlasmicOverlayArrow__RenderFunc(props: {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(
-        "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root,
-        { [sty.rootdark]: hasVariant($state, "dark", "dark") }
-      )}
       plasmicUpdateVariant={updateVariant}
     >
       <TriangleFilledIcon

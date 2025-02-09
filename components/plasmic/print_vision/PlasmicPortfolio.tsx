@@ -373,6 +373,12 @@ function PlasmicPortfolio__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -443,6 +449,46 @@ function PlasmicPortfolio__RenderFunc(props: {
         opId: "fb5cd9ab-b646-438c-b538-b7176c899a58",
         userArgs: {},
         cacheKey: `plasmic.$.fb5cd9ab-b646-438c-b538-b7176c899a58.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    recipeId: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "5e1920a2-d9dd-4293-a3ce-31aa16faa088",
+        userArgs: {},
+        cacheKey: `plasmic.$.5e1920a2-d9dd-4293-a3ce-31aa16faa088.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    printifyProduct: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "f1e0e0d1-f324-44fc-9ff2-b95ab39e09f8",
+        userArgs: {},
+        cacheKey: `plasmic.$.f1e0e0d1-f324-44fc-9ff2-b95ab39e09f8.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    totalPrintifyPlaceholder2: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "61dfc4cc-4b30-4990-830f-0d1040c0c5c8",
+        userArgs: {},
+        cacheKey: `plasmic.$.61dfc4cc-4b30-4990-830f-0d1040c0c5c8.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    totalPrintifyProductVariant2: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "5a846fc2-3fbc-42ce-a884-f593c3088c44",
+        userArgs: {},
+        cacheKey: `plasmic.$.5a846fc2-3fbc-42ce-a884-f593c3088c44.$.`,
         invalidatedKeys: null,
         roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
@@ -1034,11 +1080,39 @@ function PlasmicPortfolio__RenderFunc(props: {
                               >
                                 {(() => {
                                   try {
-                                    return !currentItem.recipe_ids.every(id =>
-                                      $queries.getSupPrintifyVariants22.data.some(
-                                        row => row.recipe_id === id
-                                      )
-                                    );
+                                    return (() => {
+                                      let recipeIdGroup = $queries.recipeId.data
+                                        .filter(row =>
+                                          currentItem.recipe_ids.includes(
+                                            row.id
+                                          )
+                                        )
+                                        .map(row => row.id);
+                                      let filteredPrintifyProducts =
+                                        $queries.printifyProduct.data.filter(
+                                          row =>
+                                            recipeIdGroup.includes(
+                                              row.recipe_id
+                                            )
+                                        );
+                                      let result =
+                                        filteredPrintifyProducts.some(
+                                          currentItem =>
+                                            currentItem.print_provider ===
+                                              null ||
+                                            $queries.totalPrintifyPlaceholder.data.filter(
+                                              row =>
+                                                row["Printify Product ID"] ===
+                                                currentItem.id
+                                            ).length === 0 ||
+                                            $queries.totalPrintifyProductVariant2.data.filter(
+                                              row =>
+                                                row["printify_product_id"] ===
+                                                currentItem.id
+                                            ).length === 0
+                                        );
+                                      return result;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1063,7 +1137,197 @@ function PlasmicPortfolio__RenderFunc(props: {
                                         sty.text__jf73U
                                       )}
                                     >
+                                      {"A Recipe here is incomplete"}
+                                    </div>
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__rtolu
+                                      )}
+                                    >
+                                      {(_par =>
+                                        !_par
+                                          ? []
+                                          : Array.isArray(_par)
+                                          ? _par
+                                          : [_par])(
+                                        (() => {
+                                          try {
+                                            return (() => {
+                                              let recipeIdGroup =
+                                                $queries.recipeId.data
+                                                  .filter(row =>
+                                                    currentItem.recipe_ids.includes(
+                                                      row.id
+                                                    )
+                                                  )
+                                                  .map(row => row.id);
+                                              let filteredPrintifyProducts =
+                                                $queries.printifyProduct.data.filter(
+                                                  row =>
+                                                    recipeIdGroup.includes(
+                                                      row.recipe_id
+                                                    )
+                                                );
+                                              let uniqueResults = [];
+                                              let seenRecipeIds = new Set();
+                                              filteredPrintifyProducts.forEach(
+                                                currentItem => {
+                                                  if (
+                                                    (currentItem.print_provider ===
+                                                      null ||
+                                                      $queries.totalPrintifyPlaceholder.data.filter(
+                                                        row =>
+                                                          row[
+                                                            "Printify Product ID"
+                                                          ] === currentItem.id
+                                                      ).length === 0 ||
+                                                      $queries.totalPrintifyProductVariant2.data.filter(
+                                                        row =>
+                                                          row[
+                                                            "printify_product_id"
+                                                          ] === currentItem.id
+                                                      ).length === 0) &&
+                                                    !seenRecipeIds.has(
+                                                      currentItem.recipe_id
+                                                    )
+                                                  ) {
+                                                    uniqueResults.push(
+                                                      currentItem
+                                                    );
+                                                    seenRecipeIds.add(
+                                                      currentItem.recipe_id
+                                                    );
+                                                  }
+                                                }
+                                              );
+                                              return uniqueResults;
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ).map(
+                                        (__plasmic_item_1, __plasmic_idx_1) => {
+                                          const currentItem = __plasmic_item_1;
+                                          const currentIndex = __plasmic_idx_1;
+                                          return (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox___2Xgdf
+                                              )}
+                                              key={currentIndex}
+                                            >
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__nyKlU
+                                                )}
+                                              >
+                                                <React.Fragment>
+                                                  {(() => {
+                                                    try {
+                                                      return currentItem.recipe_id;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return "";
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                </React.Fragment>
+                                              </div>
+                                            </div>
+                                          );
+                                        }
+                                      )}
+                                    </Stack__>
+                                  </div>
+                                ) : null}
+                                {(() => {
+                                  try {
+                                    return !currentItem.recipe_ids.every(id =>
+                                      $queries.getSupPrintifyVariants22.data.some(
+                                        row => row.recipe_id === id
+                                      )
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__xUqvO
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__jdVAf
+                                      )}
+                                    >
                                       {"A Recipe here is empty"}
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__ozVd0
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (() => {
+                                              let missingRecipeIds =
+                                                currentItem.recipe_ids
+                                                  .filter(
+                                                    id =>
+                                                      !$queries.getSupPrintifyVariants22.data.some(
+                                                        row =>
+                                                          row.recipe_id === id
+                                                      )
+                                                  )
+                                                  .join(", ");
+                                              return missingRecipeIds;
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "A Recipe here is empty";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
                                     </div>
                                   </div>
                                 ) : null}
@@ -1400,204 +1664,6 @@ function PlasmicPortfolio__RenderFunc(props: {
                                     {"Edit"}
                                   </div>
                                 </AntdButton>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      return currentItem.recipe_ids.every(id =>
-                                        $queries.getSupPrintifyVariants22.data.some(
-                                          row => row.recipe_id === id
-                                        )
-                                      );
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return true;
-                                    }
-                                    throw e;
-                                  }
-                                })() ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__pfsJc
-                                    )}
-                                  >
-                                    {(() => {
-                                      try {
-                                        return currentItem.recipe_ids
-                                          ? true
-                                          : undefined;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })() ? (
-                                      <AntdButton
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.button__u2Nyz
-                                        )}
-                                        disabled={(() => {
-                                          try {
-                                            return !currentItem.recipe_ids.some(
-                                              id =>
-                                                $queries.test.data
-                                                  .map(item => item.recipe_id)
-                                                  .includes(id)
-                                            )
-                                              ? true
-                                              : undefined;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                        onClick={async () => {
-                                          const $steps = {};
-
-                                          $steps["updateVariable"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: ["link"]
-                                                  },
-                                                  operation: 0,
-                                                  value:
-                                                    currentItem.recipe_ids.join(
-                                                      ", "
-                                                    )
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["updateVariable"] != null &&
-                                            typeof $steps["updateVariable"] ===
-                                              "object" &&
-                                            typeof $steps["updateVariable"]
-                                              .then === "function"
-                                          ) {
-                                            $steps["updateVariable"] =
-                                              await $steps["updateVariable"];
-                                          }
-
-                                          $steps["goToSync2"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  destination: `/sync-design-2/${(() => {
-                                                    try {
-                                                      return currentItem.id;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}/${(() => {
-                                                    try {
-                                                      return currentItem.recipe_ids;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}`
-                                                };
-                                                return (({ destination }) => {
-                                                  if (
-                                                    typeof destination ===
-                                                      "string" &&
-                                                    destination.startsWith("#")
-                                                  ) {
-                                                    document
-                                                      .getElementById(
-                                                        destination.substr(1)
-                                                      )
-                                                      .scrollIntoView({
-                                                        behavior: "smooth"
-                                                      });
-                                                  } else {
-                                                    __nextRouter?.push(
-                                                      destination
-                                                    );
-                                                  }
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["goToSync2"] != null &&
-                                            typeof $steps["goToSync2"] ===
-                                              "object" &&
-                                            typeof $steps["goToSync2"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["goToSync2"] = await $steps[
-                                              "goToSync2"
-                                            ];
-                                          }
-                                        }}
-                                      >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text___4JOz
-                                          )}
-                                        >
-                                          {"Sync"}
-                                        </div>
-                                      </AntdButton>
-                                    ) : null}
-                                  </div>
-                                ) : null}
                                 <AntdButton
                                   className={classNames(
                                     "__wab_instance",
@@ -1670,6 +1736,274 @@ function PlasmicPortfolio__RenderFunc(props: {
                                     {"Delete"}
                                   </div>
                                 </AntdButton>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      let recipeIdGroup = $queries.recipeId.data
+                                        .filter(row =>
+                                          currentItem.recipe_ids.includes(
+                                            row.id
+                                          )
+                                        )
+                                        .map(row => row.id);
+                                      let filteredPrintifyProducts =
+                                        $queries.printifyProduct.data.filter(
+                                          row =>
+                                            recipeIdGroup.includes(
+                                              row.recipe_id
+                                            )
+                                        );
+                                      let result =
+                                        filteredPrintifyProducts.some(
+                                          currentItem =>
+                                            currentItem.print_provider ===
+                                              null ||
+                                            $queries.totalPrintifyPlaceholder.data.filter(
+                                              row =>
+                                                row["Printify Product ID"] ===
+                                                currentItem.id
+                                            ).length === 0 ||
+                                            $queries.totalPrintifyProductVariant2.data.filter(
+                                              row =>
+                                                row["printify_product_id"] ===
+                                                currentItem.id
+                                            ).length === 0
+                                        );
+                                      return !result;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__hpa5E
+                                    )}
+                                  >
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          return currentItem.recipe_ids.every(
+                                            id =>
+                                              $queries.getSupPrintifyVariants22.data.some(
+                                                row => row.recipe_id === id
+                                              )
+                                          );
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })() ? (
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__pfsJc
+                                        )}
+                                      >
+                                        {(() => {
+                                          try {
+                                            return currentItem.recipe_ids
+                                              ? true
+                                              : undefined;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })() ? (
+                                          <AntdButton
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.button__u2Nyz
+                                            )}
+                                            disabled={(() => {
+                                              try {
+                                                return !currentItem.recipe_ids.some(
+                                                  id =>
+                                                    $queries.test.data
+                                                      .map(
+                                                        item => item.recipe_id
+                                                      )
+                                                      .includes(id)
+                                                )
+                                                  ? true
+                                                  : undefined;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                            onClick={async () => {
+                                              const $steps = {};
+
+                                              $steps["updateVariable"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: ["link"]
+                                                      },
+                                                      operation: 0,
+                                                      value:
+                                                        currentItem.recipe_ids.join(
+                                                          ", "
+                                                        )
+                                                    };
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["updateVariable"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "updateVariable"
+                                                ] === "object" &&
+                                                typeof $steps["updateVariable"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["updateVariable"] =
+                                                  await $steps[
+                                                    "updateVariable"
+                                                  ];
+                                              }
+
+                                              $steps["goToSync2"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      destination: `/sync-design-2/${(() => {
+                                                        try {
+                                                          return currentItem.id;
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return undefined;
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()}/${(() => {
+                                                        try {
+                                                          return currentItem.recipe_ids;
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return undefined;
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()}`
+                                                    };
+                                                    return (({
+                                                      destination
+                                                    }) => {
+                                                      if (
+                                                        typeof destination ===
+                                                          "string" &&
+                                                        destination.startsWith(
+                                                          "#"
+                                                        )
+                                                      ) {
+                                                        document
+                                                          .getElementById(
+                                                            destination.substr(
+                                                              1
+                                                            )
+                                                          )
+                                                          .scrollIntoView({
+                                                            behavior: "smooth"
+                                                          });
+                                                      } else {
+                                                        __nextRouter?.push(
+                                                          destination
+                                                        );
+                                                      }
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["goToSync2"] != null &&
+                                                typeof $steps["goToSync2"] ===
+                                                  "object" &&
+                                                typeof $steps["goToSync2"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["goToSync2"] =
+                                                  await $steps["goToSync2"];
+                                              }
+                                            }}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text___4JOz
+                                              )}
+                                            >
+                                              {"Sync"}
+                                            </div>
+                                          </AntdButton>
+                                        ) : null}
+                                      </div>
+                                    ) : null}
+                                  </div>
+                                ) : null}
                               </Stack__>
                             </div>
                           </div>

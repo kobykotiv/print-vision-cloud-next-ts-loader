@@ -446,6 +446,16 @@
   color: var(--token-jgohepLVeKvh);
   min-width: 0;
 }
+.text__pzUy {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--token--ypw6enySR1T);
+  text-align: center;
+  min-width: 0;
+}
 .freeBox__g6MHf {
   display: flex;
   flex-direction: row;

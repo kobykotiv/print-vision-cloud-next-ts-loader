@@ -1359,8 +1359,19 @@
   padding-right: 0px;
   min-width: 0;
 }
-.text__n1PFy {
+.freeBox__iO3W5 {
+  flex-direction: row;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.text__n1PFy {
   width: 100%;
   height: auto;
   max-width: 100%;

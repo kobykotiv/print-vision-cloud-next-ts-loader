@@ -1248,12 +1248,12 @@ function PlasmicSettings__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                    opId: "4e31aef7-33af-4773-a264-55dd28770619",
+                                    opId: "c6db0a57-4315-4722-b601-e6a131a84ae6",
                                     userArgs: {
                                       keys: [
                                         parseInt($queries.query.data[0].id)
                                       ],
-                                      variables: [undefined]
+                                      variables: [values]
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
@@ -1511,7 +1511,21 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.formField__pewXk
                                 )}
-                                initialValue={``}
+                                initialValue={(() => {
+                                  try {
+                                    return $queries.query.data[0]
+                                      .printify_shop_id;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                                 label={"printify_shop_id"}
                                 name={"printify_shop_id"}
                                 shouldUpdate={true}
@@ -1558,6 +1572,7 @@ function PlasmicSettings__RenderFunc(props: {
                                   })()}
                                   placeholder={"Select..."}
                                   popupScopeClassName={sty["select__popup"]}
+                                  showSearch={true}
                                   value={generateStateValueProp($state, [
                                     "select",
                                     "value"
@@ -1569,7 +1584,21 @@ function PlasmicSettings__RenderFunc(props: {
                                   "__wab_instance",
                                   sty.formField__vweM5
                                 )}
-                                initialValue={null}
+                                initialValue={(() => {
+                                  try {
+                                    return $queries.query.data[0]
+                                      .printful_shop_id;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                                 label={"printful_shop_id"}
                                 name={"printful_shop_id"}
                               >
@@ -1626,6 +1655,7 @@ function PlasmicSettings__RenderFunc(props: {
                                   })()}
                                   placeholder={"Select..."}
                                   popupScopeClassName={sty["select2__popup"]}
+                                  showSearch={true}
                                   value={generateStateValueProp($state, [
                                     "select2",
                                     "value"

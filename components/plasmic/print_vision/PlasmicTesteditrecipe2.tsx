@@ -8088,45 +8088,52 @@ function PlasmicTesteditrecipe2__RenderFunc(props: {
                                   </Stack__>
                                 );
                               })}
-                              {(() => {
-                                try {
-                                  return (() => {
-                                    return $queries.getSupPrintifyProducts.data.every(
-                                      currentItem =>
-                                        currentItem.print_provider !== null &&
-                                        $queries.totalPrintifyPlaceholder.data.some(
-                                          row =>
-                                            row["Printify Product ID"] ===
-                                            currentItem.id
-                                        ) &&
-                                        $queries.totalPrintifyProductVariant.data.some(
-                                          row =>
-                                            row["printify_product_id"] ===
-                                            currentItem.id
-                                        )
-                                    );
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__iO3W5
+                                )}
+                              >
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      return $queries.getSupPrintifyProducts.data.every(
+                                        currentItem =>
+                                          currentItem.print_provider !== null &&
+                                          $queries.totalPrintifyPlaceholder.data.some(
+                                            row =>
+                                              row["Printify Product ID"] ===
+                                              currentItem.id
+                                          ) &&
+                                          $queries.totalPrintifyProductVariant.data.some(
+                                            row =>
+                                              row["printify_product_id"] ===
+                                              currentItem.id
+                                          )
+                                      );
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })() ? (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__n1PFy
-                                  )}
-                                >
-                                  {"third fusion"}
-                                </div>
-                              ) : null}
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__n1PFy
+                                    )}
+                                  >
+                                    {"third fusion"}
+                                  </div>
+                                ) : null}
+                              </div>
                             </Stack__>
                           </Stack__>
                         </AntdTabItem>

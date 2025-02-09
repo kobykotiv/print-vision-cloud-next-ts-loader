@@ -732,6 +732,16 @@ function PlasmicSync2__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    totalTotal: usePlasmicDataOp(() => {
+      return {
+        sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+        opId: "7f040aaf-2d6d-457e-9c6c-30a38d938e05",
+        userArgs: {},
+        cacheKey: `plasmic.$.7f040aaf-2d6d-457e-9c6c-30a38d938e05.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -1889,6 +1899,38 @@ function PlasmicSync2__RenderFunc(props: {
                                             {"Create new"}
                                           </div>
                                         </AntdButton>
+                                        {(() => {
+                                          try {
+                                            return $queries.totalTotal.data.some(
+                                              row =>
+                                                String(
+                                                  row.printify_product_id
+                                                ) === String(currentItem.id) &&
+                                                row.price === "0"
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return true;
+                                            }
+                                            throw e;
+                                          }
+                                        })() ? (
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__pzUy
+                                            )}
+                                          >
+                                            {
+                                              "Invalid variant, sync will skip this instance."
+                                            }
+                                          </div>
+                                        ) : null}
                                       </Stack__>
                                     ) : null}
                                   </div>
@@ -3067,126 +3109,134 @@ function PlasmicSync2__RenderFunc(props: {
                                       await $steps["updatePrintifyPayload"];
                                   }
 
-                                  $steps["httpPostPrintify"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          dataOp: {
-                                            sourceId: "fumskhn7h2QULzwkXAtFMC",
-                                            opId: "04cf9552-4c35-48c6-9116-b48c89dfbec4",
-                                            userArgs: {
-                                              body: [
-                                                (() => {
-                                                  const title =
-                                                    $queries.queryDesign.data[0]
-                                                      .title +
-                                                    " - " +
-                                                    $state.firstId.title;
-                                                  const description =
-                                                    $queries.queryDesign.data[0]
-                                                      .description +
-                                                    " - " +
-                                                    $state.firstId.description;
-                                                  const blueprint_id = parseInt(
-                                                    $state.firstId.blueprint_id
-                                                  );
-                                                  const print_provider_id =
-                                                    parseInt(
+                                  $steps["httpPostPrintify"] =
+                                    !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
+                                      row => row.price === "0"
+                                    )
+                                      ? (() => {
+                                          const actionArgs = {
+                                            dataOp: {
+                                              sourceId:
+                                                "fumskhn7h2QULzwkXAtFMC",
+                                              opId: "04cf9552-4c35-48c6-9116-b48c89dfbec4",
+                                              userArgs: {
+                                                body: [
+                                                  (() => {
+                                                    const title =
+                                                      $queries.queryDesign
+                                                        .data[0].title +
+                                                      " - " +
+                                                      $state.firstId.title;
+                                                    const description =
+                                                      $queries.queryDesign
+                                                        .data[0].description +
+                                                      " - " +
                                                       $state.firstId
-                                                        .print_provider
-                                                    );
-                                                  const variants =
-                                                    $queries.qGetSupPrintfulVariantsByProduct2.data.map(
-                                                      variant => ({
-                                                        id: parseInt(
-                                                          variant.variant_id
-                                                        ),
-                                                        price: parseInt(
-                                                          variant.price
-                                                        ),
-                                                        is_enabled: true
-                                                      })
-                                                    );
-                                                  const design =
-                                                    $queries.queryDesign.data[0]
-                                                      .printify_id;
-                                                  const placeholders =
-                                                    $queries
-                                                      .queryGetPrintifyPlaceholders2
-                                                      .data;
-                                                  const variants_flat =
-                                                    $queries.qGetSupPrintfulVariantsByProduct2.data.map(
-                                                      v =>
-                                                        parseInt(v.variant_id)
-                                                    );
-                                                  const mappedPlaceholders =
-                                                    placeholders.map(
-                                                      placeholder => ({
-                                                        position:
-                                                          placeholder.position,
-                                                        images: [
-                                                          {
-                                                            id: design,
-                                                            x: placeholder.x,
-                                                            y: placeholder.y,
-                                                            scale:
-                                                              placeholder.scale,
-                                                            angle:
-                                                              placeholder.rotate
-                                                          }
-                                                        ]
-                                                      })
-                                                    );
-                                                  return {
-                                                    title: title,
-                                                    description: description,
-                                                    blueprint_id: blueprint_id,
-                                                    print_provider_id:
-                                                      print_provider_id,
-                                                    variants: variants,
-                                                    print_areas: [
-                                                      {
-                                                        variant_ids:
-                                                          variants_flat,
-                                                        placeholders:
-                                                          mappedPlaceholders
-                                                      }
-                                                    ]
-                                                  };
-                                                })()
-                                              ]
-                                            },
-                                            cacheKey: null,
-                                            invalidatedKeys: [],
-                                            roleId: null
-                                          }
-                                        };
-                                        return (async ({
-                                          dataOp,
-                                          continueOnError
-                                        }) => {
-                                          try {
-                                            const response =
-                                              await executePlasmicDataOp(
-                                                dataOp,
-                                                {
-                                                  userAuthToken:
-                                                    dataSourcesCtx?.userAuthToken,
-                                                  user: dataSourcesCtx?.user
-                                                }
-                                              );
-                                            await plasmicInvalidate(
-                                              dataOp.invalidatedKeys
-                                            );
-                                            return response;
-                                          } catch (e) {
-                                            if (!continueOnError) {
-                                              throw e;
+                                                        .description;
+                                                    const blueprint_id =
+                                                      parseInt(
+                                                        $state.firstId
+                                                          .blueprint_id
+                                                      );
+                                                    const print_provider_id =
+                                                      parseInt(
+                                                        $state.firstId
+                                                          .print_provider
+                                                      );
+                                                    const variants =
+                                                      $queries.qGetSupPrintfulVariantsByProduct2.data.map(
+                                                        variant => ({
+                                                          id: parseInt(
+                                                            variant.variant_id
+                                                          ),
+                                                          price: parseInt(
+                                                            variant.price
+                                                          ),
+                                                          is_enabled: true
+                                                        })
+                                                      );
+                                                    const design =
+                                                      $queries.queryDesign
+                                                        .data[0].printify_id;
+                                                    const placeholders =
+                                                      $queries
+                                                        .queryGetPrintifyPlaceholders2
+                                                        .data;
+                                                    const variants_flat =
+                                                      $queries.qGetSupPrintfulVariantsByProduct2.data.map(
+                                                        v =>
+                                                          parseInt(v.variant_id)
+                                                      );
+                                                    const mappedPlaceholders =
+                                                      placeholders.map(
+                                                        placeholder => ({
+                                                          position:
+                                                            placeholder.position,
+                                                          images: [
+                                                            {
+                                                              id: design,
+                                                              x: placeholder.x,
+                                                              y: placeholder.y,
+                                                              scale:
+                                                                placeholder.scale,
+                                                              angle:
+                                                                placeholder.rotate
+                                                            }
+                                                          ]
+                                                        })
+                                                      );
+                                                    return {
+                                                      title: title,
+                                                      description: description,
+                                                      blueprint_id:
+                                                        blueprint_id,
+                                                      print_provider_id:
+                                                        print_provider_id,
+                                                      variants: variants,
+                                                      print_areas: [
+                                                        {
+                                                          variant_ids:
+                                                            variants_flat,
+                                                          placeholders:
+                                                            mappedPlaceholders
+                                                        }
+                                                      ]
+                                                    };
+                                                  })()
+                                                ]
+                                              },
+                                              cacheKey: null,
+                                              invalidatedKeys: [],
+                                              roleId: null
                                             }
-                                            return e;
-                                          }
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
+                                          };
+                                          return (async ({
+                                            dataOp,
+                                            continueOnError
+                                          }) => {
+                                            try {
+                                              const response =
+                                                await executePlasmicDataOp(
+                                                  dataOp,
+                                                  {
+                                                    userAuthToken:
+                                                      dataSourcesCtx?.userAuthToken,
+                                                    user: dataSourcesCtx?.user
+                                                  }
+                                                );
+                                              await plasmicInvalidate(
+                                                dataOp.invalidatedKeys
+                                              );
+                                              return response;
+                                            } catch (e) {
+                                              if (!continueOnError) {
+                                                throw e;
+                                              }
+                                              return e;
+                                            }
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                   if (
                                     $steps["httpPostPrintify"] != null &&
                                     typeof $steps["httpPostPrintify"] ===
@@ -3242,51 +3292,55 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
 
-                                  $steps["postgresCreate"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          dataOp: {
-                                            sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                            opId: "e5aaee0e-c734-4f62-8e32-8074ef612a2a",
-                                            userArgs: {
-                                              variables: [
-                                                $state.syncState.data.response
-                                                  .id,
-                                                $state.firstId.id
-                                              ]
-                                            },
-                                            cacheKey: null,
-                                            invalidatedKeys: [],
-                                            roleId: null
-                                          }
-                                        };
-                                        return (async ({
-                                          dataOp,
-                                          continueOnError
-                                        }) => {
-                                          try {
-                                            const response =
-                                              await executePlasmicDataOp(
-                                                dataOp,
-                                                {
-                                                  userAuthToken:
-                                                    dataSourcesCtx?.userAuthToken,
-                                                  user: dataSourcesCtx?.user
-                                                }
-                                              );
-                                            await plasmicInvalidate(
-                                              dataOp.invalidatedKeys
-                                            );
-                                            return response;
-                                          } catch (e) {
-                                            if (!continueOnError) {
-                                              throw e;
+                                  $steps["postgresCreate"] =
+                                    !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
+                                      row => row.price === "0"
+                                    )
+                                      ? (() => {
+                                          const actionArgs = {
+                                            dataOp: {
+                                              sourceId:
+                                                "83X9ZdYzYUYJtgqe5fwXeX",
+                                              opId: "e5aaee0e-c734-4f62-8e32-8074ef612a2a",
+                                              userArgs: {
+                                                variables: [
+                                                  $state.syncState.data.response
+                                                    .id,
+                                                  $state.firstId.id
+                                                ]
+                                              },
+                                              cacheKey: null,
+                                              invalidatedKeys: [],
+                                              roleId: null
                                             }
-                                            return e;
-                                          }
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
+                                          };
+                                          return (async ({
+                                            dataOp,
+                                            continueOnError
+                                          }) => {
+                                            try {
+                                              const response =
+                                                await executePlasmicDataOp(
+                                                  dataOp,
+                                                  {
+                                                    userAuthToken:
+                                                      dataSourcesCtx?.userAuthToken,
+                                                    user: dataSourcesCtx?.user
+                                                  }
+                                                );
+                                              await plasmicInvalidate(
+                                                dataOp.invalidatedKeys
+                                              );
+                                              return response;
+                                            } catch (e) {
+                                              if (!continueOnError) {
+                                                throw e;
+                                              }
+                                              return e;
+                                            }
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                   if (
                                     $steps["postgresCreate"] != null &&
                                     typeof $steps["postgresCreate"] ===
@@ -3339,6 +3393,67 @@ function PlasmicSync2__RenderFunc(props: {
                                   ) {
                                     $steps["updateDoneProducts"] = await $steps[
                                       "updateDoneProducts"
+                                    ];
+                                  }
+
+                                  $steps["refreshData"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          queryInvalidation: [
+                                            "plasmic_refresh_all"
+                                          ]
+                                        };
+                                        return (async ({
+                                          queryInvalidation
+                                        }) => {
+                                          if (!queryInvalidation) {
+                                            return;
+                                          }
+                                          await plasmicInvalidate(
+                                            queryInvalidation
+                                          );
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["refreshData"] != null &&
+                                    typeof $steps["refreshData"] === "object" &&
+                                    typeof $steps["refreshData"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["refreshData"] = await $steps[
+                                      "refreshData"
+                                    ];
+                                  }
+
+                                  $steps["refreshData2"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          queryInvalidation: [
+                                            "plasmic_refresh_all"
+                                          ]
+                                        };
+                                        return (async ({
+                                          queryInvalidation
+                                        }) => {
+                                          if (!queryInvalidation) {
+                                            return;
+                                          }
+                                          await plasmicInvalidate(
+                                            queryInvalidation
+                                          );
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["refreshData2"] != null &&
+                                    typeof $steps["refreshData2"] ===
+                                      "object" &&
+                                    typeof $steps["refreshData2"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["refreshData2"] = await $steps[
+                                      "refreshData2"
                                     ];
                                   }
 
@@ -3637,7 +3752,7 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
                                 }}
-                                runWhileEditing={false}
+                                runWhileEditing={true}
                               />
 
                               <ConditionGuard

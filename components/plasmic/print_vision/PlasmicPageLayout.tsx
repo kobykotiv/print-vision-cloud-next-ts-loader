@@ -187,7 +187,6 @@ function PlasmicPageLayout__RenderFunc(props: {
       <LoadingBoundary
         data-plasmic-name={"loadingBoundary"}
         data-plasmic-override={overrides.loadingBoundary}
-        className={classNames("__wab_instance", sty.loadingBoundary)}
         loadingState={
           <DataCtxReader__>
             {$ctx => (
