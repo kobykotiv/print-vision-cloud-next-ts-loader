@@ -1257,9 +1257,24 @@ function PlasmicSettings__RenderFunc(props: {
                           (async (changedValues, allValues) => {
                             const $steps = {};
 
-                            $steps["useIntegration"] = true
+                            $steps["postgresUpdateById"] = true
                               ? (() => {
-                                  const actionArgs = {};
+                                  const actionArgs = {
+                                    dataOp: {
+                                      sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
+                                      opId: "c6db0a57-4315-4722-b601-e6a131a84ae6",
+                                      userArgs: {
+                                        keys: [
+                                          parseInt($queries.query.data[0].id)
+                                        ],
+                                        variables: [changedValues]
+                                      },
+                                      cacheKey: null,
+                                      invalidatedKeys: ["plasmic_refresh_all"],
+                                      roleId:
+                                        "d035f350-edf5-4268-af03-4480b52522b0"
+                                    }
+                                  };
                                   return (async ({
                                     dataOp,
                                     continueOnError
@@ -1285,13 +1300,14 @@ function PlasmicSettings__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["useIntegration"] != null &&
-                              typeof $steps["useIntegration"] === "object" &&
-                              typeof $steps["useIntegration"].then ===
+                              $steps["postgresUpdateById"] != null &&
+                              typeof $steps["postgresUpdateById"] ===
+                                "object" &&
+                              typeof $steps["postgresUpdateById"].then ===
                                 "function"
                             ) {
-                              $steps["useIntegration"] = await $steps[
-                                "useIntegration"
+                              $steps["postgresUpdateById"] = await $steps[
+                                "postgresUpdateById"
                               ];
                             }
 
