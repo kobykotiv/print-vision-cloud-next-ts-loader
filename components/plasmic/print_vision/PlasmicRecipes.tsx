@@ -198,6 +198,12 @@ function PlasmicRecipes__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -499,6 +505,42 @@ function PlasmicRecipes__RenderFunc(props: {
                         __composite["1"]["onClick"] = async (rowKey, row) => {
                           const $steps = {};
 
+                          $steps["updateVariable"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["variable"]
+                                  },
+                                  operation: 0,
+                                  value: parseInt(row.id)
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateVariable"] != null &&
+                            typeof $steps["updateVariable"] === "object" &&
+                            typeof $steps["updateVariable"].then === "function"
+                          ) {
+                            $steps["updateVariable"] = await $steps[
+                              "updateVariable"
+                            ];
+                          }
+
                           $steps["postgresDeleteMany"] = true
                             ? (() => {
                                 const actionArgs = {
@@ -506,7 +548,7 @@ function PlasmicRecipes__RenderFunc(props: {
                                     sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
                                     opId: "8c224b1e-5b82-42f2-b6b0-6acf04182521",
                                     userArgs: {
-                                      conditions: [row.id]
+                                      conditions: [$state.variable]
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
