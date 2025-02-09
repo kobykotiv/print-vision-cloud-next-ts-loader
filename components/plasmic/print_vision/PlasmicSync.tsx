@@ -1902,30 +1902,6 @@ function PlasmicSync__RenderFunc(props: {
                                     "updateVariable"
                                   ];
                                 }
-
-                                $steps["updateVariable2"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return undefined;
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateVariable2"] != null &&
-                                  typeof $steps["updateVariable2"] ===
-                                    "object" &&
-                                  typeof $steps["updateVariable2"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateVariable2"] = await $steps[
-                                    "updateVariable2"
-                                  ];
-                                }
                               }}
                             >
                               <div

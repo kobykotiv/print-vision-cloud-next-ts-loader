@@ -1008,6 +1008,31 @@ function PlasmicSettings__RenderFunc(props: {
                                   "defaultSubmit"
                                 ];
                               }
+
+                              $steps["refreshData"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      queryInvalidation: ["plasmic_refresh_all"]
+                                    };
+                                    return (async ({ queryInvalidation }) => {
+                                      if (!queryInvalidation) {
+                                        return;
+                                      }
+                                      await plasmicInvalidate(
+                                        queryInvalidation
+                                      );
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["refreshData"] != null &&
+                                typeof $steps["refreshData"] === "object" &&
+                                typeof $steps["refreshData"].then === "function"
+                              ) {
+                                $steps["refreshData"] = await $steps[
+                                  "refreshData"
+                                ];
+                              }
                             },
                             onIsSubmittingChange: async (...eventArgs: any) => {
                               generateStateOnChangePropForCodeComponents(
@@ -1228,6 +1253,71 @@ function PlasmicSettings__RenderFunc(props: {
                             ["form", "value"],
                             FormWrapper_Helpers
                           ).apply(null, eventArgs);
+
+                          (async (changedValues, allValues) => {
+                            const $steps = {};
+
+                            $steps["useIntegration"] = true
+                              ? (() => {
+                                  const actionArgs = {};
+                                  return (async ({
+                                    dataOp,
+                                    continueOnError
+                                  }) => {
+                                    try {
+                                      const response =
+                                        await executePlasmicDataOp(dataOp, {
+                                          userAuthToken:
+                                            dataSourcesCtx?.userAuthToken,
+                                          user: dataSourcesCtx?.user
+                                        });
+                                      await plasmicInvalidate(
+                                        dataOp.invalidatedKeys
+                                      );
+                                      return response;
+                                    } catch (e) {
+                                      if (!continueOnError) {
+                                        throw e;
+                                      }
+                                      return e;
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["useIntegration"] != null &&
+                              typeof $steps["useIntegration"] === "object" &&
+                              typeof $steps["useIntegration"].then ===
+                                "function"
+                            ) {
+                              $steps["useIntegration"] = await $steps[
+                                "useIntegration"
+                              ];
+                            }
+
+                            $steps["refreshData"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    queryInvalidation: ["plasmic_refresh_all"]
+                                  };
+                                  return (async ({ queryInvalidation }) => {
+                                    if (!queryInvalidation) {
+                                      return;
+                                    }
+                                    await plasmicInvalidate(queryInvalidation);
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["refreshData"] != null &&
+                              typeof $steps["refreshData"] === "object" &&
+                              typeof $steps["refreshData"].then === "function"
+                            ) {
+                              $steps["refreshData"] = await $steps[
+                                "refreshData"
+                              ];
+                            }
+                          }).apply(null, eventArgs);
                         },
                         formItems: [
                           { label: "Name", name: "name", inputType: "Text" },
@@ -1292,6 +1382,27 @@ function PlasmicSettings__RenderFunc(props: {
                             $steps["defaultSubmit"] = await $steps[
                               "defaultSubmit"
                             ];
+                          }
+
+                          $steps["refreshData"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  queryInvalidation: ["plasmic_refresh_all"]
+                                };
+                                return (async ({ queryInvalidation }) => {
+                                  if (!queryInvalidation) {
+                                    return;
+                                  }
+                                  await plasmicInvalidate(queryInvalidation);
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["refreshData"] != null &&
+                            typeof $steps["refreshData"] === "object" &&
+                            typeof $steps["refreshData"].then === "function"
+                          ) {
+                            $steps["refreshData"] = await $steps["refreshData"];
                           }
                         },
                         onIsSubmittingChange: async (...eventArgs: any) => {
