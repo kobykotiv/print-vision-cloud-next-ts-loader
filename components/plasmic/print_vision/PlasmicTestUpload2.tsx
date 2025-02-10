@@ -2000,6 +2000,50 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                         $steps["updatePrintfulId"] =
                                           await $steps["updatePrintfulId"];
                                       }
+
+                                      $steps["updatePrintfulId2"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["printfulId"]
+                                              },
+                                              operation: 0,
+                                              value:
+                                                $state.printfulId.data.response
+                                                  .result.id
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updatePrintfulId2"] != null &&
+                                        typeof $steps["updatePrintfulId2"] ===
+                                          "object" &&
+                                        typeof $steps["updatePrintfulId2"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updatePrintfulId2"] =
+                                          await $steps["updatePrintfulId2"];
+                                      }
                                     }}
                                     platform={"nextjs"}
                                   >

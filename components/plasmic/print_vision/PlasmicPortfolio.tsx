@@ -1672,6 +1672,48 @@ function PlasmicPortfolio__RenderFunc(props: {
                                   onClick={async () => {
                                     const $steps = {};
 
+                                    $steps["updateSelectedRow"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["selectedRow"]
+                                            },
+                                            operation: 0,
+                                            value: currentItem
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateSelectedRow"] != null &&
+                                      typeof $steps["updateSelectedRow"] ===
+                                        "object" &&
+                                      typeof $steps["updateSelectedRow"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateSelectedRow"] =
+                                        await $steps["updateSelectedRow"];
+                                    }
+
                                     $steps["updateModalDeleteDesignOpen"] = true
                                       ? (() => {
                                           const actionArgs = {
@@ -3014,9 +3056,9 @@ function PlasmicPortfolio__RenderFunc(props: {
                     const actionArgs = {
                       dataOp: {
                         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                        opId: "d7702c76-29e3-43bd-b45c-a7000d981772",
+                        opId: "af131949-9437-4982-9b79-f925bfb32fa6",
                         userArgs: {
-                          conditions: [$state.selectedRow.id]
+                          conditions: [parseInt($state.selectedRow.id)]
                         },
                         cacheKey: null,
                         invalidatedKeys: ["plasmic_refresh_all"],
