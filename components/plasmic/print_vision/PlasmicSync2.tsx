@@ -567,6 +567,12 @@ function PlasmicSync2__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "savePrintifySdp",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1243,6 +1249,52 @@ function PlasmicSync2__RenderFunc(props: {
                                       ) {
                                         $steps["updateVariable2"] =
                                           await $steps["updateVariable2"];
+                                      }
+
+                                      $steps["updateChecker"] =
+                                        $state.checker === 3
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["checker"]
+                                                },
+                                                operation: 0,
+                                                value: 0
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["updateChecker"] != null &&
+                                        typeof $steps["updateChecker"] ===
+                                          "object" &&
+                                        typeof $steps["updateChecker"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["updateChecker"] = await $steps[
+                                          "updateChecker"
+                                        ];
                                       }
                                     }}
                                   >
@@ -3018,53 +3070,6 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
 
-                                  $steps["updateLoadingScreenOpen"] = (
-                                    $state.loadingScreen.open ? false : true
-                                  )
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: [
-                                              "loadingScreen",
-                                              "open"
-                                            ]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateLoadingScreenOpen"] != null &&
-                                    typeof $steps["updateLoadingScreenOpen"] ===
-                                      "object" &&
-                                    typeof $steps["updateLoadingScreenOpen"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["updateLoadingScreenOpen"] =
-                                      await $steps["updateLoadingScreenOpen"];
-                                  }
-
                                   $steps["updatePrintifyPayload"] = true
                                     ? (() => {
                                         const actionArgs = {
@@ -3109,10 +3114,54 @@ function PlasmicSync2__RenderFunc(props: {
                                       await $steps["updatePrintifyPayload"];
                                   }
 
+                                  $steps["updatePrintifySdp"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["savePrintifySdp"]
+                                          },
+                                          operation: 0,
+                                          value: $steps.getPrintifySdp
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updatePrintifySdp"] != null &&
+                                    typeof $steps["updatePrintifySdp"] ===
+                                      "object" &&
+                                    typeof $steps["updatePrintifySdp"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updatePrintifySdp"] = await $steps[
+                                      "updatePrintifySdp"
+                                    ];
+                                  }
+
                                   $steps["httpPostPrintify"] =
                                     !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
                                       row => row.price === "0"
-                                    )
+                                    ) &&
+                                    $state.savePrintifySdp.data.length === 0
                                       ? (() => {
                                           const actionArgs = {
                                             dataOp: {
@@ -3249,6 +3298,83 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
 
+                                  $steps["updatePrintify"] = !(
+                                    !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
+                                      row => row.price === "0"
+                                    ) &&
+                                    $state.savePrintifySdp.data.length === 0
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          dataOp: {
+                                            sourceId: "fumskhn7h2QULzwkXAtFMC",
+                                            opId: "baea61e1-6638-438f-aeaf-9f3a3cf26486",
+                                            userArgs: {
+                                              path: [
+                                                $state.savePrintifySdp.data[0]
+                                                  .sync_id
+                                              ],
+                                              body: [
+                                                $queries.queryDesign.data[0]
+                                                  .title,
+                                                $queries.queryDesign.data[0]
+                                                  .description,
+                                                $queries.queryDesign.data[0]
+                                                  .tags
+                                                  ? $queries.queryDesign.data[0].tags.join(
+                                                      ", "
+                                                    )
+                                                  : ""
+                                              ]
+                                            },
+                                            cacheKey: null,
+                                            invalidatedKeys: [
+                                              "plasmic_refresh_all"
+                                            ],
+                                            roleId:
+                                              "d035f350-edf5-4268-af03-4480b52522b0"
+                                          },
+                                          continueOnError: true
+                                        };
+                                        return (async ({
+                                          dataOp,
+                                          continueOnError
+                                        }) => {
+                                          try {
+                                            const response =
+                                              await executePlasmicDataOp(
+                                                dataOp,
+                                                {
+                                                  userAuthToken:
+                                                    dataSourcesCtx?.userAuthToken,
+                                                  user: dataSourcesCtx?.user
+                                                }
+                                              );
+                                            await plasmicInvalidate(
+                                              dataOp.invalidatedKeys
+                                            );
+                                            return response;
+                                          } catch (e) {
+                                            if (!continueOnError) {
+                                              throw e;
+                                            }
+                                            return e;
+                                          }
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updatePrintify"] != null &&
+                                    typeof $steps["updatePrintify"] ===
+                                      "object" &&
+                                    typeof $steps["updatePrintify"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updatePrintify"] = await $steps[
+                                      "updatePrintify"
+                                    ];
+                                  }
+
                                   $steps["uSyncStatePrintify"] = true
                                     ? (() => {
                                         const actionArgs = {
@@ -3292,10 +3418,62 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
 
+                                  $steps["updateLoadingScreenOpen"] = (
+                                    $state.loadingScreen.open
+                                      ? false
+                                      : true && $state.checker !== 3
+                                      ? true
+                                      : false
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: [
+                                              "loadingScreen",
+                                              "open"
+                                            ]
+                                          },
+                                          operation: 0,
+                                          value: true
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateLoadingScreenOpen"] != null &&
+                                    typeof $steps["updateLoadingScreenOpen"] ===
+                                      "object" &&
+                                    typeof $steps["updateLoadingScreenOpen"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["updateLoadingScreenOpen"] =
+                                      await $steps["updateLoadingScreenOpen"];
+                                  }
+
                                   $steps["postgresCreate"] =
                                     !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
                                       row => row.price === "0"
-                                    )
+                                    ) &&
+                                    $state.savePrintifySdp.data.length === 0
                                       ? (() => {
                                           const actionArgs = {
                                             dataOp: {
@@ -3500,28 +3678,33 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
 
-                                  $steps["invokeGlobalAction"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "success",
-                                            `${
-                                              Math.round(
-                                                100 -
-                                                  ($state.doneProducts.length /
-                                                    $queries
-                                                      .qGetPrintifyPFromRecipes
-                                                      .data.length) *
-                                                    100
-                                              ) + "%"
-                                            }  sync loop done.`
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "plasmic-antd5-config-provider.showNotification"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
+                                  $steps["invokeGlobalAction"] =
+                                    !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
+                                      row => row.price === "0"
+                                    ) &&
+                                    $state.savePrintifySdp.data.length === 0
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "success",
+                                              `${
+                                                Math.round(
+                                                  100 -
+                                                    ($state.doneProducts
+                                                      .length /
+                                                      $queries
+                                                        .qGetPrintifyPFromRecipes
+                                                        .data.length) *
+                                                      100
+                                                ) + "%"
+                                              }  sync loop done.`
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "plasmic-antd5-config-provider.showNotification"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
                                   if (
                                     $steps["invokeGlobalAction"] != null &&
                                     typeof $steps["invokeGlobalAction"] ===
@@ -3576,37 +3759,38 @@ function PlasmicSync2__RenderFunc(props: {
                                       await $steps["updateSpacerCounter"];
                                   }
 
-                                  $steps["startChecker"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["checker"]
-                                          },
-                                          operation: 0,
-                                          value: 1
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
+                                  $steps["startChecker"] =
+                                    $state.checker !== 3
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["checker"]
+                                            },
+                                            operation: 0,
+                                            value: 1
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
 
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                   if (
                                     $steps["startChecker"] != null &&
                                     typeof $steps["startChecker"] ===
@@ -3617,6 +3801,52 @@ function PlasmicSync2__RenderFunc(props: {
                                     $steps["startChecker"] = await $steps[
                                       "startChecker"
                                     ];
+                                  }
+
+                                  $steps["invokeGlobalAction2"] = !(
+                                    !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
+                                      row => row.price === "0"
+                                    ) &&
+                                    $state.savePrintifySdp.data.length === 0
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "warning",
+                                            (() => {
+                                              try {
+                                                return (
+                                                  "Something is wrong with recipe " +
+                                                  parseInt($state.firstId.id) +
+                                                  ", so it will be skipped."
+                                                );
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "plasmic-antd5-config-provider.showNotification"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction2"] != null &&
+                                    typeof $steps["invokeGlobalAction2"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction2"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["invokeGlobalAction2"] =
+                                      await $steps["invokeGlobalAction2"];
                                   }
                                 }}
                               />
@@ -3647,37 +3877,38 @@ function PlasmicSync2__RenderFunc(props: {
                                 onNotSatisfied={async () => {
                                   const $steps = {};
 
-                                  $steps["updateLoopStart"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["loopStart"]
-                                          },
-                                          operation: 0,
-                                          value: 1
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
+                                  $steps["updateLoopStart"] =
+                                    $state.checker !== 3
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["loopStart"]
+                                            },
+                                            operation: 0,
+                                            value: 1
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
 
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                   if (
                                     $steps["updateLoopStart"] != null &&
                                     typeof $steps["updateLoopStart"] ===
@@ -4004,7 +4235,7 @@ function PlasmicSync2__RenderFunc(props: {
                                               variablePath: ["checker"]
                                             },
                                             operation: 0,
-                                            value: 0
+                                            value: 3
                                           };
                                           return (({
                                             variable,
