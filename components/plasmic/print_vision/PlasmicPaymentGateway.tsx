@@ -1001,10 +1001,10 @@ function PlasmicPaymentGateway__RenderFunc(props: {
                             >
                               {(() => {
                                 try {
-                                  return !$queries.keys.data[0].major_plan ===
-                                    1 && $queries.keys.data[0].payment_status
-                                    ? true
-                                    : false;
+                                  return !(
+                                    $queries.keys.data[0].major_plan === 1 &&
+                                    $queries.keys.data[0].payment_status
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2734,7 +2734,7 @@ function PlasmicPaymentGateway__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return !($queries.keys.data[0].major_plan ===
-                                    2 && $queries.keys.data[0].payment_status
+                                    3 && $queries.keys.data[0].payment_status
                                     ? true
                                     : false);
                                 } catch (e) {

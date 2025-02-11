@@ -145,6 +145,7 @@ export type PlasmicSync2__OverridesType = {
   spacer2?: Flex__<typeof Timer>;
   closeLoading2?: Flex__<typeof ConditionGuard>;
   loadingScreen2?: Flex__<typeof AntdModal>;
+  table5?: Flex__<typeof RichTable>;
 };
 
 export interface DefaultSync2Props {}
@@ -573,6 +574,38 @@ function PlasmicSync2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "table5.selectedRowKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("selectedRowKey", RichTable_Helpers)
+      },
+      {
+        path: "table5.selectedRow",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("selectedRow", RichTable_Helpers)
+      },
+      {
+        path: "table5.selectedRows",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("selectedRows", RichTable_Helpers)
+      },
+      {
+        path: "table5.selectedRowKeys",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("selectedRowKeys", RichTable_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -602,13 +635,13 @@ function PlasmicSync2__RenderFunc(props: {
     queryDesign: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-        opId: "05e7441d-d32d-4b99-9750-f2bc65e0dae0",
+        opId: "bc6d8024-1ff1-4d3e-b7b8-93d29a996876",
         userArgs: {
           keys: [$ctx.params.design]
         },
-        cacheKey: `plasmic.$.05e7441d-d32d-4b99-9750-f2bc65e0dae0.$.`,
+        cacheKey: `plasmic.$.bc6d8024-1ff1-4d3e-b7b8-93d29a996876.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
     }),
     queryPrintifyCatalog: usePlasmicDataOp(() => {
@@ -745,6 +778,16 @@ function PlasmicSync2__RenderFunc(props: {
         opId: "7f040aaf-2d6d-457e-9c6c-30a38d938e05",
         userArgs: {},
         cacheKey: `plasmic.$.7f040aaf-2d6d-457e-9c6c-30a38d938e05.$.`,
+        invalidatedKeys: null,
+        roleId: "d035f350-edf5-4268-af03-4480b52522b0"
+      };
+    }),
+    getAllProducts: usePlasmicDataOp(() => {
+      return {
+        sourceId: "fumskhn7h2QULzwkXAtFMC",
+        opId: "dc442237-fb7e-4aba-a50e-de93292dbf75",
+        userArgs: {},
+        cacheKey: `plasmic.$.dc442237-fb7e-4aba-a50e-de93292dbf75.$.`,
         invalidatedKeys: null,
         roleId: "d035f350-edf5-4268-af03-4480b52522b0"
       };
@@ -3298,7 +3341,7 @@ function PlasmicSync2__RenderFunc(props: {
                                     ];
                                   }
 
-                                  $steps["updatePrintify"] = !(
+                                  $steps["httpPutPrintify"] = !(
                                     !$queries.qGetSupPrintfulVariantsByProduct2.data.some(
                                       row => row.price === "0"
                                     ) &&
@@ -3308,13 +3351,13 @@ function PlasmicSync2__RenderFunc(props: {
                                         const actionArgs = {
                                           dataOp: {
                                             sourceId: "fumskhn7h2QULzwkXAtFMC",
-                                            opId: "baea61e1-6638-438f-aeaf-9f3a3cf26486",
+                                            opId: "ae8424b6-4454-4a0b-9717-1a5d8fca8761",
                                             userArgs: {
                                               path: [
                                                 $state.savePrintifySdp.data[0]
                                                   .sync_id
                                               ],
-                                              body: [
+                                              params: [
                                                 $queries.queryDesign.data[0]
                                                   .title,
                                                 $queries.queryDesign.data[0]
@@ -3360,14 +3403,14 @@ function PlasmicSync2__RenderFunc(props: {
                                       })()
                                     : undefined;
                                   if (
-                                    $steps["updatePrintify"] != null &&
-                                    typeof $steps["updatePrintify"] ===
+                                    $steps["httpPutPrintify"] != null &&
+                                    typeof $steps["httpPutPrintify"] ===
                                       "object" &&
-                                    typeof $steps["updatePrintify"].then ===
+                                    typeof $steps["httpPutPrintify"].then ===
                                       "function"
                                   ) {
-                                    $steps["updatePrintify"] = await $steps[
-                                      "updatePrintify"
+                                    $steps["httpPutPrintify"] = await $steps[
+                                      "httpPutPrintify"
                                     ];
                                   }
 
@@ -6993,6 +7036,113 @@ function PlasmicSync2__RenderFunc(props: {
                     tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
                     tabsScopeClassName={sty["tabs__tabs"]}
                   />
+
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.table5),
+                      data: (() => {
+                        try {
+                          return $queries.getAllProducts.data.response.data;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return (() => {
+                              try {
+                                return $queries.getAllProducts;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })();
+                          }
+                          throw e;
+                        }
+                      })(),
+                      onRowSelectionChanged: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRowKey",
+                          ["table5", "selectedRowKey"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRow",
+                          ["table5", "selectedRow"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRows",
+                          ["table5", "selectedRows"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "selectedRowKeys",
+                          ["table5", "selectedRowKeys"],
+                          RichTable_Helpers
+                        ).apply(null, eventArgs);
+                      },
+                      scopeClassName: sty["table5__instance"],
+                      selectedRowKey: generateStateValueProp($state, [
+                        "table5",
+                        "selectedRowKey"
+                      ]),
+                      selectedRowKeys: generateStateValueProp($state, [
+                        "table5",
+                        "selectedRowKeys"
+                      ]),
+                      themeResetClassName: classNames(
+                        projectcss.root_reset,
+                        projectcss.root_reset_tags,
+                        projectcss.plasmic_default_styles,
+                        projectcss.plasmic_mixins,
+                        projectcss.plasmic_tokens,
+                        plasmic_antd_5_hostless_css.plasmic_tokens,
+                        plasmic_plasmic_rich_components_css.plasmic_tokens
+                      )
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "selectedRowKey",
+                          plasmicStateName: "table5.selectedRowKey"
+                        },
+                        {
+                          name: "selectedRow",
+                          plasmicStateName: "table5.selectedRow"
+                        },
+                        {
+                          name: "selectedRows",
+                          plasmicStateName: "table5.selectedRows"
+                        },
+                        {
+                          name: "selectedRowKeys",
+                          plasmicStateName: "table5.selectedRowKeys"
+                        }
+                      ],
+                      [],
+                      RichTable_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <RichTable
+                        data-plasmic-name={"table5"}
+                        data-plasmic-override={overrides.table5}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -7046,7 +7196,8 @@ const PlasmicDescendants = {
     "checker3",
     "spacer2",
     "closeLoading2",
-    "loadingScreen2"
+    "loadingScreen2",
+    "table5"
   ],
   pageLayout: [
     "pageLayout",
@@ -7089,7 +7240,8 @@ const PlasmicDescendants = {
     "checker3",
     "spacer2",
     "closeLoading2",
-    "loadingScreen2"
+    "loadingScreen2",
+    "table5"
   ],
   table2: ["table2"],
   confirmSyncIndividual: ["confirmSyncIndividual"],
@@ -7241,7 +7393,8 @@ const PlasmicDescendants = {
   checker3: ["checker3"],
   spacer2: ["spacer2"],
   closeLoading2: ["closeLoading2"],
-  loadingScreen2: ["loadingScreen2"]
+  loadingScreen2: ["loadingScreen2"],
+  table5: ["table5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -7289,6 +7442,7 @@ type NodeDefaultElementType = {
   spacer2: typeof Timer;
   closeLoading2: typeof ConditionGuard;
   loadingScreen2: typeof AntdModal;
+  table5: typeof RichTable;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -7434,6 +7588,7 @@ export const PlasmicSync2 = Object.assign(
     spacer2: makeNodeComponent("spacer2"),
     closeLoading2: makeNodeComponent("closeLoading2"),
     loadingScreen2: makeNodeComponent("loadingScreen2"),
+    table5: makeNodeComponent("table5"),
 
     // Metadata about props expected for PlasmicSync2
     internalVariantProps: PlasmicSync2__VariantProps,
