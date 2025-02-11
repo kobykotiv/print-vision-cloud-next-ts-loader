@@ -3320,11 +3320,7 @@ function PlasmicSync2__RenderFunc(props: {
                                                 $queries.queryDesign.data[0]
                                                   .description,
                                                 $queries.queryDesign.data[0]
-                                                  .tags
-                                                  ? $queries.queryDesign.data[0].tags.join(
-                                                      ", "
-                                                    )
-                                                  : ""
+                                                  .tags || ""
                                               ]
                                             },
                                             cacheKey: null,
@@ -3816,9 +3812,9 @@ function PlasmicSync2__RenderFunc(props: {
                                             (() => {
                                               try {
                                                 return (
-                                                  "Something is wrong with recipe " +
+                                                  "It looks like Recipe " +
                                                   parseInt($state.firstId.id) +
-                                                  ", so it will be skipped."
+                                                  " has already been synced. This will either update it or indicate that it is not valid."
                                                 );
                                               } catch (e) {
                                                 if (
