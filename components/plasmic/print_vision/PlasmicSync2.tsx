@@ -3351,11 +3351,23 @@ function PlasmicSync2__RenderFunc(props: {
                                         const actionArgs = {
                                           dataOp: {
                                             sourceId: "fumskhn7h2QULzwkXAtFMC",
-                                            opId: "ae8424b6-4454-4a0b-9717-1a5d8fca8761",
+                                            opId: "61bedd26-5a72-4b44-8379-0b45faaf12cc",
                                             userArgs: {
                                               path: [
                                                 $state.savePrintifySdp.data[0]
                                                   .sync_id
+                                              ],
+                                              body: [
+                                                $queries.queryDesign.data[0]
+                                                  .title,
+                                                $queries.queryDesign.data[0]
+                                                  .description,
+                                                $queries.queryDesign.data[0]
+                                                  .tags
+                                                  ? $queries.queryDesign.data[0].tags
+                                                      .split(",")
+                                                      .map(tag => tag.trim())
+                                                  : []
                                               ],
                                               params: [
                                                 $queries.queryDesign.data[0]
@@ -3367,9 +3379,7 @@ function PlasmicSync2__RenderFunc(props: {
                                               ]
                                             },
                                             cacheKey: null,
-                                            invalidatedKeys: [
-                                              "plasmic_refresh_all"
-                                            ],
+                                            invalidatedKeys: [],
                                             roleId:
                                               "d035f350-edf5-4268-af03-4480b52522b0"
                                           },
@@ -7065,6 +7075,74 @@ function PlasmicSync2__RenderFunc(props: {
                           throw e;
                         }
                       })(),
+                      fields: (() => {
+                        const __composite = [
+                          { key: "id", fieldId: "id" },
+                          { key: "title", fieldId: "title" },
+                          {
+                            key: "description",
+                            fieldId: "description",
+                            isHidden: null
+                          },
+                          { key: "tags", fieldId: "tags" },
+                          {
+                            key: "options",
+                            fieldId: "options",
+                            isHidden: null
+                          },
+                          {
+                            key: "variants",
+                            fieldId: "variants",
+                            isHidden: null
+                          },
+                          { key: "images", fieldId: "images", isHidden: null },
+                          { key: "created_at", fieldId: "created_at" },
+                          { key: "updated_at", fieldId: "updated_at" },
+                          { key: "visible", fieldId: "visible" },
+                          { key: "is_locked", fieldId: "is_locked" },
+                          { key: "blueprint_id", fieldId: "blueprint_id" },
+                          { key: "user_id", fieldId: "user_id" },
+                          { key: "shop_id", fieldId: "shop_id" },
+                          {
+                            key: "print_provider_id",
+                            fieldId: "print_provider_id"
+                          },
+                          { key: "print_areas", fieldId: "print_areas" },
+                          { key: "print_details", fieldId: "print_details" },
+                          {
+                            key: "sales_channel_properties",
+                            fieldId: "sales_channel_properties"
+                          },
+                          {
+                            key: "is_printify_express_eligible",
+                            fieldId: "is_printify_express_eligible"
+                          },
+                          {
+                            key: "is_printify_express_enabled",
+                            fieldId: "is_printify_express_enabled"
+                          },
+                          {
+                            key: "is_economy_shipping_eligible",
+                            fieldId: "is_economy_shipping_eligible"
+                          },
+                          {
+                            key: "is_economy_shipping_enabled",
+                            fieldId: "is_economy_shipping_enabled"
+                          },
+                          { key: "is_deleted", fieldId: "is_deleted" },
+                          {
+                            key: "original_product_id",
+                            fieldId: "original_product_id"
+                          },
+                          { key: "views", fieldId: "views" }
+                        ];
+                        __composite["2"]["isHidden"] = true;
+                        __composite["4"]["isHidden"] = true;
+                        __composite["5"]["isHidden"] = true;
+                        __composite["6"]["isHidden"] = true;
+                        return __composite;
+                      })(),
+
                       onRowSelectionChanged: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
                           $state,
