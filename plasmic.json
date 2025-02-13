@@ -1114,6 +1114,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/backend-2"
+        },
+        {
+          "id": "vCpg2CNXaNT-",
+          "name": "Sync3",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicSync3.tsx",
+          "importSpec": {
+            "modulePath": "../pages/sync-design-3/[design]/[recipe].tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicSync3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/sync-design-3/[design]/[recipe]"
         }
       ],
       "icons": [
