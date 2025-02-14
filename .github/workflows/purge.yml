@@ -1,0 +1,15 @@
+name: Run Supabase Function Hourly
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # This runs the job at the start of every hour
+
+jobs:
+  run-function:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Supabase Function
+        run: |
+          curl -X POST https://https://nhyqyjgkngrzlcxewulk.supabase.co/functions/v1/delete-old-files \
+          -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5oeXF5amdrbmdyemxjeGV3dWxrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxOTY5MjkzNSwiZXhwIjoyMDM1MjY4OTM1fQ.cwr0pFgEcFyOeYvSjA8GXmx2rtWC5K2hlt4l1BkjNXs"
+          
