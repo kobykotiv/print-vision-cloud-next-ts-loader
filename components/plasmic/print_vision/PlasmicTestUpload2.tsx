@@ -1393,7 +1393,10 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                                 opId: "912339f4-57cc-4319-8cd2-ee816493584b",
                                                 userArgs: {
                                                   path: [
-                                                    $state.upload.files[0].uid
+                                                    $state.upload.files[
+                                                      $state.upload.files
+                                                        .length - 1
+                                                    ].uid
                                                   ]
                                                 },
                                                 cacheKey: null,
