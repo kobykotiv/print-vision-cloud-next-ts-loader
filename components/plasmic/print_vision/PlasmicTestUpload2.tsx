@@ -531,7 +531,10 @@ function PlasmicTestUpload2__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 operation: 0,
-                                value: $state.upload.files[0].uid,
+                                value:
+                                  $state.upload.files[
+                                    $state.upload.files.length - 1
+                                  ].uid,
                                 variable: {
                                   objRoot: $state,
                                   variablePath: ["file"]
@@ -566,17 +569,29 @@ function PlasmicTestUpload2__RenderFunc(props: {
                               const actionArgs = {
                                 dataOp: {
                                   sourceId: "fq3u296VTpoRcVc8quSCN3",
-                                  opId: "05f99285-7f5c-44c9-8093-70b640f34f40",
+                                  opId: "90173013-4c14-4d21-832f-4c3008d30926",
                                   userArgs: {
-                                    path: [$state.upload.files[0].uid],
-                                    content: [$state.upload.files[0].contents],
-                                    contentType: [$state.upload.files[0].type]
+                                    path: [
+                                      $state.upload.files[
+                                        $state.upload.files.length - 1
+                                      ].uid
+                                    ],
+                                    content: [
+                                      $state.upload.files[
+                                        $state.upload.files.length - 1
+                                      ].contents
+                                    ],
+                                    contentType: [
+                                      $state.upload.files[
+                                        $state.upload.files.length - 1
+                                      ].type
+                                    ]
                                   },
                                   cacheKey: null,
                                   invalidatedKeys: ["plasmic_refresh_all"],
                                   roleId: null
                                 },
-                                continueOnError: true
+                                continueOnError: false
                               };
                               return (async ({ dataOp, continueOnError }) => {
                                 try {
@@ -610,6 +625,26 @@ function PlasmicTestUpload2__RenderFunc(props: {
                           $steps["supabaseUploadFile"] = await $steps[
                             "supabaseUploadFile"
                           ];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return setTimeout(() => {}, 10000);
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }).apply(null, eventArgs);
                     }}
@@ -792,6 +827,31 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                     onClick={async event => {
                                       const $steps = {};
 
+                                      $steps["runCode2"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return setTimeout(() => {},
+                                                10000);
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode2"] != null &&
+                                        typeof $steps["runCode2"] ===
+                                          "object" &&
+                                        typeof $steps["runCode2"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode2"] = await $steps[
+                                          "runCode2"
+                                        ];
+                                      }
+
                                       $steps["supabaseGetSignedFileUrl"] = true
                                         ? (() => {
                                             const actionArgs = {
@@ -929,55 +989,57 @@ function PlasmicTestUpload2__RenderFunc(props: {
                                         ];
                                       }
 
-                                      $steps["httpPost"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              dataOp: {
-                                                sourceId:
-                                                  "fumskhn7h2QULzwkXAtFMC",
-                                                opId: "fec6a1b4-0921-4dce-9271-2a2825d7c681",
-                                                userArgs: {
-                                                  body: [
-                                                    $state.signedUploadUrl
-                                                      .signedUrl
-                                                  ]
+                                      $steps["httpPost"] =
+                                        $state.signedUploadUrl.signedUrl
+                                          .length > 1
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "fumskhn7h2QULzwkXAtFMC",
+                                                  opId: "fec6a1b4-0921-4dce-9271-2a2825d7c681",
+                                                  userArgs: {
+                                                    body: [
+                                                      $state.signedUploadUrl
+                                                        .signedUrl
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId:
+                                                    "d035f350-edf5-4268-af03-4480b52522b0"
                                                 },
-                                                cacheKey: null,
-                                                invalidatedKeys: [
-                                                  "plasmic_refresh_all"
-                                                ],
-                                                roleId:
-                                                  "d035f350-edf5-4268-af03-4480b52522b0"
-                                              },
-                                              continueOnError: false
-                                            };
-                                            return (async ({
-                                              dataOp,
-                                              continueOnError
-                                            }) => {
-                                              try {
-                                                const response =
-                                                  await executePlasmicDataOp(
-                                                    dataOp,
-                                                    {
-                                                      userAuthToken:
-                                                        dataSourcesCtx?.userAuthToken,
-                                                      user: dataSourcesCtx?.user
-                                                    }
+                                                continueOnError: false
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
                                                   );
-                                                await plasmicInvalidate(
-                                                  dataOp.invalidatedKeys
-                                                );
-                                                return response;
-                                              } catch (e) {
-                                                if (!continueOnError) {
-                                                  throw e;
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
                                                 }
-                                                return e;
-                                              }
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
                                       if (
                                         $steps["httpPost"] != null &&
                                         typeof $steps["httpPost"] ===
