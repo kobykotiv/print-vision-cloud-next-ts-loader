@@ -1128,6 +1128,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/sync-design-3/[design]/[recipe]"
+        },
+        {
+          "id": "0vAdorINkDLx",
+          "name": "Settings2",
+          "type": "managed",
+          "projectId": "2Up8DUmBB1Tx5dhznkvCW5",
+          "renderModuleFilePath": "plasmic/print_vision/PlasmicSettings2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/settings-2.tsx"
+          },
+          "cssFilePath": "plasmic/print_vision/PlasmicSettings2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/settings-2"
         }
       ],
       "icons": [

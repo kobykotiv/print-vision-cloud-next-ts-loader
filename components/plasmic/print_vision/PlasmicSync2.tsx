@@ -687,7 +687,7 @@ function PlasmicSync2__RenderFunc(props: {
         roleId: null
       };
     }),
-    queryGetPrintifyVariants: usePlasmicDataOp(() => {
+    qGPrintifyVariants: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
         opId: "c0fb0a20-2df6-4466-93de-5d8716cb0b0f",
@@ -769,7 +769,7 @@ function PlasmicSync2__RenderFunc(props: {
         roleId: null
       };
     }),
-    queryGetPrintifyPlaceholders2: usePlasmicDataOp(() => {
+    qGPrintifyPlaceholders2: usePlasmicDataOp(() => {
       return {
         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
         opId: "e183df9e-abbe-4e5f-a20d-dc0eda82bb31",
@@ -3277,7 +3277,7 @@ function PlasmicSync2__RenderFunc(props: {
                                                         .data[0].printify_id;
                                                     const placeholders =
                                                       $queries
-                                                        .queryGetPrintifyPlaceholders2
+                                                        .qGPrintifyPlaceholders2
                                                         .data;
                                                     const variants_flat =
                                                       $queries.qGetSupPrintfulVariantsByProduct2.data.map(
@@ -3325,7 +3325,8 @@ function PlasmicSync2__RenderFunc(props: {
                                               cacheKey: null,
                                               invalidatedKeys: [],
                                               roleId: null
-                                            }
+                                            },
+                                            continueOnError: true
                                           };
                                           return (async ({
                                             dataOp,
@@ -3563,7 +3564,7 @@ function PlasmicSync2__RenderFunc(props: {
                                                 variables: [
                                                   $state.syncState.data.response
                                                     .id,
-                                                  $state.firstId.id,
+                                                  parseInt($state.firstId.id),
                                                   $queries.queryDesign.data[0]
                                                     .id
                                                 ]
