@@ -1677,9 +1677,8 @@ function PlasmicSettings__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "83X9ZdYzYUYJtgqe5fwXeX",
-                                        opId: "5cf047c3-eaf6-4490-a723-e7c119b44bb5",
+                                        opId: "e8b86bc7-4801-4bb9-9f64-8053cf654383",
                                         userArgs: {
-                                          conditions: [$state.trigger],
                                           variables: [$state.form.value]
                                         },
                                         cacheKey: null,
