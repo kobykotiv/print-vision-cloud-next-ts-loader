@@ -3325,7 +3325,8 @@ function PlasmicSync2__RenderFunc(props: {
                                               cacheKey: null,
                                               invalidatedKeys: [],
                                               roleId: null
-                                            }
+                                            },
+                                            continueOnError: true
                                           };
                                           return (async ({
                                             dataOp,
@@ -3563,7 +3564,7 @@ function PlasmicSync2__RenderFunc(props: {
                                                 variables: [
                                                   $state.syncState.data.response
                                                     .id,
-                                                  $state.firstId.id,
+                                                  parseInt($state.firstId.id),
                                                   $queries.queryDesign.data[0]
                                                     .id
                                                 ]
